@@ -1,0 +1,8 @@
+build-last-errors="[]"
+build-last-errors-base-dir="C:/Users/timot/Git/icon/"
+build-last-outputs="[{\"output\":\"==> Rcmd.exe INSTALL --no-multiarch --with-keep.source icon\\n\\n\",\"type\":0},{\"output\":\"* installing to library 'C:/Users/timot/Documents/R/win-library/3.4'\\r\\n\",\"type\":1},{\"output\":\"* installing *source* package 'icon' ...\\r\\n\",\"type\":1},{\"output\":\"\",\"type\":1},{\"output\":\"** R\\r\\n\",\"type\":1},{\"output\":\"** preparing package for lazy loading\\r\\n\",\"type\":1},{\"output\":\"\",\"type\":1},{\"output\":\"** help\\r\\n\",\"type\":1},{\"output\":\"\",\"type\":1},{\"output\":\"*** installing help indices\\r\\n\",\"type\":1},{\"output\":\"\",\"type\":1},{\"output\":\"** building package indices\\r\\n\",\"type\":1},{\"output\":\"\",\"type\":1},{\"output\":\"** testing if installed package can be loaded\\r\\n\",\"type\":1},{\"output\":\"\",\"type\":1},{\"output\":\"* DONE (icon)\\r\\n\",\"type\":1},{\"output\":\"\",\"type\":1}]"
+compile_pdf_state="{\"errors\":[],\"output\":\"\",\"running\":false,\"tab_visible\":false,\"target_file\":\"\"}"
+files.monitored-path=""
+find-in-files-state="{\"handle\":\"\",\"input\":\"\",\"path\":\"\",\"regex\":true,\"results\":{\"file\":[],\"line\":[],\"lineValue\":[],\"matchOff\":[],\"matchOn\":[]},\"running\":false}"
+imageDirtyState="1"
+saveActionState="-1"
