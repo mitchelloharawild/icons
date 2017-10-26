@@ -14,7 +14,6 @@
 #' around it.
 #'
 #' @export
-
 fa <- function(name = "rocket", size = 1, fixed_width = FALSE, animate = "still", 
 							 rotate = 0, flip = "none", border = FALSE, pull = NULL) {
 
@@ -32,3 +31,13 @@ fa <- function(name = "rocket", size = 1, fixed_width = FALSE, animate = "still"
 }
 
 
+html_dependency_fa <- function() {
+  htmltools::htmlDependency("font-awesome", "4.7.0", 
+    src = icon_system_file("fonts/font-awesome-4.7.0"), 
+    stylesheet = "css/font-awesome.min.css"
+  ) 
+}
+
+icon_system_file <- function(file) {
+  system.file(file, package = "icon")
+}

@@ -1,5 +1,3 @@
-#' @importFrom rmarkdown yaml_front_matter
-#' @importFrom knitr current_input
 #' @export
 knitOutputType <- function() {
   output <- rmarkdown::yaml_front_matter(
@@ -13,7 +11,6 @@ knitOutputType <- function() {
 }
 
 
-#' @importFrom knitr asis_output
 #' @export
 knit_print.icon_fa <- function(x, ...){
   if(knitOutputType() %in% c("pdf_document", "beamer", "pdf_document2")){
@@ -25,7 +22,7 @@ knit_print.icon_fa <- function(x, ...){
     stop(":(", .call = FALSE)
   } else {
     icon <- htmltools::tags$i(class = cat_icon(x))
-    header <- htmltools::singleton(htmltools::tags$head(rmarkdown::html_dependency_font_awesome()))
+    header <- htmltools::singleton(htmltools::tags$head(html_dependency_fa()))
     knitr::knit_print(htmltools::tagList(icon, header))
   }
 }
