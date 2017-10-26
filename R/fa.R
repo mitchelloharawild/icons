@@ -28,7 +28,7 @@ fa <- function(name, size = 1, fixed_width = FALSE, animate = "still",
 								 								pull = pull)
 								 ), 
 						class = "icon_fa")
-  knit_print(result)
+  knitr::knit_print(result)
 }
 
 
