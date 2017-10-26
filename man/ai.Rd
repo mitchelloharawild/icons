@@ -24,7 +24,7 @@ increase), 2, 3, 4, or 5.}
 
 \item{border}{If true, draws a border around the icon.}
 
-\item{pull}{Pulls icon to either "left" or "right" and wraps proceeding text 
+\item{pull}{Pulls icon to either "left" or "right" and wraps proceeding text
 around it.}
 }
 \description{

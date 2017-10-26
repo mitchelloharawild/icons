@@ -4,17 +4,25 @@
 \name{icon-package}
 \alias{icon}
 \alias{icon-package}
-\title{icon: Use different icon fonts in R Markdown}
+\title{icon: Use different icon fonts in RMarkdown}
 \description{
-This package allows easy insertion of icons from font awesome into R Markdown.
+This package allows easy insertion of icons from font awesome into RMarkdown.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/earowang/icon}
+  \item Report bugs at \url{https://github.com/earowang/icon/issues}
+}
+
 }
 \author{
-\strong{Maintainer}: Earo Wang \email{earo.wang@gmail.com}
+\strong{Maintainer}: Timothy Hyndman \email{timothy.hyndman@gmail.com}
 
 Authors:
 \itemize{
   \item Mitchell O'Hara-Wild \email{mail@mitchelloharawild.com}
-  \item Timothy Hyndman \email{timothy.hyndman@gmail.com}
+  \item Earo Wang \email{earo.wang@gmail.com}
 }
 
 }
