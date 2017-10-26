@@ -33,13 +33,7 @@ knit_print.icon_fa <- function(x, ...){
 
     icon <- htmltools::tags$i(class = icon_string(x$name, x$options))
     header <- htmltools::singleton(htmltools::tags$head(rmarkdown::html_dependency_font_awesome()))
-    knitr::knit_print(htmltools::tagList(header, icon))
-    # knitr::asis_output(icon), 
-    #                           meta = list(
-    #                             htmltools::tagList(header, icon)
-    #                           )
-    #                   )
-
+    knitr::knit_print(htmltools::tagList(icon, header))
   }
 }
 
