@@ -7,5 +7,14 @@
 #' @export
 
 fa <- function(name) {
-  string <- paste('<i class="fa fa-', name, '"></i>', sep = "")
+  string <- paste("<i class='fa fa-", name, "'></i>", sep = "")
+  
+  structure(string, class = "icon")
+}
+
+
+#' @export
+print.icon <- function(x, ...){
+	cat(x, "\n")
+	invisible(x)
 }
