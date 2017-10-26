@@ -4,10 +4,13 @@
 \alias{fa}
 \title{Insert Icon From Font Awesome}
 \usage{
-fa(name)
+fa(name, size = "default")
 }
 \arguments{
 \item{name}{The name of the icon}
+
+\item{size}{Size of the icon relative to font size. Options are lg (33% 
+increase), 2x, 3x, 4x, or 5x.}
 }
 \description{
 Inserts the icon with given name into R Markdown
