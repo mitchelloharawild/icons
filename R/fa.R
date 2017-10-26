@@ -8,16 +8,27 @@
 #'
 #' @export
 
-fa <- function(name, size = "default") {
+fa <- function(name, size = 1, fixed_width = FALSE) {
+
+	# Determine fa string to use -------------------------------------------------
 
 	size_append <- switch(size,
-												default = "",
+												`1` = "",
 												lg = " fa-lg",
-												`2x` = " fa-2x",
-												`3x` = " fa-3x",
-												`4x` = " fa-4x",
-												`5x` = " fa-5x")
+												`2` = " fa-2x",
+												`3` = " fa-3x",
+												`4` = " fa-4x",
+												`5` = " fa-5x")
 
+	if (fixed_width) {
+		fw_append <- " fa-fw"
+	} else {
+		fw_append <- ""
+	}
+
+	icon_string <- paste('fa fa-', name, size_append, fw_append, sep = "")
+
+	# ----------------------------------------------------------------------------
 	if(knitOutputType() == "pdf_document"){
 	  stop("PDF not supported")
 	}
@@ -25,7 +36,7 @@ fa <- function(name, size = "default") {
 	  warning("Word output not supported")
 	}
 	else{
-	  icon <- htmltools::tags$i(class = paste('fa fa-', name, size_append, sep = ""))
+	  icon <- htmltools::tags$i(class = icon_string)
 	  header <- htmltools::singleton(htmltools::tags$head(rmarkdown::html_dependency_font_awesome()))
 	  htmltools::tagList(header, icon)
 	}
