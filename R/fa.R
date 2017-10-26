@@ -18,14 +18,9 @@ fa <- function(name, size = "default") {
 												`4x` = " fa-4x",
 												`5x` = " fa-5x")
 
-  string <- paste("<i class='fa fa-", name, size_append, "'></i>", sep = "")
-  
-  structure(string, class = "icon")
-}
+  icon <- htmltools::tags$i(class = paste('fa fa-', name, size_append, sep = ""))
 
+	header <- htmltools::singleton(htmltools::tags$head(rmarkdown::html_dependency_font_awesome()))
 
-#' @export
-print.icon <- function(x, ...){
-	cat(x, "\n")
-	invisible(x)
+  htmltools::tagList(header, icon)
 }
