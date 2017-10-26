@@ -8,6 +8,11 @@ Authors@R: c(
     person("Timothy", "Hyndman", , email = "timothy.hyndman@gmail.com", role = "aut")
     )
 Description: This package allows easy insertion of icons from font awesome into R Markdown.
+Depends:
+    R (>= 3.2.0)
+Imports:
+    rmarkdown,
+    knitr
 License: GPL-2
 Encoding: UTF-8
 LazyData: true
