@@ -2,5 +2,7 @@
 
 export(fa)
 export(knitOutputType)
+export(knit_print.icon_fa)
+importFrom(knitr,asis_output)
 importFrom(knitr,current_input)
 importFrom(rmarkdown,yaml_front_matter)
