@@ -18,7 +18,7 @@
 fa <- function(name, size = 1, fixed_width = FALSE, animate = "still", 
 							 rotate = 0, flip = "none", border = FALSE, pull = NULL) {
 
-	structure(list(name = name, 
+	result <- structure(list(name = name, 
 								 options = list(size = size, 
 								 								fixed_width = fixed_width, 
 								 								animate = animate, 
@@ -28,6 +28,7 @@ fa <- function(name, size = 1, fixed_width = FALSE, animate = "still",
 								 								pull = pull)
 								 ), 
 						class = "icon_fa")
+  knit_print(result)
 }
 
 
