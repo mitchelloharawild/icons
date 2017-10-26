@@ -15,7 +15,7 @@
 #'
 #' @export
 
-fa <- function(name, size = 1, fixed_width = FALSE, animate = "still", 
+fa <- function(name = "rocket", size = 1, fixed_width = FALSE, animate = "still", 
 							 rotate = 0, flip = "none", border = FALSE, pull = NULL) {
 
 	result <- structure(list(name = name, 
