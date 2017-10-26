@@ -8,7 +8,8 @@
 #'
 #' @export
 
-fa <- function(name, size = 1, fixed_width = FALSE, animate = "still", rotate = 0, flip = "none") {
+fa <- function(name, size = 1, fixed_width = FALSE, animate = "still", 
+							 rotate = 0, flip = "none", border = FALSE, pull = NULL) {
 
 	# Determine fa string to use -------------------------------------------------
 
@@ -35,14 +36,36 @@ fa <- function(name, size = 1, fixed_width = FALSE, animate = "still", rotate = 
 													'0' = "",
 													'90' = " fa-rotate-90",
 													'180' = " fa-rotate-180",
-													'270' = " fa-rotate-270")
+													'270' = " fa-rotate-270")	
 
 	flip_append <- switch(flip,
 												"none" = "",
 												"horizontal" = " fa-flip-horizontal",
 												"vertical" = " fa-flip-vertical")
 
-	icon_string <- paste('fa fa-', name, size_append, fw_append, anim_append, rotate_append, flip_append, sep = "")
+	if (border) {
+		border_append <- " fa-border"
+	} else {
+		border_append <- ""
+	}
+
+	if (!is.null(pull)) {
+		pull_append <- switch(pull,
+													"left"  = " fa-pull-left",
+													"right" = " fa-pull-right")
+	} else {
+		pull_append <- ""
+	}
+
+	icon_string <- paste('fa fa-', 
+											 name, 
+											 size_append, 
+											 fw_append, 
+											 anim_append, 
+											 rotate_append, 
+											 flip_append, 
+											 border_append,
+											 pull_append, sep = "")
 
 	# ----------------------------------------------------------------------------
 	if (knitOutputType() == "pdf_document") {
