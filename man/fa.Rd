@@ -4,13 +4,27 @@
 \alias{fa}
 \title{Insert Icon From Font Awesome}
 \usage{
-fa(name, size = "default")
+fa(name, size = 1, fixed_width = FALSE, animate = "still", rotate = 0,
+  flip = "none", border = FALSE, pull = NULL)
 }
 \arguments{
 \item{name}{The name of the icon}
 
-\item{size}{Size of the icon relative to font size. Options are lg (33% 
-increase), 2x, 3x, 4x, or 5x.}
+\item{size}{Size of the icon relative to font size. Options are 1, lg (33%
+increase), 2, 3, 4, or 5.}
+
+\item{fixed_width}{If true, icons are set to a fixed width}
+
+\item{animate}{Options are "still", "spin", or "pulse".}
+
+\item{rotate}{Options are 0, 90, 180, or 270.}
+
+\item{flip}{Options are "none", "horizontal", "vertical".}
+
+\item{border}{If true, draws a border around the icon.}
+
+\item{pull}{Pulls icon to either "left" or "right" and wraps proceeding text 
+around it.}
 }
 \description{
 Inserts the icon with given name into R Markdown
