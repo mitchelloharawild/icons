@@ -19,7 +19,7 @@ knit_print.icon_fa <- function(x, ...){
   ### - fa
   ### - rocket
   ### - 2x
-  if(knitOutputType() == "pdf_document"){
+  if(knitOutputType() %in% c("pdf_document", "beamer", "pdf_document2")){
     knitr::asis_output(paste0("\\faicon{", x$name, "}"),
                        meta = list(
                          rmarkdown::latex_dependency("fontawesome")
@@ -29,12 +29,11 @@ knit_print.icon_fa <- function(x, ...){
     message("😞")
   }
   else { # HTML output
-
     message("😞")
-  
+  }
 }
 
-
-fa2 <- function(name, opts)=NULL{
-  structure(list(same=name, options = list(opts)), class="icon"_fa)
+#' @export
+fa2 <- function(name, opts = NULL){
+  structure(list(name = name, options = list(opts)), class="icon_fa")
 }
