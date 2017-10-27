@@ -44,8 +44,10 @@ ai <- function(name = "open-access", size = 1, fixed_width = FALSE, animate = "s
       pull = pull,
 			other = other
     )
-	), class = "icon_ai")
-  knitr::knit_print(result)
+	), class = c("icon_ai", "icon"))
+  out <- knitr::knit_print(result)
+  class(out) <- c(class(out), "knit_icon")
+  out
 }
 
 

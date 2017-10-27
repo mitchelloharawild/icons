@@ -56,7 +56,9 @@ fa <- function(name = "rocket", size = 1, fixed_width = FALSE, animate = "still"
 								 								pull = pull,
 								 								other = other)
 								 ),
-						class = "icon_fa")
-  knitr::knit_print(result)
+						class = c("icon_fa", "icon"))
+	out <- knitr::knit_print(result)
+	class(out) <- c(class(out), "knit_icon")
+	out
 }
 

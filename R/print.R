@@ -15,6 +15,10 @@ knitOutputType <- function() {
 #' @export
 knit_print.icon_fa <- function(x, ...){
   if(knitOutputType() %in% c("pdf_document", "beamer", "pdf_document2")){
+    if(length(x$name) > 1){
+      warning("Icon stacking is not supported for PDF output")
+      x$name <- x$name[1]
+    }
     knitr::asis_output(paste0("\\faicon{", x$name, "}"),
                        meta = list(
                          rmarkdown::latex_dependency("fontawesome")
@@ -106,7 +110,7 @@ icon_string <- function(x, icon = "fa") {
     pull_append <- ""
   }
 
-  other_append <- paste(x$options$other, collapse = " ")
+  other_append <- paste0(" ", paste(x$options$other, collapse = " "))
 
   paste0(
     paste0(icon, " "),
