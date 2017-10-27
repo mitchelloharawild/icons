@@ -32,6 +32,9 @@ around it.}
 \description{
 Insert Icon From Academicons
 }
+\references{
+\href{http://jpswalsh.github.io/academicons/}{Academicons}
+}
 \alias{ai_academia}
 \alias{ai_academia_square}
 \alias{ai_acclaim}

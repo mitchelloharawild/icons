@@ -29,6 +29,7 @@ for (icon in ai_iconList) {
 #'
 #' @evalRd paste(paste0('\\alias{ai_', gsub('-', '_', ai_iconList), '}'), collapse = '\n')
 #'
+#' @references [Academicons](http://jpswalsh.github.io/academicons/)
 #' @export
 ai <- function(name = "open-access", size = 1, fixed_width = FALSE, animate = "still", 
     rotate = 0, flip = "none", border = FALSE, pull = NULL, other = NULL) {
