@@ -19,5 +19,5 @@ The **development** version can be installed from GitHub using:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("earowang/icon")
+devtools::install_github("ropenscilabs/icon")
 ```

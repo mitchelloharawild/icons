@@ -3,11 +3,6 @@ html_dependency_ionicons <- function() {
                             stylesheet = "css/ionicons.min.css")
 }
 
-icon_system_file <- function(file) {
-  system.file(file, package = "icon")
-}
-
-
 ## Generate all functions for all icons
 
 #' @exportPattern ^ii_

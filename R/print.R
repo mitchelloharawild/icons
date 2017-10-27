@@ -106,7 +106,7 @@ icon_string <- function(x, icon = "fa") {
 
     if (!is.null(x$options$pull)) {
         pull_append <- switch(x$options$pull, left = paste_icon(icon, "pull-left"),
-            right = paste_icon(icon, "pull-rigth"))
+            right = paste_icon(icon, "pull-right"))
     } else {
         pull_append <- ""
     }

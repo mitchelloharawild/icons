@@ -32,5 +32,5 @@ The **development** version can be installed from GitHub using:
 
 ```{r gh-installation, eval = FALSE}
 # install.packages("devtools")
-devtools::install_github("earowang/icon")
+devtools::install_github("ropenscilabs/icon")
 ```
