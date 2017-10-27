@@ -12,6 +12,7 @@ ion_cssIcons <- ion_cssRules[grepl("content", ion_cssRules)]
 ion_iconList <- substr(ion_cssIcons, start = 5, stop = attr(regexpr("^[^:]*",
                                                                   ion_cssIcons), "match.length"))
 
+#' @evalRd paste("\\keyword{internal}", paste0('\\alias{ii_', gsub('-', '_', ion_iconList), '}'), collapse = '\n')
 #' @exportPattern ^ii_
 for (icon in ion_iconList) {
   assign(paste0("ii_", gsub("-", "_", icon)), function(...) ii(name = icon,
@@ -23,7 +24,6 @@ for (icon in ion_iconList) {
 #'
 #' @inheritParams fa
 #'
-#' @evalRd paste(paste0('\\alias{ii_', gsub('-', '_', ion_iconList), '}'), collapse = '\n')
 #'
 #' @export
 ii <- function(name = "ionic", size = 1, fixed_width = FALSE, animate = "still",
