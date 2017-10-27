@@ -3,10 +3,6 @@ html_dependency_fa <- function() {
       stylesheet = "css/font-awesome.min.css")
 }
 
-icon_system_file <- function(file) {
-  system.file(file, package = "icon")
-}
-
 ## Generate all functions for all icons
 
 path <- with(html_dependency_fa(), paste0(src$file, "/", stylesheet))
