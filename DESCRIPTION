@@ -3,8 +3,8 @@ Type: Package
 Title: Use different icon fonts in RMarkdown
 Version: 0.1.0
 Authors@R: c(
-    person("Timothy", "Hyndman", email = "timothy.hyndman@gmail.com", role = c("aut", "cre")),
-    person("Mitchell", "O'Hara-Wild", email = "mail@mitchelloharawild.com", role = "aut"),
+    person("Timothy", "Hyndman", email = "timothy.hyndman@gmail.com", role = "aut"),
+    person("Mitchell", "O'Hara-Wild", email = "mail@mitchelloharawild.com", role = c("aut", "cre")),
     person("Earo", "Wang", email = "earo.wang@gmail.com", role = "aut")
     )
 Description: This package allows easy insertion of icons from font awesome into RMarkdown.

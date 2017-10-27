@@ -1,0 +1,153 @@
+---
+title: "Making RMarkdown Awesome"
+subtitle: "Team Rocket"
+author: "Timothy Hyndman <br> Mitchell O'Hara-Wild <br> Earo Wang"
+date: "27/10/2017"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+class: inverse middle center
+
+<style>.red{color: red;} h3{text-align: center;} </style>
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+library(icon)
+```
+
+```{r, fig.align='center', echo = FALSE}
+knitr::include_graphics("logo.png")
+```
+
+# Easily insert web icons into RMarkdown
+
+---
+
+## Let's fly a rocket!
+
+* Get started
+
+```{r}
+icon::fa("rocket")
+```
+
+--
+
+* Bigger
+
+```{r}
+icon::fa("rocket", size = 2)
+```
+
+--
+
+* Bigger than bigger
+
+```{r}
+icon::fa("rocket", size = 3)
+```
+
+---
+
+class: center top
+
+<br><br><br>
+
+```{r}
+icon::fa("hourglass-start", size = 3)
+```
+
+--
+
+```{r}
+icon::fa("hourglass-half", size = 3)
+```
+
+--
+
+```{r}
+icon::fa("hourglass-end", size = 3)
+```
+
+---
+
+class: center
+
+
+## Let's take the rocket for a spin!
+
+--
+
+
+```{r}
+icon::fa("rocket", size = 5, animate = "spin")
+```
+
+---
+
+class: center
+
+
+## Houston, we have a problem...
+
+--
+
+
+```{r}
+icon::fa("rocket", size = 5, rotate = 90)
+```
+
+--
+
+## Oh no!
+
+```{r}
+icon::fa("battery-0", size = 5)
+```
+
+
+---
+
+## `r icon::fa("list-ol")`
+
+.pull-left[
+.pull-left[
+### `r icon::fa("file-pdf-o")`
+
+* Make web + pdf `r icon::fa("smile-o")` <br>
+* Make word `r icon::fa("frown-o")`
+]
+.pull-right[
+### `r icon::fa("font-awesome")`
+* Font Awesome <br>
+* Academicons
+]
+]
+.pull-right[
+.pull-left[
+### `r icon::fa("code")`
+`r NROW(ls("package:icon"))` functions in 2 days
+]
+]
+
+
+---
+
+## Acknowledgements 
+
+
+.center[
+
+## .red[`r icon::fa("heart")`]
+
+### ropensci::ozunconf17
+
+### Font Awesome + Academicons
+
+]

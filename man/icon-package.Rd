@@ -17,11 +17,11 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Timothy Hyndman \email{timothy.hyndman@gmail.com}
+\strong{Maintainer}: Mitchell O'Hara-Wild \email{mail@mitchelloharawild.com}
 
 Authors:
 \itemize{
-  \item Mitchell O'Hara-Wild \email{mail@mitchelloharawild.com}
+  \item Timothy Hyndman \email{timothy.hyndman@gmail.com}
   \item Earo Wang \email{earo.wang@gmail.com}
 }
 
