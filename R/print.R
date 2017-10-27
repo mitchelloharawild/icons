@@ -1,4 +1,3 @@
-#' @export
 knitOutputType <- function() {
     output <- rmarkdown::yaml_front_matter(knitr::current_input())$output
     if (is.list(output)) {

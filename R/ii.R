@@ -5,14 +5,15 @@ html_dependency_ionicons <- function() {
 
 ## Generate all functions for all icons
 
+ion_path <- with(html_dependency_ionicons(), paste0(src$file, "/", stylesheet))
+ion_cssFile <- tail(suppressWarnings(readLines(ion_path)), 1)
+ion_cssRules <- strsplit(ion_cssFile, ".", fixed = TRUE)[[1]]
+ion_cssIcons <- ion_cssRules[grepl("content", ion_cssRules)]
+ion_iconList <- substr(ion_cssIcons, start = 5, stop = attr(regexpr("^[^:]*",
+                                                                  ion_cssIcons), "match.length"))
+
 #' @exportPattern ^ii_
-ii_path <- with(html_dependency_ionicons(), paste0(src$file, "/", stylesheet))
-ii_cssFile <- tail(suppressWarnings(readLines(ii_path)), 1)
-ii_cssRules <- strsplit(ii_cssFile, ".", fixed = TRUE)[[1]]
-ii_cssIcons <- ii_cssRules[grepl("content", ii_cssRules)]
-ii_iconList <- substr(ii_cssIcons, start = 5, stop = attr(regexpr("^[^:]*",
-                                                                  ii_cssIcons), "match.length"))
-for (icon in ii_iconList) {
+for (icon in ion_iconList) {
   assign(paste0("ii_", gsub("-", "_", icon)), function(...) ii(name = icon,
                                                             ...))
 }
@@ -22,7 +23,7 @@ for (icon in ii_iconList) {
 #'
 #' @inheritParams fa
 #'
-#' @evalRd paste(paste0('\\alias{ii_', gsub('-', '_', ii_iconList), '}'), collapse = '\n')
+#' @evalRd paste(paste0('\\alias{ii_', gsub('-', '_', ion_iconList), '}'), collapse = '\n')
 #'
 #' @export
 ii <- function(name = "ionic", size = 1, fixed_width = FALSE, animate = "still",

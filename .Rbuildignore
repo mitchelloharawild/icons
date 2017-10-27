@@ -5,3 +5,4 @@
 example/libs$
 example/example\.html$
 example/example_files$
+^Makefile$

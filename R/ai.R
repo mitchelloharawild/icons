@@ -10,14 +10,15 @@ icon_system_file <- function(file) {
 
 ## Generate all functions for all icons
 
+ac_path <- with(html_dependency_academicons(), paste0(src$file, "/", stylesheet))
+ac_cssFile <- tail(suppressWarnings(readLines(ac_path)), 1)
+ac_cssRules <- strsplit(ac_cssFile, ".", fixed = TRUE)[[1]]
+ac_cssIcons <- ac_cssRules[grepl("content", ac_cssRules)]
+ac_iconList <- substr(ac_cssIcons, start = 4, stop = attr(regexpr("^[^:]*", 
+    ac_cssIcons), "match.length"))
+
 #' @exportPattern ^ai_
-ai_path <- with(html_dependency_academicons(), paste0(src$file, "/", stylesheet))
-ai_cssFile <- tail(suppressWarnings(readLines(ai_path)), 1)
-ai_cssRules <- strsplit(ai_cssFile, ".", fixed = TRUE)[[1]]
-ai_cssIcons <- ai_cssRules[grepl("content", ai_cssRules)]
-ai_iconList <- substr(ai_cssIcons, start = 4, stop = attr(regexpr("^[^:]*", 
-    ai_cssIcons), "match.length"))
-for (icon in ai_iconList) {
+for (icon in ac_iconList) {
     assign(paste0("ai_", gsub("-", "_", icon)), function(...) ai(name = icon, 
         ...))
 }
@@ -27,7 +28,7 @@ for (icon in ai_iconList) {
 #'
 #' @inheritParams fa
 #'
-#' @evalRd paste(paste0('\\alias{ai_', gsub('-', '_', ai_iconList), '}'), collapse = '\n')
+#' @evalRd paste(paste0('\\alias{ai_', gsub('-', '_', ac_iconList), '}'), collapse = '\n')
 #'
 #' @references [Academicons](http://jpswalsh.github.io/academicons/)
 #' @export
