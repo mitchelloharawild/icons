@@ -12,7 +12,16 @@ ion_cssIcons <- ion_cssRules[grepl("content", ion_cssRules)]
 ion_iconList <- substr(ion_cssIcons, start = 5, stop = attr(regexpr("^[^:]*",
                                                                   ion_cssIcons), "match.length"))
 
+#' Ionicons alias
+#'
+#' @rdname ii-alias
+#' @name ii-alias
+#' @usage NULL
+NULL
+
 #' @evalRd paste("\\keyword{internal}", paste0('\\alias{ii_', gsub('-', '_', ion_iconList), '}'), collapse = '\n')
+#' @name ii-alias
+#' @rdname ii-alias
 #' @exportPattern ^ii_
 for (icon in ion_iconList) {
   assign(paste0("ii_", gsub("-", "_", icon)), function(...) ii(name = icon,

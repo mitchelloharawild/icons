@@ -8,6 +8,10 @@ knitOutputType <- function() {
 }
 
 
+#' @importFrom knitr knit_print
+#' @export
+knitr::knit_print
+
 #' @export
 knit_print.icon_fa <- function(x, ...) {
   if (knitOutputType() %in% c("pdf_document", "beamer", "pdf_document2")) {

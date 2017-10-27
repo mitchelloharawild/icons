@@ -17,7 +17,16 @@ ac_cssIcons <- ac_cssRules[grepl("content", ac_cssRules)]
 ac_iconList <- substr(ac_cssIcons, start = 4, stop = attr(regexpr("^[^:]*",
     ac_cssIcons), "match.length"))
 
+#' Academicons alias
+#'
+#' @rdname ai-alias
+#' @name ai-alias
+#' @usage NULL
+NULL
+
 #' @evalRd paste("\\keyword{internal}", paste0('\\alias{ai_', gsub('-', '_', ac_iconList), '}'), collapse = '\n')
+#' @name ai-alias
+#' @rdname ai-alias
 #' @exportPattern ^ai_
 for (icon in ac_iconList) {
   assign(paste0("ai_", gsub("-", "_", icon)), function(...) ai(name = icon,

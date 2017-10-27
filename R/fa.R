@@ -16,7 +16,16 @@ cssIcons <- cssRules[grepl("content", cssRules)]
 iconList <- substr(cssIcons, start = 4, stop = attr(regexpr("^[^:]*", cssIcons),
     "match.length"))
 
-#' @evalRd paste("\\Usage{internal}", paste0('\\alias{fa_', gsub('-', '_', iconList), '}'), collapse = '\n')
+#' Font awesome alias
+#'
+#' @rdname fa-alias
+#' @name fa-alias
+#' @usage NULL
+NULL
+
+#' @evalRd paste("\\keyword{internal}", paste0('\\alias{fa_', gsub('-', '_', iconList), '}'), collapse = '\n')
+#' @name fa-alias
+#' @rdname fa-alias
 #' @exportPattern ^fa_
 for (icon in iconList) {
   assign(paste0("fa_", gsub("-", "_", icon)), function(...) fa(name = icon,
