@@ -11,8 +11,8 @@ This package allows easy insertion of icons from font awesome into RMarkdown.
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/earowang/icon}
-  \item Report bugs at \url{https://github.com/earowang/icon/issues}
+  \item \url{https://github.com/ropenscilabs/icon}
+  \item Report bugs at \url{https://github.com/ropenscilabs/icon/issues}
 }
 
 }

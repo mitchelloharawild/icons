@@ -14,8 +14,9 @@ Imports:
     rmarkdown (>= 1.6.0),
     knitr,
     htmltools
-URL: https://github.com/earowang/icon
-BugReports: https://github.com/earowang/icon/issues
+URL: https://github.com/ropenscilabs/icon
+BugReports: https://github.com/ropenscilabs/icon/issues
+VignetteBuilder: knitr
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
