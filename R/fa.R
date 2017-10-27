@@ -51,16 +51,18 @@ for (icon in iconList) {
 #'
 #' @rdname fa
 #'
-#'
 #' @export
 fa <- function(name = "rocket", size = 1, fixed_width = FALSE, animate = "still",
     rotate = 0, flip = "none", border = FALSE, pull = NULL, other = NULL) {
-
-  result <- structure(list(name = name, options = list(size = size, fixed_width = fixed_width,
-      animate = animate, rotate = rotate, flip = flip, border = border, pull = pull,
-      other = other)), class = c("icon_fa", "icon"))
-  out <- knitr::knit_print(result)
-  class(out) <- c(class(out), "knit_icon")
-  out
+  if (interactive()) {
+    print(paste0("fa:", name))
+  } else {
+    result <- structure(list(name = name, options = list(size = size, fixed_width = fixed_width,
+        animate = animate, rotate = rotate, flip = flip, border = border, pull = pull,
+        other = other)), class = c("icon_fa", "icon"))
+    out <- knitr::knit_print(result)
+    class(out) <- c(class(out), "knit_icon")
+    out
+  }
 }
 
