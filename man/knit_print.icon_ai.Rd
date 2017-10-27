@@ -33,6 +33,16 @@ method \code{knit_print.data.frame} that turns a data.frame into a table (the
 implementation may use other R packages or functions, e.g. \pkg{xtable} or
 \code{\link{kable}()}).
 }
+\examples{
+library(knitr)
+# write tables for data frames
+knit_print.data.frame = function(x, ...) {
+    res = paste(c("", "", kable(x, output = FALSE)), collapse = "\n")
+    asis_output(res)
+}
+# after you defined the above method, data frames will be printed as tables in
+# knitr, which is different with the default print() behavior
+}
 \references{
 See \code{vignette('knit_print', package = 'knitr')}.
 }

@@ -16,15 +16,15 @@ increase), 2, 3, 4, or 5.}
 
 \item{fixed_width}{If true, icons are set to a fixed width}
 
-\item{animate}{Options are "still", "spin", or "pulse".}
+\item{animate}{Options are 'still', 'spin', or 'pulse'.}
 
 \item{rotate}{Options are 0, 90, 180, or 270.}
 
-\item{flip}{Options are "none", "horizontal", "vertical".}
+\item{flip}{Options are 'none', 'horizontal', 'vertical'.}
 
 \item{border}{If true, draws a border around the icon.}
 
-\item{pull}{Pulls icon to either "left" or "right" and wraps proceeding text
+\item{pull}{Pulls icon to either 'left' or 'right' and wraps proceeding text
 around it.}
 
 \item{other}{Character vector of other parameters directly added to the icon classes}
