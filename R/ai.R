@@ -31,7 +31,7 @@ for(icon in ai_iconList){
 #'
 #' @export
 ai <- function(name = "open-access", size = 1, fixed_width = FALSE, animate = "still",
-							 rotate = 0, flip = "none", border = FALSE, pull = NULL) {
+							 rotate = 0, flip = "none", border = FALSE, pull = NULL, other = NULL) {
 
 	result <- structure(list(
     name = name,
@@ -41,7 +41,8 @@ ai <- function(name = "open-access", size = 1, fixed_width = FALSE, animate = "s
       rotate = rotate,
       flip = flip,
       border = border,
-      pull = pull
+      pull = pull,
+			other = other
     )
 	), class = "icon_ai")
   knitr::knit_print(result)

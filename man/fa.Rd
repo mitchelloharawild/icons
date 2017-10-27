@@ -5,7 +5,8 @@
 \title{Insert Icon From Font Awesome}
 \usage{
 fa(name = "rocket", size = 1, fixed_width = FALSE, animate = "still",
-  rotate = 0, flip = "none", border = FALSE, pull = NULL)
+  rotate = 0, flip = "none", border = FALSE, pull = NULL,
+  other = NULL)
 }
 \arguments{
 \item{name}{The name of the icon}
@@ -25,6 +26,8 @@ increase), 2, 3, 4, or 5.}
 
 \item{pull}{Pulls icon to either "left" or "right" and wraps proceeding text
 around it.}
+
+\item{other}{Character vector of other parameters directly added to the icon classes}
 }
 \description{
 Inserts the icon with given name into R Markdown
