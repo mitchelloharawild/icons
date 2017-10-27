@@ -11,6 +11,7 @@ knitOutputType <- function() {
 }
 
 
+#' @inherit knitr::knit_print
 #' @export
 knit_print.icon_fa <- function(x, ...){
   if(knitOutputType() %in% c("pdf_document", "beamer", "pdf_document2")){
@@ -26,7 +27,7 @@ knit_print.icon_fa <- function(x, ...){
     knitr::knit_print(htmltools::tagList(icon, header))
   }
 }
-
+#' @inherit knitr::knit_print
 #' @export
 knit_print.icon_ai <- function(x, ...){
   if(knitOutputType() %in% c("pdf_document", "beamer", "pdf_document2")){
