@@ -36,6 +36,7 @@ for(icon in iconList){
 #' @param border If true, draws a border around the icon.
 #' @param pull Pulls icon to either "left" or "right" and wraps proceeding text
 #' around it.
+#' @param other Character vector of other parameters directly added to the icon classes
 #'
 #' @rdname fa
 #'
@@ -43,7 +44,7 @@ for(icon in iconList){
 #'
 #' @export
 fa <- function(name = "rocket", size = 1, fixed_width = FALSE, animate = "still",
-							 rotate = 0, flip = "none", border = FALSE, pull = NULL) {
+							 rotate = 0, flip = "none", border = FALSE, pull = NULL, other = NULL) {
 
 	result <- structure(list(name = name,
 								 options = list(size = size,
@@ -52,7 +53,8 @@ fa <- function(name = "rocket", size = 1, fixed_width = FALSE, animate = "still"
 								 								rotate = rotate,
 								 								flip = flip,
 								 								border = border,
-								 								pull = pull)
+								 								pull = pull,
+								 								other = other)
 								 ),
 						class = "icon_fa")
   knitr::knit_print(result)

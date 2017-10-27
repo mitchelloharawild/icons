@@ -106,15 +106,18 @@ icon_string <- function(x, icon = "fa") {
     pull_append <- ""
   }
 
+  other_append <- paste(x$options$other, collapse = " ")
+
   paste0(
-    paste0(icon, " "), 
-    paste_icon(icon, x$name), 
-    size_append, 
-    fw_append, 
-    anim_append, 
-    rotate_append, 
-    flip_append, 
-    border_append, 
-    pull_append
+    paste0(icon, " "),
+    paste_icon(icon, x$name),
+    size_append,
+    fw_append,
+    anim_append,
+    rotate_append,
+    flip_append,
+    border_append,
+    pull_append,
+    other_append
   )
 }
