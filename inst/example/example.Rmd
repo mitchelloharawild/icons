@@ -166,7 +166,7 @@ Stacked icons
 
 ### [Font Awesome](http://fontawesome.io) `r fa("font-awesome")`
 
-### [Academicons ](http://jpswalsh.github.io/academicons/)`r ai("academia")`
+### [Academicons](http://jpswalsh.github.io/academicons/) `r ai("academia")`
 
 ### [Ionicons](http://ionicons.com) `r ii()`
 

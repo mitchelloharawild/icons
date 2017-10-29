@@ -2,27 +2,27 @@
 % Please edit documentation in R/ii.R
 \name{ii}
 \alias{ii}
-\title{Insert Icon From ionicons}
+\title{Insert icon from ionicons v2.0.1}
 \usage{
 ii(name = "ionic", size = 1, fixed_width = FALSE, animate = "still",
   rotate = 0, flip = "none", border = FALSE, pull = NULL,
   other = NULL)
 }
 \arguments{
-\item{name}{The name of the icon}
+\item{name}{A string indicating the icon name.}
 
 \item{size}{Size of the icon relative to font size. Options are 1, lg (33%
 increase), 2, 3, 4, or 5.}
 
-\item{fixed_width}{If true, icons are set to a fixed width}
+\item{fixed_width}{If TRUE, the icon is set to a fixed width}
 
-\item{animate}{Options are 'still', 'spin', or 'pulse'.}
+\item{animate}{'still', 'spin', or 'pulse'.}
 
-\item{rotate}{Options are 0, 90, 180, or 270.}
+\item{rotate}{Rotate degree: 0, 90, 180, or 270.}
 
-\item{flip}{Options are 'none', 'horizontal', 'vertical'.}
+\item{flip}{'none', 'horizontal', 'vertical'.}
 
-\item{border}{If true, draws a border around the icon.}
+\item{border}{If TRUE, draws a border around the icon.}
 
 \item{pull}{Pulls icon to either 'left' or 'right' and wraps proceeding text
 around it.}
@@ -30,5 +30,5 @@ around it.}
 \item{other}{Character vector of other parameters directly added to the icon classes}
 }
 \description{
-Insert Icon From ionicons
+Insert icon from ionicons v2.0.1
 }

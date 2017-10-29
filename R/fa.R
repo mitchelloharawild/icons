@@ -29,23 +29,22 @@ for (icon in iconList) {
 }
 
 
-#' Insert Icon From Font Awesome
+#' Insert icon from font awesome v4.7.0
 #'
-#' Inserts the icon with given name into R Markdown
-#'
-#' @param name The name of the icon
+#' @param name A string indicating the icon name.
 #' @param size Size of the icon relative to font size. Options are 1, lg (33%
 #' increase), 2, 3, 4, or 5.
-#' @param fixed_width If true, icons are set to a fixed width
-#' @param animate Options are 'still', 'spin', or 'pulse'.
-#' @param rotate Options are 0, 90, 180, or 270.
-#' @param flip Options are 'none', 'horizontal', 'vertical'.
-#' @param border If true, draws a border around the icon.
+#' @param fixed_width If TRUE, the icon is set to a fixed width
+#' @param animate 'still', 'spin', or 'pulse'.
+#' @param rotate Rotate degree: 0, 90, 180, or 270.
+#' @param flip 'none', 'horizontal', 'vertical'.
+#' @param border If TRUE, draws a border around the icon.
 #' @param pull Pulls icon to either 'left' or 'right' and wraps proceeding text
 #' around it.
 #' @param other Character vector of other parameters directly added to the icon classes
 #'
-#' @rdname fa
+#' @details `fa_*` is equivalent to `fa(name = *)`, which utilises the auto completion.
+#' @references [Font awesome](http://fontawesome.io/icons/)
 #'
 #' @export
 fa <- function(name = "rocket", size = 1, fixed_width = FALSE, animate = "still",

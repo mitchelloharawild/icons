@@ -29,10 +29,9 @@ for (icon in ion_iconList) {
 }
 
 
-#' Insert Icon From ionicons
+#' Insert icon from ionicons v2.0.1
 #'
 #' @inheritParams fa
-#'
 #'
 #' @export
 ii <- function(name = "ionic", size = 1, fixed_width = FALSE, animate = "still",

@@ -34,7 +34,7 @@ for (icon in ac_iconList) {
 }
 
 
-#' Insert Icon From Academicons
+#' Insert icon from academicons v1.8.0
 #'
 #' @inheritParams fa
 #'
