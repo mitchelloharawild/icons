@@ -15,31 +15,31 @@ knitr::knit_print
 #' @export
 knit_print.icon_fa <- function(x, ...) {
   if (knitOutputType() %in% c("pdf_document", "beamer", "pdf_document2")) {
-      if (length(x$name) > 1) {
-          warning("Icon stacking is not supported for PDF output")
-          x$name <- x$name[1]
-      }
-      knitr::asis_output(paste0("\\faicon{", x$name, "}"), meta = list(rmarkdown::latex_dependency("fontawesome")))
+    if (length(x$name) > 1) {
+        warning("Icon stacking is not supported for PDF output")
+        x$name <- x$name[1]
+    }
+    knitr::asis_output(paste0("\\faicon{", x$name, "}"), meta = list(rmarkdown::latex_dependency("fontawesome")))
   } else if (knitOutputType() == "word_document") {
-      stop(":(", .call = FALSE)
+    stop(":(", .call = FALSE)
   } else {
-      icon <- htmltools::tags$i(class = cat_icon(x))
-      header <- htmltools::singleton(htmltools::tags$head(html_dependency_fa()))
-      knitr::knit_print(htmltools::tagList(icon, header))
+    header <- htmltools::tags$head(html_dependency_fa())
+    icon <- htmltools::tags$i(class = cat_icon(x))
+    knitr::knit_print(htmltools::tagList(header, icon))
   }
 }
 
 #' @export
 knit_print.icon_ai <- function(x, ...) {
-    if (knitOutputType() %in% c("pdf_document", "beamer", "pdf_document2")) {
-        knitr::asis_output(paste0("\\aiicon{", x$name, "}"), meta = list(rmarkdown::latex_dependency("academicons")))
-    } else if (knitOutputType() == "word_document") {
-        stop(":(", .call = FALSE)
-    } else {
-        icon <- htmltools::tags$i(class = cat_icon(x))
-        header <- htmltools::singleton(htmltools::tags$head(html_dependency_academicons()))
-        knitr::knit_print(htmltools::tagList(icon, header))
-    }
+  if (knitOutputType() %in% c("pdf_document", "beamer", "pdf_document2")) {
+    knitr::asis_output(paste0("\\aiicon{", x$name, "}"), meta = list(rmarkdown::latex_dependency("academicons")))
+  } else if (knitOutputType() == "word_document") {
+    stop(":(", .call = FALSE)
+  } else {
+    header <- htmltools::tags$head(html_dependency_academicons())
+    icon <- htmltools::tags$i(class = cat_icon(x))
+    knitr::knit_print(htmltools::tagList(header, icon))
+  }
 }
 
 #' @export
@@ -49,9 +49,9 @@ knit_print.icon_ii <- function(x, ...) {
   } else if (knitOutputType() == "word_document") {
     stop("ionicons not supported for word output", .call = FALSE)
   } else {
+    header <- htmltools::tags$head(html_dependency_ionicons())
     icon <- htmltools::tags$i(class = cat_icon(x))
-    header <- htmltools::singleton(htmltools::tags$head(html_dependency_ionicons()))
-    knitr::knit_print(htmltools::tagList(icon, header))
+    knitr::knit_print(htmltools::tagList(header, icon))
   }
 }
 
