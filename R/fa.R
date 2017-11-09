@@ -23,10 +23,12 @@ NULL
 #' @name fa-alias
 #' @rdname fa-alias
 #' @exportPattern ^fa_
+fa_constructor <- function(...) fa(name = name, ...)
 for (icon in iconList) {
-  assign(paste0("fa_", gsub("-", "_", icon)), function(...) fa(name = icon,
-      ...))
+  formals(fa_constructor)$name <- icon
+  assign(paste0("fa_", gsub("-", "_", icon)), fa_constructor)
 }
+rm(fa_constructor)
 
 
 #' Insert icon from font awesome v4.7.0

@@ -28,10 +28,12 @@ NULL
 #' @name ai-alias
 #' @rdname ai-alias
 #' @exportPattern ^ai_
+ai_constructor <- function(...) ai(name = name, ...)
 for (icon in ac_iconList) {
-  assign(paste0("ai_", gsub("-", "_", icon)), function(...) ai(name = icon,
-      ...))
+  formals(ai_constructor)$name <- icon
+  assign(paste0("ai_", gsub("-", "_", icon)), ai_constructor)
 }
+rm(ai_constructor)
 
 
 #' Insert icon from academicons v1.8.0
