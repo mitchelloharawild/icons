@@ -23,11 +23,12 @@ NULL
 #' @name ii-alias
 #' @rdname ii-alias
 #' @exportPattern ^ii_
+ii_constructor <- function(...) ii(name = name, ...)
 for (icon in ion_iconList) {
-  assign(paste0("ii_", gsub("-", "_", icon)), function(...) ii(name = icon,
-                                                            ...))
+  formals(ii_constructor)$name <- icon
+  assign(paste0("ii_", gsub("-", "_", icon)), ii_constructor)
 }
-
+rm(ii_constructor)
 
 #' Insert icon from ionicons v2.0.1
 #'
