@@ -9,7 +9,10 @@ path <- with(html_dependency_fa(), paste0(src$file, "/", stylesheet))
 cssFile <- tail(readLines(path), 1)
 cssRules <- strsplit(cssFile, ".", fixed = TRUE)[[1]]
 cssIcons <- cssRules[grepl("content", cssRules)]
-iconList <- substr(cssIcons, start = 4, stop = attr(regexpr("^[^:]*", cssIcons),
+
+#' @rdname fa
+#' @export
+fa_iconList <- substr(cssIcons, start = 4, stop = attr(regexpr("^[^:]*", cssIcons),
     "match.length"))
 
 #' Font awesome alias
@@ -19,12 +22,12 @@ iconList <- substr(cssIcons, start = 4, stop = attr(regexpr("^[^:]*", cssIcons),
 #' @usage NULL
 NULL
 
-#' @evalRd paste("\\keyword{internal}", paste0('\\alias{fa_', gsub('-', '_', iconList), '}'), collapse = '\n')
+#' @evalRd paste("\\keyword{internal}", paste0('\\alias{fa_', gsub('-', '_', fa_iconList), '}'), collapse = '\n')
 #' @name fa-alias
 #' @rdname fa-alias
 #' @exportPattern ^fa_
 fa_constructor <- function(...) fa(name = name, ...)
-for (icon in iconList) {
+for (icon in fa_iconList) {
   formals(fa_constructor)$name <- icon
   assign(paste0("fa_", gsub("-", "_", icon)), fa_constructor)
 }
@@ -49,8 +52,12 @@ rm(fa_constructor)
 #' @references [Font awesome](http://fontawesome.io/icons/)
 #'
 #' @export
+#' @importFrom utils adist
 fa <- function(name = "rocket", size = 1, fixed_width = FALSE, animate = "still",
     rotate = 0, flip = "none", border = FALSE, pull = NULL, other = NULL) {
+  if(!(name %in% fa_iconList)){
+    stop(paste0("Icon '", name, "' not found in font awesome. Did you mean '", fa_iconList[which.min(adist(name, fa_iconList))], "'?"))
+  }
   if (interactive()) {
     print(paste0("fa:", name))
   } else {

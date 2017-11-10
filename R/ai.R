@@ -14,7 +14,10 @@ ac_path <- with(html_dependency_academicons(), paste0(src$file, "/", stylesheet)
 ac_cssFile <- tail(suppressWarnings(readLines(ac_path)), 1)
 ac_cssRules <- strsplit(ac_cssFile, ".", fixed = TRUE)[[1]]
 ac_cssIcons <- ac_cssRules[grepl("content", ac_cssRules)]
-ac_iconList <- substr(ac_cssIcons, start = 4, stop = attr(regexpr("^[^:]*",
+
+#' @rdname ai
+#' @export
+ai_iconList <- substr(ac_cssIcons, start = 4, stop = attr(regexpr("^[^:]*",
     ac_cssIcons), "match.length"))
 
 #' Academicons alias
@@ -24,12 +27,12 @@ ac_iconList <- substr(ac_cssIcons, start = 4, stop = attr(regexpr("^[^:]*",
 #' @usage NULL
 NULL
 
-#' @evalRd paste("\\keyword{internal}", paste0('\\alias{ai_', gsub('-', '_', ac_iconList), '}'), collapse = '\n')
+#' @evalRd paste("\\keyword{internal}", paste0('\\alias{ai_', gsub('-', '_', ai_iconList), '}'), collapse = '\n')
 #' @name ai-alias
 #' @rdname ai-alias
 #' @exportPattern ^ai_
 ai_constructor <- function(...) ai(name = name, ...)
-for (icon in ac_iconList) {
+for (icon in ai_iconList) {
   formals(ai_constructor)$name <- icon
   assign(paste0("ai_", gsub("-", "_", icon)), ai_constructor)
 }
@@ -42,8 +45,12 @@ rm(ai_constructor)
 #'
 #' @references [Academicons](http://jpswalsh.github.io/academicons/)
 #' @export
+#' @importFrom utils adist
 ai <- function(name = "open-access", size = 1, fixed_width = FALSE, animate = "still",
   rotate = 0, flip = "none", border = FALSE, pull = NULL, other = NULL) {
+  if(!(name %in% ai_iconList)){
+    stop(paste0("Icon '", name, "' not found in academicons. Did you mean '", ai_iconList[which.min(adist(name, ai_iconList))], "'?"))
+  }
   if (interactive()) {
     print(paste0("ai:", name))
   } else {
