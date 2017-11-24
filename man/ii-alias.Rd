@@ -2,6 +2,7 @@
 % Please edit documentation in R/ii.R
 \name{ii-alias}
 \alias{ii-alias}
+\alias{ii-alias}
 \title{Ionicons alias}
 \description{
 Ionicons alias
