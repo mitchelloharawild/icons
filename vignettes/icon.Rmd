@@ -1,7 +1,7 @@
 ---
 title: "Getting started with icon"
 author: "Mitchell O'Hara-Wild"
-date: "`r Sys.Date()`"
+date: "2018-04-03"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Getting started with icon}
