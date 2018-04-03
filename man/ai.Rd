@@ -9,9 +9,9 @@
 \usage{
 ai_iconList
 
-ai(name = "open-access", size = 1, fixed_width = FALSE,
-  animate = "still", rotate = 0, flip = "none", border = FALSE,
-  pull = NULL, other = NULL)
+ai(name = "academia", size = 1, fixed_width = FALSE, animate = "still",
+  rotate = 0, flip = "none", border = FALSE, pull = NULL,
+  other = NULL)
 }
 \arguments{
 \item{name}{A string indicating the icon name.}

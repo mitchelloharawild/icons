@@ -53,7 +53,7 @@ rm(fa_constructor)
 #'
 #' @export
 #' @importFrom utils adist
-fa <- function(name = "rocket", size = 1, fixed_width = FALSE, animate = "still",
+fa <- function(name = "font-awesome", size = 1, fixed_width = FALSE, animate = "still",
     rotate = 0, flip = "none", border = FALSE, pull = NULL, other = NULL) {
   if(!(name %in% fa_iconList)){
     stop(paste0("Icon '", name, "' not found in font awesome. Did you mean '", fa_iconList[which.min(adist(name, fa_iconList))], "'?"))

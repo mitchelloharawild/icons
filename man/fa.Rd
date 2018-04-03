@@ -9,9 +9,9 @@
 \usage{
 fa_iconList
 
-fa(name = "rocket", size = 1, fixed_width = FALSE, animate = "still",
-  rotate = 0, flip = "none", border = FALSE, pull = NULL,
-  other = NULL)
+fa(name = "font-awesome", size = 1, fixed_width = FALSE,
+  animate = "still", rotate = 0, flip = "none", border = FALSE,
+  pull = NULL, other = NULL)
 }
 \arguments{
 \item{name}{A string indicating the icon name.}

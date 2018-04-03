@@ -2,7 +2,6 @@
 % Please edit documentation in R/ai.R
 \name{ai-alias}
 \alias{ai-alias}
-\alias{ai-alias}
 \title{Academicons alias}
 \description{
 Academicons alias

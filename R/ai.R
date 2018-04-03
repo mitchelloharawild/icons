@@ -46,7 +46,7 @@ rm(ai_constructor)
 #' @references [Academicons](http://jpswalsh.github.io/academicons/)
 #' @export
 #' @importFrom utils adist
-ai <- function(name = "open-access", size = 1, fixed_width = FALSE, animate = "still",
+ai <- function(name = "academia", size = 1, fixed_width = FALSE, animate = "still",
   rotate = 0, flip = "none", border = FALSE, pull = NULL, other = NULL) {
   if(!(name %in% ai_iconList)){
     stop(paste0("Icon '", name, "' not found in academicons. Did you mean '", ai_iconList[which.min(adist(name, ai_iconList))], "'?"))

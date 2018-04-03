@@ -2,7 +2,6 @@
 % Please edit documentation in R/fa.R
 \name{fa-alias}
 \alias{fa-alias}
-\alias{fa-alias}
 \title{Font awesome alias}
 \description{
 Font awesome alias
