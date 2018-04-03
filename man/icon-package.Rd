@@ -6,7 +6,7 @@
 \alias{icon-package}
 \title{icon: Use different icon fonts in RMarkdown}
 \description{
-This package allows easy insertion of icons from font awesome into RMarkdown.
+This package allows easy insertion of icons from font awesome, academicons and ionicons into RMarkdown.
 }
 \seealso{
 Useful links:
@@ -21,8 +21,8 @@ Useful links:
 
 Authors:
 \itemize{
-  \item Timothy Hyndman \email{timothy.hyndman@gmail.com}
   \item Earo Wang \email{earo.wang@gmail.com}
+  \item Timothy Hyndman \email{timothy.hyndman@gmail.com}
 }
 
 }
