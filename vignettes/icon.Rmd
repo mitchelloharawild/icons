@@ -1,0 +1,63 @@
+---
+title: "Getting started with icon"
+author: "Mitchell O'Hara-Wild"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting started with icon}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+library(icon)
+```
+
+## Using an icon
+
+The icon package makes it easy to embed popular web-font icons in rmarkdown documents.
+
+Icons can be added using inline code `icon::fa("rocket")` (`r icon::fa("rocket")`) and chunks:
+
+```{r}
+icon::fa("rocket")
+```
+
+In this case, the icon being used is the 'rocket' icon from [Font Awesome](https://fontawesome.com/) (`fa-rocket`). The font library is specified using the function name, and the specific icon is provided as the first argument. 
+
+Icon specific functions are also available which makes it easier to tab-complete icon names:
+
+```{r}
+icon::fa_rocket()
+```
+
+
+## Finding the right icon
+
+The names of available [Font Awesome](https://fontawesome.com/) icons can be found using `icon::fa_iconList`, or by looking on the Font Awesome [icon list](https://fontawesome.com/v4.7.0/icons/).
+
+The package also supports icons from [academicons](http://jpswalsh.github.io/academicons/) (`icon::ai()`: `r icon::ai()`) and [ionicons](http://ionicons.com/) (`icon::ii()`: `r icon::ii()`).
+
+## Customising the icon
+
+The customisation options available with Font Awesome icons (as shown in these [examples](https://fontawesome.com/v4.7.0/examples/)) are supported for all icon libraries using the function arguments.
+
+* Size `icon::fa_rocket(size = 2)`: `r icon::fa_rocket(size = 2)`
+* Rotation `icon::fa_rocket(rotate = 180)`: `r icon::fa_rocket(rotate = 180)`
+* Flip `icon::fa_rocket(flip = "horizontal")`: `r icon::fa_rocket(flip = "horizontal")`
+* Animation `icon::fa_rocket(animate = "spin")`: `r icon::fa_rocket(animate = "spin")`
+* Fixed width `icon::fa_rocket(fixed_width = TRUE)`: `r icon::fa_rocket(fixed_width = TRUE)`
+* Border `icon::fa_rocket(border = TRUE)`: `r icon::fa_rocket(border = TRUE)`
+* Pull `icon::fa_rocket(pull = "left")`: `r icon::fa_rocket(pull = "left")`
+
+## Acknowledgements
+
+The icon package would not be possible without the generous availability of public web-font icon libraries:
+
+* [Font Awesome](http://fontawesome.io) `r fa()`
+
+* [Academicons](http://jpswalsh.github.io/academicons/) `r ai()`
+
+* [Ionicons](http://ionicons.com) `r ii()`
+
+This project was created during the [rOpenSci OzUnconf 2017](http://ozunconf17.ropensci.org).
