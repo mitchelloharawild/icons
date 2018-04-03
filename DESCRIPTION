@@ -1,6 +1,6 @@
 Package: icon
 Type: Package
-Title: Use different icon fonts in RMarkdown
+Title: Icon web-fonts for RMarkdown
 Version: 0.1.0
 Authors@R: c(
     person("Mitchell", "O'Hara-Wild", email = "mail@mitchelloharawild.com", role = c("aut", "cre")),
