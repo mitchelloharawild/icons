@@ -5,7 +5,7 @@
 \alias{fa_iconList}
 \alias{fa}
 \title{Insert icon from font awesome v4.7.0}
-\format{An object of class \code{character} of length 675.}
+\format{An object of class \code{character} of length 912.}
 \usage{
 fa_iconList
 

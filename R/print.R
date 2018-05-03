@@ -62,7 +62,7 @@ cat_icon <- function(x) {
 }
 
 cat_icon.icon_fa <- function(x) {
-  icon_string(x, icon = "fa")
+  icon_string(x, icon = "fa", icon_class = ifelse(x$name %in% fab_iconList, "fab", "fas"))
 }
 
 cat_icon.icon_ai <- function(x) {
@@ -73,11 +73,11 @@ cat_icon.icon_ii <- function(x) {
   icon_string(x, icon = "ion")
 }
 
-paste_icon <- function(icon = "fa", other) {
+paste_icon <- function(icon = "fas", other) {
   paste0(" ", icon, "-", other)
 }
 
-icon_string <- function(x, icon = "fa") {
+icon_string <- function(x, icon = "fas", icon_class = icon) {
   # Determine fa string to use
   # -------------------------------------------------
   size_append <- switch(as.character(x$options$size), `1` = "", lg = paste_icon(icon,
@@ -115,7 +115,7 @@ icon_string <- function(x, icon = "fa") {
 
   other_append <- paste0(" ", paste(x$options$other, collapse = " "))
 
-  paste0(paste0(icon, " "), paste_icon(icon, x$name), size_append, fw_append,
+  paste0(paste0(icon_class, " "), paste_icon(icon, x$name), size_append, fw_append,
       anim_append, rotate_append, flip_append, border_append, pull_append,
       other_append)
 }

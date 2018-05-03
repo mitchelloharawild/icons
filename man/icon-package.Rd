@@ -4,9 +4,9 @@
 \name{icon-package}
 \alias{icon}
 \alias{icon-package}
-\title{icon: Use different icon fonts in RMarkdown}
+\title{icon: Icon web-fonts for RMarkdown}
 \description{
-This package allows easy insertion of icons from font awesome, academicons and ionicons into RMarkdown.
+This package allows easy insertion of icons from Font Awesome, Academicons and Ionicons into RMarkdown.
 }
 \seealso{
 Useful links:

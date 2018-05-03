@@ -1,19 +1,23 @@
 html_dependency_fa <- function() {
-  htmltools::htmlDependency("font-awesome", "4.7.0", src = icon_system_file("fonts/font-awesome-4.7.0"),
-      stylesheet = "css/font-awesome.min.css")
+  htmltools::htmlDependency("font-awesome", "5.0.11", src = icon_system_file("fonts/font-awesome-5.0.11"),
+      stylesheet = "css/fontawesome-all.min.css")
 }
 
 ## Generate all functions for all icons
-
-path <- with(html_dependency_fa(), paste0(src$file, "/", stylesheet))
-cssFile <- tail(readLines(path), 1)
-cssRules <- strsplit(cssFile, ".", fixed = TRUE)[[1]]
-cssIcons <- cssRules[grepl("content", cssRules)]
+get_iconList <- function(path){
+  cssFile <- tail(readLines(path), 1)
+  cssRules <- strsplit(cssFile, ".", fixed = TRUE)[[1]]
+  cssIcons <- cssRules[grepl("content", cssRules)]
+  substr(cssIcons, start = 4, stop = attr(regexpr("^[^:]*", cssIcons),
+                                          "match.length"))
+}
 
 #' @rdname fa
 #' @export
-fa_iconList <- substr(cssIcons, start = 4, stop = attr(regexpr("^[^:]*", cssIcons),
-    "match.length"))
+fa_iconList <- get_iconList(with(html_dependency_fa(), paste0(src$file, "/", stylesheet)))
+
+## Distinguish between icon types (solid and brands)
+fab_iconList <- c("500px","accessible-icon","accusoft","adn","adversal","affiliatetheme","algolia","amazon-pay","amazon","amilia","android","angellist","angrycreative","angular","app-store-ios","app-store","apper","apple-pay","apple","asymmetrik","audible","autoprefixer","avianex","aviato","aws","bandcamp","behance-square","behance","bimobject","bitbucket","bitcoin","bity","black-tie","blackberry","blogger-b","blogger","bluetooth-b","bluetooth","btc","buromobelexperte","buysellads","cc-amazon-pay","cc-amex","cc-apple-pay","cc-diners-club","cc-discover","cc-jcb","cc-mastercard","cc-paypal","cc-stripe","cc-visa","centercode","chrome","cloudscale","cloudsmith","cloudversify","codepen","codiepie","connectdevelop","contao","cpanel","creative-commons-by","creative-commons-nc-eu","creative-commons-nc-jp","creative-commons-nc","creative-commons-nd","creative-commons-pd-alt","creative-commons-pd","creative-commons-remix","creative-commons-sa","creative-commons-sampling-plus","creative-commons-sampling","creative-commons-share","creative-commons","css3-alt","css3","cuttlefish","d-and-d","dashcube","delicious","deploydog","deskpro","deviantart","digg","digital-ocean","discord","discourse","dochub","docker","draft2digital","dribbble-square","dribbble","dropbox","drupal","dyalog","earlybirds","ebay","edge","elementor","ember","empire","envira","erlang","ethereum","etsy","expeditedssl","facebook-f","facebook-messenger","facebook-square","facebook","firefox","first-order","firstdraft","flickr","flipboard","fly","font-awesome-alt","font-awesome-flag","font-awesome-logo-full","font-awesome","fonticons-fi","fonticons","fort-awesome-alt","fort-awesome","forumbee","foursquare","free-code-camp","freebsd","get-pocket","gg-circle","gg","git-square","git","github-alt","github-square","github","gitkraken","gitlab","gitter","glide-g","glide","gofore","goodreads-g","goodreads","google-drive","google-play","google-plus-g","google-plus-square","google-plus","google-wallet","google","gratipay","grav","gripfire","grunt","gulp","hacker-news-square","hacker-news","hips","hire-a-helper","hooli","hotjar","houzz","html5","hubspot","imdb","instagram","internet-explorer","ioxhost","itunes-note","itunes","java","jenkins","joget","joomla","js-square","js","jsfiddle","keybase","keycdn","kickstarter-k","kickstarter","korvue","laravel","lastfm-square","lastfm","leanpub","less","line","linkedin-in","linkedin","linode","linux","lyft","magento","mastodon","maxcdn","medapps","medium-m","medium","medrt","meetup","microsoft","mix","mixcloud","mizuni","modx","monero","napster","nintendo-switch","node-js","node","npm","ns8","nutritionix","odnoklassniki-square","odnoklassniki","opencart","openid","opera","optin-monster","osi","page4","pagelines","palfed","patreon","paypal","periscope","phabricator","phoenix-framework","php","pied-piper-alt","pied-piper-hat","pied-piper-pp","pied-piper","pinterest-p","pinterest-square","pinterest","playstation","product-hunt","pushed","python","qq","quinscape","quora","r","ravelry","react","readme","rebel","red-river","reddit-alien","reddit-square","reddit","rendact","renren","replyd","researchgate","resolving","rocketchat","rockrms","safari","sass","schlix","scribd","searchengin","sellcast","sellsy","servicestack","shirtsinbulk","simplybuilt","sistrix","skyatlas","skype","slack-hash","slack","slideshare","snapchat-ghost","snapchat-square","snapchat","soundcloud","speakap","spotify","stack-exchange","stack-overflow","staylinked","steam-square","steam-symbol","steam","sticker-mule","strava","stripe-s","stripe","studiovinari","stumbleupon-circle","stumbleupon","superpowers","supple","teamspeak","telegram-plane","telegram","tencent-weibo","themeisle","trello","tripadvisor","tumblr-square","tumblr","twitch","twitter-square","twitter","typo3","uber","uikit","uniregistry","untappd","usb","ussunnah","vaadin","viacoin","viadeo-square","viadeo","viber","vimeo-square","vimeo-v","vimeo","vine","vk","vnv","vuejs","weibo","weixin","whatsapp-square","whatsapp","whmcs","wikipedia-w","windows","wordpress-simple","wordpress","wpbeginner","wpexplorer","wpforms","xbox","xing-square","xing","y-combinator","yahoo","yandex-international","yandex","yelp","yoast","youtube-square","youtube")
 
 #' Font awesome alias
 #'
