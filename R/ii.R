@@ -4,17 +4,9 @@ html_dependency_ionicons <- function() {
 }
 
 ## Generate all functions for all icons
-
-ion_path <- with(html_dependency_ionicons(), paste0(src$file, "/", stylesheet))
-ion_cssFile <- tail(suppressWarnings(readLines(ion_path)), 1)
-ion_cssRules <- strsplit(ion_cssFile, ".", fixed = TRUE)[[1]]
-ion_cssIcons <- ion_cssRules[grepl("content", ion_cssRules)]
-
 #' @rdname ii
 #' @export
-ii_iconList <- substr(ion_cssIcons, start = 5, stop = attr(regexpr("^[^:]*",
-                                                                  ion_cssIcons), "match.length"))
-
+ii_iconList <- get_iconList(with(html_dependency_ionicons(), paste0(src$file, "/", stylesheet)), start = 5)
 #' Ionicons alias
 #'
 #' @rdname ii-alias

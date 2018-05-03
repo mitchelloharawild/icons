@@ -4,14 +4,6 @@ html_dependency_fa <- function() {
 }
 
 ## Generate all functions for all icons
-get_iconList <- function(path){
-  cssFile <- tail(readLines(path), 1)
-  cssRules <- strsplit(cssFile, ".", fixed = TRUE)[[1]]
-  cssIcons <- cssRules[grepl("content", cssRules)]
-  substr(cssIcons, start = 4, stop = attr(regexpr("^[^:]*", cssIcons),
-                                          "match.length"))
-}
-
 #' @rdname fa
 #' @export
 fa_iconList <- get_iconList(with(html_dependency_fa(), paste0(src$file, "/", stylesheet)))

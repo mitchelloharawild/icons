@@ -3,23 +3,10 @@ html_dependency_academicons <- function() {
       stylesheet = "css/academicons.min.css")
 }
 
-icon_system_file <- function(file) {
-  system.file(file, package = "icon")
-}
-
-
 ## Generate all functions for all icons
-
-ac_path <- with(html_dependency_academicons(), paste0(src$file, "/", stylesheet))
-ac_cssFile <- tail(suppressWarnings(readLines(ac_path)), 1)
-ac_cssRules <- strsplit(ac_cssFile, ".", fixed = TRUE)[[1]]
-ac_cssIcons <- ac_cssRules[grepl("content", ac_cssRules)]
-
 #' @rdname ai
 #' @export
-ai_iconList <- substr(ac_cssIcons, start = 4, stop = attr(regexpr("^[^:]*",
-    ac_cssIcons), "match.length"))
-
+ai_iconList <- get_iconList(with(html_dependency_academicons(), paste0(src$file, "/", stylesheet)))
 #' Academicons alias
 #'
 #' @rdname ai-alias
