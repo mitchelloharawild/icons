@@ -1,6 +1,6 @@
 html_dependency_fa <- function() {
   htmltools::htmlDependency("font-awesome", "5.0.11", src = icon_system_file("fonts/font-awesome-5.0.11"),
-      stylesheet = "css/font-awesome.min.css")
+      stylesheet = "css/fontawesome.min.css")
 }
 
 ## Generate all functions for all icons

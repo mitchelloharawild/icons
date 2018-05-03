@@ -25,6 +25,7 @@ It works with inline code `` `r '\x60r icon::fa("rocket")\x60'` `` and chunks:
 ````
 ```{r, eval=FALSE}
 icon::fa("rocket") # equivalent to icon::fa_rocket()
+icon::fa("r") # equivalent to icon::fa_r()
 ```
 ````
 
