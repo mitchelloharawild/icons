@@ -26,7 +26,7 @@ knit_print.icon_fa <- function(x, ...) {
     stop(":(", .call = FALSE)
   } else {
     header <- htmltools::tags$head(html_dependency_fa())
-    icon <- htmltools::tags$i(class = cat_icon(x))
+    icon <- htmltools::tags$i(class = cat_icon(x), style = font_style(x))
     knitr::knit_print(htmltools::tagList(header, icon))
   }
 }
@@ -39,7 +39,7 @@ knit_print.icon_ai <- function(x, ...) {
     stop(":(", .call = FALSE)
   } else {
     header <- htmltools::tags$head(html_dependency_academicons())
-    icon <- htmltools::tags$i(class = cat_icon(x))
+    icon <- htmltools::tags$i(class = cat_icon(x), style = font_style(x))
     knitr::knit_print(htmltools::tagList(header, icon))
   }
 }
@@ -52,7 +52,7 @@ knit_print.icon_ii <- function(x, ...) {
     stop("ionicons not supported for word output", .call = FALSE)
   } else {
     header <- htmltools::tags$head(html_dependency_ionicons())
-    icon <- htmltools::tags$i(class = cat_icon(x))
+    icon <- htmltools::tags$i(class = cat_icon(x), style = font_style(x))
     knitr::knit_print(htmltools::tagList(header, icon))
   }
 }

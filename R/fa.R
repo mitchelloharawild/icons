@@ -50,7 +50,7 @@ rm(fa_constructor)
 #' @export
 #' @importFrom utils adist
 fa <- function(name = "font-awesome", size = 1, fixed_width = FALSE, animate = "still",
-    rotate = 0, flip = "none", border = FALSE, pull = NULL, other = NULL) {
+    rotate = 0, flip = "none", border = FALSE, pull = NULL, other = NULL, color = NULL, colour = color) {
   if(!(name %in% fa_iconList)){
     stop(paste0("Icon '", name, "' not found in font awesome. Did you mean '", fa_iconList[which.min(adist(name, fa_iconList))], "'?"))
   }
@@ -59,7 +59,7 @@ fa <- function(name = "font-awesome", size = 1, fixed_width = FALSE, animate = "
   } else {
     result <- structure(list(name = name, options = list(size = size, fixed_width = fixed_width,
         animate = animate, rotate = rotate, flip = flip, border = border, pull = pull,
-        other = other)), class = c("icon_fa", "icon"))
+        other = other, colour=colour)), class = c("icon_fa", "icon"))
     out <- knitr::knit_print(result)
     class(out) <- c(class(out), "knit_icon")
     out
