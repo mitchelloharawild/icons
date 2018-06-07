@@ -2,6 +2,7 @@
 % Please edit documentation in R/fa.R
 \name{fa-alias}
 \alias{fa-alias}
+\alias{fa_r}
 \alias{fa-alias}
 \title{Font awesome alias}
 \description{
@@ -332,6 +333,7 @@ Font awesome alias
 \keyword{internal} \alias{fa_firefox}
 \keyword{internal} \alias{fa_first_aid}
 \keyword{internal} \alias{fa_first_order}
+\keyword{internal} \alias{fa_first_order_alt}
 \keyword{internal} \alias{fa_firstdraft}
 \keyword{internal} \alias{fa_flag}
 \keyword{internal} \alias{fa_flag_checkered}
@@ -357,7 +359,10 @@ Font awesome alias
 \keyword{internal} \alias{fa_free_code_camp}
 \keyword{internal} \alias{fa_freebsd}
 \keyword{internal} \alias{fa_frown}
+\keyword{internal} \alias{fa_fulcrum}
 \keyword{internal} \alias{fa_futbol}
+\keyword{internal} \alias{fa_galactic_republic}
+\keyword{internal} \alias{fa_galactic_senate}
 \keyword{internal} \alias{fa_gamepad}
 \keyword{internal} \alias{fa_gavel}
 \keyword{internal} \alias{fa_gem}
@@ -457,6 +462,7 @@ Font awesome alias
 \keyword{internal} \alias{fa_itunes}
 \keyword{internal} \alias{fa_itunes_note}
 \keyword{internal} \alias{fa_java}
+\keyword{internal} \alias{fa_jedi_order}
 \keyword{internal} \alias{fa_jenkins}
 \keyword{internal} \alias{fa_joget}
 \keyword{internal} \alias{fa_joomla}
@@ -507,6 +513,7 @@ Font awesome alias
 \keyword{internal} \alias{fa_magic}
 \keyword{internal} \alias{fa_magnet}
 \keyword{internal} \alias{fa_male}
+\keyword{internal} \alias{fa_mandalorian}
 \keyword{internal} \alias{fa_map}
 \keyword{internal} \alias{fa_map_marker}
 \keyword{internal} \alias{fa_map_marker_alt}
@@ -560,6 +567,7 @@ Font awesome alias
 \keyword{internal} \alias{fa_object_ungroup}
 \keyword{internal} \alias{fa_odnoklassniki}
 \keyword{internal} \alias{fa_odnoklassniki_square}
+\keyword{internal} \alias{fa_old_republic}
 \keyword{internal} \alias{fa_opencart}
 \keyword{internal} \alias{fa_openid}
 \keyword{internal} \alias{fa_opera}
@@ -588,6 +596,7 @@ Font awesome alias
 \keyword{internal} \alias{fa_periscope}
 \keyword{internal} \alias{fa_phabricator}
 \keyword{internal} \alias{fa_phoenix_framework}
+\keyword{internal} \alias{fa_phoenix_squadron}
 \keyword{internal} \alias{fa_phone}
 \keyword{internal} \alias{fa_phone_slash}
 \keyword{internal} \alias{fa_phone_square}
@@ -632,7 +641,7 @@ Font awesome alias
 \keyword{internal} \alias{fa_quora}
 \keyword{internal} \alias{fa_quote_left}
 \keyword{internal} \alias{fa_quote_right}
-\keyword{internal} \alias{fa_r}
+\keyword{internal} \alias{fa_r_project}
 \keyword{internal} \alias{fa_random}
 \keyword{internal} \alias{fa_ravelry}
 \keyword{internal} \alias{fa_react}
@@ -698,6 +707,7 @@ Font awesome alias
 \keyword{internal} \alias{fa_simplybuilt}
 \keyword{internal} \alias{fa_sistrix}
 \keyword{internal} \alias{fa_sitemap}
+\keyword{internal} \alias{fa_sith}
 \keyword{internal} \alias{fa_skyatlas}
 \keyword{internal} \alias{fa_skype}
 \keyword{internal} \alias{fa_slack}
@@ -797,6 +807,7 @@ Font awesome alias
 \keyword{internal} \alias{fa_tint}
 \keyword{internal} \alias{fa_toggle_off}
 \keyword{internal} \alias{fa_toggle_on}
+\keyword{internal} \alias{fa_trade_federation}
 \keyword{internal} \alias{fa_trademark}
 \keyword{internal} \alias{fa_train}
 \keyword{internal} \alias{fa_transgender}
@@ -899,6 +910,7 @@ Font awesome alias
 \keyword{internal} \alias{fa_window_restore}
 \keyword{internal} \alias{fa_windows}
 \keyword{internal} \alias{fa_wine_glass}
+\keyword{internal} \alias{fa_wolf_pack_battalion}
 \keyword{internal} \alias{fa_won_sign}
 \keyword{internal} \alias{fa_wordpress}
 \keyword{internal} \alias{fa_wordpress_simple}

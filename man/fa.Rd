@@ -5,13 +5,13 @@
 \alias{fa_iconList}
 \alias{fa}
 \title{Insert icon from font awesome v4.7.0}
-\format{An object of class \code{character} of length 912.}
+\format{An object of class \code{character} of length 923.}
 \usage{
 fa_iconList
 
 fa(name = "font-awesome", size = 1, fixed_width = FALSE,
   animate = "still", rotate = 0, flip = "none", border = FALSE,
-  pull = NULL, other = NULL)
+  pull = NULL, other = NULL, color = NULL, colour = color)
 }
 \arguments{
 \item{name}{A string indicating the icon name.}
