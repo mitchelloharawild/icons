@@ -18,6 +18,13 @@ fab_iconList <- c("500px","accessible-icon","accusoft","adn","adversal","affilia
 #' @usage NULL
 NULL
 
+#' @export
+#' @rdname fa-alias
+#' @usage NULL
+fa_r <- function(...){
+  stop("fa_r() is deprecated, please use fa_r_project()")
+}
+
 #' @evalRd paste("\\keyword{internal}", paste0('\\alias{fa_', gsub('-', '_', fa_iconList), '}'), collapse = '\n')
 #' @name fa-alias
 #' @rdname fa-alias
