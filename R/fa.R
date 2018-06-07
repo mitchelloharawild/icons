@@ -50,6 +50,7 @@ rm(fa_constructor)
 #' @param pull Pulls icon to either 'left' or 'right' and wraps proceeding text
 #' around it.
 #' @param other Character vector of other parameters directly added to the icon classes
+#' @param color,colour Hex code for a colour to be given to the icon
 #'
 #' @details `fa_*` is equivalent to `fa(name = *)`, which utilises the auto completion.
 #' @references [Font awesome](http://fontawesome.io/icons/)

@@ -33,6 +33,8 @@ increase), 2, 3, 4, or 5.}
 around it.}
 
 \item{other}{Character vector of other parameters directly added to the icon classes}
+
+\item{color, colour}{Hex code for a colour to be given to the icon}
 }
 \description{
 Insert icon from font awesome v4.7.0
