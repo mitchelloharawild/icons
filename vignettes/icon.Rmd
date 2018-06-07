@@ -60,4 +60,4 @@ The icon package would not be possible without the generous availability of publ
 
 * [Ionicons](http://ionicons.com) `r ii()`
 
-This project was created during the [rOpenSci OzUnconf 2017](http://ozunconf17.ropensci.org). Thanks `r fa_r()`!
+This project was created during the [rOpenSci OzUnconf 2017](http://ozunconf17.ropensci.org). Thanks `r fa_r_project()`!
