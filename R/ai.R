@@ -1,5 +1,5 @@
 html_dependency_academicons <- function() {
-  htmltools::htmlDependency("academicons", "1.8.0", src = icon_system_file("fonts/academicons-1.8.0"),
+  htmltools::htmlDependency("academicons", "1.8.6", src = icon_system_file("fonts/academicons-1.8.6"),
       stylesheet = "css/academicons.min.css")
 }
 
