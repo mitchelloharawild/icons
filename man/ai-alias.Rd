@@ -2,7 +2,6 @@
 % Please edit documentation in R/ai.R
 \name{ai-alias}
 \alias{ai-alias}
-\alias{ai-alias}
 \title{Academicons alias}
 \description{
 Academicons alias
@@ -13,6 +12,8 @@ Academicons alias
 \keyword{internal} \alias{ai_acclaim_square}
 \keyword{internal} \alias{ai_acm}
 \keyword{internal} \alias{ai_acm_square}
+\keyword{internal} \alias{ai_acmdl}
+\keyword{internal} \alias{ai_acmdl_square}
 \keyword{internal} \alias{ai_ads}
 \keyword{internal} \alias{ai_ads_square}
 \keyword{internal} \alias{ai_arxiv}
@@ -20,11 +21,13 @@ Academicons alias
 \keyword{internal} \alias{ai_biorxiv}
 \keyword{internal} \alias{ai_biorxiv_square}
 \keyword{internal} \alias{ai_ceur}
-\keyword{internal} \alias{ai_ceur_box}
-\keyword{internal} \alias{ai_courser}
-\keyword{internal} \alias{ai_courser_square}
+\keyword{internal} \alias{ai_ceur_square}
+\keyword{internal} \alias{ai_coursera}
+\keyword{internal} \alias{ai_coursera_square}
+\keyword{internal} \alias{ai_cv}
+\keyword{internal} \alias{ai_cv_square}
 \keyword{internal} \alias{ai_dataverse}
-\keyword{internal} \alias{ai_dataverse_box}
+\keyword{internal} \alias{ai_dataverse_square}
 \keyword{internal} \alias{ai_dblp}
 \keyword{internal} \alias{ai_dblp_square}
 \keyword{internal} \alias{ai_depsy}
@@ -37,12 +40,18 @@ Academicons alias
 \keyword{internal} \alias{ai_figshare_square}
 \keyword{internal} \alias{ai_google_scholar}
 \keyword{internal} \alias{ai_google_scholar_square}
+\keyword{internal} \alias{ai_ideas_repec}
+\keyword{internal} \alias{ai_ideas_repec_square}
 \keyword{internal} \alias{ai_ieee}
 \keyword{internal} \alias{ai_ieee_square}
 \keyword{internal} \alias{ai_impactstory}
 \keyword{internal} \alias{ai_impactstory_square}
 \keyword{internal} \alias{ai_inspire}
 \keyword{internal} \alias{ai_inspire_square}
+\keyword{internal} \alias{ai_lattes}
+\keyword{internal} \alias{ai_lattes_square}
+\keyword{internal} \alias{ai_mathoverflow}
+\keyword{internal} \alias{ai_mathoverflow_square}
 \keyword{internal} \alias{ai_mendeley}
 \keyword{internal} \alias{ai_mendeley_square}
 \keyword{internal} \alias{ai_open_access}
@@ -61,10 +70,14 @@ Academicons alias
 \keyword{internal} \alias{ai_publons_square}
 \keyword{internal} \alias{ai_pubmed}
 \keyword{internal} \alias{ai_pubmed_square}
+\keyword{internal} \alias{ai_researcherid}
+\keyword{internal} \alias{ai_researcherid_square}
 \keyword{internal} \alias{ai_researchgate}
 \keyword{internal} \alias{ai_researchgate_square}
 \keyword{internal} \alias{ai_scirate}
 \keyword{internal} \alias{ai_scirate_square}
+\keyword{internal} \alias{ai_semantic_scholar}
+\keyword{internal} \alias{ai_semantic_scholar_square}
 \keyword{internal} \alias{ai_springer}
 \keyword{internal} \alias{ai_springer_square}
 \keyword{internal} \alias{ai_zotero}

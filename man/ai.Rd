@@ -5,13 +5,13 @@
 \alias{ai_iconList}
 \alias{ai}
 \title{Insert icon from academicons v1.8.0}
-\format{An object of class \code{character} of length 62.}
+\format{An object of class \code{character} of length 76.}
 \usage{
 ai_iconList
 
-ai(name = "academia", size = 1, fixed_width = FALSE, animate = "still",
-  rotate = 0, flip = "none", border = FALSE, pull = NULL,
-  other = NULL)
+ai(name = "academia", size = 1, fixed_width = FALSE,
+  animate = "still", rotate = 0, flip = "none", border = FALSE,
+  pull = NULL, other = NULL)
 }
 \arguments{
 \item{name}{A string indicating the icon name.}
