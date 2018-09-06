@@ -36,16 +36,12 @@ ii <- function(name = "ionic", size = 1, fixed_width = FALSE, animate = "still",
   if(!(name %in% ii_iconList)){
     stop(paste0("Icon '", name, "' not found in ionicons. Did you mean '", ii_iconList[which.min(adist(name, ii_iconList))], "'?"))
   }
-  if (interactive()) {
-    print(paste0("ion:", name))
-  } else {
-    result <- structure(list(name = name, options = list(size = size, fixed_width = fixed_width,
-                                                         animate = animate, rotate = rotate, flip = flip, border = border, pull = pull,
-                                                         other = other)), class = c("icon_ii", "icon"))
-    out <- knitr::knit_print(result)
-    class(out) <- c(class(out), "knit_icon")
-    out
-  }
+  result <- structure(list(name = name, options = list(size = size, fixed_width = fixed_width,
+                                                       animate = animate, rotate = rotate, flip = flip, border = border, pull = pull,
+                                                       other = other)), class = c("icon_ii", "icon"))
+  out <- knitr::knit_print(result)
+  class(out) <- c(class(out), "knit_icon")
+  out
 }
 
 

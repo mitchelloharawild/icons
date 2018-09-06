@@ -1,5 +1,8 @@
 knitOutputType <- function() {
-  output <- rmarkdown::yaml_front_matter(knitr::current_input())$output
+  output <- tryCatch(
+    rmarkdown::yaml_front_matter(knitr::current_input())$output,
+    error = function(e) "console"
+  )
   if (is.list(output)) {
       return(names(output)[1])
   } else if (length(output) == 0) {
@@ -22,8 +25,8 @@ knit_print.icon_fa <- function(x, ...) {
         x$name <- x$name[1]
     }
     knitr::asis_output(paste0("\\faicon{", x$name, "}"), meta = list(rmarkdown::latex_dependency("fontawesome")))
-  } else if (knitOutputType() == "word_document") {
-    stop(":(", .call = FALSE)
+  } else if (knitOutputType() %in% c("word_document", "console")) {
+    paste0("fa_", x$name)
   } else {
     header <- htmltools::tags$head(html_dependency_fa())
     icon <- htmltools::tags$i(class = cat_icon(x), style = font_style(x))
@@ -35,8 +38,8 @@ knit_print.icon_fa <- function(x, ...) {
 knit_print.icon_ai <- function(x, ...) {
   if (knitOutputType() %in% c("pdf_document", "beamer", "pdf_document2")) {
     knitr::asis_output(paste0("\\aiicon{", x$name, "}"), meta = list(rmarkdown::latex_dependency("academicons")))
-  } else if (knitOutputType() == "word_document") {
-    stop(":(", .call = FALSE)
+  } else if (knitOutputType() %in% c("word_document", "console")) {
+    paste0("ai_", x$name)
   } else {
     header <- htmltools::tags$head(html_dependency_academicons())
     icon <- htmltools::tags$i(class = cat_icon(x), style = font_style(x))
@@ -48,8 +51,8 @@ knit_print.icon_ai <- function(x, ...) {
 knit_print.icon_ii <- function(x, ...) {
   if (knitOutputType() %in% c("pdf_document", "beamer", "pdf_document2")) {
     stop("ionicons not supported for PDF output", .call = FALSE)
-  } else if (knitOutputType() == "word_document") {
-    stop("ionicons not supported for word output", .call = FALSE)
+  } else if (knitOutputType() %in% c("word_document", "console")) {
+    paste0("ii_", x$name)
   } else {
     header <- htmltools::tags$head(html_dependency_ionicons())
     icon <- htmltools::tags$i(class = cat_icon(x), style = font_style(x))

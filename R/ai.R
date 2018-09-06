@@ -38,16 +38,12 @@ ai <- function(name = "academia", size = 1, fixed_width = FALSE, animate = "stil
   if(!(name %in% ai_iconList)){
     stop(paste0("Icon '", name, "' not found in academicons. Did you mean '", ai_iconList[which.min(adist(name, ai_iconList))], "'?"))
   }
-  if (interactive()) {
-    print(paste0("ai:", name))
-  } else {
-    result <- structure(list(name = name, options = list(size = size, fixed_width = fixed_width,
-        animate = animate, rotate = rotate, flip = flip, border = border, pull = pull,
-        other = other)), class = c("icon_ai", "icon"))
-    out <- knitr::knit_print(result)
-    class(out) <- c(class(out), "knit_icon")
-    out
-  }
+  result <- structure(list(name = name, options = list(size = size, fixed_width = fixed_width,
+      animate = animate, rotate = rotate, flip = flip, border = border, pull = pull,
+      other = other)), class = c("icon_ai", "icon"))
+  out <- knitr::knit_print(result)
+  class(out) <- c(class(out), "knit_icon")
+  out
 }
 
 
