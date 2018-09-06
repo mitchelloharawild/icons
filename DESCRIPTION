@@ -14,7 +14,6 @@ Imports:
     rmarkdown (>= 1.6.0),
     knitr,
     htmltools,
-    R6,
     rappdirs
 URL: https://github.com/ropenscilabs/icon
 BugReports: https://github.com/ropenscilabs/icon/issues
