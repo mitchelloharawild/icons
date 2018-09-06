@@ -1,0 +1,8 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^README\.Rmd$
+^README-.*\.png$
+example/libs$
+example/example\.html$
+example/example_files$
+^Makefile$

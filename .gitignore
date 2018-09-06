@@ -1,0 +1,5 @@
+.Rhistory
+.Rproj.user
+Makefile
+.DS_Store
+inst/doc

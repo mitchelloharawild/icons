@@ -1,0 +1,26 @@
+---
+title: "icon test document"
+author: "Mitchell O'Hara-Wild"
+date: "24 August 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+```{r}
+library(htmltools)
+library(magrittr)
+
+# includeCSS("animate.css")
+# tagAppendAttributes(x, class = "bounce animated")
+
+a <- icon::new_iconset(".")
+# a$address_book + a$adjust
+```
+
+# `r a("address-book")` Hello icons in headers! `r a$address_book`
+
+In-text icons (`r a$address_book`) are appropriately sized. Further positioning tweaks may be nice.
