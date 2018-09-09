@@ -21,6 +21,6 @@ a <- icon::new_iconset(".")
 # a$address_book + a$adjust
 ```
 
-# `r a("address-book")` Hello icons in headers! `r a$address_book`
+# `r a("address_book")` Hello icons in headers! `r a$address_book`
 
 In-text icons (`r a$address_book`) are appropriately sized. Further positioning tweaks may be nice.
