@@ -23,6 +23,6 @@ icon_meta <- function(lib){
     readRDS(path)
   }
   else{
-    list(name = lib, version = NULL, licence = NULL)
+    list(name = "Missing", version = NULL, licence = NULL)
   }
 }
