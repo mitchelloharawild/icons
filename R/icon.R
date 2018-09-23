@@ -17,7 +17,7 @@ get_icon <- function(x){
 #' @param meta Meta information for the icons
 #'
 #' @export
-new_iconset <- function(path, meta = list(name = "Custom", version = NULL, license = NULL)){
+iconset <- function(path, meta = list(name = "Custom", version = NULL, license = NULL)){
   path <- normalizePath(path)
   files <- list_svg(path)
   names <- gsub("[[:punct:]]", "_", gsub("\\.svg$", "", files))
