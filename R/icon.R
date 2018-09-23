@@ -11,6 +11,11 @@ get_icon <- function(x){
   read_icon(icon_loc)
 }
 
+#' Create a custom icon set
+#'
+#' @param path Path to the icons
+#' @param meta Meta information for the icons
+#'
 #' @export
 new_iconset <- function(path, meta = list(name = "Custom", version = NULL, license = NULL)){
   path <- normalizePath(path)
@@ -39,6 +44,7 @@ names.iconset <- function(x){
   get_env(x)$icons
 }
 
+#' @export
 print.iconset <- function(x){
   cat(
     glue("{get_env(x)$meta$name} icon set")

@@ -3,6 +3,7 @@
 S3method("$",iconset)
 S3method(knit_print,icon)
 S3method(names,iconset)
+S3method(print,iconset)
 export(new_iconset)
 export(read_icon)
 import(rappdirs)
