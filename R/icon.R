@@ -6,7 +6,7 @@
 
 icon_list <- function(path){
   files <- basename(list.files(path, pattern = "\\.svg$"))
-  gsub("-", "_", gsub("\\.svg$", "", files), fixed = TRUE)
+  gsub("[[:punct:]]", "_", gsub("\\.svg$", "", files), fixed = TRUE)
 }
 
 find_icon <- function(path, name){
