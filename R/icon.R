@@ -45,7 +45,7 @@ names.iconset <- function(x){
 }
 
 #' @export
-print.iconset <- function(x){
+print.iconset <- function(x, ...){
   cat(
     glue("{get_env(x)$meta$name} icon set")
   )
