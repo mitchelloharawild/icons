@@ -2,10 +2,27 @@ add_class <- function(x, new_class){
   `class<-`(x, union(new_class, class(x)))
 }
 
-icon_path <- function(){
-  getOption("icon.path", default = rappdirs::user_data_dir("icon"))
+icon_path <- function(...){
+  path <- getOption("icon.path", default = rappdirs::user_data_dir("icon"))
+  file.path(path, ...)
 }
 
-list_svg <- function(path){
-  basename(list.files(path, pattern = "\\.svg$"))
+list_svg <- function(path, full.names = FALSE, ...){
+  icons <- list.files(path, pattern = "\\.svg$", full.names = full.names, ...)
+  if(full.names){
+    icons
+  }
+  else{
+    basename(icons)
+  }
+}
+
+icon_meta <- function(lib){
+  path <- icon_path(lib, "meta.rds")
+  if(file.exists(path)){
+    readRDS(path)
+  }
+  else{
+    list(name = lib, version = NULL, licence = NULL)
+  }
 }
