@@ -17,12 +17,15 @@ empty_iconset <- function(x){
 }
 
 #' @export
-new_iconset <- function(path){
+new_iconset <- function(path, meta = list(name = "Custom", version = NULL, license = NULL)){
   path <- normalizePath(path)
   structure(
     set_env(
       empty_iconset,
-      env_bury(get_env(empty_iconset), path = path, icons = icon_list)
+      env_bury(get_env(empty_iconset),
+               path = path,
+               icons = icon_list(path),
+               meta = meta)
     ),
     class = c("iconset", "list")
   )
