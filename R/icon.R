@@ -2,6 +2,7 @@
 "_PACKAGE"
 
 #' @import rlang
+#' @importFrom glue glue
 
 icon_list <- function(path){
   files <- basename(list.files(path, pattern = "\\.svg$"))
@@ -40,4 +41,10 @@ new_iconset <- function(path, meta = list(name = "Custom", version = NULL, licen
 names.iconset <- function(x){
   get_env(x)$icons
 }
+
+print.iconset <- function(x){
+  cat(
+    glue("{get_env(x)$meta$name} icon set")
+  )
+  invisible(x)
 }

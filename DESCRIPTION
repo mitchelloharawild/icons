@@ -14,7 +14,8 @@ Imports:
     rmarkdown (>= 1.6.0),
     knitr,
     htmltools,
-    rappdirs
+    rappdirs,
+    glue
 URL: https://github.com/mitchelloharawild/icon
 BugReports: https://github.com/mitchelloharawild/icon/issues
 VignetteBuilder: knitr
