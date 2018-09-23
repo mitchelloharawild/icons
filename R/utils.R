@@ -5,7 +5,3 @@ add_class <- function(x, new_class){
 icon_path <- function(){
   getOption("icon.path", default = rappdirs::user_data_dir("icon"))
 }
-
-`%@%` <- function(x, name){
-  attr(x, name, exact = TRUE)
-}
