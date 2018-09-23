@@ -38,5 +38,6 @@ new_iconset <- function(path, meta = list(name = "Custom", version = NULL, licen
 
 #' @export
 names.iconset <- function(x){
-  x%@%"list"
+  get_env(x)$icons
+}
 }
