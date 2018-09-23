@@ -5,3 +5,7 @@ add_class <- function(x, new_class){
 icon_path <- function(){
   getOption("icon.path", default = rappdirs::user_data_dir("icon"))
 }
+
+list_svg <- function(path){
+  basename(list.files(path, pattern = "\\.svg$"))
+}

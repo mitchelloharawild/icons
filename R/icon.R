@@ -12,7 +12,7 @@ get_icon <- function(x){
 #' @export
 new_iconset <- function(path, meta = list(name = "Custom", version = NULL, license = NULL)){
   path <- normalizePath(path)
-  files <- basename(list.files(path, pattern = "\\.svg$"))
+  files <- list_svg(path)
   names <- gsub("[[:punct:]]", "_", gsub("\\.svg$", "", files), fixed = TRUE)
   structure(
     set_env(
