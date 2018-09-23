@@ -1,10 +1,4 @@
 #' @import rappdirs
-download_fa <- function(x, version = "latest", ...){
-  stop("Not yet supported")
-  # List of releases: https://api.github.com/repos/FortAwesome/Font-Awesome/tags
-}
-
-#' @import rappdirs
 download_ii <- function(x, version = "latest", ...){
   stop("Not yet supported")
   # icon dir: https://github.com/ionic-team/ionicons/tree/master/src/svg

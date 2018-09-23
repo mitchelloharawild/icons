@@ -6,8 +6,8 @@
 
 
 globalVariables(c("path", "files", "icons"))
-get_icon <- function(x){
-  icon_loc <- file.path(path, files[match(x, icons)])
+get_icon <- function(name){
+  icon_loc <- file.path(path, files[match(name, icons)])
   read_icon(icon_loc)
 }
 
@@ -18,7 +18,7 @@ get_icon <- function(x){
 #'
 #' @export
 iconset <- function(path, meta = list(name = "Custom", version = NULL, license = NULL)){
-  path <- normalizePath(path)
+  path <- suppressWarnings(normalizePath(path))
   files <- list_svg(path)
   names <- gsub("[[:punct:]]", "_", gsub("\\.svg$", "", files))
   structure(
