@@ -4,6 +4,8 @@
 #' @import rlang
 #' @importFrom glue glue
 
+
+globalVariables(c("path", "files", "icons"))
 get_icon <- function(x){
   icon_loc <- file.path(path, files[match(x, icons)])
   read_icon(icon_loc)
