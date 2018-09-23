@@ -13,9 +13,11 @@ Depends:
 Imports:
     rmarkdown (>= 1.6.0),
     knitr,
+    rlang,
     htmltools,
+    glue,
     rappdirs,
-    glue
+    xml2
 URL: https://github.com/mitchelloharawild/icon
 BugReports: https://github.com/mitchelloharawild/icon/issues
 VignetteBuilder: knitr
