@@ -4,28 +4,23 @@
 #' @import rlang
 #' @importFrom glue glue
 
-icon_list <- function(path){
-  files <- basename(list.files(path, pattern = "\\.svg$"))
-  gsub("[[:punct:]]", "_", gsub("\\.svg$", "", files), fixed = TRUE)
-}
-
-find_icon <- function(path, name){
-  file.path(path, paste0(name, ".svg"))
-}
-
 get_icon <- function(x){
-  read_icon(find_icon(path, x))
+  icon_loc <- file.path(path, files[match(x, icons)])
+  read_icon(icon_loc)
 }
 
 #' @export
 new_iconset <- function(path, meta = list(name = "Custom", version = NULL, license = NULL)){
   path <- normalizePath(path)
+  files <- basename(list.files(path, pattern = "\\.svg$"))
+  names <- gsub("[[:punct:]]", "_", gsub("\\.svg$", "", files), fixed = TRUE)
   structure(
     set_env(
       get_icon,
       env_bury(get_env(get_icon),
                path = path,
-               icons = icon_list(path),
+               files = files,
+               icons = names,
                meta = meta)
     ),
     class = c("iconset", "list")
