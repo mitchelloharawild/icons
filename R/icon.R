@@ -13,7 +13,7 @@ find_icon <- function(path, name){
   file.path(path, paste0(name, ".svg"))
 }
 
-empty_iconset <- function(x){
+get_icon <- function(x){
   read_icon(find_icon(path, x))
 }
 
@@ -22,8 +22,8 @@ new_iconset <- function(path, meta = list(name = "Custom", version = NULL, licen
   path <- normalizePath(path)
   structure(
     set_env(
-      empty_iconset,
-      env_bury(get_env(empty_iconset),
+      get_icon,
+      env_bury(get_env(get_icon),
                path = path,
                icons = icon_list(path),
                meta = meta)
