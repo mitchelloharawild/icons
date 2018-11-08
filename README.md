@@ -39,6 +39,8 @@ extensibility support. You can read the notes on the new API
 that it was easier to build the new and improved icon from scratch,
 which is what this repository is. In the future this version of icon
 might just be merged into rOpenScilabs/icon, but for the mean time it
-will be developed here. We anticipate that there will not be any major
+will be developed here. We anticipate that there will only be any minor
 changes to the existing API, so hopefully this will be a seamless
-transition for users\!
+transition for users\! Notably, the `icon_name` functions have been
+removed in favour of `icon$name`, and the interface for styling and
+animating has been removed/changed.
