@@ -7,7 +7,7 @@
   if (any(toset)) options(op.icon[toset])
 
   # Update icon details
-  fa <<- iconset(icon_path("fa"), meta = icon_meta("fa"))
+  fa <<- icon_set(icon_path("fa"), meta = icon_meta("fa"))
 
   invisible()
 }

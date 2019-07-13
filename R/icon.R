@@ -17,7 +17,7 @@ get_icon <- function(name){
 #' @param meta Meta information for the icons
 #'
 #' @export
-iconset <- function(path, meta = list(name = "Custom", version = NULL, license = NULL)){
+icon_set <- function(path, meta = list(name = "Custom", version = NULL, license = NULL)){
   path <- suppressWarnings(normalizePath(path))
   files <- list_svg(path)
   names <- gsub("[[:punct:]]", "_", gsub("\\.svg$", "", files))
@@ -30,22 +30,22 @@ iconset <- function(path, meta = list(name = "Custom", version = NULL, license =
                icons = names,
                meta = meta)
     ),
-    class = c("iconset", "list")
+    class = c("icon_set", "list")
   )
 }
 
 #' @export
-`$.iconset` <- function(lib, icon){
+`$.icon_set` <- function(lib, icon){
   lib(icon)
 }
 
 #' @export
-names.iconset <- function(x){
+names.icon_set <- function(x){
   get_env(x)$icons
 }
 
 #' @export
-print.iconset <- function(x, ...){
+print.icon_set <- function(x, ...){
   cat(
     glue("{get_env(x)$meta$name} icon set")
   )

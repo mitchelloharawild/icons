@@ -42,7 +42,7 @@ download_fa <- function(version = "dev"){
   )
 
   # Update object
-  fa <<- iconset(icon_path("fa"), meta = icon_meta("fa"))
+  fa <<- icon_set(icon_path("fa"), meta = icon_meta("fa"))
 }
 
 #' Font Awesome icons
