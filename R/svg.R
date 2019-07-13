@@ -38,7 +38,7 @@ download_si <- function(x, version = "latest", ...){
 read_icon <- function(x){
   xml <- xml2::as_list(xml2::read_html(x))
   icon <- xml_tagList(xml[["html"]][["body"]])[["svg"]]
-  icon <- tagAppendAttributes(icon, style = "height:1em;position:relative;display:inline-block;")
+  icon <- tagAppendAttributes(icon, style = "height:1em;position:relative;display:inline-block;top:.1em")
   add_class(icon, "icon")
 }
 
