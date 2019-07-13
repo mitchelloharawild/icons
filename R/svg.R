@@ -33,13 +33,12 @@ download_si <- function(x, version = "latest", ...){
 #'
 #' @param x Path to the icon
 #'
-#' @importFrom xml2 read_xml
 #' @importFrom htmltools tagAppendAttributes
 #' @export
 read_icon <- function(x){
-  xml <- xml2::as_list(read_xml(x))
-  icon <- xml_tagList(xml)[["svg"]]
-  icon <- tagAppendAttributes(icon, style = "height:1em;position:relative;display: inline-block;")
+  xml <- xml2::as_list(xml2::read_html(x))
+  icon <- xml_tagList(xml[["html"]][["body"]])[["svg"]]
+  icon <- tagAppendAttributes(icon, style = "height:1em;position:relative;display:inline-block;")
   add_class(icon, "icon")
 }
 
