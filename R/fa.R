@@ -19,7 +19,7 @@ download_fa <- function(version = "dev"){
   # Find icons
   utils::unzip(tmpFile, exdir = tmpDir)
 
-  if(version == "dev" || version >= package_version("5.6.0")){
+  if(grepl("dev", version) || version >= package_version("5.6.0")){
     path <- file.path(list.dirs(tmpDir, recursive = FALSE), "svgs")
   }
   else{
