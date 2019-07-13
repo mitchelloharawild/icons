@@ -7,7 +7,14 @@
 
 globalVariables(c("path", "files", "icons"))
 get_icon <- function(name){
-  icon_loc <- file.path(path, files[match(name, icons)])
+  idx <- match(name, icons)
+  if(is.na(idx)){
+    stop(
+      sprintf("The `%s` icon could not be found in this icon set.", name)
+    )
+  }
+
+  icon_loc <- file.path(path, files[idx])
   read_icon(icon_loc)
 }
 
