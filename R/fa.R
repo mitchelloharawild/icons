@@ -41,8 +41,10 @@ download_fa <- function(version = "dev"){
     file.path(dest_dir, "meta.rds")
   )
 
-  # Update object
-  fa <<- icon_set(icon_path("fa"), meta = icon_meta("fa"))
+  # Update icon set
+  get_env(fa)[["icon_fn"]][["update"]](icon_path("fa"), meta = icon_meta("fa"))
+
+  invisible(fa)
 }
 
 #' Font Awesome icons

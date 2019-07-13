@@ -3,19 +3,40 @@
 
 #' @import rlang
 #' @importFrom glue glue
+NULL
 
+# Lookup table for features
+new_icon <- function() {
+  table <- new.env(parent = emptyenv())
+  icon_fn <- list(
+    update = function(path, meta) {
+      table[["path"]] <- path
+      table[["files"]] <- list_svg(path)
+      table[["icons"]] <- gsub("[[:punct:]]", "_", gsub("\\.svg$", "", table[["files"]]))
+      table[["meta"]] <- meta
+    },
+    get = function(name) {
+      idx <- match(name, table[["icons"]])
+      if(is.na(idx)){
+        stop(
+          sprintf("The `%s` icon could not be found in this icon set.", name)
+        )
+      }
 
-globalVariables(c("path", "files", "icons"))
-get_icon <- function(name){
-  idx <- match(name, icons)
-  if(is.na(idx)){
-    stop(
-      sprintf("The `%s` icon could not be found in this icon set.", name)
-    )
-  }
+      icon_loc <- file.path(table[["path"]], table[["files"]][idx])
+      read_icon(icon_loc)
+    },
+    list = function() {
+      table[["icons"]]
+    }
+  )
 
-  icon_loc <- file.path(path, files[idx])
-  read_icon(icon_loc)
+  structure(
+    function(name){
+      icon_fn$get(name)
+    },
+    class = c("icon_set", "list")
+  )
 }
 
 #' Create a custom icon set
@@ -26,19 +47,10 @@ get_icon <- function(name){
 #' @export
 icon_set <- function(path, meta = list(name = "Custom", version = NULL, license = NULL)){
   path <- suppressWarnings(normalizePath(path))
-  files <- list_svg(path)
-  names <- gsub("[[:punct:]]", "_", gsub("\\.svg$", "", files))
-  structure(
-    set_env(
-      get_icon,
-      env_bury(get_env(get_icon),
-               path = path,
-               files = files,
-               icons = names,
-               meta = meta)
-    ),
-    class = c("icon_set", "list")
-  )
+
+  icon <- new_icon()
+  get_env(icon)[["icon_fn"]][["update"]](path, meta)
+  icon
 }
 
 #' @export
@@ -48,13 +60,13 @@ icon_set <- function(path, meta = list(name = "Custom", version = NULL, license 
 
 #' @export
 names.icon_set <- function(x){
-  get_env(x)$icons
+  get_env(x)[["icon_fn"]][["list"]]()
 }
 
 #' @export
 print.icon_set <- function(x, ...){
   cat(
-    glue("{get_env(x)$meta$name} icon set")
+    glue("{get_env(x)$table$meta$name} icon set")
   )
   invisible(x)
 }
