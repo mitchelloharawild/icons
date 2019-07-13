@@ -13,11 +13,19 @@ download_fa <- function(version = "dev"){
   }
   else{
     download.file(glue("https://github.com/FortAwesome/Font-Awesome/archive/{version}.zip"), tmpFile)
+    version <- package_version(version)
   }
 
   # Find icons
   utils::unzip(tmpFile, exdir = tmpDir)
-  path <- file.path(list.dirs(tmpDir), "advanced-options", "raw-svg")
+
+  if(version == "dev" || version >= package_version("5.6.0")){
+    path <- file.path(list.dirs(tmpDir, recursive = FALSE), "svgs")
+  }
+  else{
+    path <- file.path(list.dirs(tmpDir, recursive = FALSE), "advanced-options", "raw-svg")
+  }
+
   files <- list_svg(path, recursive = TRUE, full.names = TRUE)
 
   # Copy icons
