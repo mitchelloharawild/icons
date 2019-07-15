@@ -34,16 +34,15 @@ icon::fa("rocket") # equivalent to icon::fa$rocket()
 ```
 ````
 
-``` 
+Custom icon sets can be created using the `icon_set()` function, which
+accepts a directory of SVG files and allows them to be used as icons.
 
-Custom icon sets can be created using the `icon_set()` function, which accepts a directory of SVG files and allows them to be used as icons.
-```
+```` 
 
-``` r
+```r
 icon::icon_set("my_icon_folder")
 ```
-
-\``  `
+````
 
 # A Note on the old API
 
