@@ -13,7 +13,19 @@ An R package to easily insert web icons into R documents. Many icons are
 available for use around the web, which provides new options (or fun)
 for digital expressions.
 
-It works with inline code `` `r icon::fa("rocket")` `` and chunks:
+# Installation
+
+The **development** version can be installed from GitHub using:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("mitchelloharawild/icon")
+```
+
+# Usage
+
+Icons can be inserted inline using inline code `` `r
+icon::fa("rocket")` ``. Otherwise, chunks can also be used.
 
 ```` 
 
@@ -22,12 +34,16 @@ icon::fa("rocket") # equivalent to icon::fa$rocket()
 ```
 ````
 
-The **development** version can be installed from GitHub using:
+``` 
+
+Custom icon sets can be created using the `icon_set()` function, which accepts a directory of SVG files and allows them to be used as icons.
+```
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("mitchelloharawild/icon")
+icon::icon_set("my_icon_folder")
 ```
+
+\``  `
 
 # A Note on the old API
 
