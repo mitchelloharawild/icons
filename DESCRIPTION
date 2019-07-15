@@ -18,6 +18,8 @@ Imports:
     glue,
     rappdirs,
     xml2
+Suggests: 
+    rsvg
 URL: https://github.com/mitchelloharawild/icon
 BugReports: https://github.com/mitchelloharawild/icon/issues
 VignetteBuilder: knitr

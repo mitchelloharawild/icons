@@ -26,3 +26,12 @@ icon_meta <- function(lib){
     list(name = "Missing", version = NULL, licence = NULL)
   }
 }
+
+require_package <- function(pkg){
+  if(!requireNamespace(pkg, quietly = TRUE)){
+    stop(
+      sprintf('The `%s` package must be installed to use this functionality. It can be installed with install.packages("%s")', pkg, pkg),
+      call. = FALSE
+    )
+  }
+}

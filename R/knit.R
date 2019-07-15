@@ -9,8 +9,11 @@ knit_print.icon <- function(x, ...) {
   if(out_type == "html"){
     knitr::asis_output(htmltools::htmlPreserve(gsub('"', "'", format(x))))
   }
-  else if(out_type == "pdf"){
-    stop("Icons for PDF formats are currently not supported", call = FALSE)
+  else if(out_type == "latex"){
+    require_package("rsvg")
+    path <- paste0(tempfile(), ".pdf")
+    rsvg::rsvg_pdf(charToRaw(format(x)), path)
+    knitr::include_graphics(path)
   }
   else {
     stop("Icons for this format is currently not supported", call = FALSE)
