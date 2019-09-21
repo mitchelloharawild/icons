@@ -13,7 +13,10 @@ knit_print.icon <- function(x, ...) {
     require_package("rsvg")
     path <- paste0(tempfile(), ".pdf")
     rsvg::rsvg_pdf(charToRaw(format(x)), path)
-    knitr::include_graphics(path)
+    knitr::asis_output(
+      glue("\\includegraphics[scale = 0.22]{<path>}", .open = "<", .close = ">")
+
+    )
   }
   else {
     stop("Icons for this format is currently not supported", call = FALSE)
