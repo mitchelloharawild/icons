@@ -5,9 +5,8 @@ xml_tagList <- function(x){
 
 #' @importFrom htmltools tag tagAppendChildren
 make_xml_tags <- function(x, name){
+  if(name == "") return(x)
   out <- tag(name, varArgs = attributes(x)[names(attributes(x)) != "names"])
-  if(length(x) == 0){
-    return(out)
-  }
+  if(is.null(names(x)) || length(x) == 0) return(out)
   do.call(tagAppendChildren, c(tag = list(out), Map(make_xml_tags, x, names(x))))
 }
