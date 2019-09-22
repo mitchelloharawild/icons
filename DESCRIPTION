@@ -1,7 +1,7 @@
 Package: icon
 Type: Package
 Title: SVG icons for R documents
-Version: 0.1.0
+Version: 0.1.0.9000
 Authors@R: c(
     person("Mitchell", "O'Hara-Wild", email = "mail@mitchelloharawild.com", role = c("aut", "cre")),
     person("Earo", "Wang", email = "earo.wang@gmail.com", role = "aut"),
