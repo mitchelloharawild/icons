@@ -1,10 +1,4 @@
 #' @import rappdirs
-download_ii <- function(x, version = "latest", ...){
-  stop("Not yet supported")
-  # icon dir: https://github.com/ionic-team/ionicons/tree/master/src/svg
-}
-
-#' @import rappdirs
 download_ai <- function(x, version = "latest", ...){
   stop("Not yet supported")
   # icon set: https://github.com/jpswalsh/academicons/blob/master/fonts/academicons.svg

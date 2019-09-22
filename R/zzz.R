@@ -8,6 +8,7 @@
 
   # Update icon details
   fa <<- icon_set(icon_path("fa"), meta = icon_meta("fa"))
+  ii <<- icon_set(icon_path("ii"), meta = icon_meta("ii"))
 
   invisible()
 }
