@@ -14,8 +14,7 @@ knit_print.icon <- function(x, ...) {
     path <- paste0(tempfile(), ".pdf")
     rsvg::rsvg_pdf(charToRaw(format(x)), path)
     knitr::asis_output(
-      glue("\\includegraphics[scale = 0.22]{<path>}", .open = "<", .close = ">")
-
+      glue("![](<path>){height=0.7em}", .open = "<", .close = ">")
     )
   }
   else {
