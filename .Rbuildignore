@@ -7,3 +7,4 @@ example/example\.html$
 example/example_files$
 ^Makefile$
 ^\.travis\.yml$
+^hex$
