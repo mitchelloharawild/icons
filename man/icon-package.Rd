@@ -4,9 +4,9 @@
 \name{icon-package}
 \alias{icon}
 \alias{icon-package}
-\title{icon: SVG icons for R documents}
+\title{icon: SVG Icons for R Documents and Apps}
 \description{
-This package allows easy insertion of SVG icons into RMarkdown, shiny, and other R documents.
+Easily embed SVG icons into R Markdown documents or shiny apps. A collection of popular icon sets are supported by the package, including Font Awesome, Academicons and Ionicons.
 }
 \seealso{
 Useful links:
@@ -19,10 +19,10 @@ Useful links:
 \author{
 \strong{Maintainer}: Mitchell O'Hara-Wild \email{mail@mitchelloharawild.com}
 
-Authors:
+Other contributors:
 \itemize{
-  \item Earo Wang \email{earo.wang@gmail.com}
-  \item Timothy Hyndman \email{timothy.hyndman@gmail.com}
+  \item Earo Wang [contributor]
+  \item Timothy Hyndman [contributor]
 }
 
 }
