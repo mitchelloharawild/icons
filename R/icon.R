@@ -39,6 +39,20 @@ new_icon <- function() {
   )
 }
 
+#' Read an individual icon
+#'
+#' @param x Path to the icon
+#'
+#' @importFrom htmltools tagAppendAttributes
+#' @export
+read_icon <- function(x){
+  xml <- xml2::as_list(xml2::read_xml(x))
+  icon <- xml_tagList(xml)$svg
+  icon$attribs[c("width", "height")] <- NULL
+  icon <- tagAppendAttributes(icon, style = "height:1em;position:relative;display:inline-block;top:.1em")
+  add_class(icon, "icon")
+}
+
 #' Create a custom icon set
 #'
 #' @param path Path to the icons
