@@ -7,14 +7,8 @@ icon_path <- function(...){
   file.path(path, ...)
 }
 
-list_svg <- function(path, full.names = FALSE, ...){
-  icons <- list.files(path, pattern = "\\.svg$", full.names = full.names, ...)
-  if(full.names){
-    icons
-  }
-  else{
-    basename(icons)
-  }
+list_svg <- function(path, ...){
+  list.files(path, pattern = "\\.svg$", ...)
 }
 
 icon_meta <- function(lib){
