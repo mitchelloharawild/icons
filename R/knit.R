@@ -17,6 +17,14 @@ knit_print.icon <- function(x, ...) {
       glue("![](<path>){height=0.7em}", .open = "<", .close = ">")
     )
   }
+  else if(out_type == "docx"){
+    require_package("rsvg")
+    path <- paste0(tempfile(), ".png")
+    rsvg::rsvg_png(charToRaw(format(x)), path)
+    knitr::asis_output(
+      glue("![](<path>){height=0.7em}", .open = "<", .close = ">")
+    )
+  }
   else {
     stop("Icons for this format is currently not supported", call = FALSE)
   }
