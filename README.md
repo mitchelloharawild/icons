@@ -9,9 +9,21 @@ status](https://travis-ci.org/mitchelloharawild/icon.svg?branch=master)](https:/
 <!-- [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/icon)](https://cran.r-project.org/package=icon) -->
 <!-- [![Downloads](http://cranlogs.r-pkg.org/badges/icon?color=brightgreen)](https://cran.r-project.org/package=icon) -->
 
-An R package to easily insert web icons into R documents. Many icons are
-available for use around the web, which provides new options (or fun)
-for digital expressions.
+The `icon` package for R makes adding web icons to reports,
+presentations and apps easy. It integrates many popular icon libraries
+from around the web with a simple interface that works with any
+`rmarkdown` output format. If a particular icon library is not
+explicitly supported by this package, you can still use it by creating a
+custom icon set from a folder of SVG files. Icons provide flexible means
+of digital expression, allowing expressions and functionality beyond
+what is possible with emoji.
+
+The `icon` package currently provides helpful tools for downloading and
+using icons from these libraries:
+
+  - [Font Awesome](https://github.com/FortAwesome/Font-Awesome/) (Pro
+    icons can be used using custom icon sets)
+  - [Ionicons](https://github.com/ionic-team/ionicons/)
 
 # Installation
 
