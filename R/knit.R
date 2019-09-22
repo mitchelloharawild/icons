@@ -25,6 +25,16 @@ knit_print.icon <- function(x, ...) {
       glue("![](<path>){height=0.7em}", .open = "<", .close = ">")
     )
   }
+  else if(out_type == "gfm-ascii_identifiers"){
+    path <- knitr::fig_path(".svg")
+    writeLines(format(x), path)
+    knitr::asis_output(
+      glue("![](<path>){height=1em}", .open = "<", .close = ">")
+    )
+    knitr::asis_output(
+      glue('<img src="{path}" height="16px"/>')
+    )
+  }
   else {
     stop("Icons for this format is currently not supported", call = FALSE)
   }

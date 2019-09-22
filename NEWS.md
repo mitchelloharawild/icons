@@ -11,7 +11,7 @@
 * Icons now use SVG files instead of font files. This substantially reduces the output file's size and allows more flexibility and integrations with other libraries in the future.
 * Icon sets can now be updated at any time without updating the package. The `download_*()` helpers can be used to install icon libraries.
 * Custom icon sets can be created from a folder of SVG files.
-* Icons can now be used with `word_document()` output formats.
+* Icons can now be used with `word_document` and `github_document` output formats.
 * Improved detection of output format types to work with more rmarkdown extensions.
 
 ## Bug fixes
