@@ -30,9 +30,14 @@ using icons from these libraries:
 The **development** version can be installed from GitHub using:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("mitchelloharawild/icon")
+# install.packages("remotes")
+remotes::install_github("mitchelloharawild/icon")
 ```
+
+Once you’ve installed the package you’ll also need to download some
+icons\! Supported icon libraries (listed above) can be downloaded using
+the `download_*()` functions. For example, to download the Font Awesome
+icons you would use `download_fa()`.
 
 # Usage
 
