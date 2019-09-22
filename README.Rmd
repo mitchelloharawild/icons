@@ -37,9 +37,11 @@ Icons can be inserted inline using inline code `` `r '\x60r icon::fa("rocket")\x
 
 ````
 ```{r, eval=FALSE}
-icon::fa("rocket") # equivalent to icon::fa$rocket()
+icon::fa("rocket") # equivalent to icon::fa$rocket
 ```
 ````
+
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==" alt="Red dot" />
 
 Custom icon sets can be created using the `icon_set()` function, which accepts a directory of SVG files and allows them to be used as icons.
 
