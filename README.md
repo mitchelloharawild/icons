@@ -25,24 +25,34 @@ devtools::install_github("mitchelloharawild/icon")
 # Usage
 
 Icons can be inserted inline using inline code `` `r
-icon::fa("rocket")` ``. Otherwise, chunks can also be used.
+icon::fa("rocket")` ``
+<img src="man/figure/gh-installation-1.svg" height="20px"/> or `` `r
+icon::fa$rocket` ``
+<img src="man/figure/gh-installation-1.svg" height="20px"/>.
 
-```` 
+Icons can also be inserted using usual R chunks.
 
-```r
-icon::fa("rocket") # equivalent to icon::fa$rocket
-```
-````
+    ```{r icon-chunk}
+    icon::fa("rocket") # equivalent to icon::fa$rocket
+    ```
+
+<img src="man/figure/unnamed-chunk-2-1.svg" height="20px"/>
 
 Custom icon sets can be created using the `icon_set()` function, which
 accepts a directory of SVG files and allows them to be used as icons.
 
-```` 
+    ```{r icon-custom}
+    custom <- icon::icon_set("hex")
+    custom
+    ```
 
-```r
-icon::icon_set("my_icon_folder")
-```
-````
+    #> Custom icon set
+
+    ```{r icon-sticker}
+    custom$icon
+    ```
+
+<img src="man/figure/icon-sticker-1.svg" height="20px"/>
 
 # A Note on the old API
 
