@@ -2,7 +2,7 @@
 #' @rdname ii
 #' @importFrom utils download.file
 #' @export
-download_ii <- function(x, version = "dev", ...){
+download_ii <- function(version = "dev"){
   # Clone repo
   tmpFile <- tempfile("icon_ii")
   dir.create(tmpDir <- tempfile("icon_ii"), showWarnings = FALSE)

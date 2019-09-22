@@ -5,7 +5,7 @@
 \alias{ii}
 \title{Ionicons icons}
 \usage{
-download_ii(x, version = "dev", ...)
+download_ii(version = "dev")
 
 ii(name)
 }
