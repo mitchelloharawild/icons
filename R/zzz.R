@@ -7,8 +7,8 @@
   if (any(toset)) options(op.icon[toset])
 
   # Update icon details
-  fa <<- icon_set(icon_path("fa"), meta = icon_meta("fa"))
-  ii <<- icon_set(icon_path("ii"), meta = icon_meta("ii"))
+  fontawesome <<- icon_set(icon_path("fontawesome"), meta = icon_meta("fontawesome"))
+  ionicons <<- icon_set(icon_path("ionicons"), meta = icon_meta("ionicons"))
 
   invisible()
 }

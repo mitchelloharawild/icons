@@ -1,11 +1,11 @@
 #' @param version Version of the library
-#' @rdname fa
+#' @rdname fontawesome
 #' @importFrom utils download.file
 #' @export
-download_fa <- function(version = "dev"){
+download_fontawesome <- function(version = "dev"){
   # Clone repo
-  tmpFile <- tempfile("icon_fa")
-  dir.create(tmpDir <- tempfile("icon_fa"), showWarnings = FALSE)
+  tmpFile <- tempfile("icon_fontawesome")
+  dir.create(tmpDir <- tempfile("icon_fontawesome"), showWarnings = FALSE)
   on.exit(unlink(c(tmpFile, tmpDir)))
   if(version == "dev"){
     version <- glue("dev ({Sys.Date()})")
@@ -29,7 +29,7 @@ download_fa <- function(version = "dev"){
   files <- list_svg(path, recursive = TRUE, full.names = TRUE)
 
   # Copy icons
-  dest_dir <- icon_path("fa")
+  dest_dir <- icon_path("fontawesome")
   dir.create(dest_dir, recursive = TRUE, showWarnings = FALSE)
   file.copy(
     list_svg(path, recursive = TRUE, full.names = TRUE),
@@ -42,14 +42,14 @@ download_fa <- function(version = "dev"){
   )
 
   # Update icon set
-  get_env(fa)[["icon_fn"]][["update"]](icon_path("fa"), meta = icon_meta("fa"))
+  get_env(fontawesome)[["icon_fn"]][["update"]](icon_path("fontawesome"), meta = icon_meta("fontawesome"))
 
-  invisible(fa)
+  invisible(fontawesome)
 }
 
 #' Font Awesome icons
 #'
 #' @param name Name of the icon
-#' @rdname fa
+#' @rdname fontawesome
 #' @export
-fa <- NULL
+fontawesome <- NULL

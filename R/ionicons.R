@@ -1,11 +1,11 @@
 #' @param version Version of the library
-#' @rdname ii
+#' @rdname ionicons
 #' @importFrom utils download.file
 #' @export
-download_ii <- function(version = "dev"){
+download_ionicons <- function(version = "dev"){
   # Clone repo
-  tmpFile <- tempfile("icon_ii")
-  dir.create(tmpDir <- tempfile("icon_ii"), showWarnings = FALSE)
+  tmpFile <- tempfile("icon_ionicons")
+  dir.create(tmpDir <- tempfile("icon_ionicons"), showWarnings = FALSE)
   on.exit(unlink(c(tmpFile, tmpDir)))
 
   if(version == "dev"){
@@ -22,7 +22,7 @@ download_ii <- function(version = "dev"){
   files <- list_svg(path, recursive = TRUE, full.names = TRUE)
 
   # Copy icons
-  dest_dir <- icon_path("ii")
+  dest_dir <- icon_path("ionicons")
   dir.create(dest_dir, recursive = TRUE, showWarnings = FALSE)
   file.copy(
     list_svg(path, recursive = TRUE, full.names = TRUE),
@@ -35,14 +35,14 @@ download_ii <- function(version = "dev"){
   )
 
   # Update icon set
-  get_env(ii)[["icon_fn"]][["update"]](icon_path("ii"), meta = icon_meta("ii"))
+  get_env(ionicons)[["icon_fn"]][["update"]](icon_path("ionicons"), meta = icon_meta("ionicons"))
 
-  invisible(ii)
+  invisible(ionicons)
 }
 
 #' Ionicons icons
 #'
 #' @param name Name of the icon
-#' @rdname ii
+#' @rdname ionicons
 #' @export
-ii <- NULL
+ionicons <- NULL
