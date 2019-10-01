@@ -84,3 +84,8 @@ print.icon_set <- function(x, ...){
   )
   invisible(x)
 }
+
+#' @export
+length.icon_set <- function(x){
+  length(get_env(x)[["icon_fn"]][["list"]]())
+}

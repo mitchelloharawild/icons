@@ -2,6 +2,7 @@
 
 S3method("$",icon_set)
 S3method(knit_print,icon)
+S3method(length,icon_set)
 S3method(names,icon_set)
 S3method(print,icon_set)
 export(download_fontawesome)
