@@ -3,7 +3,7 @@ add_class <- function(x, new_class){
 }
 
 icon_path <- function(...){
-  path <- getOption("icon.path", default = rappdirs::user_data_dir("icon"))
+  path <- getOption("icon.path", default = rappdirs::user_data_dir("rpkg_icon"))
   file.path(path, ...)
 }
 
