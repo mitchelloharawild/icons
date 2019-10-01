@@ -17,7 +17,8 @@ Imports:
     htmltools,
     glue,
     rappdirs,
-    xml2
+    xml2,
+    stringr
 Suggests: 
     rsvg
 URL: https://github.com/mitchelloharawild/icon

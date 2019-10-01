@@ -1,4 +1,5 @@
 #' @importFrom knitr knit_print
+#' @importFrom stringr str_extract
 #' @export
 knit_print.icon <- function(x, ...) {
   out_type <- knitr::opts_knit$get("rmarkdown.pandoc.to")
@@ -7,14 +8,22 @@ knit_print.icon <- function(x, ...) {
     return(knitr::asis_output(""))
   }
   if(out_type == "html"){
-    knitr::asis_output(htmltools::htmlPreserve(gsub('"', "'", format(x))))
+    return(knitr::asis_output(htmltools::htmlPreserve(gsub('"', "'", format(x)))))
   }
-  else if(out_type == "latex"){
+
+  height <- as.numeric(str_extract(
+    str_extract(
+      x$attribs$style,
+      "height:[^;]*;"
+    ), "(\\.|\\d)+"
+  ))
+
+  if(out_type == "latex"){
     require_package("rsvg")
     path <- paste0(tempfile(), ".pdf")
     rsvg::rsvg_pdf(charToRaw(format(x)), path)
     knitr::asis_output(
-      glue("![](<path>){height=0.7em}", .open = "<", .close = ">")
+      glue("![](<path>){height=<height*0.7>em}", .open = "<", .close = ">")
     )
   }
   else if(out_type == "docx"){
@@ -22,17 +31,17 @@ knit_print.icon <- function(x, ...) {
     path <- paste0(tempfile(), ".png")
     rsvg::rsvg_png(charToRaw(format(x)), path)
     knitr::asis_output(
-      glue("![](<path>){height=0.7em}", .open = "<", .close = ">")
+      glue("![](<path>){height=<height*0.7>em}", .open = "<", .close = ">")
     )
   }
   else if(out_type == "gfm-ascii_identifiers"){
     path <- knitr::fig_path(".svg")
     writeLines(format(x), path)
     knitr::asis_output(
-      glue("![](<path>){height=1em}", .open = "<", .close = ">")
+      glue("![](<path>){height=<height>em}", .open = "<", .close = ">")
     )
     knitr::asis_output(
-      glue('<img src="{path}" height="16px"/>')
+      glue('<img src="{path}" height="{height*16}px"/>')
     )
   }
   else {
