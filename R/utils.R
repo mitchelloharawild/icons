@@ -7,8 +7,8 @@ icon_path <- function(...){
   file.path(path, ...)
 }
 
-list_svg <- function(path, ...){
-  list.files(path, pattern = "\\.svg$", ...)
+list_svg <- function(path, recursive = TRUE, ...){
+  list.files(path, pattern = "\\.svg$", recursive = recursive, ...)
 }
 
 icon_meta <- function(lib){
