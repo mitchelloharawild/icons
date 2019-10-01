@@ -26,8 +26,6 @@ download_fontawesome <- function(version = "dev"){
     path <- file.path(list.dirs(tmpDir, recursive = FALSE), "advanced-options", "raw-svg")
   }
 
-  files <- list_svg(path, full.names = TRUE)
-
   # Copy icons
   dest_dir <- icon_path("fontawesome")
   dir.create(dest_dir, recursive = TRUE, showWarnings = FALSE)
