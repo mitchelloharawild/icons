@@ -2,6 +2,10 @@ add_class <- function(x, new_class){
   `class<-`(x, union(new_class, class(x)))
 }
 
+`%0%` <- function(x, y){
+  if(is_empty(x)) y else x
+}
+
 icon_path <- function(...){
   path <- getOption("icon.path", default = rappdirs::user_data_dir("rpkg_icon"))
   file.path(path, ...)
@@ -17,7 +21,7 @@ icon_meta <- function(lib){
     readRDS(path)
   }
   else{
-    list(name = "Missing", version = NULL, licence = NULL)
+    list(name = lib, version = NULL, licence = NULL)
   }
 }
 

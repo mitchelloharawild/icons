@@ -16,9 +16,12 @@ new_icon <- function() {
       table[["meta"]] <- meta
     },
     get = function(name) {
+      if(!dir.exists(table$path)){
+        abort("This icon library is not yet installed, install it with `install_*()`.")
+      }
       idx <- match(name, table[["icons"]])
       if(is.na(idx)){
-        stop(
+        abort(
           sprintf("The `%s` icon could not be found in this icon set.", name)
         )
       }
@@ -79,8 +82,18 @@ names.icon_set <- function(x){
 
 #' @export
 print.icon_set <- function(x, ...){
+  tbl <- get_env(x)$table
+
+  extra <- if(!icon_installed(x)){
+    "not installed"
+  } else if(!is.null(tbl$meta$version)){
+    glue("version {tbl$meta$version}")
+  } else {
+    glue("/{basename(tbl$path)}")
+  }
+
   cat(
-    glue("{get_env(x)$table$meta$name} icon set")
+    glue("{tbl$meta$name} icon set ({extra})")
   )
   invisible(x)
 }
@@ -88,4 +101,8 @@ print.icon_set <- function(x, ...){
 #' @export
 length.icon_set <- function(x){
   length(get_env(x)[["icon_fn"]][["list"]]())
+}
+
+icon_installed <- function(x){
+  dir.exists(get_env(x)$table$path)
 }
