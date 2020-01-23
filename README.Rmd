@@ -35,21 +35,21 @@ The **development** version can be installed from GitHub using:
 remotes::install_github("mitchelloharawild/icon")
 ```
 
-Once you've installed the package you'll also need to download some icons! Supported icon libraries (listed above) can be downloaded using the `download_*()` functions. For example, to download the Font Awesome icons you would use `download_fa()`.
+Once you've installed the package you'll also need to download some icons! Supported icon libraries (listed above) can be downloaded using the `download_*()` functions. For example, to download the Font Awesome icons you would use `download_fontawesome()`.
 
 # Usage
 
-Icons can be inserted inline using inline code `` `r knitr::inline_expr('icon::fa("rocket")')` `` `r icon::fa("rocket")` or `` `r knitr::inline_expr('icon::fa$rocket')` `` `r icon::fa$rocket`. 
+Icons can be inserted inline using inline code `` `r knitr::inline_expr('icon::fontawesome("solid_rocket")')` `` `r icon::fontawesome("solid_rocket")` or `` `r knitr::inline_expr('icon::fontawesome$solid_rocket')` `` `r icon::fontawesome$solid_rocket`.
 
 Icons can also be inserted using usual R chunks.
 
 ````
 ```{r icon-chunk}`r ''`
-icon::fa("rocket") # equivalent to icon::fa$rocket
+icon::fontawesome("solid_rocket") # equivalent to icon::fa$rocket
 ```
 ````
 ```{r, echo=FALSE}
-icon::fa("rocket")
+icon::fontawesome("solid_rocket")
 ```
 
 Custom icon sets can be created using the `icon_set()` function, which accepts a directory of SVG files and allows them to be used as icons.

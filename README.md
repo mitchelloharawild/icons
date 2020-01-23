@@ -37,23 +37,23 @@ remotes::install_github("mitchelloharawild/icon")
 Once you’ve installed the package you’ll also need to download some
 icons\! Supported icon libraries (listed above) can be downloaded using
 the `download_*()` functions. For example, to download the Font Awesome
-icons you would use `download_fa()`.
+icons you would use `download_fontawesome()`.
 
 # Usage
 
 Icons can be inserted inline using inline code `` `r
-icon::fa("rocket")` ``
-<img src="man/figure/gh-installation-1.svg" height="20px"/> or `` `r
-icon::fa$rocket` ``
-<img src="man/figure/gh-installation-1.svg" height="20px"/>.
+icon::fontawesome("solid_rocket")` ``
+<img src="man/figure/gh-installation-1.svg" height="16px"/> or `` `r
+icon::fontawesome$solid_rocket` ``
+<img src="man/figure/gh-installation-1.svg" height="16px"/>.
 
 Icons can also be inserted using usual R chunks.
 
     ```{r icon-chunk}
-    icon::fa("rocket") # equivalent to icon::fa$rocket
+    icon::fontawesome("solid_rocket") # equivalent to icon::fa$rocket
     ```
 
-<img src="man/figure/unnamed-chunk-2-1.svg" height="20px"/>
+<img src="man/figure/unnamed-chunk-2-1.svg" height="16px"/>
 
 Custom icon sets can be created using the `icon_set()` function, which
 accepts a directory of SVG files and allows them to be used as icons.
@@ -69,7 +69,7 @@ accepts a directory of SVG files and allows them to be used as icons.
     custom$icon
     ```
 
-<img src="man/figure/icon-sticker-1.svg" height="20px"/>
+<img src="man/figure/icon-sticker-1.svg" height="16px"/>
 
 # A Note on the old API
 

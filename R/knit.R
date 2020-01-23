@@ -34,7 +34,7 @@ knit_print.icon <- function(x, ...) {
       glue("![](<path>){height=<height*0.7>em}", .open = "<", .close = ">")
     )
   }
-  else if(out_type == "gfm-ascii_identifiers"){
+  else if(out_type %in% c("gfm", "gfm-ascii_identifiers")){
     path <- knitr::fig_path(".svg")
     writeLines(format(x), path)
     knitr::asis_output(
