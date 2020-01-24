@@ -4,7 +4,9 @@
 
 * Icons are no longer included directly in the package, and will require downloading before use.
 * Animations of icons is no longer supported (this functionality will be re-introduced as a new package).
-* The `library_icon` interface for accessing the `icon` icon from the `library` icon set has been replaced with `library$icon`.
+* The `iconset_icon` interface for accessing the `icon` icon from the `iconset` icon set has been replaced with `iconset$icon`.
+* The `iconset()` interface for accessing the icons is now specific to each icon library.
+* The short names (`fa`, `ii`, etc.) have been replaced with longer, more informative names (`fontawesome`, `ionicons`, etc.).
 
 ## Improvements
 
@@ -16,7 +18,8 @@
 
 ## Bug fixes
 
-* Icons now work as expected in titles
+* Icons now work as expected in titles.
+* Icons now work alongside emojis.
 
 # icon 0.1.0
 
