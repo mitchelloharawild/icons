@@ -4,8 +4,7 @@
 \alias{icon_set}
 \title{Create a custom icon set}
 \usage{
-icon_set(path, meta = list(name = "Custom", version = NULL, license =
-  NULL))
+icon_set(path, meta = list(name = "Custom", version = NULL, license = NULL))
 }
 \arguments{
 \item{path}{Path to the icons}

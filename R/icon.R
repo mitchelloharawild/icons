@@ -12,31 +12,32 @@ new_icon <- function() {
     update = function(path, meta) {
       table[["path"]] <- path
       table[["files"]] <- list_svg(path)
-      table[["icons"]] <- gsub("[[:punct:]]", "_", gsub("\\.svg$", "", table[["files"]]))
       table[["meta"]] <- meta
     },
     get = function(name) {
       if(!dir.exists(table$path)){
         abort("This icon library is not yet installed, install it with `install_*()`.")
       }
-      idx <- match(name, table[["icons"]])
-      if(is.na(idx)){
+
+      files <- Reduce(`[[`, name[-length(name)], table$files)
+      icon <- name[length(name)]
+
+      if(!(icon %in% files)){
         abort(
-          sprintf("The `%s` icon could not be found in this icon set.", name)
+          glue("The `{icon}` icon could not be found in this icon set.")
         )
       }
 
-      icon_loc <- file.path(table[["path"]], table[["files"]][idx])
-      read_icon(icon_loc)
+      read_icon(glue(do.call(file.path, c(list(table[["path"]]), name)), ".svg"))
     },
     list = function() {
-      table[["icons"]]
+      if(is.list(table[["files"]])) names(table[["files"]]) else table[["files"]]
     }
   )
 
   structure(
-    function(name){
-      icon_fn$get(name)
+    function(...){
+      icon_fn$get(c(...))
     },
     class = c("icon_set", "list")
   )
@@ -72,12 +73,38 @@ icon_set <- function(path, meta = list(name = "Custom", version = NULL, license 
 
 #' @export
 `$.icon_set` <- function(lib, icon){
-  lib(icon)
+  is_dir <- is.list(get_env(lib)$table$files)
+  if(is_dir){
+    structure(list(set = lib, path = icon), class = c("icon_dir", "list"))
+  } else {
+    lib(icon)
+  }
+}
+
+#' @export
+`$.icon_dir` <- function(lib, icon){
+  path <- lib[["path"]]
+  lib <- lib[["set"]]
+  is_dir <- is.list(Reduce(`[[`, path, get_env(lib)$table$files))
+  path <- c(path, icon)
+  if(is_dir){
+    structure(list(set = lib, path = path), class = c("icon_dir", "list"))
+  } else {
+    lib(path)
+  }
 }
 
 #' @export
 names.icon_set <- function(x){
   get_env(x)[["icon_fn"]][["list"]]()
+}
+
+#' @export
+names.icon_dir <- function(x){
+  path <- x[["path"]]
+  lib <- x[["set"]]
+  files <- Reduce(`[[`, path, get_env(lib)$table$files)
+  if(is.list(files)) names(files) else files
 }
 
 #' @export

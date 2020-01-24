@@ -42,15 +42,15 @@ icons you would use `download_fontawesome()`.
 # Usage
 
 Icons can be inserted inline using inline code `` `r
-icon::fontawesome("solid_rocket")` ``
+icon::fontawesome("solid", "rocket")` ``
 <img src="man/figure/gh-installation-1.svg" height="16px"/> or `` `r
-icon::fontawesome$solid_rocket` ``
+icon::fontawesome$solid$rocket` ``
 <img src="man/figure/gh-installation-1.svg" height="16px"/>.
 
 Icons can also be inserted using usual R chunks.
 
     ```{r icon-chunk}
-    icon::fontawesome("solid_rocket") # equivalent to icon::fa$rocket
+    icon::fontawesome("solid", "rocket") # equivalent to icon::fontawesome$solid$rocket
     ```
 
 <img src="man/figure/unnamed-chunk-2-1.svg" height="16px"/>
@@ -63,7 +63,7 @@ accepts a directory of SVG files and allows them to be used as icons.
     custom
     ```
 
-    #> Custom icon set
+    #> Custom icon set (/hex)
 
     ```{r icon-sticker}
     custom$icon

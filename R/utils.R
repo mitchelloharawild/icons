@@ -11,8 +11,13 @@ icon_path <- function(...){
   file.path(path, ...)
 }
 
-list_svg <- function(path, recursive = TRUE, ...){
-  list.files(path, pattern = "\\.svg$", recursive = recursive, ...)
+list_svg <- function(path, ...){
+  dir <- list.dirs(path, full.names = TRUE)[-1]
+  if(length(dir) == 0){
+    sub("\\.svg$", "", list.files(path, pattern = "\\.svg$", ...))
+  } else {
+    setNames(lapply(dir, list_svg, ...), basename(dir))
+  }
 }
 
 icon_meta <- function(lib){

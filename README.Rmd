@@ -39,17 +39,17 @@ Once you've installed the package you'll also need to download some icons! Suppo
 
 # Usage
 
-Icons can be inserted inline using inline code `` `r knitr::inline_expr('icon::fontawesome("solid_rocket")')` `` `r icon::fontawesome("solid_rocket")` or `` `r knitr::inline_expr('icon::fontawesome$solid_rocket')` `` `r icon::fontawesome$solid_rocket`.
+Icons can be inserted inline using inline code `` `r knitr::inline_expr('icon::fontawesome("solid", "rocket")')` `` `r icon::fontawesome("solid", "rocket")` or `` `r knitr::inline_expr('icon::fontawesome$solid$rocket')` `` `r icon::fontawesome$solid$rocket`.
 
 Icons can also be inserted using usual R chunks.
 
 ````
 ```{r icon-chunk}`r ''`
-icon::fontawesome("solid_rocket") # equivalent to icon::fa$rocket
+icon::fontawesome("solid", "rocket") # equivalent to icon::fontawesome$solid$rocket
 ```
 ````
 ```{r, echo=FALSE}
-icon::fontawesome("solid_rocket")
+icon::fontawesome("solid", "rocket")
 ```
 
 Custom icon sets can be created using the `icon_set()` function, which accepts a directory of SVG files and allows them to be used as icons.
