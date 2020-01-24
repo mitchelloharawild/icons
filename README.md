@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# icon <img src="man/figure/logo.png" align="right" />
+# icon <a href='https:/pkg.mitchelloharawild.com/icon'><img src='man/figures/logo.svg' align="right" height="139" /></a>
 
 [![R build
 status](https://github.com/mitchelloharawild/icon/workflows/R-CMD-check/badge.svg)](https://github.com/mitchelloharawild/icon/actions?workflow=R-CMD-check)
@@ -45,9 +45,9 @@ icons you would use `download_fontawesome()`.
 
 Icons can be inserted inline using inline code `` `r
 icon::fontawesome("rocket", style = "solid")` ``
-<img src="man/figure/README-gh-installation-1.svg" height="16px"/> or
-`` `r icon::fontawesome$solid$rocket` ``
-<img src="man/figure/README-gh-installation-1.svg" height="16px"/>.
+<img src="man/figures/gh-installation-1.svg" height="16px"/> or `` `r
+icon::fontawesome$solid$rocket` ``
+<img src="man/figures/gh-installation-1.svg" height="16px"/>.
 
 Icons can also be inserted using usual R chunks.
 
@@ -55,7 +55,7 @@ Icons can also be inserted using usual R chunks.
     icon::fontawesome("rocket", style = "solid") # equivalent to icon::fontawesome$solid$rocket
     ```
 
-<img src="man/figure/README-unnamed-chunk-2-1.svg" height="16px"/>
+<img src="man/figures/unnamed-chunk-2-1.svg" height="16px"/>
 
 Custom icon sets can be created using the `icon_set()` function, which
 accepts a directory of SVG files and allows them to be used as icons.
@@ -71,7 +71,7 @@ accepts a directory of SVG files and allows them to be used as icons.
     custom$icon
     ```
 
-<img src="man/figure/README-icon-sticker-1.svg" height="16px"/>
+<img src="man/figures/icon-sticker-1.svg" height="16px"/>
 
 # A Note on the old API
 
