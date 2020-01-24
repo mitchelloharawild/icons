@@ -1,10 +1,4 @@
 #' @import rappdirs
-download_ai <- function(x, version = "latest", ...){
-  stop("Not yet supported")
-  # icon set: https://github.com/jpswalsh/academicons/blob/master/fonts/academicons.svg
-}
-
-#' @import rappdirs
 download_mdi <- function(x, version = "latest", ...){
   stop("Not yet supported")
   # icon dir: https://github.com/Templarian/MaterialDesign/tree/master/icons/svg

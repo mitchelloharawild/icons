@@ -26,6 +26,7 @@ using icons from these libraries:
   - [Font Awesome](https://github.com/FortAwesome/Font-Awesome/) (Pro
     icons can be used using custom icon sets)
   - [Ionicons](https://github.com/ionic-team/ionicons/)
+  - [Academicons](https://github.com/jpswalsh/academicons)
 
 # Installation
 
