@@ -5,14 +5,14 @@
 download_fontawesome <- function(version = "dev"){
   if(version == "dev"){
     url <- "https://github.com/FortAwesome/Font-Awesome/archive/master.zip"
-    version <- glue("dev ({Sys.Date()})")
+    version <- jsonlite::read_json("https://api.github.com/repos/FortAwesome/Font-Awesome/releases/latest")$tag_name
   }
   else{
     url <- glue("https://github.com/FortAwesome/Font-Awesome/archive/{version}.zip")
     version <- package_version(version)
   }
 
-  if(grepl("dev", version) || version >= package_version("5.6.0")){
+  if(version >= package_version("5.6.0")){
     path <- "svgs"
   }
   else{

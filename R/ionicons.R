@@ -4,16 +4,17 @@
 #' @export
 download_ionicons <- function(version = "dev"){
   if(version == "dev"){
-    version <- glue("dev ({Sys.Date()})")
     url <- "https://github.com/ionic-team/ionicons/archive/master.zip"
   }
   else{
     url <- glue("https://github.com/ionic-team/ionicons/archive/{version}.zip")
   }
 
+  meta <- jsonlite::read_json("https://raw.githubusercontent.com/ionic-team/ionicons/master/package.json")
+
   install_icon_zip(
     "ionicons", url, c("src", "svg"),
-    meta = list(name = "Ionicons", version = version, licence = "MIT")
+    meta = list(name = "Ionicons", version = meta$version, licence = meta$license)
   )
 
   invisible(ionicons)

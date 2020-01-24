@@ -65,4 +65,6 @@ install_icon_zip <- function(lib, url, svg_path, meta){
 
   # Update icons
   update_icon(lib)
+
+  return(dl_dir)
 }

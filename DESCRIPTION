@@ -18,7 +18,8 @@ Imports:
     glue,
     rappdirs,
     xml2,
-    stringr
+    stringr,
+    jsonlite
 Suggests: 
     rsvg,
     covr
