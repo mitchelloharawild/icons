@@ -18,7 +18,7 @@ new_icon <- function(nm, fn = dir_icon) {
     },
     get = function(name) {
       if(!dir.exists(table$path)){
-        abort("This icon library is not yet installed, install it with `install_*()`.")
+        abort("This icon library is not yet installed, install it with `download_*()`.")
       }
 
       files <- Reduce(`[[`, name[-length(name)], table$files)
