@@ -7,8 +7,7 @@
   if (any(toset)) options(op.icon[toset])
 
   # Update icon details
-  get_env(fontawesome)[["icon_fn"]][["update"]](icon_path("fontawesome"), meta = icon_meta("fontawesome"))
-  get_env(ionicons)[["icon_fn"]][["update"]](icon_path("ionicons"), meta = icon_meta("ionicons"))
+  update_icon()
 
   invisible()
 }

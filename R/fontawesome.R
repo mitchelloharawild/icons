@@ -37,7 +37,7 @@ download_fontawesome <- function(version = "dev"){
   )
 
   # Update icon set
-  get_env(fontawesome)[["icon_fn"]][["update"]](icon_path("fontawesome"), meta = icon_meta("fontawesome"))
+  update_icon("fontawesome")
 
   invisible(fontawesome)
 }
@@ -49,6 +49,7 @@ download_fontawesome <- function(version = "dev"){
 #' @rdname fontawesome
 #' @export
 fontawesome <- new_icon(
+  "fontawesome",
   function(name, style = NULL){
     icon_fn$get(c(style, name))
   }

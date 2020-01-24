@@ -28,7 +28,7 @@ read_icon <- function(x){
 icon_set <- function(path, meta = list(name = "Custom", version = NULL, license = NULL)){
   path <- suppressWarnings(normalizePath(path))
 
-  icon <- new_icon()
+  icon <- new_icon(path)
   get_env(icon)[["icon_fn"]][["update"]](path, meta)
   icon
 }
@@ -94,4 +94,12 @@ length.icon_set <- function(x){
 
 icon_installed <- function(x){
   dir.exists(get_env(x)$table$path)
+}
+
+update_icon <- function(libs = NULL){
+  if(is.null(libs)) libs <- names(icon_table)
+  lapply(libs, function(lib){
+    print(glue("updating {lib}"))
+    get_env(get(lib, mode = "function"))[["icon_fn"]][["update"]](icon_path(lib), meta = icon_meta(lib))
+  })
 }

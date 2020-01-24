@@ -35,7 +35,7 @@ download_ionicons <- function(version = "dev"){
   )
 
   # Update icon set
-  get_env(ionicons)[["icon_fn"]][["update"]](icon_path("ionicons"), meta = icon_meta("ionicons"))
+  update_icon("ionicons")
 
   invisible(ionicons)
 }
@@ -46,6 +46,7 @@ download_ionicons <- function(version = "dev"){
 #' @rdname ionicons
 #' @export
 ionicons <- new_icon(
+  "ionicons",
   function(name){
     icon_fn$get(name)
   }
