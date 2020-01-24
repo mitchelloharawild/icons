@@ -5,44 +5,6 @@
 #' @importFrom glue glue
 NULL
 
-# Lookup table for features
-new_icon <- function() {
-  table <- new.env(parent = emptyenv())
-  icon_fn <- list(
-    update = function(path, meta) {
-      table[["path"]] <- path
-      table[["files"]] <- list_svg(path)
-      table[["meta"]] <- meta
-    },
-    get = function(name) {
-      if(!dir.exists(table$path)){
-        abort("This icon library is not yet installed, install it with `install_*()`.")
-      }
-
-      files <- Reduce(`[[`, name[-length(name)], table$files)
-      icon <- name[length(name)]
-
-      if(!(icon %in% files)){
-        abort(
-          glue("The `{icon}` icon could not be found in this icon set.")
-        )
-      }
-
-      read_icon(glue(do.call(file.path, c(list(table[["path"]]), name)), ".svg"))
-    },
-    list = function() {
-      if(is.list(table[["files"]])) names(table[["files"]]) else table[["files"]]
-    }
-  )
-
-  structure(
-    function(...){
-      icon_fn$get(c(...))
-    },
-    class = c("icon_set", "list")
-  )
-}
-
 #' Read an individual icon
 #'
 #' @param x Path to the icon
@@ -77,7 +39,7 @@ icon_set <- function(path, meta = list(name = "Custom", version = NULL, license 
   if(is_dir){
     structure(list(set = lib, path = icon), class = c("icon_dir", "list"))
   } else {
-    lib(icon)
+    get_env(lib)[["icon_fn"]][["get"]](icon)
   }
 }
 
@@ -90,7 +52,7 @@ icon_set <- function(path, meta = list(name = "Custom", version = NULL, license 
   if(is_dir){
     structure(list(set = lib, path = path), class = c("icon_dir", "list"))
   } else {
-    lib(path)
+    get_env(lib)[["icon_fn"]][["get"]](path)
   }
 }
 

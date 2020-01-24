@@ -45,4 +45,8 @@ download_ionicons <- function(version = "dev"){
 #' @param name Name of the icon
 #' @rdname ionicons
 #' @export
-ionicons <- NULL
+ionicons <- new_icon(
+  function(name){
+    icon_fn$get(name)
+  }
+)

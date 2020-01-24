@@ -7,12 +7,14 @@
 \usage{
 download_fontawesome(version = "dev")
 
-fontawesome(name)
+fontawesome(name, style = NULL)
 }
 \arguments{
 \item{version}{Version of the library}
 
 \item{name}{Name of the icon}
+
+\item{style}{Style of the icon. If NULL, a default style will be chosen for the specified icon.}
 }
 \description{
 Font Awesome icons
