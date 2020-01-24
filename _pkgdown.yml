@@ -1,0 +1,26 @@
+url: https://pkg.mitchelloharawild.com/icon
+
+development:
+  mode: auto
+
+authors:
+  Mitchell O'Hara-Wild:
+    href: https://mitchelloharawild.com
+
+navbar:
+  type: default
+  left:
+#  - text: Introduction
+#    href: articles/icon.html
+  - text: Reference
+    href: reference/index.html
+  - text: Changelog
+    href: news/index.html
+  - text: News
+    menu:
+    - text: "Release notes"
+#    - text: "Version 0.1.0"
+#      href: https://www.mitchelloharawild.com/blog/icon/
+  right:
+  - icon: fa-github fa-lg
+    href: https://github.com/mitchelloharawild/icon

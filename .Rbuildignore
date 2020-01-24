@@ -8,3 +8,6 @@ example/example_files$
 ^Makefile$
 ^\.travis\.yml$
 ^hex$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
