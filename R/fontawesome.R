@@ -50,6 +50,6 @@ download_fontawesome <- function(version = "dev"){
 #' @export
 fontawesome <- new_icon(
   function(name, style = NULL){
-    icon_fn$get(style, name)
+    icon_fn$get(c(style, name))
   }
 )
