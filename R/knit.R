@@ -36,6 +36,9 @@ knit_print.icon <- function(x, ...) {
   }
   else if(out_type %in% c("gfm", "gfm-ascii_identifiers")){
     path <- knitr::fig_path(".svg")
+    if(!dir.exists(dirname(path))){
+      dir.create(dirname(path))
+    }
     writeLines(format(x), path)
     knitr::asis_output(
       glue("![](<path>){height=<height>em}", .open = "<", .close = ">")
