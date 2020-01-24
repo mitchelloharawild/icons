@@ -3,10 +3,12 @@
 
 # icon <img src="man/figure/logo.png" align="right" />
 
+[![R build
+status](https://github.com/mitchelloharawild/icon/workflows/R-CMD-check/badge.svg)](https://github.com/mitchelloharawild/icon/actions?workflow=R-CMD-check)
+[![Coverage
+status](https://codecov.io/gh/mitchelloharawild/icon/branch/master/graph/badge.svg)](https://codecov.io/gh/mitchelloharawild/icon?branch=master)
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-[![Travis build
-status](https://travis-ci.org/mitchelloharawild/icon.svg?branch=master)](https://travis-ci.org/mitchelloharawild/icon)
-<!-- [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/icon)](https://cran.r-project.org/package=icon) -->
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/icon)](https://cran.r-project.org/package=icon)
 <!-- [![Downloads](http://cranlogs.r-pkg.org/badges/icon?color=brightgreen)](https://cran.r-project.org/package=icon) -->
 
 The `icon` package for R makes adding web icons to reports,
