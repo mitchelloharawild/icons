@@ -16,7 +16,7 @@ list_svg <- function(path, ...){
   if(length(dir) == 0){
     sub("\\.svg$", "", list.files(path, pattern = "\\.svg$", ...))
   } else {
-    setNames(lapply(dir, list_svg, ...), basename(dir))
+    `names<-`(lapply(dir, list_svg, ...), basename(dir))
   }
 }
 

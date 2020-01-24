@@ -1,5 +1,5 @@
 #' Customise the style of an icon
-#'
+#' @param x The icon to style.
 #' @param scale Scaled size of the icon.
 #' @param fill The colour for the fill.
 #' @param ... Other CSS rules for the icon style.

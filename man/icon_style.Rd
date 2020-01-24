@@ -7,6 +7,8 @@
 icon_style(x, scale = NULL, fill = NULL, ...)
 }
 \arguments{
+\item{x}{The icon to style.}
+
 \item{scale}{Scaled size of the icon.}
 
 \item{fill}{The colour for the fill.}

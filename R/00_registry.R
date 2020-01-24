@@ -1,3 +1,5 @@
+globalVariables("icon_fn")
+
 dir_icon <- function(...){
   icon_fn$get(c(...))
 }
