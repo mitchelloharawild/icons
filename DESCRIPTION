@@ -20,7 +20,8 @@ Imports:
     xml2,
     stringr
 Suggests: 
-    rsvg
+    rsvg,
+    covr
 URL: https://github.com/mitchelloharawild/icon
 BugReports: https://github.com/mitchelloharawild/icon/issues
 VignetteBuilder: knitr
