@@ -3,41 +3,26 @@
 #' @importFrom utils download.file
 #' @export
 download_fontawesome <- function(version = "dev"){
-  # Clone repo
-  tmpFile <- tempfile("icon_fontawesome")
-  dir.create(tmpDir <- tempfile("icon_fontawesome"), showWarnings = FALSE)
-  on.exit(unlink(c(tmpFile, tmpDir)))
   if(version == "dev"){
+    url <- "https://github.com/FortAwesome/Font-Awesome/archive/master.zip"
     version <- glue("dev ({Sys.Date()})")
-    download.file("https://github.com/FortAwesome/Font-Awesome/archive/master.zip", tmpFile)
   }
   else{
-    download.file(glue("https://github.com/FortAwesome/Font-Awesome/archive/{version}.zip"), tmpFile)
+    url <- glue("https://github.com/FortAwesome/Font-Awesome/archive/{version}.zip")
     version <- package_version(version)
   }
 
-  # Find icons
-  utils::unzip(tmpFile, exdir = tmpDir)
-
   if(grepl("dev", version) || version >= package_version("5.6.0")){
-    path <- file.path(list.dirs(tmpDir, recursive = FALSE), "svgs")
+    path <- "svgs"
   }
   else{
-    path <- file.path(list.dirs(tmpDir, recursive = FALSE), "advanced-options", "raw-svg")
+    path <- c("advanced-options", "raw-svg")
   }
 
-  # Copy icons
-  dest_dir <- icon_path("fontawesome")
-  dir.create(dest_dir, recursive = TRUE, showWarnings = FALSE)
-  file.copy(list.dirs(path), dest_dir, recursive = TRUE)
-
-  saveRDS(
-    list(name = "Font Awesome", version = version, licence = "CC BY 4.0"),
-    file.path(dest_dir, "meta.rds")
+  install_icon_zip(
+    "fontawesome", url, path,
+    meta = list(name = "Font Awesome", version = version, licence = "CC BY 4.0")
   )
-
-  # Update icon set
-  update_icon("fontawesome")
 
   invisible(fontawesome)
 }

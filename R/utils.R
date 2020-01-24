@@ -38,3 +38,31 @@ require_package <- function(pkg){
     )
   }
 }
+
+install_icon_zip <- function(lib, url, svg_path, meta){
+  # Temporary download location
+  dl_file <- tempfile("icon_dl")
+  dir.create(dl_dir <- tempfile("icon_dl"), showWarnings = FALSE)
+  on.exit(unlink(c(dl_file, dl_dir)))
+
+  # Download repo
+  download.file(url, dl_file)
+
+  # Find icons
+  utils::unzip(dl_file, exdir = dl_dir)
+
+  path <- do.call(file.path, c(list(list.dirs(dl_dir, recursive = FALSE)), svg_path))
+
+  # Copy icons
+  files <- list.files(path, pattern = "\\.svg$", recursive = TRUE, full.names = TRUE)
+  dest_dir <- icon_path(lib)
+  dest <- file.path(dest_dir, substring(files, nchar(path)+2))
+  lapply(unique(dirname(dest)), dir.create, recursive = TRUE, showWarnings = FALSE)
+  file.copy(files, dest)
+
+  # Create meta
+  saveRDS(meta, file.path(dest_dir, "meta.rds"))
+
+  # Update icons
+  update_icon(lib)
+}
