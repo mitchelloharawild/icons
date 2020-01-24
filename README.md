@@ -44,18 +44,18 @@ icons you would use `download_fontawesome()`.
 # Usage
 
 Icons can be inserted inline using inline code `` `r
-icon::fontawesome("solid", "rocket")` ``
-<img src="man/figure/gh-installation-1.svg" height="16px"/> or `` `r
-icon::fontawesome$solid$rocket` ``
-<img src="man/figure/gh-installation-1.svg" height="16px"/>.
+icon::fontawesome("rocket", style = "solid")` ``
+<img src="man/figure/README-gh-installation-1.svg" height="16px"/> or
+`` `r icon::fontawesome$solid$rocket` ``
+<img src="man/figure/README-gh-installation-1.svg" height="16px"/>.
 
 Icons can also be inserted using usual R chunks.
 
     ```{r icon-chunk}
-    icon::fontawesome("solid", "rocket") # equivalent to icon::fontawesome$solid$rocket
+    icon::fontawesome("rocket", style = "solid") # equivalent to icon::fontawesome$solid$rocket
     ```
 
-<img src="man/figure/unnamed-chunk-2-1.svg" height="16px"/>
+<img src="man/figure/README-unnamed-chunk-2-1.svg" height="16px"/>
 
 Custom icon sets can be created using the `icon_set()` function, which
 accepts a directory of SVG files and allows them to be used as icons.
@@ -71,7 +71,7 @@ accepts a directory of SVG files and allows them to be used as icons.
     custom$icon
     ```
 
-<img src="man/figure/icon-sticker-1.svg" height="16px"/>
+<img src="man/figure/README-icon-sticker-1.svg" height="16px"/>
 
 # A Note on the old API
 

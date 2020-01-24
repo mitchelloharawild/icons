@@ -8,7 +8,7 @@ output: github_document
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  fig.path = "man/figure/"
+  fig.path = "man/figure/README-"
 )
 ```
 
@@ -40,17 +40,17 @@ Once you've installed the package you'll also need to download some icons! Suppo
 
 # Usage
 
-Icons can be inserted inline using inline code `` `r knitr::inline_expr('icon::fontawesome("solid", "rocket")')` `` `r icon::fontawesome("solid", "rocket")` or `` `r knitr::inline_expr('icon::fontawesome$solid$rocket')` `` `r icon::fontawesome$solid$rocket`.
+Icons can be inserted inline using inline code `` `r knitr::inline_expr('icon::fontawesome("rocket", style = "solid")')` `` `r icon::fontawesome("rocket", style = "solid")` or `` `r knitr::inline_expr('icon::fontawesome$solid$rocket')` `` `r icon::fontawesome$solid$rocket`.
 
 Icons can also be inserted using usual R chunks.
 
 ````
 ```{r icon-chunk}`r ''`
-icon::fontawesome("solid", "rocket") # equivalent to icon::fontawesome$solid$rocket
+icon::fontawesome("rocket", style = "solid") # equivalent to icon::fontawesome$solid$rocket
 ```
 ````
 ```{r, echo=FALSE}
-icon::fontawesome("solid", "rocket")
+icon::fontawesome("rocket", style = "solid")
 ```
 
 Custom icon sets can be created using the `icon_set()` function, which accepts a directory of SVG files and allows them to be used as icons.
