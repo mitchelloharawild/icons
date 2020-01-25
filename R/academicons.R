@@ -31,7 +31,7 @@ download_academicons <- function(version = "dev"){
   )
 
   # Update icons
-  update_icon("academicons")
+  update_icon("academicons", silent = FALSE)
 
   invisible(academicons)
 }

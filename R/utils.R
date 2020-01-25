@@ -64,7 +64,7 @@ install_icon_zip <- function(lib, url, svg_path, meta){
   saveRDS(meta, file.path(dest_dir, "meta.rds"))
 
   # Update icons
-  update_icon(lib)
+  update_icon(lib, silent = FALSE)
 
   return(dl_dir)
 }

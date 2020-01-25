@@ -19,7 +19,10 @@ Imports:
     rappdirs,
     xml2,
     stringr,
-    jsonlite
+    jsonlite,
+    cli,
+    crayon,
+    utils
 Suggests: 
     rsvg,
     covr

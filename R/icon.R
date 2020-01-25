@@ -96,10 +96,16 @@ icon_installed <- function(x){
   dir.exists(get_env(x)$table$path)
 }
 
-update_icon <- function(libs = NULL){
+update_icon <- function(libs = NULL, silent = TRUE){
   if(is.null(libs)) libs <- names(icon_table)
   lapply(libs, function(lib){
-    print(glue("updating {lib}"))
-    get_env(get(lib, mode = "function"))[["icon_fn"]][["update"]](icon_path(lib), meta = icon_meta(lib))
+    meta <- icon_meta(lib)
+    if(!silent){
+      msg(paste0(
+        crayon::green(cli::symbol$tick), " ", crayon::blue(lib), " updated to version ",
+        format_version(package_version(meta$version))
+      ))
+    }
+    get_env(get(lib, mode = "function"))[["icon_fn"]][["update"]](icon_path(lib), meta = meta)
   })
 }
