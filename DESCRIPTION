@@ -22,7 +22,8 @@ Imports:
     jsonlite,
     cli,
     crayon,
-    utils
+    utils,
+    rstudioapi
 Suggests: 
     rsvg,
     covr

@@ -11,3 +11,4 @@ example/example_files$
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$
+.github
