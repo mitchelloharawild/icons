@@ -1,5 +1,9 @@
 # icon 0.1.0.9000
 
+## New icon sets
+
+* Added the `simple_icons()` icon set (https://github.com/simple-icons/simple-icons/).
+
 ## Breaking changes
 
 * Icons are no longer included directly in the package, and will require downloading before use.
