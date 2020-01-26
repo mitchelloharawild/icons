@@ -1,9 +1,10 @@
 #' Find icons in installed sets by name
 #'
 #' @param name The name of the icon
+#' @param set Icon sets to search. If NULL, all available icons will be searched.
 #'
 #' @export
-icon_find <- function(name, lib = NULL){
+icon_find <- function(name, set = NULL){
   all_icons <- lapply(icon_table, function(x) x$table$files)
   if(!is.null(lib)) all_icons <- all_icons[lib]
   search_icon <- function(x){
