@@ -12,8 +12,9 @@
 #' @rdname migration
 #' @export
 fa <- function(...){
-  msg(glue(crayon::red(cli::symbol$warning), "  Refer to the NEWS (https://pkg.mitchelloharawild.com/icon/news/) to read the changes."))
-  msg(glue(crayon::blue(cli::symbol$info), "  You can use the migration tool `migrate_icon()` to update your documents to this new version."))
+  msg(glue(crayon::red(cli::symbol$warning), "  Updates to the icon package have introduced breaking changes."))
+  msg(glue(crayon::blue(cli::symbol$info), "  Refer to the NEWS (https://pkg.mitchelloharawild.com/icon/news/) to read the changes."))
+  msg(glue(crayon::green(cli::symbol$star), "  You can use the migration tool `migrate_icon()` to update your documents to this new version."))
   abort("Update to the new interface for the icon package.")
 }
 
