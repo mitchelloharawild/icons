@@ -21,6 +21,6 @@ icon_find <- function(name, lib = NULL){
   found_icons <- icon_method(search_icon(all_icons))
   names(found_icons) <- found_icons
   lapply(found_icons, function(x){
-    eval_tidy(parse_expr(x), env = as.environment("package:icon"))
+    eval_tidy(parse_expr(x), env = env_parent(n = 2))
   })
 }
