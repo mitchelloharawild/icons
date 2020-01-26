@@ -47,11 +47,13 @@ Icons can also be inserted using usual R chunks.
 
 ````
 ```{r icon-chunk}`r ''`
-icon::fontawesome("rocket", style = "solid") # equivalent to icon::fontawesome$solid$rocket
+library(icon)
+fontawesome("rocket", style = "solid") # equivalent to icon::fontawesome$solid$rocket
 ```
 ````
 ```{r, echo=FALSE}
-icon::fontawesome("rocket", style = "solid")
+library(icon)
+fontawesome("rocket", style = "solid")
 ```
 
 Custom icon sets can be created using the `icon_set()` function, which accepts a directory of SVG files and allows them to be used as icons.
@@ -63,7 +65,7 @@ custom
 ```
 ````
 ```{r custom, echo=FALSE}
-custom <- icon::icon_set("hex")
+custom <- icon_set("hex")
 custom
 ```
 
@@ -74,6 +76,12 @@ custom$icon
 ````
 ```{r icon-sticker, echo=FALSE}
 custom$icon
+```
+
+You can also search for icons using the `icon_find()` function.
+
+```{r icon-find}
+icon_find("rocket")
 ```
 
 
