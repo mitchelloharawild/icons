@@ -36,6 +36,10 @@ download_fontawesome <- function(version = "dev"){
 fontawesome <- new_icon(
   "fontawesome",
   function(name, style = NULL){
-    icon_fn$get(c(style, name))
+    if(is.null(style)){
+      icon_find(name, "fontawesome")[[1]]
+    } else {
+      icon_fn$get(c(style, name))
+    }
   }
 )

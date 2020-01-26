@@ -3,8 +3,9 @@
 #' @param name The name of the icon
 #'
 #' @export
-icon_find <- function(name){
+icon_find <- function(name, lib = NULL){
   all_icons <- lapply(icon_table, function(x) x$table$files)
+  if(!is.null(lib)) all_icons <- all_icons[lib]
   search_icon <- function(x){
     if(is.list(x)) return(Filter(function(x) !is_empty(x), lapply(x, search_icon)))
     if(name %in% x) name else NULL
