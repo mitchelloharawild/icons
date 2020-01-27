@@ -10,6 +10,7 @@ download_academicons <- function(version = "dev"){
   }
 
   svg <- xml2::as_list(xml2::read_xml(url))$svg
+  font <- attributes(svg$defs$font$`font-face`)
   meta <- jsonlite::parse_json(svg$metadata$json[[1]])
   version <- glue("{meta$majorVersion}.{meta$minorVersion}")
   nm <- lapply(svg$defs$font, attr, "glyph-name")
@@ -18,7 +19,10 @@ download_academicons <- function(version = "dev"){
   svg <- svg$defs$font[is_icon]
   paths <- vapply(svg, attr, character(1L), "d")
 
-  svg <- glue('<svg xmlns="http://www.w3.org/2000/svg"><path d="{paths}"/></svg>')
+  svg <- glue(
+'<svg xmlns="http://www.w3.org/2000/svg" height="{font$`units-per-em`}" width="{font$`units-per-em`}">
+<path transform="scale(1,-1) translate(0,-{font$ascent})" d="{paths}"/>
+</svg>')
   path <- icon_path("academicons")
 
   dir.create(path, recursive = TRUE, showWarnings = FALSE)
