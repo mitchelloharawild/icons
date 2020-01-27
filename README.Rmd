@@ -27,6 +27,8 @@ The `icon` package currently provides helpful tools for downloading and using ic
 * [Font Awesome](https://github.com/FortAwesome/Font-Awesome/) (Pro icons can be used using custom icon sets)
 * [Ionicons](https://github.com/ionic-team/ionicons/)
 * [Academicons](https://github.com/jpswalsh/academicons)
+* [Simple Icons](https://github.com/simple-icons/simple-icons/).
+
 
 # Installation
 
