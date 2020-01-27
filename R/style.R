@@ -2,11 +2,12 @@
 #' @param x The icon to style.
 #' @param scale Scaled size of the icon.
 #' @param fill The colour for the fill.
+#' @param rotate The angle to rotate the icon.
 #' @param ... Other CSS rules for the icon style.
 #'
 #' @importFrom stringr str_replace
 #' @export
-icon_style <- function(x, scale = NULL, fill = NULL, ...){
+icon_style <- function(x, scale = NULL, fill = NULL, rotate = NULL, ...){
   style <- x$attribs$style
   if(!is.null(fill)){
     style <- str_replace(style, "fill:[^;]*;", "")
@@ -15,6 +16,10 @@ icon_style <- function(x, scale = NULL, fill = NULL, ...){
   if(!is.null(scale)){
     style <- str_replace(style, "height:[^;]*;", "")
     style <- glue("{style}height:{scale}em;")
+  }
+  if(!is.null(rotate)){
+    style <- str_replace(style, "transform: rotate[^;]*;", "")
+    style <- glue("{style}transform: rotate({rotate}deg);")
   }
   dots <- list(...)
   if(!is_empty(dots)){

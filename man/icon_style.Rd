@@ -4,7 +4,7 @@
 \alias{icon_style}
 \title{Customise the style of an icon}
 \usage{
-icon_style(x, scale = NULL, fill = NULL, ...)
+icon_style(x, scale = NULL, fill = NULL, rotate = NULL, ...)
 }
 \arguments{
 \item{x}{The icon to style.}
@@ -12,6 +12,8 @@ icon_style(x, scale = NULL, fill = NULL, ...)
 \item{scale}{Scaled size of the icon.}
 
 \item{fill}{The colour for the fill.}
+
+\item{rotate}{The angle to rotate the icon.}
 
 \item{...}{Other CSS rules for the icon style.}
 }
