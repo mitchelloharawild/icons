@@ -13,15 +13,15 @@ icon_find <- function(name, set = NULL){
   }
   icon_method <- function(x, nm = NULL){
     if(is.list(x)){
-      nm <- if(is.null(nm)) names(x) else paste(nm, names(x), sep = "$")
-      do.call(c, mapply(icon_method, x = x, nm = nm, SIMPLIFY = FALSE, USE.NAMES = FALSE))
+      nm <- if(is.null(nm)) syms(names(x)) else lapply(names(x), function(.) expr(`$`(!!nm, !!sym(.))))
+      flatten(mapply(icon_method, x = x, nm = nm, SIMPLIFY = FALSE, USE.NAMES = FALSE))
     } else {
-      paste(nm, x, sep = "$")
+      expr(`$`(!!nm, !!sym(x)))
     }
   }
   found_icons <- icon_method(search_icon(all_icons))
-  names(found_icons) <- found_icons
+  names(found_icons) <- vapply(found_icons, deparse, FUN.VALUE = character(1L))
   lapply(found_icons, function(x){
-    eval_tidy(parse_expr(x), env = env_parent(n = 2))
+    eval_tidy(x, env = env_parent(n = 2))
   })
 }
