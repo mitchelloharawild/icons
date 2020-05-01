@@ -7,7 +7,7 @@ knit_print.icon <- function(x, ...) {
     warn("Could not detect output format, please use `rmarkdown::render()` to knit the document.")
     return(knitr::asis_output(""))
   }
-  if(out_type == "html"){
+  if(out_type %in% c("html", "markdown_strict")){
     return(knitr::asis_output(htmltools::htmlPreserve(paste0("\n", gsub('"', "'", format(x))))))
   }
 
@@ -18,7 +18,7 @@ knit_print.icon <- function(x, ...) {
     ), "(\\.|\\d)+"
   ))
 
-  if(out_type == "latex"){
+  if(out_type %in% c("latex")){
     require_package("rsvg")
     path <- paste0(tempfile(), ".pdf")
     rsvg::rsvg_pdf(charToRaw(format(x)), path)
@@ -26,7 +26,7 @@ knit_print.icon <- function(x, ...) {
       glue("![](<path>){height=<height*0.7>em}", .open = "<", .close = ">")
     )
   }
-  else if(out_type == "docx"){
+  else if(out_type %in% c("epub3", "docx")){
     require_package("rsvg")
     path <- paste0(tempfile(), ".png")
     rsvg::rsvg_png(charToRaw(format(x)), path)
