@@ -8,7 +8,7 @@ knit_print.icon <- function(x, ...) {
     return(knitr::asis_output(""))
   }
   if(out_type %in% c("html", "markdown_strict")){
-    return(knitr::asis_output(htmltools::htmlPreserve(paste0("\n", gsub('"', "'", format(x))))))
+    return(knitr::asis_output(gsub('\n', "", format(x))))
   }
 
   height <- as.numeric(str_extract(
