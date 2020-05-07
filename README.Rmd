@@ -27,8 +27,8 @@ The `icon` package currently provides helpful tools for downloading and using ic
 * [Font Awesome](https://github.com/FortAwesome/Font-Awesome/) (Pro icons can be used using custom icon sets)
 * [Ionicons](https://github.com/ionic-team/ionicons/)
 * [Academicons](https://github.com/jpswalsh/academicons)
-* [Simple Icons](https://github.com/simple-icons/simple-icons/).
-
+* [Simple Icons](https://github.com/simple-icons/simple-icons/)
+* [Material Design](https://github.com/google/material-design-icons)
 
 # Installation
 
@@ -43,18 +43,20 @@ Once you've installed the package you'll also need to download some icons! Suppo
 
 # Usage
 
+```{r load}
+library(icon)
+```
+
 Icons can be inserted inline using inline code `` `r knitr::inline_expr('icon::fontawesome("rocket", style = "solid")')` `` `r icon::fontawesome("rocket", style = "solid")` or `` `r knitr::inline_expr('icon::fontawesome$solid$rocket')` `` `r icon::fontawesome$solid$rocket`.
 
 Icons can also be inserted using usual R chunks.
 
 ````
 ```{r icon-chunk}`r ''`
-library(icon)
 fontawesome("rocket", style = "solid") # equivalent to icon::fontawesome$solid$rocket
 ```
 ````
-```{r, echo=FALSE}
-library(icon)
+```{r icon-chunk, echo=FALSE}
 fontawesome("rocket", style = "solid")
 ```
 
@@ -66,7 +68,7 @@ custom <- icon::icon_set("hex")
 custom
 ```
 ````
-```{r custom, echo=FALSE}
+```{r icon-custom, echo=FALSE}
 custom <- icon_set("hex")
 custom
 ```
@@ -85,7 +87,6 @@ You can also search for icons using the `icon_find()` function.
 ```{r icon-find}
 icon_find("rocket")
 ```
-
 
 # A Note on the old API
 

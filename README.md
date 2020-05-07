@@ -27,7 +27,8 @@ using icons from these libraries:
     icons can be used using custom icon sets)
   - [Ionicons](https://github.com/ionic-team/ionicons/)
   - [Academicons](https://github.com/jpswalsh/academicons)
-  - [Simple Icons](https://github.com/simple-icons/simple-icons/).
+  - [Simple Icons](https://github.com/simple-icons/simple-icons/)
+  - [Material Design](https://github.com/google/material-design-icons)
 
 # Installation
 
@@ -45,25 +46,27 @@ icons you would use `download_fontawesome()`.
 
 # Usage
 
+``` r
+library(icon)
+#> ── Installed icons ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── icon 0.1.0.9000 ──
+#> ✓ ionicons        5.0.0.16     ✓ material_design 3.0.1   
+#> ✓ academicons     1.8          ✓ fontawesome     5.13.0  
+#> ✓ simple_icons    2.3.0
+```
+
 Icons can be inserted inline using inline code `` `r
 icon::fontawesome("rocket", style = "solid")` ``
-<img src="man/figures/gh-installation-1.svg" height="16px"/> or `` `r
+<img src="man/figures/load-1.svg" height="16px"/> or `` `r
 icon::fontawesome$solid$rocket` ``
-<img src="man/figures/gh-installation-1.svg" height="16px"/>.
+<img src="man/figures/load-1.svg" height="16px"/>.
 
 Icons can also be inserted using usual R chunks.
 
     ```{r icon-chunk}
-    library(icon)
     fontawesome("rocket", style = "solid") # equivalent to icon::fontawesome$solid$rocket
     ```
 
-    #> ── Installed icons ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── icon 0.1.0.9000 ──
-    #> ✓ ionicons 5.0.0.16     x material_design         
-    #> ✓ academicons 1.8          ✓ fontawesome 5.12.0  
-    #> ✓ simple_icons 2.3.0
-
-<img src="man/figures/unnamed-chunk-2-1.svg" height="16px"/>
+<img src="man/figures/icon-chunk-1.svg" height="16px"/>
 
 Custom icon sets can be created using the `icon_set()` function, which
 accepts a directory of SVG files and allows them to be used as icons.
