@@ -39,7 +39,7 @@ require_package <- function(pkg){
   }
 }
 
-install_icon_zip <- function(lib, url, svg_path, meta){
+install_icon_zip <- function(lib, url, svg_path, svg_pattern = "\\.svg$", svg_dest = NULL, meta){
   # Temporary download location
   dl_file <- tempfile("icon_dl")
   dir.create(dl_dir <- tempfile("icon_dl"), showWarnings = FALSE)
@@ -51,12 +51,24 @@ install_icon_zip <- function(lib, url, svg_path, meta){
   # Find icons
   utils::unzip(dl_file, exdir = dl_dir)
 
-  path <- do.call(file.path, c(list(list.dirs(dl_dir, recursive = FALSE)), svg_path))
+  if(is.character(svg_path)){
+    path <- do.call(file.path, c(list(list.dirs(dl_dir, recursive = FALSE)), svg_path))
+  } else if (is.function(svg_path)){
+    path <- svg_path(dl_dir)
+  }
 
   # Copy icons
-  files <- list.files(path, pattern = "\\.svg$", recursive = TRUE, full.names = TRUE)
+  files <- list.files(path, pattern = svg_pattern, recursive = TRUE, full.names = TRUE)
   dest_dir <- icon_path(lib)
-  dest <- file.path(dest_dir, substring(files, nchar(path)+2))
+  unlink(dest_dir, recursive = TRUE)
+  dest_svg <- if(is.function(svg_dest)){
+    svg_dest(files)
+  } else {
+    substring(files, nchar(path)+2)
+  }
+  files <- files[!is.na(dest_svg)]
+  dest_svg <- dest_svg[!is.na(dest_svg)]
+  dest <- file.path(dest_dir, dest_svg)
   lapply(unique(dirname(dest)), dir.create, recursive = TRUE, showWarnings = FALSE)
   file.copy(files, dest)
 
