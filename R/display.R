@@ -51,9 +51,10 @@ icon_attach <- function() {
     character(1)
   )
   available <- vapply(icon_table, function(x) dir.exists(x$table$path), logical(1L))
+
   icons <- paste0(
     ifelse(available, crayon::green(cli::symbol$tick), crayon::red(cli::symbol$cross)),
-    " ", crayon::blue(names(icon_table)), " ",
+    " ", crayon::col_align(crayon::blue(names(icon_table)), max(crayon::col_nchar(names(icon_table)))), " ",
     crayon::col_align(versions, max(crayon::col_nchar(versions)))
   )
 
