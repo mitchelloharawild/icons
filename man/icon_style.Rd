@@ -15,7 +15,7 @@ icon_style(x, scale = NULL, fill = NULL, rotate = NULL, ...)
 
 \item{rotate}{The angle to rotate the icon.}
 
-\item{...}{Other CSS rules for the icon style.}
+\item{...}{Other CSS rules for the icon style, for example \code{float = "right"}.}
 }
 \description{
 Customise the style of an icon

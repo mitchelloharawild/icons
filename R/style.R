@@ -3,7 +3,7 @@
 #' @param scale Scaled size of the icon.
 #' @param fill The colour for the fill.
 #' @param rotate The angle to rotate the icon.
-#' @param ... Other CSS rules for the icon style.
+#' @param ... Other CSS rules for the icon style, for example `float = "right"`.
 #'
 #' @importFrom stringr str_replace
 #' @export
