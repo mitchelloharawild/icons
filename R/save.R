@@ -9,7 +9,8 @@
 #'
 #' @export
 #' @examples
-#' \donttest{
+#' if(icon_installed(fontawesome) && icon_installed(ionicons)){
+#'
 #' icon_save(
 #'   list(arrow = fontawesome$solid$`arrow-right`, alarm = ionicons$alarm),
 #'   path = "icons"
@@ -17,6 +18,7 @@
 #'
 #' app_icons <- icon_set("icons")
 #' app_icons$arrow
+#'
 #' }
 #'
 icon_save <- function(icons, path = "."){
