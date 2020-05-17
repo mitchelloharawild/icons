@@ -92,6 +92,15 @@ length.icon_set <- function(x){
   length(get_env(x)[["icon_fn"]][["list"]]())
 }
 
+#' Check if an icon set is installed.
+#'
+#' This function will return `TRUE` if the icons for an icon set are installed.
+#' If they aren't, they can be installed using the appropriate `download_*()`
+#' function.
+#'
+#' @param x An icon set (such as [`fontawesome`]).
+#'
+#' @export
 icon_installed <- function(x){
   dir.exists(get_env(x)$table$path)
 }

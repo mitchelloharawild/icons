@@ -17,7 +17,7 @@ icons. Bundling icons with your document or app avoids the need for
 collaborators or servers to have all icons from a library installed.
 }
 \examples{
-
+\donttest{
 icon_save(
   list(arrow = fontawesome$solid$`arrow-right`, alarm = ionicons$alarm),
   path = "icons"
@@ -25,5 +25,6 @@ icon_save(
 
 app_icons <- icon_set("icons")
 app_icons$arrow
+}
 
 }
