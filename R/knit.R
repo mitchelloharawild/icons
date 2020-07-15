@@ -23,7 +23,7 @@ knit_print.icon <- function(x, ...) {
     path <- paste0(tempfile(), ".pdf")
     rsvg::rsvg_pdf(charToRaw(format(x)), path)
     knitr::asis_output(
-      glue("![](<path>){height=<height*0.7>em}", .open = "<", .close = ">")
+      glue("\\protect\\includegraphics[height=<height*0.7>em]{<path>}", .open = "<", .close = ">")
     )
   }
   else if(out_type %in% c("epub3", "docx")){
