@@ -2,17 +2,19 @@
 #' @rdname academicons
 #' @export
 download_academicons <- function(version = "dev"){
-  if(version == "dev"){
-    url <- "https://raw.githubusercontent.com/jpswalsh/academicons/master/fonts/academicons.svg"
+  path <- if(version == "dev"){
+    "https://raw.githubusercontent.com/jpswalsh/academicons/master"
   }
   else{
-    url <- glue("https://raw.githubusercontent.com/jpswalsh/academicons/{version}/fonts/academicons.svg")
+    glue("https://raw.githubusercontent.com/jpswalsh/academicons/{version}")
   }
+  url <- glue("{path}/fonts/academicons.svg")
 
   svg <- xml2::as_list(xml2::read_xml(url))$svg
   font <- attributes(svg$defs$font$`font-face`)
-  meta <- jsonlite::parse_json(svg$metadata$json[[1]])
-  version <- glue("{meta$majorVersion}.{meta$minorVersion}")
+  version_url <- glue("{path}/package.json")
+  meta <- jsonlite::parse_json(readLines(version_url))
+
   nm <- lapply(svg$defs$font, attr, "glyph-name")
   is_icon <- !vapply(nm, is.null, logical(1L))
 
@@ -30,7 +32,7 @@ download_academicons <- function(version = "dev"){
 
   # Create meta
   saveRDS(
-    list(name = "Academicons", version = version, licence = meta$license),
+    list(name = "Academicons", version = meta$version, licence = meta$license),
     file.path(path, "meta.rds")
   )
 
