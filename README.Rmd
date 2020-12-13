@@ -8,29 +8,87 @@ output: github_document
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  fig.path = "man/figure/"
+  fig.path = "man/figures/"
 )
 ```
 
-# icon <img src="man/figure/logo.png" align="right" />
+# icon <a href='https://pkg.mitchelloharawild.com/icon'><img src='man/figures/logo.svg' align="right" height="139" /></a>
 
-<!-- [![Travis-CI Build Status](https://travis-ci.org/earowang/icon.svg?branch=master)](https://travis-ci.org/earowang/icon) -->
-<!-- [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/icon)](https://cran.r-project.org/package=icon) -->
+[![R build status](https://github.com/mitchelloharawild/icon/workflows/R-CMD-check/badge.svg)](https://github.com/mitchelloharawild/icon/actions?workflow=R-CMD-check)
+[![Coverage status](https://codecov.io/gh/mitchelloharawild/icon/branch/master/graph/badge.svg)](https://codecov.io/gh/mitchelloharawild/icon?branch=master)
+[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/icon)](https://cran.r-project.org/package=icon)
 <!-- [![Downloads](http://cranlogs.r-pkg.org/badges/icon?color=brightgreen)](https://cran.r-project.org/package=icon) -->
 
-An R package to easily insert web icons, including [font awesome](http://fontawesome.io), [academicons](http://jpswalsh.github.io/academicons/) and [ionicons](http://ionicons.com), into RMarkdown. Besides emoji, a sea of icons are floating around the web, which provides new options (or fun) for digital expressions. Please see [the vignette](http://www.mitchelloharawild.com/icon/) as slides for details.
+The `icon` package for R makes adding web icons to reports, presentations and apps easy. It integrates many popular icon libraries from around the web with a simple interface that works with any `rmarkdown` output format. If a particular icon library is not explicitly supported by this package, you can still use it by creating a custom icon set from a folder of SVG files. Icons provide flexible means of digital expression, allowing expressions and functionality beyond what is possible with emoji.
 
-It works with inline code `` `r '\x60r icon::fa("rocket")\x60'` `` and chunks:
+The `icon` package currently provides helpful tools for downloading and using icons from these libraries:
 
-````
-```{r, eval=FALSE}
-icon::fa("rocket") # equivalent to icon::fa_rocket()
-```
-````
+* [Font Awesome](https://github.com/FortAwesome/Font-Awesome/) (Pro icons can be used using custom icon sets)
+* [Ionicons](https://github.com/ionic-team/ionicons/)
+* [Academicons](https://github.com/jpswalsh/academicons)
+* [Simple Icons](https://github.com/simple-icons/simple-icons/)
+* [Material Design](https://github.com/google/material-design-icons)
+
+# Installation
 
 The **development** version can be installed from GitHub using:
 
 ```{r gh-installation, eval = FALSE}
-# install.packages("devtools")
-devtools::install_github("ropenscilabs/icon")
+# install.packages("remotes")
+remotes::install_github("mitchelloharawild/icon")
 ```
+
+Once you've installed the package you'll also need to download some icons! Supported icon libraries (listed above) can be downloaded using the `download_*()` functions. For example, to download the Font Awesome icons you would use `download_fontawesome()`.
+
+# Usage
+
+```{r load}
+library(icon)
+```
+
+Icons can be inserted inline using inline code `` `r knitr::inline_expr('icon::fontawesome("rocket", style = "solid")')` `` `r icon::fontawesome("rocket", style = "solid")` or `` `r knitr::inline_expr('icon::fontawesome$solid$rocket')` `` `r icon::fontawesome$solid$rocket`.
+
+Icons can also be inserted using usual R chunks.
+
+````
+```{r icon-chunk}`r ''`
+fontawesome("rocket", style = "solid") # equivalent to icon::fontawesome$solid$rocket
+```
+````
+```{r icon-chunk, echo=FALSE}
+fontawesome("rocket", style = "solid")
+```
+
+Custom icon sets can be created using the `icon_set()` function, which accepts a directory of SVG files and allows them to be used as icons.
+
+````
+```{r icon-custom}`r ''`
+custom <- icon::icon_set("hex")
+custom
+```
+````
+```{r icon-custom, echo=FALSE}
+custom <- icon_set("hex")
+custom
+```
+
+````
+```{r icon-sticker}`r ''`
+custom$icon
+```
+````
+```{r icon-sticker, echo=FALSE}
+custom$icon
+```
+
+You can also search for icons using the `icon_find()` function.
+
+```{r icon-find}
+icon_find("rocket")
+```
+
+# A Note on the old API
+
+This is the second iteration of the icon package, the [first icon package](https://github.com/ropenscilabs/icon) has been successful, but lacked a few features such as SVG icons, user defined libraries, and extensibility support. You can read the notes on the new API [here](https://github.com/ropenscilabs/icon/issues/19). It turns out that it was easier to build the new and improved icon from scratch, which is what this repository is. In the future this version of icon might just be merged into rOpenScilabs/icon, but for the mean time it will be developed here. We anticipate that there will only be any minor changes to the existing API, so hopefully this will be a seamless transition for users! Notably, the `icon_name` functions have been removed in favour of `icon$name`, and the interface for styling and animating has been removed/changed.
+

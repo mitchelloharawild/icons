@@ -4,25 +4,25 @@
 \name{icon-package}
 \alias{icon}
 \alias{icon-package}
-\title{icon: Icon web-fonts for RMarkdown}
+\title{icon: SVG Icons for R Documents and Apps}
 \description{
-This package allows easy insertion of icons from Font Awesome, Academicons and Ionicons into RMarkdown.
+Easily embed SVG icons into R Markdown documents or shiny apps. A collection of popular icon sets are supported by the package, including Font Awesome, Academicons and Ionicons.
 }
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/ropenscilabs/icon}
-  \item Report bugs at \url{https://github.com/ropenscilabs/icon/issues}
+  \item \url{https://github.com/mitchelloharawild/icon}
+  \item Report bugs at \url{https://github.com/mitchelloharawild/icon/issues}
 }
 
 }
 \author{
 \strong{Maintainer}: Mitchell O'Hara-Wild \email{mail@mitchelloharawild.com}
 
-Authors:
+Other contributors:
 \itemize{
-  \item Earo Wang \email{earo.wang@gmail.com}
-  \item Timothy Hyndman \email{timothy.hyndman@gmail.com}
+  \item Earo Wang [contributor]
+  \item Timothy Hyndman [contributor]
 }
 
 }

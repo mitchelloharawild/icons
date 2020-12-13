@@ -1,24 +1,36 @@
 Package: icon
 Type: Package
-Title: Icon web-fonts for RMarkdown
-Version: 0.1.0
+Title: SVG Icons for R Documents and Apps
+Version: 0.1.0.9000
 Authors@R: c(
     person("Mitchell", "O'Hara-Wild", email = "mail@mitchelloharawild.com", role = c("aut", "cre")),
-    person("Earo", "Wang", email = "earo.wang@gmail.com", role = "aut"),
-    person("Timothy", "Hyndman", email = "timothy.hyndman@gmail.com", role = "aut")
+    person("Earo", "Wang", role = "ctb"),
+    person("Timothy", "Hyndman", role = "ctb")
     )
-Description: This package allows easy insertion of icons from Font Awesome, Academicons and Ionicons into RMarkdown.
+Description: Easily embed SVG icons into R Markdown documents or shiny apps. A collection of popular icon sets are supported by the package, including Font Awesome, Academicons and Ionicons.
 Depends:
     R (>= 3.1.3)
 Imports:
-    rmarkdown (>= 1.6.0),
     knitr,
-    htmltools
-URL: https://github.com/ropenscilabs/icon
-BugReports: https://github.com/ropenscilabs/icon/issues
+    rlang,
+    htmltools,
+    glue,
+    rappdirs,
+    xml2,
+    stringr,
+    jsonlite,
+    cli,
+    crayon,
+    utils,
+    rstudioapi
+Suggests: 
+    rsvg,
+    covr
+URL: https://github.com/mitchelloharawild/icon
+BugReports: https://github.com/mitchelloharawild/icon/issues
 VignetteBuilder: knitr
-License: MIT + file LICENSE
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.1.0
+RoxygenNote: 7.0.2.9000
 Roxygen: list(markdown = TRUE, roclets=c('rd', 'collate', 'namespace'))

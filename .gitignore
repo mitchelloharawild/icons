@@ -1,5 +1,9 @@
 .Rhistory
 .Rproj.user
+.RData
+.Ruserdata
 Makefile
 .DS_Store
 inst/doc
+revdep
+tests/testthat/Rplots.pdf
