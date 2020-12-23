@@ -7,7 +7,7 @@ knit_print.icon <- function(x, ...) {
     warn("Could not detect output format, please use `rmarkdown::render()` to knit the document.")
     return(knitr::asis_output(""))
   }
-  if(out_type %in% c("html", "markdown_strict")){
+  if(out_type %in% c("html", "html5", "markdown_strict")){
     return(knitr::asis_output(gsub('\n', "", format(x))))
   }
 
