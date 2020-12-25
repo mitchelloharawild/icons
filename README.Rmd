@@ -60,6 +60,18 @@ fontawesome("rocket", style = "solid") # equivalent to icon::fontawesome$solid$r
 fontawesome("rocket", style = "solid")
 ```
 
+The appearance of an icon can be customised using the `icon_style()` function.
+
+
+````
+```{r icon-style}`r ''`
+icon_style(fontawesome("rocket", style = "solid"), scale = 2, fill = "red")
+```
+````
+```{r icon-style, echo=FALSE}
+icon_style(fontawesome("rocket", style = "solid"), scale = 2, fill = "red")
+```
+
 Custom icon sets can be created using the `icon_set()` function, which accepts a directory of SVG files and allows them to be used as icons.
 
 ````

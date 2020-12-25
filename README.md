@@ -23,12 +23,12 @@ what is possible with emoji.
 The `icon` package currently provides helpful tools for downloading and
 using icons from these libraries:
 
-  - [Font Awesome](https://github.com/FortAwesome/Font-Awesome/) (Pro
+-   [Font Awesome](https://github.com/FortAwesome/Font-Awesome/) (Pro
     icons can be used using custom icon sets)
-  - [Ionicons](https://github.com/ionic-team/ionicons/)
-  - [Academicons](https://github.com/jpswalsh/academicons)
-  - [Simple Icons](https://github.com/simple-icons/simple-icons/)
-  - [Material Design](https://github.com/google/material-design-icons)
+-   [Ionicons](https://github.com/ionic-team/ionicons/)
+-   [Academicons](https://github.com/jpswalsh/academicons)
+-   [Simple Icons](https://github.com/simple-icons/simple-icons/)
+-   [Material Design](https://github.com/google/material-design-icons)
 
 # Installation
 
@@ -40,7 +40,7 @@ remotes::install_github("mitchelloharawild/icon")
 ```
 
 Once you’ve installed the package you’ll also need to download some
-icons\! Supported icon libraries (listed above) can be downloaded using
+icons! Supported icon libraries (listed above) can be downloaded using
 the `download_*()` functions. For example, to download the Font Awesome
 icons you would use `download_fontawesome()`.
 
@@ -48,16 +48,16 @@ icons you would use `download_fontawesome()`.
 
 ``` r
 library(icon)
-#> ── Installed icons ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── icon 0.1.0.9000 ──
+#> ── Installed icons ────────────────────────────────────────── icon 0.1.0.9000 ──
 #> ✓ ionicons        5.0.0.16     ✓ material_design 3.0.1   
 #> ✓ academicons     1.8          ✓ fontawesome     5.13.0  
 #> ✓ simple_icons    2.3.0
 ```
 
-Icons can be inserted inline using inline code `` `r
-icon::fontawesome("rocket", style = "solid")` ``
-<img src="man/figures/load-1.svg" height="16px"/> or `` `r
-icon::fontawesome$solid$rocket` ``
+Icons can be inserted inline using inline code
+`` `r icon::fontawesome("rocket", style = "solid")` ``
+<img src="man/figures/load-1.svg" height="16px"/> or
+`` `r icon::fontawesome$solid$rocket` ``
 <img src="man/figures/load-1.svg" height="16px"/>.
 
 Icons can also be inserted using usual R chunks.
@@ -67,6 +67,15 @@ Icons can also be inserted using usual R chunks.
     ```
 
 <img src="man/figures/icon-chunk-1.svg" height="16px"/>
+
+The appearance of an icon can be customised using the `icon_style()`
+function.
+
+    ```{r icon-style}
+    icon_style(fontawesome("rocket", style = "solid"), scale = 2, fill = "red")
+    ```
+
+<img src="man/figures/icon-style-1.svg" height="32px"/>
 
 Custom icon sets can be created using the `icon_set()` function, which
 accepts a directory of SVG files and allows them to be used as icons.
@@ -114,6 +123,6 @@ which is what this repository is. In the future this version of icon
 might just be merged into rOpenScilabs/icon, but for the mean time it
 will be developed here. We anticipate that there will only be any minor
 changes to the existing API, so hopefully this will be a seamless
-transition for users\! Notably, the `icon_name` functions have been
+transition for users! Notably, the `icon_name` functions have been
 removed in favour of `icon$name`, and the interface for styling and
 animating has been removed/changed.
