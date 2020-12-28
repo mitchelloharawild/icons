@@ -9,11 +9,27 @@ download_material_design <- function(version = "dev"){
     url <- glue("https://github.com/google/material-design-icons/archive/{version}.zip")
   }
 
-  meta <- jsonlite::read_json("https://raw.githubusercontent.com/google/material-design-icons/master/package.json")
+  if(version == "dev" || package_version(version) >= package_version("4.0.0")) {
+    if(requireNamespace("gh")) {
+      meta <- list(
+        version = gh::gh("GET /repos/:owner/:repo/releases/latest", owner="google", repo="material-design-icons")$tag_name,
+        license = gh::gh("GET /repos/:owner/:repo", owner="google", repo="material-design-icons")$license$name
+      )
+    } else {
+      rlang::warn("Obtaining the most recent version and license automatically requires the {gh} package installed.
+Using last known license, which may not be current.")
+      meta <- list(
+        version = version,
+        license = "Apache License 2.0"
+      )
+    }
+  } else {
+    meta <- jsonlite::read_json(glue("https://raw.githubusercontent.com/google/material-design-icons/{version}/package.json"))
+  }
 
   install_icon_zip(
-    "material_design", url, svg_path = mdi_svg_paths,
-    svg_pattern = "_48px\\.svg", svg_dest = mdi_svg_dest,
+    "material_design", url, svg_path = mdi_svg_paths(meta$version),
+    svg_pattern = "_48px\\.svg", svg_dest = mdi_svg_dest(meta$version),
     meta = list(name = "Material Design Icons", version = meta$version, licence = meta$license)
   )
 
