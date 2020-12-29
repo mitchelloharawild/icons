@@ -25,7 +25,8 @@ Imports:
     rstudioapi
 Suggests: 
     rsvg,
-    covr
+    covr,
+    gh
 URL: https://github.com/mitchelloharawild/icon
 BugReports: https://github.com/mitchelloharawild/icon/issues
 VignetteBuilder: knitr
