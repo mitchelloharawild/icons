@@ -12,7 +12,7 @@ icon_path <- function(...){
 }
 
 list_svg <- function(path, ...){
-  dir <- list.dirs(path, full.names = TRUE, recursive = FALSE)[-1]
+  dir <- list.dirs(path, full.names = TRUE, recursive = FALSE)
   if(length(dir) == 0){
     sub("\\.svg$", "", list.files(path, pattern = "\\.svg$", ...))
   } else {
