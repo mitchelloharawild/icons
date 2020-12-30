@@ -4,6 +4,7 @@
 
 * Added the `simple_icons()` icon set (https://github.com/simple-icons/simple-icons/).
 * Added the `google_material()` icon set (https://github.com/google/material-design-icons/).
+* Added the `octicons()` icon set (https://github.com/primer/octicons).
 
 ## Breaking changes
 
