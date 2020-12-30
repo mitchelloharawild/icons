@@ -3,13 +3,13 @@
 #' @export
 download_simple_icons <- function(version = "dev"){
   if(version == "dev"){
-    url <- "https://github.com/simple-icons/simple-icons/archive/master.zip"
+    version <- "master"
   }
-  else{
-    url <- glue("https://github.com/simple-icons/simple-icons/archive/{version}.zip")
-  }
+  url <- glue("https://github.com/simple-icons/simple-icons/archive/{version}.zip")
 
-  meta <- jsonlite::read_json("https://raw.githubusercontent.com/simple-icons/simple-icons/master/package.json")
+  meta <- jsonlite::read_json(
+    glue("https://raw.githubusercontent.com/simple-icons/simple-icons/{version}/package.json")
+  )
 
   install_icon_zip(
     "simple_icons", url, c("icons"),
