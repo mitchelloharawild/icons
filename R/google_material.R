@@ -1,7 +1,7 @@
 #' @param version Version of the library
-#' @rdname material_design
+#' @rdname google_material
 #' @export
-download_material_design <- function(version = "dev"){
+download_google_material <- function(version = "dev"){
   if(version == "dev"){
     url <- "https://github.com/google/material-design-icons/archive/master.zip"
   }
@@ -30,12 +30,12 @@ Using last known license, which may not be current.")
   }
 
   install_icon_zip(
-    "material_design", url, svg_path = mdi_svg_paths(meta$version),
+    "google_material", url, svg_path = mdi_svg_paths(meta$version),
     svg_pattern = svg_ext, svg_dest = mdi_svg_dest(meta$version),
     meta = list(name = "Material Design Icons", version = meta$version, licence = meta$license)
   )
 
-  invisible(material_design)
+  invisible(google_material)
 }
 
 mdi_svg_paths <- function(version) {
@@ -79,14 +79,37 @@ mdi_svg_dest <- function(version) {
   }
 }
 
-#' Material design icons
+#' Google's Material design icons
 #'
 #' @param name Name of the icon
-#' @rdname material_design
+#' @param category The icon's category, either "action", "alert", "av",
+#'   "communication", "content", "device", "editor", "file", "hardware", "home",
+#'   "image", "maps", "navigation", "notification", "places", "social", or
+#'   "toggle"
+#' @param theme The style variant for the icon, requires v4.0.0 or greater.
+#'   Available themes vary by icon, but can be either "filled", "outlined",
+#'   "round", "sharp", or "twotone". If NULL, it will default to the
+#'   first available variant in this order.
+#'
+#' @seealso https://material.io/resources/icons/
+#'
+#' @rdname google_material
 #' @export
-material_design <- new_icon(
-  "material_design",
-  function(name){
-    icon_fn$get(name)
+google_material <- new_icon(
+  "google_material",
+  function(name, category = NULL, theme = NULL){
+    if(is.null(category)){
+      x <- icon_find(name, "google_material")
+      if(is.null(theme)) {
+        x[[1]]
+      } else {
+        if(length(pos <- which(grepl(theme, names(x), fixed = TRUE))) != 1) {
+          abort("Could not find this specific icon from google_material.")
+        }
+        x[[pos]]
+      }
+    } else {
+      icon_fn$get(c(theme, category, name))
+    }
   }
 )

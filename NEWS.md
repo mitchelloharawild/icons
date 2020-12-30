@@ -3,7 +3,7 @@
 ## New icon sets
 
 * Added the `simple_icons()` icon set (https://github.com/simple-icons/simple-icons/).
-* Added the `material_design()` icon set (https://github.com/google/material-design-icons/).
+* Added the `google_material()` icon set (https://github.com/google/material-design-icons/).
 
 ## Breaking changes
 

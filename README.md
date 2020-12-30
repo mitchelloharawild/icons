@@ -49,9 +49,9 @@ icons you would use `download_fontawesome()`.
 ``` r
 library(icon)
 #> ── Installed icons ────────────────────────────────────────── icon 0.1.0.9000 ──
-#> ✓ ionicons        5.0.0.16     ✓ material_design 3.0.1   
-#> ✓ academicons     1.8          ✓ fontawesome     5.13.0  
-#> ✓ simple_icons    2.3.0
+#> ✓ ionicons        5.2.3      ✓ material_design 4.0.0 
+#> ✓ academicons     1.9.1      ✓ fontawesome     5.14.0
+#> ✓ simple_icons    4.4.0
 ```
 
 Icons can be inserted inline using inline code
