@@ -28,7 +28,9 @@ using icons from these libraries:
 -   [Ionicons](https://github.com/ionic-team/ionicons/)
 -   [Academicons](https://github.com/jpswalsh/academicons)
 -   [Simple Icons](https://github.com/simple-icons/simple-icons/)
--   [Material Design](https://github.com/google/material-design-icons)
+-   [Google’s Material
+    Design](https://github.com/google/material-design-icons)
+-   [Octicons](https://github.com/primer/octicons)
 
 # Installation
 
