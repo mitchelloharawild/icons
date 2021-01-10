@@ -27,7 +27,7 @@ Suggests:
     rsvg,
     covr,
     gh
-URL: https://github.com/mitchelloharawild/icon
+URL: https://pkg.mitchelloharawild.com/icon/, https://github.com/mitchelloharawild/icon
 BugReports: https://github.com/mitchelloharawild/icon/issues
 VignetteBuilder: knitr
 License: GPL-3
