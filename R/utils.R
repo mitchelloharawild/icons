@@ -39,7 +39,8 @@ require_package <- function(pkg){
   }
 }
 
-install_icon_zip <- function(lib, url, svg_path, svg_pattern = "\\.svg$", svg_dest = NULL, meta){
+install_icon_zip <- function(lib, url, svg_path, svg_pattern = "\\.svg$",
+                             svg_dest = NULL, meta){
   # Temporary download location
   dl_file <- tempfile("icon_dl")
   dir.create(dl_dir <- tempfile("icon_dl"), showWarnings = FALSE)
@@ -73,6 +74,10 @@ install_icon_zip <- function(lib, url, svg_path, svg_pattern = "\\.svg$", svg_de
   file.copy(files, dest)
 
   # Create meta
+  if(is.character(meta) & basename(meta) == "package.json") {
+    meta <- jsonlite::read_json(file.path(list.dirs(dl_dir, recursive = FALSE), meta))
+    meta <- list(name = meta$name, version = meta$version, license = meta$license)
+  }
   saveRDS(meta, file.path(dest_dir, "meta.rds"))
 
   # Update icons
