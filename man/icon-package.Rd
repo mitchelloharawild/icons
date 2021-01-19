@@ -11,6 +11,7 @@ Easily embed SVG icons into R Markdown documents or shiny apps. A collection of 
 \seealso{
 Useful links:
 \itemize{
+  \item \url{https://pkg.mitchelloharawild.com/icon/}
   \item \url{https://github.com/mitchelloharawild/icon}
   \item Report bugs at \url{https://github.com/mitchelloharawild/icon/issues}
 }

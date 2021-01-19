@@ -15,5 +15,8 @@ academicons(name)
 \item{name}{Name of the icon}
 }
 \description{
-Academicons icons
+Academicons is a specialist icon font for academics. It contains icons for
+websites and organisations related to academia that are often missing from
+mainstream font packages. It can be used by itself, but its primary purpose
+is to be used as a supplementary package alongside a larger icon set.
 }

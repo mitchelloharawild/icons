@@ -2,47 +2,34 @@
 #' @rdname academicons
 #' @export
 download_academicons <- function(version = "dev"){
-  path <- if(version == "dev"){
-    "https://raw.githubusercontent.com/jpswalsh/academicons/master"
+  if(version == "dev"){
+    url <- "https://github.com/jpswalsh/academicons/archive/master.zip"
   }
   else{
-    glue("https://raw.githubusercontent.com/jpswalsh/academicons/{version}")
+    url <- glue("https://github.com/jpswalsh/academicons/archive/{version}.zip")
   }
-  url <- glue("{path}/fonts/academicons.svg")
 
-  svg <- xml2::as_list(xml2::read_xml(url))$svg
-  font <- attributes(svg$defs$font$`font-face`)
-  version_url <- glue("{path}/package.json")
-  meta <- jsonlite::parse_json(readLines(version_url))
-
-  nm <- lapply(svg$defs$font, attr, "glyph-name")
-  is_icon <- !vapply(nm, is.null, logical(1L))
-
-  svg <- svg$defs$font[is_icon]
-  paths <- vapply(svg, attr, character(1L), "d")
-
-  svg <- glue(
-'<svg xmlns="http://www.w3.org/2000/svg" height="{font$`units-per-em`}" width="{font$`units-per-em`}">
-<path transform="scale(1,-1) translate(0,-{font$ascent})" d="{paths}"/>
-</svg>')
-  path <- icon_path("academicons")
-
-  dir.create(path, recursive = TRUE, showWarnings = FALSE)
-  mapply(writeLines, text = svg, con = glue("{file.path(path, nm[is_icon])}.svg"))
-
-  # Create meta
-  saveRDS(
-    list(name = "Academicons", version = meta$version, licence = meta$license),
-    file.path(path, "meta.rds")
+  install_icon_zip(
+    "academicons", url, "svg",
+    meta = "package.json"
   )
-
-  # Update icons
-  update_icon("academicons", silent = FALSE)
+  icons <- list.files(icon_table$academicons$table$path,
+                      pattern = "svg$", full.names = TRUE)
+  lapply(icons, function(path) {
+    x <- xml2::as_list(xml2::read_xml(path))
+    x$svg <- structure(x$svg[names(x$svg) == "g"], viewBox = attr(x$svg, "viewBox"), xmlns="http://www.w3.org/2000/svg")
+    xml2::write_xml(xml2::as_xml_document(x), path)
+  })
 
   invisible(academicons)
 }
 
 #' Academicons icons
+#'
+#' Academicons is a specialist icon font for academics. It contains icons for
+#' websites and organisations related to academia that are often missing from
+#' mainstream font packages. It can be used by itself, but its primary purpose
+#' is to be used as a supplementary package alongside a larger icon set.
 #'
 #' @param name Name of the icon
 #' @rdname academicons
