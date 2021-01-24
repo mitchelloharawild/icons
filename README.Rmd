@@ -61,6 +61,13 @@ fontawesome("rocket", style = "solid") # equivalent to icon::fontawesome$solid$r
 fontawesome("rocket", style = "solid")
 ```
 
+If the icon name contains non-syntactic name characters like a `-` or `+`, you will need to quote the name with backticks, single or double quotes:
+
+```{r icon-syntax}
+fontawesome$brands$`r-project` # or 'r-project' or "r-project"
+```
+
+
 The appearance of an icon can be customised using the `icon_style()` function.
 
 

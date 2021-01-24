@@ -70,6 +70,16 @@ Icons can also be inserted using usual R chunks.
 
 <img src="man/figures/icon-chunk-1.svg" height="16px"/>
 
+If the icon name contains non-syntactic name characters like a `-` or
+`+`, you will need to quote the name with backticks, single or double
+quotes:
+
+``` r
+fontawesome$brands$`r-project` # or 'r-project' or "r-project"
+```
+
+<img src="man/figures/icon-syntax-1.svg" height="16px"/>
+
 The appearance of an icon can be customised using the `icon_style()`
 function.
 
