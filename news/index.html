@@ -79,7 +79,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">icon</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -126,9 +126,16 @@
       <small>Source: <a href='https://github.com/mitchelloharawild/icon/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
+    <div id="icon-020" class="section level1">
+<h1 class="page-header" data-toc-text="0.2.0">
+<a href="#icon-020" class="anchor"></a>icon 0.2.0</h1>
+</div>
     <div id="icon-0109000" class="section level1">
 <h1 class="page-header" data-toc-text="0.1.0.9000">
 <a href="#icon-0109000" class="anchor"></a>icon 0.1.0.9000</h1>
+<p>This release completely reimplements the package to use SVG icons. This is much better for smaller file sizes, portability and icon customisation.</p>
+<p>Icon libraries are no longer provided within the package, and instead must be downloaded using the <code>download_*()</code> functions. This allows you to update and choose the version of your icon libraries without needing changes to the packages.</p>
+<p>This release causes several breaking changes, if you have used the older version of the package you should carefully read these changes.</p>
 <div id="new-icon-sets" class="section level2">
 <h2 class="hasAnchor">
 <a href="#new-icon-sets" class="anchor"></a>New icon sets</h2>
