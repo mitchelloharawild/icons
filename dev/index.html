@@ -123,25 +123,29 @@
 <span id="cb3-2"><a href="#cb3-2"></a><span class="dt">fontawesome("rocket", style = "solid") # equivalent to icon::fontawesome$solid$rocket</span></span>
 <span id="cb3-3"><a href="#cb3-3"></a><span class="st">```</span></span></code></pre></div>
 <p><img src="reference/figures/icon-chunk-1.svg" height="16px"></p>
+<p>If the icon name contains non-syntactic name characters like a <code><a href="https://rdrr.io/r/base/Arithmetic.html">-</a></code> or <code><a href="https://rdrr.io/r/base/Arithmetic.html">+</a></code>, you will need to quote the name with backticks, single or double quotes:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">fontawesome</span><span class="op">$</span><span class="va">brands</span><span class="op">$</span><span class="va">`r-project`</span> <span class="co"># or 'r-project' or "r-project"</span></code></pre></div>
+<p><img src="reference/figures/icon-syntax-1.svg" height="16px"></p>
 <p>The appearance of an icon can be customised using the <code><a href="reference/icon_style.html">icon_style()</a></code> function.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="st">```</span><span class="dt">{r icon-style}</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="dt">icon_style(fontawesome("rocket", style = "solid"), scale = 2, fill = "red")</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="st">```</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="st">```</span><span class="dt">{r icon-style}</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="dt">icon_style(fontawesome("rocket", style = "solid"), scale = 2, fill = "red")</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="st">```</span></span></code></pre></div>
 <p><img src="reference/figures/icon-style-1.svg" height="32px"></p>
 <p>Custom icon sets can be created using the <code><a href="reference/icon_set.html">icon_set()</a></code> function, which accepts a directory of SVG files and allows them to be used as icons.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="st">```</span><span class="dt">{r icon-custom}</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="dt">custom &lt;- icon::icon_set("hex")</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="dt">custom</span></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="st">```</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a></span>
-<span id="cb5-6"><a href="#cb5-6"></a><span class="co">#&gt; Custom icon set (/hex)</span></span>
-<span id="cb5-7"><a href="#cb5-7"></a></span>
-<span id="cb5-8"><a href="#cb5-8"></a><span class="st">```</span><span class="dt">{r icon-sticker}</span></span>
-<span id="cb5-9"><a href="#cb5-9"></a><span class="dt">custom$icon</span></span>
-<span id="cb5-10"><a href="#cb5-10"></a><span class="st">```</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="st">```</span><span class="dt">{r icon-custom}</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="dt">custom &lt;- icon::icon_set("hex")</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="dt">custom</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="st">```</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a></span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="co">#&gt; Custom icon set (/hex)</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a></span>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="st">```</span><span class="dt">{r icon-sticker}</span></span>
+<span id="cb6-9"><a href="#cb6-9"></a><span class="dt">custom$icon</span></span>
+<span id="cb6-10"><a href="#cb6-10"></a><span class="st">```</span></span></code></pre></div>
 <p><img src="reference/figures/icon-sticker-1.svg" height="16px"></p>
 <p>You can also search for icons using the <code><a href="reference/icon_find.html">icon_find()</a></code> function.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/icon_find.html">icon_find</a></span><span class="op">(</span><span class="st">"rocket"</span><span class="op">)</span>
 <span class="co">#&gt; $`ionicons$rocket`</span>
 <span class="co">#&gt; &lt;svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" style="height:1em;fill:currentColor;position:relative;display:inline-block;top:.1em;"&gt;</span>
