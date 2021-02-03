@@ -1,4 +1,16 @@
+# icon 0.2.0
+
 # icon 0.1.0.9000
+
+This release completely reimplements the package to use SVG icons. This is much
+better for smaller file sizes, portability and icon customisation.
+
+Icon libraries are no longer provided within the package, and instead must be
+downloaded using the `download_*()` functions. This allows you to update and 
+choose the version of your icon libraries without needing changes to the packages.
+
+This release causes several breaking changes, if you have used the older version
+of the package you should carefully read these changes.
 
 ## New icon sets
 
