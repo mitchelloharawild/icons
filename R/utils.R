@@ -74,7 +74,10 @@ install_icon_zip <- function(lib, url, svg_path, svg_pattern = "\\.svg$",
   file.copy(files, dest)
 
   # Create meta
-  if(is.character(meta) & basename(meta) == "package.json") {
+  if(is.character(meta)) {
+    if (basename(meta) != "package.json") {
+      abort("Expected package.json metadata file.")
+    }
     meta <- jsonlite::read_json(file.path(list.dirs(dl_dir, recursive = FALSE), meta))
     meta <- list(name = meta$name, version = meta$version, license = meta$license)
   }
