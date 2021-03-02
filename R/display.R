@@ -36,7 +36,7 @@ icon_attach <- function() {
   msg(
     cli::rule(
       left = crayon::bold("Installed icons"),
-      right = paste0("icon ", format_version(utils::packageVersion("icon")))
+      right = paste0("icon ", format_version(utils::packageVersion("icons")))
     ),
     startup = TRUE
   )

@@ -12,17 +12,17 @@ knitr::opts_chunk$set(
 )
 ```
 
-# icon <a href='https://pkg.mitchelloharawild.com/icon'><img src='man/figures/logo.svg' align="right" height="139" /></a>
+# icons <a href='https://pkg.mitchelloharawild.com/icon'><img src='man/figures/logo.svg' align="right" height="139" /></a>
 
-[![R build status](https://github.com/mitchelloharawild/icon/workflows/R-CMD-check/badge.svg)](https://github.com/mitchelloharawild/icon/actions?workflow=R-CMD-check)
-[![Coverage status](https://codecov.io/gh/mitchelloharawild/icon/branch/master/graph/badge.svg)](https://codecov.io/gh/mitchelloharawild/icon?branch=master)
+[![R build status](https://github.com/mitchelloharawild/icons/workflows/R-CMD-check/badge.svg)](https://github.com/mitchelloharawild/icons/actions?workflow=R-CMD-check)
+[![Coverage status](https://codecov.io/gh/mitchelloharawild/icons/branch/master/graph/badge.svg)](https://codecov.io/gh/mitchelloharawild/icon?branch=master)
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/icon)](https://cran.r-project.org/package=icon)
-<!-- [![Downloads](http://cranlogs.r-pkg.org/badges/icon?color=brightgreen)](https://cran.r-project.org/package=icon) -->
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/icon)](https://cran.r-project.org/package=icons)
+<!-- [![Downloads](http://cranlogs.r-pkg.org/badges/icons?color=brightgreen)](https://cran.r-project.org/package=icons) -->
 
-The `icon` package for R makes adding web icons to reports, presentations and apps easy. It integrates many popular icon libraries from around the web with a simple interface that works with any `rmarkdown` output format. If a particular icon library is not explicitly supported by this package, you can still use it by creating a custom icon set from a folder of SVG files. Icons provide flexible means of digital expression, allowing expressions and functionality beyond what is possible with emoji.
+The `icons` package for R makes adding web icons to reports, presentations and apps easy. It integrates many popular icon libraries from around the web with a simple interface that works with any `rmarkdown` output format. If a particular icon library is not explicitly supported by this package, you can still use it by creating a custom icon set from a folder of SVG files. Icons provide flexible means of digital expression, allowing expressions and functionality beyond what is possible with emoji.
 
-The `icon` package currently provides helpful tools for downloading and using icons from these libraries:
+The `icons` package currently provides helpful tools for downloading and using icons from these libraries:
 
 * [Font Awesome](https://github.com/FortAwesome/Font-Awesome/) (Pro icons can be used using custom icon sets)
 * [Ionicons](https://github.com/ionic-team/ionicons/)
@@ -45,16 +45,16 @@ Once you've installed the package you'll also need to download some icons! Suppo
 # Usage
 
 ```{r load}
-library(icon)
+library(icons)
 ```
 
-Icons can be inserted inline using inline code `` `r knitr::inline_expr('icon::fontawesome("rocket", style = "solid")')` `` `r icon::fontawesome("rocket", style = "solid")` or `` `r knitr::inline_expr('icon::fontawesome$solid$rocket')` `` `r icon::fontawesome$solid$rocket`.
+Icons can be inserted inline using inline code `` `r knitr::inline_expr('icons::fontawesome("rocket", style = "solid")')` `` `r icons::fontawesome("rocket", style = "solid")` or `` `r knitr::inline_expr('icons::fontawesome$solid$rocket')` `` `r icons::fontawesome$solid$rocket`.
 
 Icons can also be inserted using usual R chunks.
 
 ````
 ```{r icon-chunk}`r ''`
-fontawesome("rocket", style = "solid") # equivalent to icon::fontawesome$solid$rocket
+fontawesome("rocket", style = "solid") # equivalent to icons::fontawesome$solid$rocket
 ```
 ````
 ```{r icon-chunk, echo=FALSE}
@@ -84,7 +84,7 @@ Custom icon sets can be created using the `icon_set()` function, which accepts a
 
 ````
 ```{r icon-custom}`r ''`
-custom <- icon::icon_set("hex")
+custom <- icons::icon_set("hex")
 custom
 ```
 ````

@@ -1,4 +1,4 @@
-Package: icon
+Package: icons
 Type: Package
 Title: SVG Icons for R Documents and Apps
 Version: 0.2.0
@@ -27,8 +27,8 @@ Suggests:
     rsvg,
     covr,
     gh
-URL: https://pkg.mitchelloharawild.com/icon/, https://github.com/mitchelloharawild/icon
-BugReports: https://github.com/mitchelloharawild/icon/issues
+URL: https://pkg.mitchelloharawild.com/icons/, https://github.com/mitchelloharawild/icons
+BugReports: https://github.com/mitchelloharawild/icons/issues
 VignetteBuilder: knitr
 License: GPL-3
 Encoding: UTF-8
