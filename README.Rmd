@@ -12,7 +12,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# icons <a href='https://pkg.mitchelloharawild.com/icon'><img src='man/figures/logo.svg' align="right" height="139" /></a>
+# icons <a href='https://pkg.mitchelloharawild.com/icons'><img src='man/figures/logo.svg' align="right" height="139" /></a>
 
 [![R build status](https://github.com/mitchelloharawild/icons/workflows/R-CMD-check/badge.svg)](https://github.com/mitchelloharawild/icons/actions?workflow=R-CMD-check)
 [![Coverage status](https://codecov.io/gh/mitchelloharawild/icons/branch/master/graph/badge.svg)](https://codecov.io/gh/mitchelloharawild/icon?branch=master)
@@ -37,7 +37,7 @@ The **development** version can be installed from GitHub using:
 
 ```{r gh-installation, eval = FALSE}
 # install.packages("remotes")
-remotes::install_github("mitchelloharawild/icon")
+remotes::install_github("mitchelloharawild/icons")
 ```
 
 Once you've installed the package you'll also need to download some icons! Supported icon libraries (listed above) can be downloaded using the `download_*()` functions. For example, to download the Font Awesome icons you would use `download_fontawesome()`.

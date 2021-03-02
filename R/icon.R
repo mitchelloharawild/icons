@@ -12,12 +12,28 @@ NULL
 #' @importFrom htmltools tagAppendAttributes
 #' @export
 read_icon <- function(x){
-  xml <- xml2::as_list(xml2::read_xml(x))
-  icon <- xml_tagList(xml)$svg
-  icon$attribs[c("width", "height")] <- NULL
-  icon <- tagAppendAttributes(icon, style = "height:1em;fill:currentColor;position:relative;display:inline-block;top:.1em;")
+  icon <- xml2::read_xml(x)
+  attr <- xml2::xml_attrs(icon)
+  xml2::xml_set_attrs(icon, NULL)
+  xml2::xml_set_attrs(icon, c(
+    attr[setdiff(names(attr), c("width", "height"))],
+    style = "height:1em;fill:currentColor;position:relative;display:inline-block;top:.1em;")
+  )
+
+  icon <- xml2tags(icon)
+
+  # xml <- xml2::as_list(xml2::read_xml(x))
+  # icon <- xml_tagList(xml)$svg
+  # icon$attribs[c("width", "height")] <- NULL
+  # icon <- tagAppendAttributes(icon, )
   add_class(icon, "icon")
 }
+
+xml2tags <- function(x){
+  out <- tag(xml2::xml_name(x), varArgs = as.list(xml2::xml_attrs(x)))
+  do.call(tagAppendChildren, c(tag = list(out), Map(xml2tags, xml2::xml_children(x))))
+}
+
 
 #' Create a custom icon set
 #'
