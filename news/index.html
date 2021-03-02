@@ -131,7 +131,7 @@
 <a href="#icons-020" class="anchor"></a>icons 0.2.0</h1>
 <p>This release completely reimplements the package to use SVG icons. This is much better for smaller file sizes, portability and icon customisation.</p>
 <p>Icon libraries are no longer provided within the package, and instead must be downloaded using the <code>download_*()</code> functions. This allows you to update and choose the version of your icon libraries without needing changes to the packages.</p>
-<p>The package name is now also “icons”, due to a package name conflict. Please use the <code>available::available()</code> function when choosing package names - and I should submit packages to CRAN faster!</p>
+<p>The package name is now also “icons”, due to a package name conflict. Please use the <code>available::available()</code> function when choosing package names - and I should submit packages to CRAN faster! (<a href='https://github.com/mitchelloharawild/icons/issues/48'>#48</a>).</p>
 <p>This release causes several breaking changes, if you have used the older version of the package you should carefully read these changes.</p>
 <div id="new-icon-sets" class="section level2">
 <h2 class="hasAnchor">
@@ -146,21 +146,21 @@
 <h2 class="hasAnchor">
 <a href="#breaking-changes" class="anchor"></a>Breaking changes</h2>
 <ul>
-<li>Icons are no longer included directly in the package, and will require downloading before use.</li>
-<li>Animations of icons is no longer supported (this functionality will be re-introduced as a new package).</li>
+<li>Icons are no longer included directly in the package, and will require downloading before use. Use the <code>download_*()</code> functions to download an icon library you want to use.</li>
+<li>The short names (<code>fa</code>, <code>ii</code>, etc.) have been replaced with longer, more informative names (<code>fontawesome</code>, <code>ionicons</code>, etc.).</li>
+<li>Animations of icons is no longer supported (this functionality will be made possible in a new package specific to CSS animations).</li>
 <li>The <code>iconset_icon</code> interface for accessing the <code>icon</code> icon from the <code>iconset</code> icon set has been replaced with <code>iconset$icon</code>.</li>
 <li>The <code>iconset()</code> interface for accessing the icons is now specific to each icon library.</li>
-<li>The short names (<code>fa</code>, <code>ii</code>, etc.) have been replaced with longer, more informative names (<code>fontawesome</code>, <code>ionicons</code>, etc.).</li>
 </ul>
 </div>
 <div id="improvements" class="section level2">
 <h2 class="hasAnchor">
 <a href="#improvements" class="anchor"></a>Improvements</h2>
 <ul>
-<li>Icons now use SVG files instead of font files. This substantially reduces the output file’s size and allows more flexibility and integrations with other libraries in the future.</li>
+<li>Icons now use SVG files instead of font files. This substantially reduces the output file’s size and allows more flexibility and integration with other libraries in the future.</li>
 <li>Icon sets can now be updated at any time without updating the package. The <code>download_*()</code> helpers can be used to install icon libraries.</li>
 <li>Custom icon sets can be created from a folder of SVG files.</li>
-<li>Icons can now be used with <code>word_document</code> and <code>github_document</code> output formats.</li>
+<li>Icons can now be used with <code>word_document</code> and <code>github_document</code> output formats (<a href='https://github.com/mitchelloharawild/icons/issues/33'>#33</a>).</li>
 <li>Improved detection of output format types to work with more rmarkdown extensions.</li>
 </ul>
 </div>
@@ -168,8 +168,8 @@
 <h2 class="hasAnchor">
 <a href="#bug-fixes" class="anchor"></a>Bug fixes</h2>
 <ul>
-<li>Icons now work as expected in titles.</li>
-<li>Icons now work alongside emojis.</li>
+<li>Icons now work as expected in titles (<a href='https://github.com/mitchelloharawild/icons/issues/7'>#7</a>).</li>
+<li>Icons now work alongside emojis (<a href='https://github.com/mitchelloharawild/icons/issues/25'>#25</a>).</li>
 </ul>
 </div>
 </div>
