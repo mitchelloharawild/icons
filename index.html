@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SVG Icons for R Documents and Apps • icon</title>
+<title>SVG Icons for R Documents and Apps • icons</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png">
@@ -37,7 +37,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="index.html">icon</a>
+        <a class="navbar-link" href="index.html">icons</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
@@ -81,13 +81,13 @@
       </header><div class="row">
   <div class="contents col-md-9">
 
-<div id="icon-" class="section level1">
+<div id="icons-" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#icon-" class="anchor"></a>icon <a href="https://pkg.mitchelloharawild.com/icon"><img src="reference/figures/logo.svg" align="right" height="139"></a>
+<a href="#icons-" class="anchor"></a>icons <a href="https://pkg.mitchelloharawild.com/icon"><img src="reference/figures/logo.svg" align="right" height="139"></a>
 </h1></div>
 
-<p>The <code>icon</code> package for R makes adding web icons to reports, presentations and apps easy. It integrates many popular icon libraries from around the web with a simple interface that works with any <code>rmarkdown</code> output format. If a particular icon library is not explicitly supported by this package, you can still use it by creating a custom icon set from a folder of SVG files. Icons provide flexible means of digital expression, allowing expressions and functionality beyond what is possible with emoji.</p>
-<p>The <code>icon</code> package currently provides helpful tools for downloading and using icons from these libraries:</p>
+<p>The <code>icons</code> package for R makes adding web icons to reports, presentations and apps easy. It integrates many popular icon libraries from around the web with a simple interface that works with any <code>rmarkdown</code> output format. If a particular icon library is not explicitly supported by this package, you can still use it by creating a custom icon set from a folder of SVG files. Icons provide flexible means of digital expression, allowing expressions and functionality beyond what is possible with emoji.</p>
+<p>The <code>icons</code> package currently provides helpful tools for downloading and using icons from these libraries:</p>
 <ul>
 <li>
 <a href="https://github.com/FortAwesome/Font-Awesome/">Font Awesome</a> (Pro icons can be used using custom icon sets)</li>
@@ -111,15 +111,15 @@
 <h1 class="hasAnchor">
 <a href="#usage" class="anchor"></a>Usage</h1>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://pkg.mitchelloharawild.com/icon/">icon</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://pkg.mitchelloharawild.com/icons/">icons</a></span><span class="op">)</span>
 <span class="co">#&gt; ── Installed icons ────────────────────────────────────────── icon 0.1.0.9000 ──</span>
-<span class="co">#&gt; ✓ ionicons        5.2.3      ✓ material_design 4.0.0 </span>
-<span class="co">#&gt; ✓ academicons     1.9.1      ✓ fontawesome     5.14.0</span>
-<span class="co">#&gt; ✓ simple_icons    4.4.0</span></code></pre></div>
-<p>Icons can be inserted inline using inline code <code>`r icon::fontawesome("rocket", style = "solid")`</code> <img src="reference/figures/load-1.svg" height="16px"> or <code>`r icon::fontawesome$solid$rocket`</code> <img src="reference/figures/load-1.svg" height="16px">.</p>
+<span class="co">#&gt; ✓ ionicons        5.2.3      ✓ google_material 4.0.0 </span>
+<span class="co">#&gt; ✓ academicons     1.9.1      ✓ octicons        11.2.0</span>
+<span class="co">#&gt; ✓ simple_icons    4.4.0      ✓ fontawesome     5.15.2</span></code></pre></div>
+<p>Icons can be inserted inline using inline code <code>`r icons::fontawesome("rocket", style = "solid")`</code> <img src="reference/figures/load-1.svg" height="16px"> or <code>`r icons::fontawesome$solid$rocket`</code> <img src="reference/figures/load-1.svg" height="16px">.</p>
 <p>Icons can also be inserted using usual R chunks.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="st">```</span><span class="dt">{r icon-chunk}</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="dt">fontawesome("rocket", style = "solid") # equivalent to icon::fontawesome$solid$rocket</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="dt">fontawesome("rocket", style = "solid") # equivalent to icons::fontawesome$solid$rocket</span></span>
 <span id="cb3-3"><a href="#cb3-3"></a><span class="st">```</span></span></code></pre></div>
 <p><img src="reference/figures/icon-chunk-1.svg" height="16px"></p>
 <p>If the icon name contains non-syntactic name characters like a <code><a href="https://rdrr.io/r/base/Arithmetic.html">-</a></code> or <code><a href="https://rdrr.io/r/base/Arithmetic.html">+</a></code>, you will need to quote the name with backticks, single or double quotes:</p>
@@ -133,7 +133,7 @@
 <p><img src="reference/figures/icon-style-1.svg" height="32px"></p>
 <p>Custom icon sets can be created using the <code><a href="reference/icon_set.html">icon_set()</a></code> function, which accepts a directory of SVG files and allows them to be used as icons.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="st">```</span><span class="dt">{r icon-custom}</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="dt">custom &lt;- icon::icon_set("hex")</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="dt">custom &lt;- icons::icon_set("hex")</span></span>
 <span id="cb6-3"><a href="#cb6-3"></a><span class="dt">custom</span></span>
 <span id="cb6-4"><a href="#cb6-4"></a><span class="st">```</span></span>
 <span id="cb6-5"><a href="#cb6-5"></a></span>
@@ -154,6 +154,11 @@
 <span class="co">#&gt;   &lt;path d="M161.93,386.44a16,16,0,0,0-11,2.67c-6.39,4.37-12.81,8.69-19.29,12.9-13.11,8.52-28.79-6.44-21-20l12.15-21a16,16,0,0,0-15.16-24.91A61.25,61.25,0,0,0,72,353.56c-3.66,3.67-14.79,14.81-20.78,57.26A357.94,357.94,0,0,0,48,447.59,16,16,0,0,0,64,464h.4a359.87,359.87,0,0,0,36.8-3.2c42.47-6,53.61-17.14,57.27-20.8a60.49,60.49,0,0,0,17.39-35.74A16,16,0,0,0,161.93,386.44Z"&gt;&lt;/path&gt;</span>
 <span class="co">#&gt; &lt;/svg&gt;</span>
 <span class="co">#&gt; </span>
+<span class="co">#&gt; $`octicons$rocket`</span>
+<span class="co">#&gt; &lt;svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" style="height:1em;fill:currentColor;position:relative;display:inline-block;top:.1em;"&gt;</span>
+<span class="co">#&gt;   &lt;path fill-rule="evenodd" d="M14.064 0a8.75 8.75 0 00-6.187 2.563l-.459.458c-.314.314-.616.641-.904.979H3.31a1.75 1.75 0 00-1.49.833L.11 7.607a.75.75 0 00.418 1.11l3.102.954c.037.051.079.1.124.145l2.429 2.428c.046.046.094.088.145.125l.954 3.102a.75.75 0 001.11.418l2.774-1.707a1.75 1.75 0 00.833-1.49V9.485c.338-.288.665-.59.979-.904l.458-.459A8.75 8.75 0 0016 1.936V1.75A1.75 1.75 0 0014.25 0h-.186zM10.5 10.625c-.088.06-.177.118-.266.175l-2.35 1.521.548 1.783 1.949-1.2a.25.25 0 00.119-.213v-2.066zM3.678 8.116L5.2 5.766c.058-.09.117-.178.176-.266H3.309a.25.25 0 00-.213.119l-1.2 1.95 1.782.547zm5.26-4.493A7.25 7.25 0 0114.063 1.5h.186a.25.25 0 01.25.25v.186a7.25 7.25 0 01-2.123 5.127l-.459.458a15.21 15.21 0 01-2.499 2.02l-2.317 1.5-2.143-2.143 1.5-2.317a15.25 15.25 0 012.02-2.5l.458-.458h.002zM12 5a1 1 0 11-2 0 1 1 0 012 0zm-8.44 9.56a1.5 1.5 0 10-2.12-2.12c-.734.73-1.047 2.332-1.15 3.003a.23.23 0 00.265.265c.671-.103 2.273-.416 3.005-1.148z"&gt;&lt;/path&gt;</span>
+<span class="co">#&gt; &lt;/svg&gt;</span>
+<span class="co">#&gt; </span>
 <span class="co">#&gt; $`fontawesome$solid$rocket`</span>
 <span class="co">#&gt; &lt;svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" style="height:1em;fill:currentColor;position:relative;display:inline-block;top:.1em;"&gt;</span>
 <span class="co">#&gt;   &lt;path d="M505.12019,19.09375c-1.18945-5.53125-6.65819-11-12.207-12.1875C460.716,0,435.507,0,410.40747,0,307.17523,0,245.26909,55.20312,199.05238,128H94.83772c-16.34763.01562-35.55658,11.875-42.88664,26.48438L2.51562,253.29688A28.4,28.4,0,0,0,0,264a24.00867,24.00867,0,0,0,24.00582,24H127.81618l-22.47457,22.46875c-11.36521,11.36133-12.99607,32.25781,0,45.25L156.24582,406.625c11.15623,11.1875,32.15619,13.15625,45.27726,0l22.47457-22.46875V488a24.00867,24.00867,0,0,0,24.00581,24,28.55934,28.55934,0,0,0,10.707-2.51562l98.72834-49.39063c14.62888-7.29687,26.50776-26.5,26.50776-42.85937V312.79688c72.59753-46.3125,128.03493-108.40626,128.03493-211.09376C512.07526,76.5,512.07526,51.29688,505.12019,19.09375ZM384.04033,168A40,40,0,1,1,424.05,128,40.02322,40.02322,0,0,1,384.04033,168Z"&gt;&lt;/path&gt;</span>
@@ -171,9 +176,9 @@
     <div class="links">
 <h2>Links</h2>
 <ul class="list-unstyled">
-<li>Browse source code at <br><a href="https://github.com/mitchelloharawild/icon/">https://​github.com/​mitchelloharawild/​icon/​</a>
+<li>Browse source code at <br><a href="https://github.com/mitchelloharawild/icons/">https://​github.com/​mitchelloharawild/​icons/​</a>
 </li>
-<li>Report a bug at <br><a href="https://github.com/mitchelloharawild/icon/issues">https://​github.com/​mitchelloharawild/​icon/​issues</a>
+<li>Report a bug at <br><a href="https://github.com/mitchelloharawild/icons/issues">https://​github.com/​mitchelloharawild/​icons/​issues</a>
 </li>
 </ul>
 </div>
@@ -195,10 +200,10 @@
   <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://github.com/mitchelloharawild/icon/actions?workflow=R-CMD-check"><img src="https://github.com/mitchelloharawild/icon/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
-<li><a href="https://codecov.io/gh/mitchelloharawild/icon?branch=master"><img src="https://codecov.io/gh/mitchelloharawild/icon/branch/master/graph/badge.svg" alt="Coverage status"></a></li>
+<li><a href="https://github.com/mitchelloharawild/icons/actions?workflow=R-CMD-check"><img src="https://github.com/mitchelloharawild/icons/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
+<li><a href="https://codecov.io/gh/mitchelloharawild/icon?branch=master"><img src="https://codecov.io/gh/mitchelloharawild/icons/branch/master/graph/badge.svg" alt="Coverage status"></a></li>
 <li><a href="https://www.tidyverse.org/lifecycle/#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="lifecycle"></a></li>
-<li><a href="https://cran.r-project.org/package=icon"><img src="http://www.r-pkg.org/badges/version/icon" alt="CRAN_Status_Badge"></a></li>
+<li><a href="https://cran.r-project.org/package=icons"><img src="http://www.r-pkg.org/badges/version/icon" alt="CRAN_Status_Badge"></a></li>
 </ul>
 </div>
 </div>
