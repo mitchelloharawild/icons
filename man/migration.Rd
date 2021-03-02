@@ -4,7 +4,6 @@
 \alias{fa}
 \alias{ii}
 \alias{ai}
-\alias{migrate_icon}
 \title{Migration tools}
 \usage{
 fa(...)
@@ -12,8 +11,6 @@ fa(...)
 ii(...)
 
 ai(...)
-
-migrate_icon(path, ext = c(".Rmd", ".R"))
 }
 \arguments{
 \item{...}{Unused.}
