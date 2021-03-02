@@ -70,5 +70,8 @@ icon_attach <- function() {
   #   lapply(to_load, same_library)
   # )
 
+  if(!any(available)) {
+    cli::cli_alert_warning("No icons are currently available, start by downloading icons with the download_*() functions.")
+  }
   invisible()
 }
