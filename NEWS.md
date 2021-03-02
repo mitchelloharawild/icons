@@ -9,7 +9,7 @@ choose the version of your icon libraries without needing changes to the package
 
 The package name is now also "icons", due to a package name conflict. Please use 
 the `available::available()` function when choosing package names - and I should
-submit packages to CRAN faster!
+submit packages to CRAN faster! (#48).
 
 This release causes several breaking changes, if you have used the older version
 of the package you should carefully read these changes.
@@ -22,24 +22,35 @@ of the package you should carefully read these changes.
 
 ## Breaking changes
 
-* Icons are no longer included directly in the package, and will require downloading before use.
-* Animations of icons is no longer supported (this functionality will be re-introduced as a new package).
-* The `iconset_icon` interface for accessing the `icon` icon from the `iconset` icon set has been replaced with `iconset$icon`.
-* The `iconset()` interface for accessing the icons is now specific to each icon library.
-* The short names (`fa`, `ii`, etc.) have been replaced with longer, more informative names (`fontawesome`, `ionicons`, etc.).
+* Icons are no longer included directly in the package, and will require 
+  downloading before use. Use the `download_*()` functions to download an icon
+  library you want to use.
+* The short names (`fa`, `ii`, etc.) have been replaced with longer, more 
+  informative names (`fontawesome`, `ionicons`, etc.).
+* Animations of icons is no longer supported (this functionality will be
+  made possible in a new package specific to CSS animations).
+* The `iconset_icon` interface for accessing the `icon` icon from the `iconset` 
+  icon set has been replaced with `iconset$icon`.
+* The `iconset()` interface for accessing the icons is now specific to each icon 
+  library.
 
 ## Improvements
 
-* Icons now use SVG files instead of font files. This substantially reduces the output file's size and allows more flexibility and integrations with other libraries in the future.
-* Icon sets can now be updated at any time without updating the package. The `download_*()` helpers can be used to install icon libraries.
+* Icons now use SVG files instead of font files. This substantially reduces the 
+  output file's size and allows more flexibility and integration with other 
+  libraries in the future.
+* Icon sets can now be updated at any time without updating the package. The
+  `download_*()` helpers can be used to install icon libraries.
 * Custom icon sets can be created from a folder of SVG files.
-* Icons can now be used with `word_document` and `github_document` output formats.
-* Improved detection of output format types to work with more rmarkdown extensions.
+* Icons can now be used with `word_document` and `github_document` output 
+  formats (#33).
+* Improved detection of output format types to work with more rmarkdown 
+  extensions.
 
 ## Bug fixes
 
-* Icons now work as expected in titles.
-* Icons now work alongside emojis.
+* Icons now work as expected in titles (#7).
+* Icons now work alongside emojis (#25).
 
 # icon 0.1.0
 
