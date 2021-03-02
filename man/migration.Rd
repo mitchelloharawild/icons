@@ -14,10 +14,6 @@ ai(...)
 }
 \arguments{
 \item{...}{Unused.}
-
-\item{path}{A directory or file to migrate}
-
-\item{ext}{File extensions to update}
 }
 \description{
 The icon package has been overhauled to be more efficient and extensible.

@@ -5,8 +5,6 @@
 #' minimise impact, please use the `migrate_icon()` function to update your files
 #' to use the new interface.
 #'
-#' @param path A directory or file to migrate
-#' @param ext File extensions to update
 #' @param ... Unused.
 #'
 #' @rdname migration

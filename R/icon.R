@@ -30,8 +30,11 @@ read_icon <- function(x){
 }
 
 xml2tags <- function(x){
-  out <- tag(xml2::xml_name(x), varArgs = as.list(xml2::xml_attrs(x)))
-  do.call(tagAppendChildren, c(tag = list(out), Map(xml2tags, xml2::xml_children(x))))
+  out <- htmltools::tag(xml2::xml_name(x), varArgs = as.list(xml2::xml_attrs(x)))
+  do.call(
+    htmltools::tagAppendChildren,
+    c(tag = list(out), Map(xml2tags, xml2::xml_children(x)))
+  )
 }
 
 
