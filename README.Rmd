@@ -12,7 +12,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# icons <a href='https://pkg.mitchelloharawild.com/icons'><img src='man/figures/logo.svg' align="right" height="139" /></a>
+# icons <a href='https://pkg.mitchelloharawild.com/icon'><img src='man/figures/logo.png' align="right" height="138" /></a>
 
 [![R build status](https://github.com/mitchelloharawild/icons/workflows/R-CMD-check/badge.svg)](https://github.com/mitchelloharawild/icons/actions?workflow=R-CMD-check)
 [![Coverage status](https://codecov.io/gh/mitchelloharawild/icons/branch/master/graph/badge.svg)](https://codecov.io/gh/mitchelloharawild/icon?branch=master)
@@ -85,21 +85,13 @@ Custom icon sets can be created using the `icon_set()` function, which accepts a
 ````
 ```{r icon-custom}`r ''`
 custom <- icons::icon_set("hex")
-custom
+custom$icons
 ```
 ````
+
 ```{r icon-custom, echo=FALSE}
 custom <- icon_set("hex")
-custom
-```
-
-````
-```{r icon-sticker}`r ''`
-custom$icon
-```
-````
-```{r icon-sticker, echo=FALSE}
-custom$icon
+custom$icons
 ```
 
 You can also search for icons using the `icon_find()` function.

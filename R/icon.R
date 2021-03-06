@@ -1,10 +1,3 @@
-#' @keywords internal
-"_PACKAGE"
-
-#' @import rlang
-#' @importFrom glue glue
-NULL
-
 #' Read an individual icon
 #'
 #' @param x Path to the icon

@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# icons <a href='https://pkg.mitchelloharawild.com/icons'><img src='man/figures/logo.svg' align="right" height="139" /></a>
+# icons <a href='https://pkg.mitchelloharawild.com/icon'><img src='man/figures/logo.png' align="right" height="138" /></a>
 
 [![R build
 status](https://github.com/mitchelloharawild/icons/workflows/R-CMD-check/badge.svg)](https://github.com/mitchelloharawild/icons/actions?workflow=R-CMD-check)
@@ -94,16 +94,10 @@ accepts a directory of SVG files and allows them to be used as icons.
 
     ```{r icon-custom}
     custom <- icons::icon_set("hex")
-    custom
+    custom$icons
     ```
 
-    #> Custom icon set (/hex)
-
-    ```{r icon-sticker}
-    custom$icon
-    ```
-
-<img src="man/figures/icon-sticker-1.svg" height="16px"/>
+<img src="man/figures/icon-custom-1.svg" height="16px"/>
 
 You can also search for icons using the `icon_find()` function.
 
