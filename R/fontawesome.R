@@ -33,7 +33,7 @@ download_fontawesome <- function(version = "dev"){
 #' @param style Style of the icon. If NULL, a default style will be chosen for the specified icon.
 #' @rdname fontawesome
 #' @export
-fontawesome <- new_icon(
+fontawesome <- new_icon_set(
   "fontawesome",
   function(name, style = NULL){
     if(is.null(style)){

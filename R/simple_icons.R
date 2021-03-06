@@ -24,7 +24,7 @@ download_simple_icons <- function(version = "dev"){
 #' @param name Name of the icon
 #' @rdname simple_icons
 #' @export
-simple_icons <- new_icon(
+simple_icons <- new_icon_set(
   "simple_icons",
   function(name){
     icon_fn$get(name)

@@ -7,7 +7,7 @@ dir_icon <- function(...){
 icon_table <- new.env(parent = emptyenv())
 
 # Lookup table for features
-new_icon <- function(nm, fn = dir_icon) {
+new_icon_set <- function(nm, fn = dir_icon) {
   icon_table[[nm]] <- environment()
   table <- new.env(parent = emptyenv())
   icon_fn <- list(

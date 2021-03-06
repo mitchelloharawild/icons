@@ -32,7 +32,7 @@ octicon_svg_dest <- function(svgs){
 #' @seealso https://primer.style/octicons/
 #'
 #' @export
-octicons <- new_icon(
+octicons <- new_icon_set(
   "octicons",
   function(name){
     icon_fn$get(name)

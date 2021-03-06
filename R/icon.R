@@ -47,7 +47,7 @@ xml2tags <- function(x){
 icon_set <- function(path, meta = list(name = "Custom", version = NULL, license = NULL)){
   path <- suppressWarnings(normalizePath(path))
 
-  icon <- new_icon(path)
+  icon <- new_icon_set(path)
   get_env(icon)[["icon_fn"]][["update"]](path, meta)
   icon
 }

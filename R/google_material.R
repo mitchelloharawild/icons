@@ -95,7 +95,7 @@ mdi_svg_dest <- function(version) {
 #'
 #' @rdname google_material
 #' @export
-google_material <- new_icon(
+google_material <- new_icon_set(
   "google_material",
   function(name, category = NULL, theme = NULL){
     if(is.null(category)){

@@ -34,7 +34,7 @@ download_academicons <- function(version = "dev"){
 #' @param name Name of the icon
 #' @rdname academicons
 #' @export
-academicons <- new_icon(
+academicons <- new_icon_set(
   "academicons",
   function(name){
     icon_fn$get(name)
