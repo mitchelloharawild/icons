@@ -10,7 +10,7 @@ read_icon <- function(x){
   xml2::xml_set_attrs(icon, NULL)
   xml2::xml_set_attrs(icon, c(
     attr[setdiff(names(attr), c("width", "height"))],
-    style = "height:1em;fill:currentColor;position:relative;display:inline-block;top:.1em;")
+    style = "height:1em;position:relative;display:inline-block;top:.1em;")
   )
 
   icon <- xml2tags(icon)
@@ -124,7 +124,8 @@ update_icon <- function(libs = NULL, silent = TRUE){
     if(!silent){
       msg(paste0(
         crayon::green(cli::symbol$tick), " ", crayon::blue(lib), " updated to version ",
-        format_version(package_version(meta$version))
+        tryCatch(format_version(package_version(meta$version)),
+                 error = function(e) meta$version)
       ))
     }
     get_env(get(lib, mode = "function"))[["icon_fn"]][["update"]](icon_path(lib), meta = meta)
