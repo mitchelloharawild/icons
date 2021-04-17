@@ -45,7 +45,10 @@ icon_attach <- function() {
     icon_table,
     function(x){
       if(!is.null(x$table$meta$version)){
-        format_version(package_version(x$table$meta$version))
+        tryCatch(
+          format_version(package_version(x$table$meta$version)),
+          error = function(e) x$table$meta$version
+        )
       } else ""
     },
     character(1)
