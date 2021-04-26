@@ -12,14 +12,13 @@ bioicons(name, category = NULL)
 \arguments{
 \item{name}{Name of the icon.}
 
-\item{category}{The icon's category, one of "Animals", "Blood  immunology",
-"Cell lines", "Cell membrane", "Chemistry", "Chemo- and Bioinformatics",
-"General items", "Genetics", "Human physiology", "Intracellular
-components", "Lab apparatus", "Machine Learning", "Microbiology",
-"Nucleic Acids", "Oncology", "Parasites", "Receptor channels", "Safety
-symbols", "Scientific graphs", "Tissues", or "Viruses". \code{category} is not
-case-sensitive. If \code{NULL}, it will default to the first
-available icon with this name.}
+\item{category}{The icon's category, one of "Animals", "Blood_immunology",
+"Cell_lines", "Cell_membrane", "Chemistry", "Chemo-_and_Bioinformatics",
+"General_items", "Genetics", "Human_physiology", "Intracellular_components"
+, "Lab_apparatus", "Machine_Learning", "Microbiology",
+"Nucleic_Acids", "Oncology", "Parasites", "Receptor_channels",
+"Safety_symbols", "Scientific_graphs", "Tissues", or "Viruses".
+If \code{NULL}, it will default to the first available icon with this name.}
 }
 \description{
 Bioicons is a free library of open source icons for scientific
