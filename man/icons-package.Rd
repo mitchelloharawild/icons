@@ -26,6 +26,7 @@ Other contributors:
 \itemize{
   \item Earo Wang [contributor]
   \item Timothy Hyndman [contributor]
+  \item Matthew T. Warkentin [contributor]
 }
 
 }
