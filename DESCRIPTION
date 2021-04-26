@@ -23,7 +23,7 @@ Imports:
     cli,
     crayon,
     utils,
-    rstudioapi,
+    rstudioapi
 Suggests: 
     rsvg,
     covr,
