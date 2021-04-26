@@ -8,6 +8,11 @@ download_bioicons <- function() {
       simplifyVector = TRUE
     )
 
+  meta <-
+    jsonlite::read_json(
+      glue::glue("https://raw.githubusercontent.com/duerrsimon/bioicons/main/package.json")
+    )
+
   icon_df$category2 <- tolower(gsub("_", " ", icon_df$category))
   icon_df$name2 <- tolower(icon_df$name)
 
@@ -53,7 +58,7 @@ download_bioicons <- function() {
   saveRDS(
     list(
       name = "Bioicons",
-      version = "",
+      version = meta$version,
       licence = c("BSD", "CC-0", "CC by SA", "MIT")
     ),
     glue::glue("{save_dir}/meta.rds")
