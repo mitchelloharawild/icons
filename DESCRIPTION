@@ -15,20 +15,17 @@ Imports:
     knitr,
     rlang,
     htmltools,
-    fs,
     glue,
     rappdirs,
     xml2,
-    httr,
     stringr,
     jsonlite,
     cli,
     crayon,
     utils,
     rstudioapi,
-    rsvg,
-    purrr
 Suggests: 
+    rsvg,
     covr,
     gh
 URL: https://pkg.mitchelloharawild.com/icons/, https://github.com/mitchelloharawild/icons
