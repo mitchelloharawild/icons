@@ -31,6 +31,7 @@ The `icons` package currently provides helpful tools for downloading and using i
 * [Google's Material Design](https://github.com/google/material-design-icons)
 * [Octicons](https://github.com/primer/octicons)
 * [Feather Icons](https://github.com/feathericons/feather)
+* [Bioicons](https://github.com/duerrsimon/bioicons)
 
 # Installation
 
