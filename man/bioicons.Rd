@@ -7,10 +7,19 @@
 \usage{
 download_bioicons()
 
-bioicons(name)
+bioicons(name, category = NULL)
 }
 \arguments{
 \item{name}{Name of the icon.}
+
+\item{category}{The icon's category, one of "Animals", "Blood  immunology",
+"Cell lines", "Cell membrane", "Chemistry", "Chemo- and Bioinformatics",
+"General items", "Genetics", "Human physiology", "Intracellular
+components", "Lab apparatus", "Machine Learning", "Microbiology",
+"Nucleic Acids", "Oncology", "Parasites", "Receptor channels", "Safety
+symbols", "Scientific graphs", "Tissues", or "Viruses". \code{category} is not
+case-sensitive. If \code{NULL}, it will default to the first
+available icon with this name.}
 }
 \description{
 Bioicons is a free library of open source icons for scientific
