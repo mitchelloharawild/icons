@@ -57,10 +57,10 @@ bioicons <- new_icon_set(
       chosen_icon <- info[info$name==name, ]
       icon_fn$get(
         c(
-          chosen_icon$license[[1]],
-          chosen_icon$category[[1]],
-          chosen_icon$author[[1]],
-          chosen_icon$name[[1]]
+          chosen_icon$license[1],
+          chosen_icon$category[1],
+          chosen_icon$author[1],
+          name
         )
       )
     }
@@ -68,10 +68,10 @@ bioicons <- new_icon_set(
       chosen_icon <- info[info$name==name & info$category==category, ]
       icon_fn$get(
         c(
-          chosen_icon$license[[1]],
-          chosen_icon$category[[1]],
-          chosen_icon$author[[1]],
-          chosen_icon$name[[1]]
+          chosen_icon$license[1],
+          category,
+          chosen_icon$author[1],
+          name
         )
       )
     }
