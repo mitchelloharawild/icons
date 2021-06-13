@@ -3,9 +3,9 @@
 #' @export
 download_octicons <- function(version = "dev"){
   if(version == "dev"){
-    version <- "master"
+    version <- "main"
   }
-  url <- glue("https://github.com/primer/octicons/archive/{version}.zip")
+  url <- glue("https://github.com/primer/octicons/archive/refs/heads/{version}.zip")
   meta <- jsonlite::read_json(
     glue("https://raw.githubusercontent.com/primer/octicons/{version}/package.json")
   )
