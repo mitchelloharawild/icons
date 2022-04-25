@@ -1,3 +1,23 @@
+#' @export
+new_icon <- function(path = character(), style = list(NULL)) {
+  vec_assert(path, character())
+  vec_assert(style, list())
+  vctrs::new_rcrd(
+    vec_recycle_common(path = path, style = style),
+    class = "icon2"
+  )
+}
+
+#' @export
+format.icon2 <- function(x) {
+  sub("([^.]+)\\.[[:alnum:]]+$", "\\1", basename(field(x, "path")))
+}
+
+#' @export
+knit_print.icon2 <- function(x, ...) {
+  knit_print(read_icon(field(x, "path")), ...)
+}
+
 #' Read an individual icon
 #'
 #' @param x Path to the icon

@@ -29,8 +29,9 @@ new_icon_set <- function(nm, fn = dir_icon) {
           glue("The `{icon}` icon could not be found in this icon set.")
         )
       }
-
-      read_icon(glue(do.call(file.path, c(list(table[["path"]]), name)), ".svg"))
+      path <- glue(do.call(file.path, c(list(table[["path"]]), name)), ".svg")
+      # return(new_icon(path))
+      read_icon(path)
     },
     list = function() {
       if(is.list(table[["files"]])) names(table[["files"]]) else table[["files"]]
