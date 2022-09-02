@@ -1,4 +1,11 @@
-url: https://pkg.mitchelloharawild.com/icon
+url: https://pkg.mitchelloharawild.com/icons
+
+template:
+  params:
+    bootswatch: cosmo
+  includes:
+    in_header: |
+      <script defer data-domain="pkg.mitchelloharawild.com/icons" src="https://track.mitchelloharawild.com/js/plausible.js"></script>
 
 authors:
   Mitchell O'Hara-Wild:
