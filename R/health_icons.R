@@ -28,8 +28,8 @@ download_health_icons <- function(){
 #'   "people", "places", "shapes", "specialties", "symbols", "typography", or
 #'   "vehicles"
 #' @param theme The style variant for the icon, requires v4.0.0 or greater.
-#'   Available themes vary by icon, but can be either "filled", "outlined",
-#'   "round", "sharp", or "twotone". If NULL, it will default to the
+#'   Available themes vary by icon, but can be either "filled", "negative",
+#'   "outline". If NULL, it will default to the
 #'   first available variant in this order.
 #' @rdname health_icons
 #' @export
