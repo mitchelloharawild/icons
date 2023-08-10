@@ -9,7 +9,7 @@ download_health_icons <- function(){
   )
 
   install_icon_zip(
-    "health_icons", url, "svg",
+    "health_icons", url, function(dl_dir) file.path(dl_dir, "icons", "svg"),
     meta = list(
       name = "Health Icons",
       version = meta$version,
