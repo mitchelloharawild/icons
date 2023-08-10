@@ -3,7 +3,7 @@
 \name{download_health_icons}
 \alias{download_health_icons}
 \alias{health_icons}
-\title{Font Awesome icons}
+\title{Health icons}
 \usage{
 download_health_icons()
 
@@ -23,5 +23,5 @@ Available themes vary by icon, but can be either "filled", "negative",
 first available variant in this order.}
 }
 \description{
-Font Awesome icons
+Health icons
 }
