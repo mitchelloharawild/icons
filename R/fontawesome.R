@@ -37,7 +37,7 @@ fontawesome <- new_icon_set(
   "fontawesome",
   function(name, style = NULL){
     if(is.null(style)){
-      icon_find(name, "fontawesome")[[1]]
+      icon_guess(name, "fontawesome")
     } else {
       icon_fn$get(c(style, name))
     }

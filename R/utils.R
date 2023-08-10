@@ -88,3 +88,15 @@ install_icon_zip <- function(lib, url, svg_path, svg_pattern = "\\.svg$",
 
   return(dl_dir)
 }
+
+icon_guess <- function(name, ..., pattern = NULL) {
+  icon_found <- icon_find(name, ...)
+  if(!is.null(pattern)) {
+    icon_found <- icon_found[grepl(pattern, names(icon_found), fixed = TRUE)]
+  }
+
+  if(rlang::is_empty(icon_found)) {
+    abort(sprintf("The %s icon could not be found. Perhaps its icon set needs installing or updating?", name))
+  }
+  icon_found[[1]]
+}
