@@ -20,7 +20,7 @@ download_health_icons <- function(){
   invisible(health_icons)
 }
 
-#' Font Awesome icons
+#' Health icons
 #'
 #' @param name Name of the icon
 #' @param category The icon's category, either "blood", "body", "conditions",
