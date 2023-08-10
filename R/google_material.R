@@ -99,15 +99,7 @@ google_material <- new_icon_set(
   "google_material",
   function(name, category = NULL, theme = NULL){
     if(is.null(category)){
-      x <- icon_find(name, "google_material")
-      if(is.null(theme)) {
-        x[[1]]
-      } else {
-        if(length(pos <- which(grepl(theme, names(x), fixed = TRUE))) != 1) {
-          abort("Could not find this specific icon from google_material.")
-        }
-        x[[pos]]
-      }
+      icon_guess(name, "google_material", pattern = theme)
     } else {
       icon_fn$get(c(theme, category, name))
     }
