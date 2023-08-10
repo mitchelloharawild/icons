@@ -18,8 +18,8 @@ health_icons(name, category = NULL, theme = NULL)
 "vehicles"}
 
 \item{theme}{The style variant for the icon, requires v4.0.0 or greater.
-Available themes vary by icon, but can be either "filled", "outlined",
-"round", "sharp", or "twotone". If NULL, it will default to the
+Available themes vary by icon, but can be either "filled", "negative",
+"outline". If NULL, it will default to the
 first available variant in this order.}
 }
 \description{
