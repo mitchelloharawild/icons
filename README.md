@@ -8,7 +8,7 @@ status](https://github.com/mitchelloharawild/icons/workflows/R-CMD-check/badge.s
 [![Coverage
 status](https://codecov.io/gh/mitchelloharawild/icons/branch/master/graph/badge.svg)](https://codecov.io/gh/mitchelloharawild/icon?branch=master)
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/icon)](https://cran.r-project.org/package=icons)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/icon)](https://cran.r-project.org/package=icons)
 <!-- [![Downloads](http://cranlogs.r-pkg.org/badges/icons?color=brightgreen)](https://cran.r-project.org/package=icons) -->
 
 The `icons` package for R makes adding web icons to reports,
@@ -23,16 +23,16 @@ what is possible with emoji.
 The `icons` package currently provides helpful tools for downloading and
 using icons from these libraries:
 
--   [Font Awesome](https://github.com/FortAwesome/Font-Awesome/) (Pro
-    icons can be used using custom icon sets)
--   [Ionicons](https://github.com/ionic-team/ionicons/)
--   [Academicons](https://github.com/jpswalsh/academicons)
--   [Simple Icons](https://github.com/simple-icons/simple-icons/)
--   [Google’s Material
-    Design](https://github.com/google/material-design-icons)
--   [Octicons](https://github.com/primer/octicons)
--   [Feather Icons](https://github.com/feathericons/feather)
--   [Bioicons](https://github.com/duerrsimon/bioicons)
+- [Font Awesome](https://github.com/FortAwesome/Font-Awesome/) (Pro
+  icons can be used using custom icon sets)
+- [Ionicons](https://github.com/ionic-team/ionicons/)
+- [Academicons](https://github.com/jpswalsh/academicons)
+- [Simple Icons](https://github.com/simple-icons/simple-icons/)
+- [Google’s Material
+  Design](https://github.com/google/material-design-icons)
+- [Octicons](https://github.com/primer/octicons)
+- [Feather Icons](https://github.com/feathericons/feather)
+- [Bioicons](https://github.com/duerrsimon/bioicons)
 
 # Installation
 
@@ -140,3 +140,7 @@ changes to the existing API, so hopefully this will be a seamless
 transition for users! Notably, the `icon_name` functions have been
 removed in favour of `icon$name`, and the interface for styling and
 animating has been removed/changed.
+
+If you need to use the first version of the package that was developed
+from the rOpenSci hackathon, you can install it with
+`remotes::install_github("mitchelloharawild/icons@v0.1.0")`.
