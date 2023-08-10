@@ -37,15 +37,7 @@ health_icons <- new_icon_set(
   "health_icons",
   function(name, category = NULL, theme = NULL){
     if(is.null(category)){
-      x <- icon_find(name, "health_icons")
-      if(is.null(theme)) {
-        x[[1]]
-      } else {
-        if(length(pos <- which(grepl(theme, names(x), fixed = TRUE))) != 1) {
-          abort("Could not find this specific icon from health_icons.")
-        }
-        x[[pos]]
-      }
+      icon_guess(name, "health_icons", pattern = theme)
     } else {
       icon_fn$get(c(theme, category, name))
     }
