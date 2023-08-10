@@ -3,8 +3,7 @@
 
 # icons <a href='https://pkg.mitchelloharawild.com/icon'><img src='man/figures/logo.png' align="right" height="138" /></a>
 
-[![R build
-status](https://github.com/mitchelloharawild/icons/workflows/R-CMD-check/badge.svg)](https://github.com/mitchelloharawild/icons/actions?workflow=R-CMD-check)
+[![R-CMD-check](https://github.com/mitchelloharawild/icons/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/mitchelloharawild/icons/actions/workflows/R-CMD-check.yaml)
 [![Coverage
 status](https://codecov.io/gh/mitchelloharawild/icons/branch/master/graph/badge.svg)](https://codecov.io/gh/mitchelloharawild/icon?branch=master)
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
