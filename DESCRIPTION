@@ -7,7 +7,7 @@ Authors@R: c(
     person("Earo", "Wang", role = "ctb"),
     person("Timothy", "Hyndman", role = "ctb"),
     person("Matthew T. Warkentin", role = "ctb"),
-    person("Tom", "Jemmett", email = "thomas.jemmett@nhs.net", role = "ctb", comment = c(ORCID="0000-0002-6943-2990")),
+    person("Tom", "Jemmett", email = "thomas.jemmett@nhs.net", role = "ctb", comment = c(ORCID="0000-0002-6943-2990"))
     )
 Description: Easily embed SVG icons into R Markdown documents or shiny apps. A collection of popular icon sets are supported by the package, including Font Awesome, Academicons and Ionicons.
 Depends:
