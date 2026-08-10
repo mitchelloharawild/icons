@@ -14,6 +14,13 @@ academicons(name)
 
 \item{name}{Name of the icon}
 }
+\value{
+\code{download_academicons()} invisibly returns the \code{academicons} icon
+set after downloading and installing its SVG files locally.
+
+\code{academicons(name)} returns an \code{icon} object (an SVG tag) for the
+requested icon.
+}
 \description{
 Academicons is a specialist icon font for academics. It contains icons for
 websites and organisations related to academia that are often missing from

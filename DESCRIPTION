@@ -33,5 +33,5 @@ BugReports: https://github.com/mitchelloharawild/icons/issues
 VignetteBuilder: knitr
 License: GPL-3
 Encoding: UTF-8
-RoxygenNote: 7.2.3
 Roxygen: list(markdown = TRUE, roclets=c('rd', 'collate', 'namespace'))
+Config/roxygen2/version: 8.0.0

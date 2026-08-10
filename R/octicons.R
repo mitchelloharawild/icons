@@ -31,6 +31,12 @@ octicon_svg_dest <- function(svgs){
 #'
 #' @seealso https://primer.style/octicons/
 #'
+#' @return `download_octicons()` invisibly returns the `octicons` icon set
+#'   after downloading and installing its SVG files locally.
+#'
+#'   `octicons(name)` returns an `icon` object (an SVG tag) for the
+#'   requested icon.
+#'
 #' @export
 octicons <- new_icon_set(
   "octicons",

@@ -9,6 +9,10 @@ read_icon(x)
 \arguments{
 \item{x}{Path to the icon}
 }
+\value{
+An \code{icon} object: an SVG \code{htmltools} tag that can be printed,
+embedded in R Markdown, or styled with \code{\link[=icon_style]{icon_style()}}.
+}
 \description{
 Read an individual icon
 }

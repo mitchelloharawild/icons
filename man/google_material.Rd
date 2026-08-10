@@ -24,6 +24,14 @@ Available themes vary by icon, but can be either "filled", "outlined",
 "round", "sharp", or "twotone". If NULL, it will default to the
 first available variant in this order.}
 }
+\value{
+\code{download_google_material()} invisibly returns the
+\code{google_material} icon set after downloading and installing its SVG
+files locally.
+
+\code{google_material(name, category, theme)} returns an \code{icon} object (an
+SVG tag) for the requested icon.
+}
 \description{
 Google's Material design icons
 }

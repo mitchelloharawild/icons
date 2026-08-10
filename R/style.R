@@ -5,6 +5,9 @@
 #' @param rotate The angle to rotate the icon.
 #' @param ... Other CSS rules for the icon style, for example `float = "right"`.
 #'
+#' @return The input icon `x`, with its `style` attribute updated to reflect
+#'   the requested styling.
+#'
 #' @importFrom stringr str_replace
 #' @export
 icon_style <- function(x, scale = NULL, fill = NULL, rotate = NULL, ...){

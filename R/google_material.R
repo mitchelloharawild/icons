@@ -93,6 +93,13 @@ mdi_svg_dest <- function(version) {
 #'
 #' @seealso https://material.io/resources/icons/
 #'
+#' @return `download_google_material()` invisibly returns the
+#'   `google_material` icon set after downloading and installing its SVG
+#'   files locally.
+#'
+#'   `google_material(name, category, theme)` returns an `icon` object (an
+#'   SVG tag) for the requested icon.
+#'
 #' @rdname google_material
 #' @export
 google_material <- new_icon_set(

@@ -14,6 +14,13 @@ octicons(name)
 
 \item{name}{Name of the icon}
 }
+\value{
+\code{download_octicons()} invisibly returns the \code{octicons} icon set
+after downloading and installing its SVG files locally.
+
+\code{octicons(name)} returns an \code{icon} object (an SVG tag) for the
+requested icon.
+}
 \description{
 GitHub's Octicons
 }

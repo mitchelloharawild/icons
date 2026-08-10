@@ -36,6 +36,13 @@ Using last known license, which may not be current.")
 #' Feather Icons
 #'
 #' @param name Name of the icon
+#'
+#' @return `download_feather_icons()` invisibly returns the `feather_icons`
+#'   icon set after downloading and installing its SVG files locally.
+#'
+#'   `feather_icons(name)` returns an `icon` object (an SVG tag) for the
+#'   requested icon.
+#'
 #' @rdname feather_icons
 #' @export
 feather_icons <- new_icon_set(

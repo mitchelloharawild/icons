@@ -16,6 +16,13 @@ fontawesome(name, style = NULL)
 
 \item{style}{Style of the icon. If NULL, a default style will be chosen for the specified icon.}
 }
+\value{
+\code{download_fontawesome()} invisibly returns the \code{fontawesome}
+icon set after downloading and installing its SVG files locally.
+
+\code{fontawesome(name, style)} returns an \code{icon} object (an SVG tag) for
+the requested icon.
+}
 \description{
 Font Awesome icons
 }

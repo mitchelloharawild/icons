@@ -11,6 +11,10 @@ icon_save(icons, path = ".")
 
 \item{path}{A directory to save the icons into.}
 }
+\value{
+Invisibly, the \code{icon_set} created from the newly saved SVG files
+at \code{path}.
+}
 \description{
 Store icons in a local directory to simplify sharing of documents containing
 icons. Bundling icons with your document or app avoids the need for

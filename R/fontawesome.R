@@ -31,6 +31,13 @@ download_fontawesome <- function(version = "dev"){
 #'
 #' @param name Name of the icon
 #' @param style Style of the icon. If NULL, a default style will be chosen for the specified icon.
+#'
+#' @return `download_fontawesome()` invisibly returns the `fontawesome`
+#'   icon set after downloading and installing its SVG files locally.
+#'
+#'   `fontawesome(name, style)` returns an `icon` object (an SVG tag) for
+#'   the requested icon.
+#'
 #' @rdname fontawesome
 #' @export
 fontawesome <- new_icon_set(

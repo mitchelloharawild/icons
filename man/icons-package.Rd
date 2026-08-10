@@ -6,7 +6,7 @@
 \alias{icons-package}
 \title{icons: SVG Icons for R Documents and Apps}
 \description{
-\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
+\if{html}{\figure{logo.svg}{options: style='float: right' alt='logo' width='120'}}
 
 Easily embed SVG icons into R Markdown documents or shiny apps. A collection of popular icon sets are supported by the package, including Font Awesome, Academicons and Ionicons.
 }
@@ -22,11 +22,17 @@ Useful links:
 \author{
 \strong{Maintainer}: Mitchell O'Hara-Wild \email{mail@mitchelloharawild.com}
 
+Authors:
+\itemize{
+  \item Mitchell O'Hara-Wild \email{mail@mitchelloharawild.com}
+}
+
 Other contributors:
 \itemize{
   \item Earo Wang [contributor]
   \item Timothy Hyndman [contributor]
   \item Matthew T. Warkentin [contributor]
+  \item Tom Jemmett \email{thomas.jemmett@nhs.net} (\href{https://orcid.org/0000-0002-6943-2990}{ORCID}) [contributor]
 }
 
 }

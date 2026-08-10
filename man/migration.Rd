@@ -15,6 +15,10 @@ ai(...)
 \arguments{
 \item{...}{Unused.}
 }
+\value{
+These functions do not return; they always signal an error
+directing you to the new interface.
+}
 \description{
 The icon package has been overhauled to be more efficient and extensible.
 Unfortunately this has led to several necessary interface changes. To

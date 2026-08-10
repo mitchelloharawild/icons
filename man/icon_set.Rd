@@ -11,6 +11,10 @@ icon_set(path, meta = list(name = "Custom", version = NULL, license = NULL))
 
 \item{meta}{Meta information for the icons}
 }
+\value{
+An \code{icon_set} object providing access to the SVG files found at
+\code{path}, for example via \code{$}.
+}
 \description{
 Create a custom icon set
 }

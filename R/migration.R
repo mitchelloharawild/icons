@@ -7,6 +7,9 @@
 #'
 #' @param ... Unused.
 #'
+#' @return These functions do not return; they always signal an error
+#'   directing you to the new interface.
+#'
 #' @rdname migration
 #' @export
 fa <- function(...){

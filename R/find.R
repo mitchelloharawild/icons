@@ -3,6 +3,9 @@
 #' @param name The name of the icon
 #' @param set Icon sets to search. If NULL, all available icons will be searched.
 #'
+#' @return A named list of matching `icon` objects, named by the expression
+#'   used to access them (for example `"fontawesome$solid$rocket"`).
+#'
 #' @export
 icon_find <- function(name, set = NULL){
   all_icons <- lapply(icon_table, function(x) x$table$files)

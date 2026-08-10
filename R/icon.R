@@ -2,6 +2,9 @@
 #'
 #' @param x Path to the icon
 #'
+#' @return An `icon` object: an SVG `htmltools` tag that can be printed,
+#'   embedded in R Markdown, or styled with [icon_style()].
+#'
 #' @importFrom htmltools tagAppendAttributes
 #' @export
 read_icon <- function(x){
@@ -35,6 +38,9 @@ xml2tags <- function(x){
 #'
 #' @param path Path to the icons
 #' @param meta Meta information for the icons
+#'
+#' @return An `icon_set` object providing access to the SVG files found at
+#'   `path`, for example via `$`.
 #'
 #' @export
 icon_set <- function(path, meta = list(name = "Custom", version = NULL, license = NULL)){
@@ -111,6 +117,8 @@ length.icon_set <- function(x){
 #' function.
 #'
 #' @param x An icon set (such as [`fontawesome`]).
+#'
+#' @return A single `TRUE` or `FALSE`.
 #'
 #' @export
 icon_installed <- function(x){

@@ -9,6 +9,9 @@ icon_installed(x)
 \arguments{
 \item{x}{An icon set (such as \code{\link{fontawesome}}).}
 }
+\value{
+A single \code{TRUE} or \code{FALSE}.
+}
 \description{
 This function will return \code{TRUE} if the icons for an icon set are installed.
 If they aren't, they can be installed using the appropriate \verb{download_*()}

@@ -7,6 +7,9 @@
 #' @param icons A named list of icons, the names specify the icon's name in the new icon set.
 #' @param path A directory to save the icons into.
 #'
+#' @return Invisibly, the `icon_set` created from the newly saved SVG files
+#'   at `path`.
+#'
 #' @export
 #' @examples
 #' if(icon_installed(fontawesome) && icon_installed(ionicons)){

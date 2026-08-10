@@ -32,6 +32,13 @@ download_academicons <- function(version = "dev"){
 #' is to be used as a supplementary package alongside a larger icon set.
 #'
 #' @param name Name of the icon
+#'
+#' @return `download_academicons()` invisibly returns the `academicons` icon
+#'   set after downloading and installing its SVG files locally.
+#'
+#'   `academicons(name)` returns an `icon` object (an SVG tag) for the
+#'   requested icon.
+#'
 #' @rdname academicons
 #' @export
 academicons <- new_icon_set(

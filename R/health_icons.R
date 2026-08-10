@@ -31,6 +31,13 @@ download_health_icons <- function(){
 #'   Available themes vary by icon, but can be either "filled", "negative",
 #'   "outline". If NULL, it will default to the
 #'   first available variant in this order.
+#'
+#' @return `download_health_icons()` invisibly returns the `health_icons`
+#'   icon set after downloading and installing its SVG files locally.
+#'
+#'   `health_icons(name, category, theme)` returns an `icon` object (an
+#'   SVG tag) for the requested icon.
+#'
 #' @rdname health_icons
 #' @export
 health_icons <- new_icon_set(

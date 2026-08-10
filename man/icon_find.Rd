@@ -11,6 +11,10 @@ icon_find(name, set = NULL)
 
 \item{set}{Icon sets to search. If NULL, all available icons will be searched.}
 }
+\value{
+A named list of matching \code{icon} objects, named by the expression
+used to access them (for example \code{"fontawesome$solid$rocket"}).
+}
 \description{
 Find icons in installed sets by name
 }

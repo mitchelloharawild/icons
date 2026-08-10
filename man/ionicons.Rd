@@ -14,6 +14,13 @@ ionicons(name)
 
 \item{name}{Name of the icon}
 }
+\value{
+\code{download_ionicons()} invisibly returns the \code{ionicons} icon set
+after downloading and installing its SVG files locally.
+
+\code{ionicons(name)} returns an \code{icon} object (an SVG tag) for the
+requested icon.
+}
 \description{
 Ionicons icons
 }
