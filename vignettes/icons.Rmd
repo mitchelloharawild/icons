@@ -32,7 +32,7 @@ icon_installed(fontawesome)
 
 The rest of this vignette uses Font Awesome; swap in any other set
 (`ionicons`, `academicons`, `simple_icons`, `google_material`, `octicons`,
-`feather_icons`, `bioicons`) the same way.
+`feather_icons`, `bioicons`, `super_tiny_icons`) the same way.
 
 ## Inserting icons
 

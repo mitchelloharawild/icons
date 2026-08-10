@@ -30,6 +30,7 @@ using icons from these libraries:
 - [Octicons](https://github.com/primer/octicons)
 - [Feather Icons](https://github.com/feathericons/feather)
 - [Bioicons](https://github.com/duerrsimon/bioicons)
+- [Super Tiny Icons](https://github.com/edent/SuperTinyIcons)
 
 # Installation
 
