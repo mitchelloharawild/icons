@@ -11,7 +11,8 @@ read_icon(x)
 }
 \value{
 An \code{icon} object: an SVG \code{htmltools} tag that can be printed,
-embedded in R Markdown, or styled with \code{\link[=icon_style]{icon_style()}}.
+embedded in R Markdown, or styled with \code{\link[=icon_style]{icon_style()}}. If \code{x} is a file
+path, it is retained and can be retrieved with \code{\link[=icon_path]{icon_path()}}.
 }
 \description{
 Read an individual icon

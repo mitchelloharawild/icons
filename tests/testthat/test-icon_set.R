@@ -15,6 +15,13 @@ test_that("$.icon_set returns an icon for a top-level file", {
   expect_s3_class(icon, "shiny.tag")
 })
 
+test_that("$.icon_set returns an icon whose icon_path() resolves on disk", {
+  set <- local_icon_set_flat()
+
+  icon <- set$triangle
+  expect_true(file.exists(icon_path(icon)))
+})
+
 test_that("$.icon_set descends into a subdirectory via $.icon_dir", {
   set <- local_icon_set_nested()
 

@@ -6,7 +6,7 @@ add_class <- function(x, new_class){
   if(is_empty(x)) y else x
 }
 
-icon_path <- function(...){
+icon_cache_path <- function(...){
   path <- getOption("icon.path", default = rappdirs::user_data_dir("rpkg_icon"))
   file.path(path, ...)
 }
@@ -21,7 +21,7 @@ list_svg <- function(path, ...){
 }
 
 icon_meta <- function(lib){
-  path <- icon_path(lib, "meta.rds")
+  path <- icon_cache_path(lib, "meta.rds")
   if(file.exists(path)){
     readRDS(path)
   }
@@ -63,7 +63,7 @@ install_icon_zip <- function(lib, url, svg_path, svg_pattern = "\\.svg$",
 
   # Copy icons
   files <- list.files(path, pattern = svg_pattern, recursive = TRUE, full.names = TRUE)
-  dest_dir <- icon_path(lib)
+  dest_dir <- icon_cache_path(lib)
   unlink(dest_dir, recursive = TRUE)
   dest_svg <- if(is.function(svg_dest)){
     svg_dest(files)

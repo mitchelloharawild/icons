@@ -23,7 +23,7 @@ download_bioicons <- function() {
       licence = c("BSD", "CC-0", "CC-BY-SA", "MIT")
     )
   )
-  saveRDS(icon_df, icon_path("bioicons", "icons.rds"))
+  saveRDS(icon_df, icon_cache_path("bioicons", "icons.rds"))
 
   invisible(bioicons)
 }
@@ -57,7 +57,7 @@ download_bioicons <- function() {
 bioicons <- new_icon_set(
   "bioicons",
   function(name, category = NULL) {
-    info <- readRDS(icon_path("bioicons", "icons.rds"))
+    info <- readRDS(icon_cache_path("bioicons", "icons.rds"))
 
     if (is.null(category)) {
       chosen_icon <- info[info$name==name, ]

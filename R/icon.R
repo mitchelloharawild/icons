@@ -3,7 +3,8 @@
 #' @param x Path to the icon
 #'
 #' @return An `icon` object: an SVG `htmltools` tag that can be printed,
-#'   embedded in R Markdown, or styled with [icon_style()].
+#'   embedded in R Markdown, or styled with [icon_style()]. If `x` is a file
+#'   path, it is retained and can be retrieved with [icon_path()].
 #'
 #' @importFrom htmltools tagAppendAttributes
 #' @export
@@ -22,7 +23,38 @@ read_icon <- function(x){
   # icon <- xml_tagList(xml)$svg
   # icon$attribs[c("width", "height")] <- NULL
   # icon <- tagAppendAttributes(icon, )
-  add_class(icon, "icon")
+  icon <- add_class(icon, "icon")
+  if(is.character(x) && length(x) == 1){
+    attr(icon, "path") <- x
+  }
+  icon
+}
+
+#' Get the file path of an icon
+#'
+#' Icons created from an SVG file (such as those from an [icon_set()], or
+#' read directly with [read_icon()]) retain the path to their source file.
+#' This is useful for passing icons to other packages that work with SVG
+#' files directly, such as `ggplot2` (via `grid::rasterGrob()` or similar) or
+#' `gt`.
+#'
+#' @param x An `icon` object.
+#'
+#' @return A string giving the path to the icon's SVG file on disk.
+#'
+#' @export
+icon_path <- function(x){
+  if(!inherits(x, "icon")){
+    cli::cli_abort("{.arg x} must be an {.cls icon} object.", call = NULL)
+  }
+  path <- attr(x, "path")
+  if(is.null(path)){
+    cli::cli_abort(
+      "This icon does not have a known file path.",
+      call = NULL
+    )
+  }
+  path
 }
 
 xml2tags <- function(x){
@@ -136,6 +168,6 @@ update_icon <- function(libs = NULL, silent = TRUE){
       )
       cli::cli_alert_success("{.field {lib}} updated to version {version}.")
     }
-    get_env(get(lib, mode = "function"))[["icon_fn"]][["update"]](icon_path(lib), meta = meta)
+    get_env(get(lib, mode = "function"))[["icon_fn"]][["update"]](icon_cache_path(lib), meta = meta)
   })
 }

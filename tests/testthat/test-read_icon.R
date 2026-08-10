@@ -30,3 +30,19 @@ test_that("read_icon() preserves nested children", {
   expect_identical(icon$children[[1]]$name, "g")
   expect_identical(icon$children[[1]]$children[[1]]$name, "path")
 })
+
+test_that("read_icon() records the source path for use with icon_path()", {
+  path <- tempfile(fileext = ".svg")
+  writeLines(
+    '<svg xmlns="http://www.w3.org/2000/svg"><path d="M0 0"/></svg>',
+    path
+  )
+
+  icon <- read_icon(path)
+
+  expect_identical(icon_path(icon), path)
+})
+
+test_that("icon_path() errors for non-icon input", {
+  expect_error(icon_path("not-an-icon"), class = "rlang_error")
+})
