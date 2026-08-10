@@ -13,3 +13,4 @@ example/example_files$
 ^pkgdown$
 .github
 ^\.github$
+^_dev$
