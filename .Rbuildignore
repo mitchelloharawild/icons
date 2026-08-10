@@ -14,3 +14,4 @@ example/example_files$
 .github
 ^\.github$
 ^_dev$
+^cran-comments\.md$

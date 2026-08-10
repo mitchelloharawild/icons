@@ -27,7 +27,8 @@ Imports:
 Suggests:
     rsvg,
     gh,
-    rmarkdown
+    rmarkdown,
+    testthat (>= 3.0.0)
 URL: https://pkg.mitchelloharawild.com/icons/, https://github.com/mitchelloharawild/icons
 BugReports: https://github.com/mitchelloharawild/icons/issues
 VignetteBuilder: knitr
@@ -35,3 +36,4 @@ License: GPL-3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE, roclets=c('rd', 'collate', 'namespace'))
 Config/roxygen2/version: 8.0.0
+Config/testthat/edition: 3
