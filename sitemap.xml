@@ -1,54 +1,25 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://pkg.mitchelloharawild.com/icon/index.html</loc>
-  </url>
-  <url>
-    <loc>https://pkg.mitchelloharawild.com/icon/reference/academicons.html</loc>
-  </url>
-  <url>
-    <loc>https://pkg.mitchelloharawild.com/icon/reference/bioicons.html</loc>
-  </url>
-  <url>
-    <loc>https://pkg.mitchelloharawild.com/icon/reference/feather_icons.html</loc>
-  </url>
-  <url>
-    <loc>https://pkg.mitchelloharawild.com/icon/reference/fontawesome.html</loc>
-  </url>
-  <url>
-    <loc>https://pkg.mitchelloharawild.com/icon/reference/google_material.html</loc>
-  </url>
-  <url>
-    <loc>https://pkg.mitchelloharawild.com/icon/reference/icon_find.html</loc>
-  </url>
-  <url>
-    <loc>https://pkg.mitchelloharawild.com/icon/reference/icon_installed.html</loc>
-  </url>
-  <url>
-    <loc>https://pkg.mitchelloharawild.com/icon/reference/icon_save.html</loc>
-  </url>
-  <url>
-    <loc>https://pkg.mitchelloharawild.com/icon/reference/icon_set.html</loc>
-  </url>
-  <url>
-    <loc>https://pkg.mitchelloharawild.com/icon/reference/icon_style.html</loc>
-  </url>
-  <url>
-    <loc>https://pkg.mitchelloharawild.com/icon/reference/icons-package.html</loc>
-  </url>
-  <url>
-    <loc>https://pkg.mitchelloharawild.com/icon/reference/ionicons.html</loc>
-  </url>
-  <url>
-    <loc>https://pkg.mitchelloharawild.com/icon/reference/migration.html</loc>
-  </url>
-  <url>
-    <loc>https://pkg.mitchelloharawild.com/icon/reference/octicons.html</loc>
-  </url>
-  <url>
-    <loc>https://pkg.mitchelloharawild.com/icon/reference/read_icon.html</loc>
-  </url>
-  <url>
-    <loc>https://pkg.mitchelloharawild.com/icon/reference/simple_icons.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://pkg.mitchelloharawild.com/icons/404.html</loc></url>
+<url><loc>https://pkg.mitchelloharawild.com/icons/authors.html</loc></url>
+<url><loc>https://pkg.mitchelloharawild.com/icons/index.html</loc></url>
+<url><loc>https://pkg.mitchelloharawild.com/icons/news/index.html</loc></url>
+<url><loc>https://pkg.mitchelloharawild.com/icons/reference/academicons.html</loc></url>
+<url><loc>https://pkg.mitchelloharawild.com/icons/reference/bioicons.html</loc></url>
+<url><loc>https://pkg.mitchelloharawild.com/icons/reference/feather_icons.html</loc></url>
+<url><loc>https://pkg.mitchelloharawild.com/icons/reference/fontawesome.html</loc></url>
+<url><loc>https://pkg.mitchelloharawild.com/icons/reference/google_material.html</loc></url>
+<url><loc>https://pkg.mitchelloharawild.com/icons/reference/health_icons.html</loc></url>
+<url><loc>https://pkg.mitchelloharawild.com/icons/reference/icon_find.html</loc></url>
+<url><loc>https://pkg.mitchelloharawild.com/icons/reference/icon_installed.html</loc></url>
+<url><loc>https://pkg.mitchelloharawild.com/icons/reference/icon_save.html</loc></url>
+<url><loc>https://pkg.mitchelloharawild.com/icons/reference/icon_set.html</loc></url>
+<url><loc>https://pkg.mitchelloharawild.com/icons/reference/icon_style.html</loc></url>
+<url><loc>https://pkg.mitchelloharawild.com/icons/reference/icons-package.html</loc></url>
+<url><loc>https://pkg.mitchelloharawild.com/icons/reference/index.html</loc></url>
+<url><loc>https://pkg.mitchelloharawild.com/icons/reference/ionicons.html</loc></url>
+<url><loc>https://pkg.mitchelloharawild.com/icons/reference/migration.html</loc></url>
+<url><loc>https://pkg.mitchelloharawild.com/icons/reference/octicons.html</loc></url>
+<url><loc>https://pkg.mitchelloharawild.com/icons/reference/read_icon.html</loc></url>
+<url><loc>https://pkg.mitchelloharawild.com/icons/reference/simple_icons.html</loc></url>
 </urlset>
+

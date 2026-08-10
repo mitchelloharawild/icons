@@ -1,9 +1,8 @@
-pandoc: 2.7.3
-pkgdown: 1.6.1
+pandoc: 3.8.3
+pkgdown: 2.2.1
 pkgdown_sha: ~
 articles: {}
-last_built: 2021-06-14T02:44Z
+last_built: 2026-08-10T09:19Z
 urls:
-  reference: https://pkg.mitchelloharawild.com/icon/reference
-  article: https://pkg.mitchelloharawild.com/icon/articles
-
+  reference: https://pkg.mitchelloharawild.com/icons/reference
+  article: https://pkg.mitchelloharawild.com/icons/articles
