@@ -25,9 +25,8 @@ Imports:
     crayon,
     utils,
     rstudioapi
-Suggests: 
+Suggests:
     rsvg,
-    covr,
     gh
 URL: https://pkg.mitchelloharawild.com/icons/, https://github.com/mitchelloharawild/icons
 BugReports: https://github.com/mitchelloharawild/icons/issues

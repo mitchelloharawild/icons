@@ -4,8 +4,6 @@
 # icons <a href='https://pkg.mitchelloharawild.com/icon'><img src='man/figures/logo.png' align="right" height="138" /></a>
 
 [![R-CMD-check](https://github.com/mitchelloharawild/icons/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/mitchelloharawild/icons/actions/workflows/R-CMD-check.yaml)
-[![Coverage
-status](https://codecov.io/gh/mitchelloharawild/icons/branch/master/graph/badge.svg)](https://codecov.io/gh/mitchelloharawild/icon?branch=master)
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/icon)](https://cran.r-project.org/package=icons)
 <!-- [![Downloads](http://cranlogs.r-pkg.org/badges/icons?color=brightgreen)](https://cran.r-project.org/package=icons) -->
