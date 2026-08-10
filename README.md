@@ -1,10 +1,10 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# icons <a href='https://pkg.mitchelloharawild.com/icon'><img src='man/figures/logo.png' align="right" height="138" /></a>
+# icons <a href='https://pkg.mitchelloharawild.com/icons/'><img src='man/figures/logo.png' align="right" height="138" /></a>
 
 [![R-CMD-check](https://github.com/mitchelloharawild/icons/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/mitchelloharawild/icons/actions/workflows/R-CMD-check.yaml)
-[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/icon)](https://cran.r-project.org/package=icons)
 <!-- [![Downloads](http://cranlogs.r-pkg.org/badges/icons?color=brightgreen)](https://cran.r-project.org/package=icons) -->
 
@@ -125,10 +125,10 @@ icon_find("rocket")
 # A Note on the old API
 
 This is the second iteration of the icon package, the [first icon
-package](https://github.com/ropenscilabs/icon) has been successful, but
+package](https://github.com/mitchelloharawild/icons) has been successful, but
 lacked a few features such as SVG icons, user defined libraries, and
 extensibility support. You can read the notes on the new API
-[here](https://github.com/ropenscilabs/icon/issues/19). It turns out
+[here](https://github.com/mitchelloharawild/icons/issues/19). It turns out
 that it was easier to build the new and improved icon from scratch,
 which is what this repository is. In the future this version of icon
 might just be merged into rOpenScilabs/icon, but for the mean time it
