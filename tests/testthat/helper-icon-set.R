@@ -31,3 +31,21 @@ local_icon_set_nested <- function() {
 
   icon_set(dir, meta = list(name = "Test", version = "1.0.0", license = NULL))
 }
+
+# A flat set with two icons, for tests that need to combine distinct icons
+# into an `icon_vec`.
+local_icon_set_multi <- function() {
+  dir <- tempfile("icon_set_multi")
+  dir.create(dir)
+
+  writeLines(
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M12 2 L22 22 L2 22 Z"/></svg>',
+    file.path(dir, "triangle.svg")
+  )
+  writeLines(
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><circle cx="12" cy="12" r="10"/></svg>',
+    file.path(dir, "circle.svg")
+  )
+
+  icon_set(dir, meta = list(name = "Test", version = "1.0.0", license = NULL))
+}

@@ -18,8 +18,8 @@ icon_style(x, scale = NULL, fill = NULL, rotate = NULL, ...)
 \item{...}{Other CSS rules for the icon style, for example \code{float = "right"}.}
 }
 \value{
-The input icon \code{x}, with its \code{style} attribute updated to reflect
-the requested styling.
+The input \code{x} (an \code{icon} or \code{icon_vec}), with its style updated to
+reflect the requested styling.
 }
 \description{
 Customise the style of an icon

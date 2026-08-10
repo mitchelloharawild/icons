@@ -23,11 +23,13 @@ Imports:
     jsonlite,
     cli,
     utils,
-    rstudioapi
+    rstudioapi,
+    vctrs
 Suggests:
     rsvg,
     gh,
     rmarkdown,
+    pillar,
     testthat (>= 3.0.0)
 URL: https://pkg.mitchelloharawild.com/icons/, https://github.com/mitchelloharawild/icons
 BugReports: https://github.com/mitchelloharawild/icons/issues

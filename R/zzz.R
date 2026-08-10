@@ -9,6 +9,10 @@
   # Update icon details
   update_icon()
 
+  # `pillar` is a Suggests dependency, only used for tibble printing of an
+  # `icon_vec` column, so it's registered conditionally rather than exported.
+  vctrs::s3_register("pillar::pillar_shaft", "icon_vec")
+
   invisible()
 }
 

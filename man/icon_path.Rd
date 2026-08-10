@@ -7,10 +7,11 @@
 icon_path(x)
 }
 \arguments{
-\item{x}{An \code{icon} object.}
+\item{x}{An \code{icon} or \code{icon_vec} object.}
 }
 \value{
-A string giving the path to the icon's SVG file on disk.
+A string (or, for an \code{icon_vec}, a character vector) giving the
+path(s) to the icon's source SVG file(s) on disk.
 }
 \description{
 Icons created from an SVG file (such as those from an \code{\link[=icon_set]{icon_set()}}, or

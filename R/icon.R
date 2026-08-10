@@ -1,3 +1,33 @@
+# Base style applied to every icon before any icon_style() customisation
+icon_base_style <- "height:1em;position:relative;display:inline-block;top:.1em;"
+
+#' Materialize an `icon` tag from a path and (optionally) a style
+#'
+#' Shared by the scalar (`icon`) and vector (`icon_vec`) code paths so that
+#' both produce byte-for-byte the same `htmltools` tag structure. This is
+#' the only place that ever parses an SVG file.
+#'
+#' @param path Path to the icon's SVG file.
+#' @param style A pre-computed `style` attribute to use verbatim, or `NA` to
+#'   fall back to `icon_base_style`.
+#'
+#' @return An `icon` object.
+#' @noRd
+icon_materialize <- function(path, style = NA_character_){
+  icon <- xml2::read_xml(path)
+  attr <- xml2::xml_attrs(icon)
+  xml2::xml_set_attrs(icon, NULL)
+  xml2::xml_set_attrs(icon, c(
+    attr[setdiff(names(attr), c("width", "height"))],
+    style = if(is.na(style)) icon_base_style else style)
+  )
+
+  icon <- xml2tags(icon)
+  icon <- add_class(icon, "icon")
+  attr(icon, "path") <- path
+  icon
+}
+
 #' Read an individual icon
 #'
 #' @param x Path to the icon
@@ -9,25 +39,7 @@
 #' @importFrom htmltools tagAppendAttributes
 #' @export
 read_icon <- function(x){
-  icon <- xml2::read_xml(x)
-  attr <- xml2::xml_attrs(icon)
-  xml2::xml_set_attrs(icon, NULL)
-  xml2::xml_set_attrs(icon, c(
-    attr[setdiff(names(attr), c("width", "height"))],
-    style = "height:1em;position:relative;display:inline-block;top:.1em;")
-  )
-
-  icon <- xml2tags(icon)
-
-  # xml <- xml2::as_list(xml2::read_xml(x))
-  # icon <- xml_tagList(xml)$svg
-  # icon$attribs[c("width", "height")] <- NULL
-  # icon <- tagAppendAttributes(icon, )
-  icon <- add_class(icon, "icon")
-  if(is.character(x) && length(x) == 1){
-    attr(icon, "path") <- x
-  }
-  icon
+  icon_materialize(x)
 }
 
 #' Get the file path of an icon
@@ -38,15 +50,23 @@ read_icon <- function(x){
 #' files directly, such as `ggplot2` (via `grid::rasterGrob()` or similar) or
 #' `gt`.
 #'
-#' @param x An `icon` object.
+#' @param x An `icon` or `icon_vec` object.
 #'
-#' @return A string giving the path to the icon's SVG file on disk.
+#' @return A string (or, for an `icon_vec`, a character vector) giving the
+#'   path(s) to the icon's source SVG file(s) on disk.
 #'
 #' @export
 icon_path <- function(x){
-  if(!inherits(x, "icon")){
-    cli::cli_abort("{.arg x} must be an {.cls icon} object.", call = NULL)
-  }
+  UseMethod("icon_path")
+}
+
+#' @export
+icon_path.default <- function(x){
+  cli::cli_abort("{.arg x} must be an {.cls icon} object.", call = NULL)
+}
+
+#' @export
+icon_path.icon <- function(x){
   path <- attr(x, "path")
   if(is.null(path)){
     cli::cli_abort(
