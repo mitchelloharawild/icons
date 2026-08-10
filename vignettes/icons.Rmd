@@ -1,0 +1,110 @@
+---
+title: "Using icons"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Using icons}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+library(icons)
+have_fa <- icon_installed(fontawesome)
+```
+
+## Installing icon sets
+
+Icon libraries aren't bundled with the package, keeping it small and letting
+you choose which version of each library you use. Download the ones you want
+once per machine:
+
+```{r, eval = FALSE}
+download_fontawesome()
+download_ionicons()
+```
+
+`icon_installed()` tells you whether a library has already been downloaded:
+
+```r
+icon_installed(fontawesome)
+```
+
+The rest of this vignette uses Font Awesome; swap in any other set
+(`ionicons`, `academicons`, `simple_icons`, `google_material`, `octicons`,
+`feather_icons`, `bioicons`) the same way.
+
+## Inserting icons
+
+Icons can be inserted inline, e.g. `` `r knitr::inline_expr('fontawesome("rocket", style = "solid")')` ``,
+or from a code chunk:
+
+```{r icon-chunk, eval = have_fa}
+fontawesome("rocket", style = "solid")
+```
+
+The same icon can be accessed with `$`, which is handy for tab-completion:
+
+```{r icon-dollar, eval = have_fa}
+fontawesome$solid$rocket
+```
+
+If a name isn't a valid R name (e.g. it contains a `-`), quote it:
+
+```{r icon-syntax, eval = have_fa}
+fontawesome$brands$`r-project`
+```
+
+## Styling icons
+
+`icon_style()` customises an icon's appearance:
+
+```{r icon-style, eval = have_fa}
+icon_style(fontawesome("rocket", style = "solid"), scale = 2, fill = "red")
+```
+
+It accepts `scale`, `fill` and `rotate`, plus any other CSS property via
+`...` (for example `float = "right"`).
+
+## Custom icon sets
+
+Any folder of SVG files can become an icon set with `icon_set()`, which is
+useful for icons that aren't from a supported library (including Font
+Awesome Pro icons):
+
+```{r icon-custom}
+icon_dir <- tempfile()
+dir.create(icon_dir)
+writeLines(
+  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2 L22 22 L2 22 Z"/></svg>',
+  file.path(icon_dir, "triangle.svg")
+)
+custom <- icon_set(icon_dir)
+custom$triangle
+```
+
+`icon_save()` does the reverse: it bundles icons you're already using into a
+folder, so a shared document or deployed app doesn't need the original
+library installed:
+
+```{r icon-save, eval = FALSE}
+icon_save(list(rocket = fontawesome$solid$rocket), path = "app_icons")
+```
+
+## Finding icons
+
+Not sure which library has the icon you want, or what it's called? Search
+everything you have installed:
+
+```{r icon-find, eval = have_fa}
+icon_find("rocket")
+```
+
+## Using icons in Shiny apps
+
+Every icon is an `htmltools` tag, so it can be used directly in Shiny UI
+code, for example as the `icon` argument of an input:
+
+```r
+shiny::actionButton("go", "Launch", icon = fontawesome$solid$rocket)
+```

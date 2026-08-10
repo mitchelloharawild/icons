@@ -26,7 +26,8 @@ Imports:
     rstudioapi
 Suggests:
     rsvg,
-    gh
+    gh,
+    rmarkdown
 URL: https://pkg.mitchelloharawild.com/icons/, https://github.com/mitchelloharawild/icons
 BugReports: https://github.com/mitchelloharawild/icons/issues
 VignetteBuilder: knitr
