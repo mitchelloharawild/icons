@@ -4,7 +4,12 @@
 knit_print.icon <- function(x, ...) {
   out_type <- knitr::opts_knit$get("rmarkdown.pandoc.to")
   if(is.null(out_type)){
-    warn("Could not detect output format, please use `rmarkdown::render()` to knit the document.")
+    cli::cli_warn(
+      c(
+        "!" = "Could not detect output format.",
+        "i" = "Please use {.fn rmarkdown::render} to knit the document."
+      )
+    )
     return(knitr::asis_output(""))
   }
   if(out_type %in% c("html", "html4", "html5", "markdown_strict", "slideous",

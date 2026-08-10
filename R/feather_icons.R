@@ -17,8 +17,12 @@ download_feather_icons <- function(version = "dev"){
       license = gh::gh("GET /repos/:owner/:repo", owner="feathericons", repo="feather")$license$name
     )
   } else {
-    rlang::warn("Obtaining the most recent version and license automatically requires the {gh} package installed.
-Using last known license, which may not be current.")
+    cli::cli_warn(
+      c(
+        "!" = "Obtaining the most recent version and license automatically requires the {.pkg gh} package.",
+        "i" = "Using last known license, which may not be current."
+      )
+    )
     meta <- list(
       version = version,
       license = "MIT"

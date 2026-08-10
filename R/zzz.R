@@ -13,6 +13,5 @@
 }
 
 .onAttach <- function(...) {
-  crayon::num_colors(TRUE)
   icon_attach()
 }

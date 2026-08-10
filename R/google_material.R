@@ -17,8 +17,12 @@ download_google_material <- function(version = "dev"){
         license = gh::gh("GET /repos/:owner/:repo", owner="google", repo="material-design-icons")$license$name
       )
     } else {
-      rlang::warn("Obtaining the most recent version and license automatically requires the {gh} package installed.
-Using last known license, which may not be current.")
+      cli::cli_warn(
+        c(
+          "!" = "Obtaining the most recent version and license automatically requires the {.pkg gh} package.",
+          "i" = "Using last known license, which may not be current."
+        )
+      )
       meta <- list(
         version = version,
         license = "Apache License 2.0"

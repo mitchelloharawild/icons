@@ -22,7 +22,6 @@ Imports:
     stringr,
     jsonlite,
     cli,
-    crayon,
     utils,
     rstudioapi
 Suggests:

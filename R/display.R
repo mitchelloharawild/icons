@@ -20,14 +20,14 @@ text_col <- function(x) {
 
   theme <- rstudioapi::getThemeInfo()
 
-  if (isTRUE(theme$dark)) crayon::white(x) else crayon::black(x)
+  if (isTRUE(theme$dark)) cli::col_white(x) else cli::col_black(x)
 }
 
 format_version <- function(x) {
   version <- as.character(unclass(x)[[1]])
 
   if (length(version) > 3) {
-    version[4:length(version)] <- crayon::red(as.character(version[4:length(version)]))
+    version[4:length(version)] <- cli::col_red(as.character(version[4:length(version)]))
   }
   paste0(version, collapse = ".")
 }
@@ -35,7 +35,7 @@ format_version <- function(x) {
 icon_attach <- function() {
   msg(
     cli::rule(
-      left = crayon::bold("Installed icons"),
+      left = cli::style_bold("Installed icons"),
       right = paste0("icon ", format_version(utils::packageVersion("icons")))
     ),
     startup = TRUE
@@ -56,9 +56,9 @@ icon_attach <- function() {
   available <- vapply(icon_table, function(x) dir.exists(x$table$path), logical(1L))
 
   icons <- paste0(
-    ifelse(available, crayon::green(cli::symbol$tick), crayon::red(cli::symbol$cross)),
-    " ", crayon::col_align(crayon::blue(names(icon_table)), max(crayon::col_nchar(names(icon_table)))), " ",
-    crayon::col_align(versions, max(crayon::col_nchar(versions)))
+    ifelse(available, cli::col_green(cli::symbol$tick), cli::col_red(cli::symbol$cross)),
+    " ", cli::ansi_align(cli::col_blue(names(icon_table)), max(cli::ansi_nchar(names(icon_table)))), " ",
+    cli::ansi_align(versions, max(cli::ansi_nchar(versions)))
   )
 
   if (length(icons) %% 2 == 1) {
@@ -75,7 +75,9 @@ icon_attach <- function() {
 
   if(!any(available)) {
     msg(
-      paste0(crayon::yellow(cli::symbol$warning), " No icons are currently available, start by downloading icons with the download_*() functions."),
+      cli::format_inline(
+        "{cli::col_yellow(cli::symbol$warning)} No icons are currently available, start by downloading icons with {.fn download_*}."
+      ),
       startup = TRUE
     )
   }

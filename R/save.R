@@ -25,8 +25,18 @@
 #' }
 #'
 icon_save <- function(icons, path = "."){
-  stopifnot(is.list(icons))
-  if(is.null(names(icons))) stop("The icon list must be named to identify the names of icons in the new set.")
+  if(!is.list(icons)){
+    cli::cli_abort("{.arg icons} must be a list.", call = NULL)
+  }
+  if(is.null(names(icons))){
+    cli::cli_abort(
+      c(
+        "x" = "{.arg icons} must be named.",
+        "i" = "Names are used to identify the icons in the new set."
+      ),
+      call = NULL
+    )
+  }
   mapply(function(x, nm){
     writeLines(
       format(x),

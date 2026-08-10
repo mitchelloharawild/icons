@@ -130,11 +130,11 @@ update_icon <- function(libs = NULL, silent = TRUE){
   lapply(libs, function(lib){
     meta <- icon_meta(lib)
     if(!silent){
-      msg(paste0(
-        crayon::green(cli::symbol$tick), " ", crayon::blue(lib), " updated to version ",
-        tryCatch(format_version(package_version(meta$version)),
-                 error = function(e) meta$version)
-      ))
+      version <- tryCatch(
+        format_version(package_version(meta$version)),
+        error = function(e) meta$version
+      )
+      cli::cli_alert_success("{.field {lib}} updated to version {version}.")
     }
     get_env(get(lib, mode = "function"))[["icon_fn"]][["update"]](icon_path(lib), meta = meta)
   })

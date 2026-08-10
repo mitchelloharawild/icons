@@ -46,6 +46,8 @@ of the package you should carefully read these changes.
   formats (#33).
 * Improved detection of output format types to work with more rmarkdown 
   extensions.
+* Messages, warnings and errors are now consistently produced with the `cli`
+  package, and include more helpful hints (`crayon` is no longer used).
 
 ## Bug fixes
 

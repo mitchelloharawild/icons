@@ -13,9 +13,14 @@
 #' @rdname migration
 #' @export
 fa <- function(...){
-  msg(glue(crayon::red(cli::symbol$warning), "  A rewrite of the icons package has introduced breaking changes."))
-  msg(glue(crayon::blue(cli::symbol$info), "  Refer to the NEWS (https://pkg.mitchelloharawild.com/icons/news/) to read the changes."))
-  abort("Update to the new interface for the icons package.")
+  cli::cli_abort(
+    c(
+      "x" = "A rewrite of the icons package has introduced breaking changes.",
+      "i" = "Update to the new interface for the icons package.",
+      "i" = "Refer to the {.url https://pkg.mitchelloharawild.com/icons/news/} to read the changes."
+    ),
+    call = NULL
+  )
 }
 
 #' @rdname migration

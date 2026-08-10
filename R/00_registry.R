@@ -18,15 +18,25 @@ new_icon_set <- function(nm, fn = dir_icon) {
     },
     get = function(name) {
       if(!dir.exists(table$path)){
-        abort("This icon library is not yet installed, install it with `download_*()`.")
+        cli::cli_abort(
+          c(
+            "x" = "The {.field {nm}} icon library is not yet installed.",
+            "i" = "Install it with {.fn download_{nm}}."
+          ),
+          call = NULL
+        )
       }
 
       files <- Reduce(`[[`, name[-length(name)], table$files)
       icon <- name[length(name)]
 
       if(!(icon %in% files)){
-        abort(
-          glue("The `{icon}` icon could not be found in this icon set.")
+        cli::cli_abort(
+          c(
+            "x" = "The {.val {icon}} icon could not be found in the {.field {nm}} icon set.",
+            "i" = "Use {.fn icon_find} to search for icons across installed sets."
+          ),
+          call = NULL
         )
       }
 

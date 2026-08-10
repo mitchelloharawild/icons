@@ -32,9 +32,12 @@ icon_meta <- function(lib){
 
 require_package <- function(pkg){
   if(!requireNamespace(pkg, quietly = TRUE)){
-    stop(
-      sprintf('The `%s` package must be installed to use this functionality. It can be installed with install.packages("%s")', pkg, pkg),
-      call. = FALSE
+    cli::cli_abort(
+      c(
+        "The {.pkg {pkg}} package must be installed to use this functionality.",
+        "i" = "Install it with {.code install.packages(\"{pkg}\")}."
+      ),
+      call = NULL
     )
   }
 }
@@ -76,7 +79,13 @@ install_icon_zip <- function(lib, url, svg_path, svg_pattern = "\\.svg$",
   # Create meta
   if(is.character(meta)) {
     if (basename(meta) != "package.json") {
-      abort("Expected package.json metadata file.")
+      cli::cli_abort(
+        c(
+          "x" = "Expected a {.field package.json} metadata file.",
+          "i" = "Got {.file {basename(meta)}} instead."
+        ),
+        call = NULL
+      )
     }
     meta <- jsonlite::read_json(file.path(list.dirs(dl_dir, recursive = FALSE), meta))
     meta <- list(name = meta$name, version = meta$version, license = meta$license)
@@ -96,7 +105,13 @@ icon_guess <- function(name, ..., pattern = NULL) {
   }
 
   if(rlang::is_empty(icon_found)) {
-    abort(sprintf("The %s icon could not be found. Perhaps its icon set needs installing or updating?", name))
+    cli::cli_abort(
+      c(
+        "x" = "The {.val {name}} icon could not be found.",
+        "i" = "Perhaps its icon set needs installing or updating with {.fn download_*}?"
+      ),
+      call = NULL
+    )
   }
   icon_found[[1]]
 }
