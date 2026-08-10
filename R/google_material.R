@@ -2,13 +2,6 @@
 #' @rdname google_material
 #' @export
 download_google_material <- function(version = "dev"){
-  if(version == "dev"){
-    url <- "https://github.com/google/material-design-icons/archive/master.zip"
-  }
-  else{
-    url <- glue("https://github.com/google/material-design-icons/archive/{version}.zip")
-  }
-
   if(version == "dev" || package_version(version) >= package_version("4.0.0")) {
     svg_ext <- "24px\\.svg"
     if(requireNamespace("gh")) {
@@ -28,32 +21,44 @@ download_google_material <- function(version = "dev"){
         license = "Apache License 2.0"
       )
     }
+
+    # v4.0.0+ keeps every SVG under a single top-level `src/` folder, so a
+    # sparse git checkout of just that path avoids downloading the rest of
+    # this multi-gigabyte repository (fonts, sprites, docs, ...).
+    install_icon_git(
+      "google_material",
+      repo = "google/material-design-icons",
+      ref = if(version == "dev") "master" else version,
+      sparse_path = "src",
+      svg_path = function(path) file.path(path, "src"),
+      svg_pattern = svg_ext, svg_dest = mdi_svg_dest(meta$version),
+      meta = list(name = "Material Design Icons", version = meta$version, licence = meta$license)
+    )
   } else {
+    # Pre-4.0.0 releases scatter `svg/` folders throughout many per-category
+    # directories rather than one common path, so a single sparse checkout
+    # path doesn't cleanly cover them; fall back to the full archive.
     svg_ext <- "_48px\\.svg"
     meta <- jsonlite::read_json(glue("https://raw.githubusercontent.com/google/material-design-icons/{version}/package.json"))
-  }
+    url <- glue("https://github.com/google/material-design-icons/archive/{version}.zip")
 
-  install_icon_zip(
-    "google_material", url, svg_path = mdi_svg_paths(meta$version),
-    svg_pattern = svg_ext, svg_dest = mdi_svg_dest(meta$version),
-    meta = list(name = "Material Design Icons", version = meta$version, licence = meta$license)
-  )
+    install_icon_zip(
+      "google_material", url, svg_path = mdi_svg_paths(meta$version),
+      svg_pattern = svg_ext, svg_dest = mdi_svg_dest(meta$version),
+      meta = list(name = "Material Design Icons", version = meta$version, licence = meta$license)
+    )
+  }
 
   invisible(google_material)
 }
 
+# Only used for pre-4.0.0 releases (see download_google_material()); the
+# 4.0.0+ path is handled directly via install_icon_git()'s svg_path.
 mdi_svg_paths <- function(version) {
-  if(package_version(version) >= package_version("4.0.0")) {
-    function(path) {
-      src_dir <- file.path(list.dirs(path, recursive = FALSE), "src")
-      src_dir
-    }
-  } else {
-    function(path){
-      repo_dirs <- list.dirs(list.dirs(path, recursive = FALSE),recursive = FALSE)
-      svg_dirs <- Filter(function(x) "svg" %in% basename(list.dirs(x, recursive = FALSE)), repo_dirs)
-      file.path(svg_dirs, "svg")
-    }
+  function(path){
+    repo_dirs <- list.dirs(list.dirs(path, recursive = FALSE),recursive = FALSE)
+    svg_dirs <- Filter(function(x) "svg" %in% basename(list.dirs(x, recursive = FALSE)), repo_dirs)
+    file.path(svg_dirs, "svg")
   }
 }
 
