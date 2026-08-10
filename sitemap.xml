@@ -1,5 +1,7 @@
 <urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
 <url><loc>https://pkg.mitchelloharawild.com/icons/404.html</loc></url>
+<url><loc>https://pkg.mitchelloharawild.com/icons/articles/icons.html</loc></url>
+<url><loc>https://pkg.mitchelloharawild.com/icons/articles/index.html</loc></url>
 <url><loc>https://pkg.mitchelloharawild.com/icons/authors.html</loc></url>
 <url><loc>https://pkg.mitchelloharawild.com/icons/index.html</loc></url>
 <url><loc>https://pkg.mitchelloharawild.com/icons/news/index.html</loc></url>
@@ -11,6 +13,7 @@
 <url><loc>https://pkg.mitchelloharawild.com/icons/reference/health_icons.html</loc></url>
 <url><loc>https://pkg.mitchelloharawild.com/icons/reference/icon_find.html</loc></url>
 <url><loc>https://pkg.mitchelloharawild.com/icons/reference/icon_installed.html</loc></url>
+<url><loc>https://pkg.mitchelloharawild.com/icons/reference/icon_path.html</loc></url>
 <url><loc>https://pkg.mitchelloharawild.com/icons/reference/icon_save.html</loc></url>
 <url><loc>https://pkg.mitchelloharawild.com/icons/reference/icon_set.html</loc></url>
 <url><loc>https://pkg.mitchelloharawild.com/icons/reference/icon_style.html</loc></url>
