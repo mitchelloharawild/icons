@@ -74,7 +74,10 @@ icon_attach <- function() {
   # )
 
   if(!any(available)) {
-    cli::cli_alert_warning("No icons are currently available, start by downloading icons with the download_*() functions.")
+    msg(
+      paste0(crayon::yellow(cli::symbol$warning), " No icons are currently available, start by downloading icons with the download_*() functions."),
+      startup = TRUE
+    )
   }
   invisible()
 }
