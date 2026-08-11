@@ -10,11 +10,17 @@
 #'
 #' @param path A character vector of paths to source SVG files.
 #' @param style A character vector (recycled to the length of `path`) of
-#'   `style` attribute values, or `NA` to use `icon_base_style`.
+#'   `style` attribute values, or `NA` to use `icon_base_style`. Defaults to
+#'   `NA`, so callers that only have paths (such as [icon_find()]) can build
+#'   an `icon_vec` directly, without a separate recycling step.
 #'
 #' @noRd
 new_icon_vec <- function(path = character(), style = character()){
-  vctrs::new_rcrd(list(path = path, style = style), class = "icon_vec")
+  if(is_empty(style)) style <- NA_character_
+  vctrs::new_rcrd(
+    list(path = path, style = vctrs::vec_recycle(style, length(path))),
+    class = "icon_vec"
+  )
 }
 
 #' Materialize every element of an `icon_vec` into `icon` tags
@@ -52,10 +58,10 @@ icon_as_icon_vec.default <- function(x) x
 c.icon <- function(...){
   # `icon_vec` (a vctrs rcrd) can't carry element `names()` (see
   # `icon_label()` for how identity is recovered instead), so any argument
-  # names in `...` - e.g. from splicing `icon_find()`'s named list via
-  # `!!!` - are dropped here rather than left for `vctrs::vec_c()` to trip
-  # over (it errors trying to assign them onto the result: "Can't assign
-  # names to a <vctrs_rcrd>").
+  # names in `...` - e.g. from `c(fontawesome$rocket, mine = my_icon)` -
+  # are dropped here rather than left for `vctrs::vec_c()` to trip over (it
+  # errors trying to assign them onto the result: "Can't assign names to a
+  # <vctrs_rcrd>").
   vctrs::vec_c(!!!unname(lapply(list(...), icon_as_icon_vec)))
 }
 
@@ -95,6 +101,33 @@ icon_label.icon_vec <- function(x) icon_label_path(icon_path(x))
 
 #' @export
 as.character.icon_vec <- function(x, ...){
+  # Delegates to icon_label() rather than materializing SVG markup: this is
+  # the generic, always-safe text representation used by paste(), error
+  # messages, and anything that coerces a column to character without
+  # knowing it holds icons - notably gt::gt(), which calls as.character()
+  # on every body column before any text_transform() runs, and previously
+  # errored on an icon_vec column (no vec_cast.character.* was defined, so
+  # it fell through to vctrs:::as.character.vctrs_vctr()).
+  #
+  # This does not collide with as.tags.icon_vec below: is.character() is a
+  # primitive type check on storage mode, unaffected by registering this
+  # method, and as.tags() dispatches on class directly, so htmltools never
+  # consults as.character() to decide how to render an icon_vec - it always
+  # finds and uses as.tags.icon_vec(). Confirmed empirically (see
+  # _dev/vctrs.md): identical tagList() output with and without this method
+  # defined.
+  #
+  # Consumers that want materialized, styled SVG for richer output formats
+  # (rather than the plain label) already have a purpose-built,
+  # context-aware path of their own - knit_print.icon_vec() for knitr,
+  # as.tags.icon_vec() for htmltools/Shiny, and icon_path() fed to
+  # gt::text_transform() + gt::local_image() for gt (which already picks
+  # the right embedding per output context on its own). Materializing
+  # inside as.character() itself isn't a good substitute for those: it has
+  # no output-context to branch on, is called from many places that expect
+  # cheap plain text (print(), paste(), vec_cast()), and parsing SVG on
+  # every implicit coercion would be needless work for callers that never
+  # wanted markup in the first place.
   icon_label(x)
 }
 

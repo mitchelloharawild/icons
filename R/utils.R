@@ -1,37 +1,36 @@
-add_class <- function(x, new_class){
+add_class <- function(x, new_class) {
   `class<-`(x, union(new_class, class(x)))
 }
 
-`%0%` <- function(x, y){
-  if(is_empty(x)) y else x
+`%0%` <- function(x, y) {
+  if (is_empty(x)) y else x
 }
 
-icon_cache_path <- function(...){
+icon_cache_path <- function(...) {
   path <- getOption("icon.path", default = rappdirs::user_data_dir("rpkg_icon"))
   file.path(path, ...)
 }
 
-list_svg <- function(path, ...){
+list_svg <- function(path, ...) {
   dir <- list.dirs(path, full.names = TRUE, recursive = FALSE)
-  if(length(dir) == 0){
+  if (length(dir) == 0) {
     sub("\\.svg$", "", list.files(path, pattern = "\\.svg$", ...))
   } else {
     `names<-`(lapply(dir, list_svg, ...), basename(dir))
   }
 }
 
-icon_meta <- function(lib){
+icon_meta <- function(lib) {
   path <- icon_cache_path(lib, "meta.rds")
-  if(file.exists(path)){
+  if (file.exists(path)) {
     readRDS(path)
-  }
-  else{
+  } else {
     list(name = lib, version = NULL, licence = NULL)
   }
 }
 
-require_package <- function(pkg){
-  if(!requireNamespace(pkg, quietly = TRUE)){
+require_package <- function(pkg) {
+  if (!requireNamespace(pkg, quietly = TRUE)) {
     cli::cli_abort(
       c(
         "The {.pkg {pkg}} package must be installed to use this functionality.",
@@ -42,8 +41,14 @@ require_package <- function(pkg){
   }
 }
 
-install_icon_zip <- function(lib, url, svg_path, svg_pattern = "\\.svg$",
-                             svg_dest = NULL, meta){
+install_icon_zip <- function(
+  lib,
+  url,
+  svg_path,
+  svg_pattern = "\\.svg$",
+  svg_dest = NULL,
+  meta
+) {
   # Temporary download location
   dl_file <- tempfile("icon_dl")
   dir.create(dl_dir <- tempfile("icon_dl"), showWarnings = FALSE)
@@ -55,29 +60,42 @@ install_icon_zip <- function(lib, url, svg_path, svg_pattern = "\\.svg$",
   # Find icons
   utils::unzip(dl_file, exdir = dl_dir)
 
-  if(is.character(svg_path)){
-    path <- do.call(file.path, c(list(list.dirs(dl_dir, recursive = FALSE)), svg_path))
-  } else if (is.function(svg_path)){
+  if (is.character(svg_path)) {
+    path <- do.call(
+      file.path,
+      c(list(list.dirs(dl_dir, recursive = FALSE)), svg_path)
+    )
+  } else if (is.function(svg_path)) {
     path <- svg_path(dl_dir)
   }
 
   # Copy icons
-  files <- list.files(path, pattern = svg_pattern, recursive = TRUE, full.names = TRUE)
+  files <- list.files(
+    path,
+    pattern = svg_pattern,
+    recursive = TRUE,
+    full.names = TRUE
+  )
   dest_dir <- icon_cache_path(lib)
   unlink(dest_dir, recursive = TRUE)
-  dest_svg <- if(is.function(svg_dest)){
+  dest_svg <- if (is.function(svg_dest)) {
     svg_dest(files)
   } else {
-    substring(files, nchar(path)+2)
+    substring(files, nchar(path) + 2)
   }
   files <- files[!is.na(dest_svg)]
   dest_svg <- dest_svg[!is.na(dest_svg)]
   dest <- file.path(dest_dir, dest_svg)
-  lapply(unique(dirname(dest)), dir.create, recursive = TRUE, showWarnings = FALSE)
+  lapply(
+    unique(dirname(dest)),
+    dir.create,
+    recursive = TRUE,
+    showWarnings = FALSE
+  )
   file.copy(files, dest)
 
   # Create meta
-  if(is.character(meta)) {
+  if (is.character(meta)) {
     if (basename(meta) != "package.json") {
       cli::cli_abort(
         c(
@@ -87,8 +105,15 @@ install_icon_zip <- function(lib, url, svg_path, svg_pattern = "\\.svg$",
         call = NULL
       )
     }
-    meta <- jsonlite::read_json(file.path(list.dirs(dl_dir, recursive = FALSE), meta))
-    meta <- list(name = meta$name, version = meta$version, license = meta$license)
+    meta <- jsonlite::read_json(file.path(
+      list.dirs(dl_dir, recursive = FALSE),
+      meta
+    ))
+    meta <- list(
+      name = meta$name,
+      version = meta$version,
+      license = meta$license
+    )
   }
   saveRDS(meta, file.path(dest_dir, "meta.rds"))
 
@@ -125,8 +150,16 @@ require_system <- function(cmd) {
 #' @param sparse_path The path (relative to the repository root) to check
 #'   out, e.g. `"src"`.
 #' @noRd
-install_icon_git <- function(lib, repo, ref, sparse_path, svg_path,
-                              svg_pattern = "\\.svg$", svg_dest = NULL, meta) {
+install_icon_git <- function(
+  lib,
+  repo,
+  ref,
+  sparse_path,
+  svg_path,
+  svg_pattern = "\\.svg$",
+  svg_dest = NULL,
+  meta
+) {
   require_system("git")
 
   # Temporary checkout location
@@ -139,19 +172,32 @@ install_icon_git <- function(lib, repo, ref, sparse_path, svg_path,
   clone_ok <- identical(
     system2(
       "git",
-      c("clone", "--quiet", "--filter=blob:none", "--depth=1", "--sparse",
-        "--branch", ref, url, dl_dir),
-      stdout = FALSE, stderr = FALSE
+      c(
+        "clone",
+        "--quiet",
+        "--filter=blob:none",
+        "--depth=1",
+        "--sparse",
+        "--branch",
+        ref,
+        url,
+        dl_dir
+      ),
+      stdout = FALSE,
+      stderr = FALSE
     ),
     0L
   )
-  checkout_ok <- clone_ok && identical(
-    system2(
-      "git", c("-C", dl_dir, "sparse-checkout", "set", sparse_path),
-      stdout = FALSE, stderr = FALSE
-    ),
-    0L
-  )
+  checkout_ok <- clone_ok &&
+    identical(
+      system2(
+        "git",
+        c("-C", dl_dir, "sparse-checkout", "set", sparse_path),
+        stdout = FALSE,
+        stderr = FALSE
+      ),
+      0L
+    )
   if (!checkout_ok) {
     cli::cli_abort(
       "Failed to fetch {.val {sparse_path}} from {.val {repo}} ({ref}) with git.",
@@ -159,25 +205,35 @@ install_icon_git <- function(lib, repo, ref, sparse_path, svg_path,
     )
   }
 
-  if(is.character(svg_path)){
+  if (is.character(svg_path)) {
     path <- do.call(file.path, c(list(dl_dir), svg_path))
-  } else if (is.function(svg_path)){
+  } else if (is.function(svg_path)) {
     path <- svg_path(dl_dir)
   }
 
   # Copy icons
-  files <- list.files(path, pattern = svg_pattern, recursive = TRUE, full.names = TRUE)
+  files <- list.files(
+    path,
+    pattern = svg_pattern,
+    recursive = TRUE,
+    full.names = TRUE
+  )
   dest_dir <- icon_cache_path(lib)
   unlink(dest_dir, recursive = TRUE)
-  dest_svg <- if(is.function(svg_dest)){
+  dest_svg <- if (is.function(svg_dest)) {
     svg_dest(files)
   } else {
-    substring(files, nchar(path)+2)
+    substring(files, nchar(path) + 2)
   }
   files <- files[!is.na(dest_svg)]
   dest_svg <- dest_svg[!is.na(dest_svg)]
   dest <- file.path(dest_dir, dest_svg)
-  lapply(unique(dirname(dest)), dir.create, recursive = TRUE, showWarnings = FALSE)
+  lapply(
+    unique(dirname(dest)),
+    dir.create,
+    recursive = TRUE,
+    showWarnings = FALSE
+  )
   file.copy(files, dest)
 
   # `.git` (and its downloaded packs) served only to fetch `sparse_path`
@@ -195,11 +251,17 @@ install_icon_git <- function(lib, repo, ref, sparse_path, svg_path,
 
 icon_guess <- function(name, ..., pattern = NULL) {
   icon_found <- icon_find(name, ...)
-  if(!is.null(pattern)) {
-    icon_found <- icon_found[grepl(pattern, names(icon_found), fixed = TRUE)]
+  if (!is.null(pattern)) {
+    # icon_vec carries no names() (see icon_find()'s @return docs), so
+    # filtering matches icon_label()'s library$sub$name accessor instead.
+    icon_found <- icon_found[grepl(
+      pattern,
+      icon_label(icon_found),
+      fixed = TRUE
+    )]
   }
 
-  if(rlang::is_empty(icon_found)) {
+  if (rlang::is_empty(icon_found)) {
     cli::cli_abort(
       c(
         "x" = "The {.val {name}} icon could not be found.",
@@ -208,5 +270,6 @@ icon_guess <- function(name, ..., pattern = NULL) {
       call = NULL
     )
   }
-  icon_found[[1]]
+  # Materialise the found icon
+  icon_materialize_all(vctrs::vec_slice(icon_found, 1))[[1]]
 }

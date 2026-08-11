@@ -3,28 +3,46 @@
 #' @param name The name of the icon
 #' @param set Icon sets to search. If NULL, all available icons will be searched.
 #'
-#' @return A named list of matching `icon` objects, named by the expression
-#'   used to access them (for example `"fontawesome$solid$rocket"`).
+#' @return An `icon_vec` of matching icons (empty if none are found). Use
+#'   [icon_label()] to recover each match's `library$sub$name` accessor
+#'   expression (for example `"fontawesome$solid$rocket"`) - the result
+#'   itself carries no `names()`, since `icon_vec` can't hold them.
 #'
 #' @export
-icon_find <- function(name, set = NULL){
-  all_icons <- lapply(icon_table, function(x) x$table$files)
-  if(!is.null(set)) all_icons <- all_icons[set]
-  search_icon <- function(x){
-    if(is.list(x)) return(Filter(function(x) !is_empty(x), lapply(x, search_icon)))
-    if(name %in% x) name else NULL
+icon_find <- function(name, set = NULL) {
+  libs <- as.list(icon_table)
+  if (!is.null(set)) {
+    libs <- libs[set]
   }
-  icon_method <- function(x, nm = NULL){
-    if(is.list(x)){
-      nm <- if(is.null(nm)) syms(names(x)) else lapply(names(x), function(.) expr(`$`(!!nm, !!sym(.))))
-      flatten(mapply(icon_method, x = x, nm = nm, SIMPLIFY = FALSE, USE.NAMES = FALSE))
-    } else {
-      expr(`$`(!!nm, !!sym(x)))
+
+  # Recursively search a (possibly nested, one level per subdirectory)
+  # `files` structure for `name`, returning the path components (each
+  # subdirectory's key, then the file name) leading to every match.
+  find_paths <- function(x, prefix = character()) {
+    if (is.list(x)) {
+      return(unlist(
+        Map(function(v, k) find_paths(v, c(prefix, k)), x, names(x)),
+        recursive = FALSE,
+        use.names = FALSE
+      ))
     }
+    if (name %in% x) list(c(prefix, name)) else NULL
   }
-  found_icons <- icon_method(search_icon(all_icons))
-  names(found_icons) <- vapply(found_icons, deparse, FUN.VALUE = character(1L))
-  lapply(found_icons, function(x){
-    eval_tidy(x, env = env_parent(n = 2))
-  })
+
+  # Directly construct `new_icon_vec()` directly from paths
+  found_paths <- unlist(
+    lapply(libs, function(lib) {
+      parts <- find_paths(lib$table$files)
+      vapply(
+        parts,
+        function(p) {
+          glue(do.call(file.path, c(list(lib$table$path), as.list(p))), ".svg")
+        },
+        character(1)
+      )
+    }),
+    use.names = FALSE
+  )
+
+  new_icon_vec(path = found_paths)
 }

@@ -43,12 +43,12 @@ test_that("icon_label() survives c()/rep()/subsetting, unlike names()", {
   expect_identical(icon_label(vctrs::vec_slice(r, 2)), "academicons$orcid")
 })
 
-test_that("icon_label() matches names(icon_find())'s accessor expressions", {
+test_that("icon_label() gives the library$sub$name accessor for icon_find() results", {
   skip_if_not(icon_installed(fontawesome), "fontawesome is not installed locally")
 
-  found <- suppressWarnings(icon_find("rocket", set = "fontawesome"))
-  v <- do.call(c, found) # named list -> c.icon() must not error (no names<- on icon_vec)
+  found <- icon_find("rocket", set = "fontawesome")
 
-  expect_s3_class(v, "icon_vec")
-  expect_identical(icon_label(v), names(found))
+  expect_s3_class(found, "icon_vec")
+  expect_true(length(found) > 0)
+  expect_true(all(grepl("^fontawesome\\$.*rocket$", icon_label(found))))
 })

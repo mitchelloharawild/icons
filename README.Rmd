@@ -96,10 +96,14 @@ custom <- icon_set("hex")
 custom$icons
 ```
 
-You can also search for icons using the `icon_find()` function.
+You can also search for icons using the `icon_find()` function, which returns
+a vector of matching icons. Use `icon_label()` to see which icon set and name
+each match came from.
 
 ```{r icon-find}
-icon_find("rocket")
+found <- icon_find("rocket")
+found
+icon_label(found)
 ```
 
 # A Note on the old API
