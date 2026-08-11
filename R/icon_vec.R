@@ -50,7 +50,13 @@ icon_as_icon_vec.default <- function(x) x
 
 #' @export
 c.icon <- function(...){
-  vctrs::vec_c(!!!lapply(list(...), icon_as_icon_vec))
+  # `icon_vec` (a vctrs rcrd) can't carry element `names()` (see
+  # `icon_label()` for how identity is recovered instead), so any argument
+  # names in `...` - e.g. from splicing `icon_find()`'s named list via
+  # `!!!` - are dropped here rather than left for `vctrs::vec_c()` to trip
+  # over (it errors trying to assign them onto the result: "Can't assign
+  # names to a <vctrs_rcrd>").
+  vctrs::vec_c(!!!unname(lapply(list(...), icon_as_icon_vec)))
 }
 
 #' @export
@@ -83,6 +89,9 @@ format.icon_vec <- function(x, ...){
 
 #' @export
 icon_path.icon_vec <- function(x) vctrs::field(x, "path")
+
+#' @export
+icon_label.icon_vec <- function(x) icon_label_path(icon_path(x))
 
 #' @exportS3Method htmltools::as.tags
 as.tags.icon_vec <- function(x, ...) do.call(htmltools::tagList, icon_materialize_all(x))

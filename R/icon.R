@@ -77,6 +77,50 @@ icon_path.icon <- function(x){
   path
 }
 
+#' Identify an icon by its library accessor label
+#'
+#' Every icon sourced from an installed icon library (as opposed to a local
+#' [icon_set()] or a raw [read_icon()] file) has a file path of the form
+#' `<cache root>/<library>/<...name parts...>.svg` (see `00_registry.R`'s
+#' `icon_fn$get()`), which is exactly the `library$sub$name` expression used
+#' to access it. `icon_label()` recovers that label straight from
+#' [icon_path()] rather than requiring a name to be tracked separately —
+#' so, unlike `names()`, it survives `c()`/`rep()`/subsetting on an
+#' `icon_vec` (a `vctrs` rcrd, which cannot carry element `names()`).
+#'
+#' @param x An `icon` or `icon_vec` object.
+#'
+#' @return A character vector the same length as `x` giving each icon's
+#'   `library$sub$name` label. Icons not sourced from an installed library
+#'   (a local [icon_set()] or a [read_icon()] file outside the icon cache)
+#'   return `NA`.
+#'
+#' @export
+icon_label <- function(x){
+  UseMethod("icon_label")
+}
+
+#' @export
+icon_label.default <- function(x){
+  cli::cli_abort("{.arg x} must be an {.cls icon} or {.cls icon_vec} object.", call = NULL)
+}
+
+#' @export
+icon_label.icon <- function(x){
+  icon_label_path(icon_path(x))
+}
+
+#' Turn a `<cache root>/<lib>/<...>.svg` path into a `lib$...` label
+#' @noRd
+icon_label_path <- function(path){
+  root <- paste0(icon_cache_path(), "/")
+  from_library <- startsWith(path, root)
+  rel <- sub("\\.svg$", "", substring(path, nchar(root) + 1))
+  out <- gsub("/", "$", rel, fixed = TRUE)
+  out[!from_library] <- NA_character_
+  out
+}
+
 xml2tags <- function(x){
   out <- htmltools::tag(xml2::xml_name(x), varArgs = as.list(xml2::xml_attrs(x)))
   do.call(
