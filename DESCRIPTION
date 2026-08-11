@@ -23,7 +23,6 @@ Imports:
     jsonlite,
     cli,
     utils,
-    rstudioapi,
     vctrs
 Suggests:
     rsvg,

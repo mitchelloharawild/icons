@@ -1,28 +1,3 @@
-msg <- function(..., startup = FALSE) {
-  if (startup) {
-    if (!isTRUE(getOption("icon.quiet"))) {
-      packageStartupMessage(text_col(...))
-    }
-  } else {
-    message(text_col(...))
-  }
-}
-
-text_col <- function(x) {
-  # If RStudio not available, messages already printed in black
-  if (!rstudioapi::isAvailable()) {
-    return(x)
-  }
-
-  if (!rstudioapi::hasFun("getThemeInfo")) {
-    return(x)
-  }
-
-  theme <- rstudioapi::getThemeInfo()
-
-  if (isTRUE(theme$dark)) cli::col_white(x) else cli::col_black(x)
-}
-
 format_version <- function(x) {
   version <- as.character(unclass(x)[[1]])
 
@@ -33,12 +8,15 @@ format_version <- function(x) {
 }
 
 icon_attach <- function() {
-  msg(
+  if (isTRUE(getOption("icon.quiet"))) {
+    return(invisible())
+  }
+
+  packageStartupMessage(
     cli::rule(
       left = cli::style_bold("Installed icons"),
       right = paste0("icon ", format_version(utils::packageVersion("icons")))
-    ),
-    startup = TRUE
+    )
   )
 
   versions <- vapply(
@@ -67,18 +45,13 @@ icon_attach <- function() {
   col1 <- seq_len(length(icons) / 2)
   info <- paste0(icons[col1], "     ", icons[-col1])
 
-  msg(paste(info, collapse = "\n"), startup = TRUE)
+  packageStartupMessage(paste(info, collapse = "\n"))
 
-  # suppressPackageStartupMessages(
-  #   lapply(to_load, same_library)
-  # )
-
-  if(!any(available)) {
-    msg(
+  if (!any(available)) {
+    packageStartupMessage(
       cli::format_inline(
         "{cli::col_yellow(cli::symbol$warning)} No icons are currently available, start by downloading icons with {.fn download_*}."
-      ),
-      startup = TRUE
+      )
     )
   }
   invisible()
