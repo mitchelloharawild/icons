@@ -2,6 +2,7 @@
 
 S3method("$",icon_dir)
 S3method("$",icon_set)
+S3method(as.character,icon_vec)
 S3method(c,icon)
 S3method(c,icon_vec)
 S3method(format,icon_vec)

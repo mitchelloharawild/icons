@@ -88,6 +88,48 @@ test_that("format() gives a compact, non-materialized label", {
   expect_match(labels[2], "circle")
 })
 
+test_that("as.character() gives icon_label(), not materialized markup", {
+  set <- local_icon_set_multi()
+  v <- c(set$triangle, set$circle)
+
+  # local icon_set() icons aren't library-sourced, so icon_label() (and
+  # therefore as.character()) is NA for them - see test-icon_label.R.
+  expect_identical(as.character(v), icon_label(v))
+  expect_true(all(is.na(as.character(v))))
+})
+
+test_that("as.character() matches icon_label() for library-sourced icons", {
+  root <- tempfile("icon_cache")
+  dir.create(file.path(root, "fontawesome", "solid"), recursive = TRUE)
+  writeLines(
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>',
+    file.path(root, "fontawesome", "solid", "rocket.svg")
+  )
+
+  old <- options(icon.path = root)
+  on.exit(options(old), add = TRUE)
+
+  icon <- read_icon(file.path(root, "fontawesome", "solid", "rocket.svg"))
+  v <- rep(icon, 2)
+
+  expect_identical(as.character(v), c("fontawesome$solid$rocket", "fontawesome$solid$rocket"))
+})
+
+test_that("as.character() doesn't disturb as.tags()'s materialized rendering", {
+  set <- local_icon_set_multi()
+  v <- c(set$triangle, set$circle)
+
+  # is.character() is a primitive check on storage mode, not S3-dispatched,
+  # so registering as.character.icon_vec must not flip it - htmltools relies
+  # on this staying FALSE so it dispatches as.tags() instead of treating the
+  # vector as literal text.
+  expect_false(is.character(v))
+
+  tags <- htmltools::as.tags(v)
+  expect_length(tags, 2L)
+  expect_true(all(vapply(tags, inherits, logical(1), what = "icon")))
+})
+
 test_that("print() doesn't error and doesn't dump raw SVG markup", {
   set <- local_icon_set_multi()
   v <- c(set$triangle, set$circle)

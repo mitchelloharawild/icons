@@ -93,6 +93,11 @@ icon_path.icon_vec <- function(x) vctrs::field(x, "path")
 #' @export
 icon_label.icon_vec <- function(x) icon_label_path(icon_path(x))
 
+#' @export
+as.character.icon_vec <- function(x, ...){
+  icon_label(x)
+}
+
 #' @exportS3Method htmltools::as.tags
 as.tags.icon_vec <- function(x, ...) do.call(htmltools::tagList, icon_materialize_all(x))
 
