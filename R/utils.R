@@ -139,7 +139,7 @@ require_system <- function(cmd) {
 
 #' Install icons from a sparse/partial git checkout
 #'
-#' Like [install_icon_zip()], but instead of downloading a full repository
+#' Like install_icon_zip(), but instead of downloading a full repository
 #' archive and discarding most of it, this uses `git`'s partial clone and
 #' sparse-checkout support to fetch only `sparse_path` from the repository.
 #' This avoids downloading unrelated folders (fonts, sprites, docs, ...) that

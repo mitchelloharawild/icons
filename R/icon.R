@@ -121,6 +121,52 @@ icon_label_path <- function(path){
   out
 }
 
+#' Encode a (styled) icon as a self-contained `data:` URI
+#'
+#' Renders an icon's SVG markup — including any [icon_style()] fill/rotate/
+#' scale/CSS, which lives on the tag rather than the source file (see
+#' [icon_path()]) — to a base64-encoded `data:image/svg+xml;base64,...` URI.
+#' This is the one recipe for handing a *styled* icon to something that
+#' wants an image path/URL rather than an `htmltools` tag: an `<img src>`,
+#' a `gt::html()` cell, a `leaflet` marker `iconUrl`, and similar.
+#'
+#' Unstyled icons sourced from an installed library or a local [icon_set()]
+#' can instead use [icon_path()], which points straight at the source file
+#' on disk without needing to encode anything.
+#'
+#' @param x An `icon` or `icon_vec` object.
+#'
+#' @return A string (or, for an `icon_vec`, a character vector) giving each
+#'   icon's `data:image/svg+xml;base64,...` URI.
+#'
+#' @export
+icon_uri <- function(x){
+  UseMethod("icon_uri")
+}
+
+#' @export
+icon_uri.default <- function(x){
+  cli::cli_abort("{.arg x} must be an {.cls icon} or {.cls icon_vec} object.", call = NULL)
+}
+
+#' @export
+icon_uri.icon <- function(x){
+  icon_svg_uri(format(x))
+}
+
+#' Base64-encode SVG markup into a `data:` URI
+#'
+#' Shared by the scalar (`icon`) and vector (`icon_vec`) methods of
+#' [icon_uri()].
+#'
+#' @param svg A string of `<svg ...>...</svg>` markup, as produced by
+#'   `format()` on a materialized icon tag.
+#'
+#' @noRd
+icon_svg_uri <- function(svg){
+  paste0("data:image/svg+xml;base64,", base64enc::base64encode(charToRaw(svg)))
+}
+
 xml2tags <- function(x){
   out <- htmltools::tag(xml2::xml_name(x), varArgs = as.list(xml2::xml_attrs(x)))
   do.call(

@@ -100,6 +100,11 @@ icon_path.icon_vec <- function(x) vctrs::field(x, "path")
 icon_label.icon_vec <- function(x) icon_label_path(icon_path(x))
 
 #' @export
+icon_uri.icon_vec <- function(x){
+  vapply(icon_materialize_all(x), function(icon) icon_svg_uri(format(icon)), character(1))
+}
+
+#' @export
 as.character.icon_vec <- function(x, ...){
   # Delegates to icon_label() rather than materializing SVG markup: this is
   # the generic, always-safe text representation used by paste(), error

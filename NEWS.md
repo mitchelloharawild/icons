@@ -55,6 +55,8 @@ of the package you should carefully read these changes.
 
 * Icons now work as expected in titles (#7).
 * Icons now work alongside emojis (#25).
+* Added `icon_uri()`, which encodes icons as self-contained base64 data strings.
+  This makes it easier to use icons in other contexts, such as gt tables and as
 
 # icon 0.1.0
 
