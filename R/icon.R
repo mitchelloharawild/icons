@@ -194,18 +194,31 @@ xml2tags <- function(x) {
 #'   `path`, for example via `$`.
 #'
 #' @export
-icon_set <- function(path, meta = list(name = "Custom", version = NULL, license = NULL)){
+icon_set <- function(
+  path,
+  meta = list(name = "Custom", version = NULL, license = NULL)
+) {
   path <- suppressWarnings(normalizePath(path))
 
-  icon <- new_icon_set(path)
+  existing <- Filter(
+    function(nm) identical(icon_table[[nm]]$table$path, path),
+    names(icon_table)
+  )
+  nm <- if (length(existing)) {
+    existing[[1]]
+  } else {
+    icon_table_key(meta$name %||% "Custom")
+  }
+
+  icon <- new_icon_set(nm)
   get_env(icon)[["icon_fn"]][["update"]](path, meta)
   icon
 }
 
 #' @export
-`$.icon_set` <- function(lib, icon){
+`$.icon_set` <- function(lib, icon) {
   is_dir <- is.list(get_env(lib)$table$files)
-  if(is_dir){
+  if (is_dir) {
     structure(list(set = lib, path = icon), class = c("icon_dir", "list"))
   } else {
     get_env(lib)[["icon_fn"]][["get"]](icon)
@@ -213,12 +226,12 @@ icon_set <- function(path, meta = list(name = "Custom", version = NULL, license 
 }
 
 #' @export
-`$.icon_dir` <- function(lib, icon){
+`$.icon_dir` <- function(lib, icon) {
   path <- lib[["path"]]
   lib <- lib[["set"]]
   is_dir <- is.list(Reduce(`[[`, path, get_env(lib)$table$files))
   path <- c(path, icon)
-  if(is_dir){
+  if (is_dir) {
     structure(list(set = lib, path = path), class = c("icon_dir", "list"))
   } else {
     get_env(lib)[["icon_fn"]][["get"]](path)
@@ -226,25 +239,25 @@ icon_set <- function(path, meta = list(name = "Custom", version = NULL, license 
 }
 
 #' @export
-names.icon_set <- function(x){
+names.icon_set <- function(x) {
   get_env(x)[["icon_fn"]][["list"]]()
 }
 
 #' @export
-names.icon_dir <- function(x){
+names.icon_dir <- function(x) {
   path <- x[["path"]]
   lib <- x[["set"]]
   files <- Reduce(`[[`, path, get_env(lib)$table$files)
-  if(is.list(files)) names(files) else files
+  if (is.list(files)) names(files) else files
 }
 
 #' @export
-print.icon_set <- function(x, ...){
+print.icon_set <- function(x, ...) {
   tbl <- get_env(x)$table
 
-  extra <- if(!icon_installed(x)){
+  extra <- if (!icon_installed(x)) {
     "not installed"
-  } else if(!is.null(tbl$meta$version)){
+  } else if (!is.null(tbl$meta$version)) {
     glue("version {tbl$meta$version}")
   } else {
     glue("/{basename(tbl$path)}")
