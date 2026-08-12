@@ -32,6 +32,12 @@ download_health_icons <- function(){
 #'   "outline". If NULL, it will default to the
 #'   first available variant in this order.
 #'
+#' @section License:
+#' Health Icons are released into the public domain under the
+#' [CC0 1.0 Universal License](https://creativecommons.org/publicdomain/zero/1.0/);
+#' no attribution is required. The Health Icons codebase itself is licensed
+#' separately under the [MIT License](https://github.com/resolvetosavelives/healthicons/blob/main/LICENSE).
+#'
 #' @return `download_health_icons()` invisibly returns the `health_icons`
 #'   icon set after downloading and installing its SVG files locally.
 #'

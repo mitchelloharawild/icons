@@ -24,6 +24,9 @@ download_ionicons <- function(version = "dev"){
 #'
 #' @param name Name of the icon
 #'
+#' @section License:
+#' Ionicons are distributed under the [MIT License](https://github.com/ionic-team/ionicons/blob/main/LICENSE).
+#'
 #' @return `download_ionicons()` invisibly returns the `ionicons` icon set
 #'   after downloading and installing its SVG files locally.
 #'

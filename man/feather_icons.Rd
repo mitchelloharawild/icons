@@ -24,3 +24,8 @@ requested icon.
 \description{
 Feather Icons
 }
+\section{License}{
+
+Feather Icons are distributed under the \href{https://github.com/feathericons/feather/blob/main/LICENSE}{MIT License}.
+}
+

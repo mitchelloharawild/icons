@@ -28,6 +28,15 @@ download_super_tiny_icons <- function(version = "dev"){
 #'
 #' @seealso <https://github.com/edent/SuperTinyIcons>
 #'
+#' @section License:
+#' The project's own icons are dual-licensed by the author under the
+#' [MIT License](https://github.com/edent/SuperTinyIcons/blob/master/LICENSE)
+#' and [CC0 1.0 Universal License](https://creativecommons.org/publicdomain/zero/1.0/).
+#' Many icons are adapted from third-party logos that carry their own
+#' licenses (and some depict trademarks), so check the source noted for an
+#' icon before reusing it - see the project's
+#' [licenses list](https://github.com/edent/SuperTinyIcons#licenses) for details.
+#'
 #' @return `download_super_tiny_icons()` invisibly returns the
 #'   `super_tiny_icons` icon set after downloading and installing its SVG
 #'   files locally.

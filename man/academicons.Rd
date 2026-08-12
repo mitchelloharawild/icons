@@ -27,3 +27,9 @@ websites and organisations related to academia that are often missing from
 mainstream font packages. It can be used by itself, but its primary purpose
 is to be used as a supplementary package alongside a larger icon set.
 }
+\section{License}{
+
+Academicons is distributed under the \href{https://scripts.sil.org/OFL}{SIL Open Font License 1.1}
+(see the \href{https://github.com/jpswalsh/academicons#license}{project README} for details).
+}
+

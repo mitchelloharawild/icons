@@ -24,6 +24,11 @@ requested icon.
 \description{
 GitHub's Octicons
 }
+\section{License}{
+
+Octicons are distributed under the \href{https://github.com/primer/octicons/blob/main/LICENSE}{MIT License}.
+}
+
 \seealso{
 https://primer.style/octicons/
 }

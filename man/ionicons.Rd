@@ -24,3 +24,8 @@ requested icon.
 \description{
 Ionicons icons
 }
+\section{License}{
+
+Ionicons are distributed under the \href{https://github.com/ionic-team/ionicons/blob/main/LICENSE}{MIT License}.
+}
+

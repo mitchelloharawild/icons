@@ -24,3 +24,13 @@ requested icon.
 \description{
 Simple Icons
 }
+\section{License}{
+
+The Simple Icons artwork is distributed under the
+\href{https://github.com/simple-icons/simple-icons/blob/develop/LICENSE.md}{CC0 1.0 Universal License}.
+Many of the icons depict third-party brands and logos which may be
+protected as trademarks; read Simple Icons'
+\href{https://github.com/simple-icons/simple-icons/blob/develop/DISCLAIMER.md}{legal disclaimer}
+before using them.
+}
+

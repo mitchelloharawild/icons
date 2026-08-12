@@ -32,6 +32,11 @@ download_fontawesome <- function(version = "dev"){
 #' @param name Name of the icon
 #' @param style Style of the icon. If NULL, a default style will be chosen for the specified icon.
 #'
+#' @section License:
+#' This package uses Font Awesome Free. Its icons are distributed under the
+#' [CC BY 4.0 License](https://fontawesome.com/license/free), which requires
+#' attribution when the icons are used.
+#'
 #' @return `download_fontawesome()` invisibly returns the `fontawesome`
 #'   icon set after downloading and installing its SVG files locally.
 #'

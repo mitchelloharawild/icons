@@ -33,6 +33,10 @@ download_academicons <- function(version = "dev"){
 #'
 #' @param name Name of the icon
 #'
+#' @section License:
+#' Academicons is distributed under the [SIL Open Font License 1.1](https://scripts.sil.org/OFL)
+#' (see the [project README](https://github.com/jpswalsh/academicons#license) for details).
+#'
 #' @return `download_academicons()` invisibly returns the `academicons` icon
 #'   set after downloading and installing its SVG files locally.
 #'

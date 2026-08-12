@@ -32,3 +32,11 @@ SVG tag) for the requested icon.
 \description{
 Health icons
 }
+\section{License}{
+
+Health Icons are released into the public domain under the
+\href{https://creativecommons.org/publicdomain/zero/1.0/}{CC0 1.0 Universal License};
+no attribution is required. The Health Icons codebase itself is licensed
+separately under the \href{https://github.com/resolvetosavelives/healthicons/blob/main/LICENSE}{MIT License}.
+}
+

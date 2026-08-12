@@ -26,6 +26,17 @@ requested icon.
 Super Tiny Icons are miniscule SVG versions of popular website
 and app logos, each under 1KB in size.
 }
+\section{License}{
+
+The project's own icons are dual-licensed by the author under the
+\href{https://github.com/edent/SuperTinyIcons/blob/master/LICENSE}{MIT License}
+and \href{https://creativecommons.org/publicdomain/zero/1.0/}{CC0 1.0 Universal License}.
+Many icons are adapted from third-party logos that carry their own
+licenses (and some depict trademarks), so check the source noted for an
+icon before reusing it - see the project's
+\href{https://github.com/edent/SuperTinyIcons#licenses}{licenses list} for details.
+}
+
 \seealso{
 \url{https://github.com/edent/SuperTinyIcons}
 }

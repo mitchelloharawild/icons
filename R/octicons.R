@@ -31,6 +31,9 @@ octicon_svg_dest <- function(svgs){
 #'
 #' @seealso https://primer.style/octicons/
 #'
+#' @section License:
+#' Octicons are distributed under the [MIT License](https://github.com/primer/octicons/blob/main/LICENSE).
+#'
 #' @return `download_octicons()` invisibly returns the `octicons` icon set
 #'   after downloading and installing its SVG files locally.
 #'

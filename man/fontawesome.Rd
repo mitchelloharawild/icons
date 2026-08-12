@@ -26,3 +26,10 @@ the requested icon.
 \description{
 Font Awesome icons
 }
+\section{License}{
+
+This package uses Font Awesome Free. Its icons are distributed under the
+\href{https://fontawesome.com/license/free}{CC BY 4.0 License}, which requires
+attribution when the icons are used.
+}
+

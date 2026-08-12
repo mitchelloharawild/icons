@@ -41,6 +41,9 @@ download_feather_icons <- function(version = "dev"){
 #'
 #' @param name Name of the icon
 #'
+#' @section License:
+#' Feather Icons are distributed under the [MIT License](https://github.com/feathericons/feather/blob/main/LICENSE).
+#'
 #' @return `download_feather_icons()` invisibly returns the `feather_icons`
 #'   icon set after downloading and installing its SVG files locally.
 #'

@@ -102,6 +102,10 @@ mdi_svg_dest <- function(version) {
 #'
 #' @seealso https://material.io/resources/icons/
 #'
+#' @section License:
+#' Material Design Icons are distributed under the
+#' [Apache License 2.0](https://github.com/google/material-design-icons/blob/master/LICENSE).
+#'
 #' @return `download_google_material()` invisibly returns the
 #'   `google_material` icon set after downloading and installing its SVG
 #'   files locally.

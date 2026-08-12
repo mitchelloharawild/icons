@@ -45,6 +45,14 @@ download_bioicons <- function() {
 #'
 #' @seealso <https://bioicons.com/>
 #'
+#' @section License:
+#' Each Bioicons icon is contributed under a license chosen by its author -
+#' commonly CC-0, MIT, CC-BY-SA, or BSD. The license is baked into the
+#' icon's identifier (use [icon_label()] to recover it, e.g.
+#' `"bioicons$CC-0$General_items$AuthorName$name"`), and is also listed
+#' alongside each icon at <https://bioicons.com/>. Check, and where
+#' required credit, the individual icon's license before reuse.
+#'
 #' @return `download_bioicons()` invisibly returns the `bioicons` icon set
 #'   after downloading and installing its SVG files locally.
 #'

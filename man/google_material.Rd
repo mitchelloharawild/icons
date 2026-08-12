@@ -35,6 +35,12 @@ SVG tag) for the requested icon.
 \description{
 Google's Material design icons
 }
+\section{License}{
+
+Material Design Icons are distributed under the
+\href{https://github.com/google/material-design-icons/blob/master/LICENSE}{Apache License 2.0}.
+}
+
 \seealso{
 https://material.io/resources/icons/
 }

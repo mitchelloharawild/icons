@@ -57,6 +57,9 @@ of the package you should carefully read these changes.
 * Icons now work alongside emojis (#25).
 * Added `icon_uri()`, which encodes icons as self-contained base64 data strings.
   This makes it easier to use icons in other contexts, such as gt tables and as
+* Each icon set's documentation now includes a "License" section describing
+  the license its icons are distributed under, with a link to the source
+  (#15).
 
 # icon 0.1.0
 

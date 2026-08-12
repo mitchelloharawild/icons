@@ -23,6 +23,14 @@ download_simple_icons <- function(version = "dev"){
 #'
 #' @param name Name of the icon
 #'
+#' @section License:
+#' The Simple Icons artwork is distributed under the
+#' [CC0 1.0 Universal License](https://github.com/simple-icons/simple-icons/blob/develop/LICENSE.md).
+#' Many of the icons depict third-party brands and logos which may be
+#' protected as trademarks; read Simple Icons'
+#' [legal disclaimer](https://github.com/simple-icons/simple-icons/blob/develop/DISCLAIMER.md)
+#' before using them.
+#'
 #' @return `download_simple_icons()` invisibly returns the `simple_icons`
 #'   icon set after downloading and installing its SVG files locally.
 #'

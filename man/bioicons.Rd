@@ -32,6 +32,16 @@ Bioicons is a free library of open source icons for scientific
 illustrations using vector graphics software such as Inkscape or Adobe
 Illustrator.
 }
+\section{License}{
+
+Each Bioicons icon is contributed under a license chosen by its author -
+commonly CC-0, MIT, CC-BY-SA, or BSD. The license is baked into the
+icon's identifier (use \code{\link[=icon_label]{icon_label()}} to recover it, e.g.
+\code{"bioicons$CC-0$General_items$AuthorName$name"}), and is also listed
+alongside each icon at \url{https://bioicons.com/}. Check, and where
+required credit, the individual icon's license before reuse.
+}
+
 \seealso{
 \url{https://bioicons.com/}
 }
