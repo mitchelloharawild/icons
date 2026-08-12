@@ -30,7 +30,7 @@ render_icon_output <- function(x, out_type){
     rsvg::rsvg_pdf(charToRaw(format(x)), path)
     glue("\\protect\\includegraphics[height=<height*0.7>em]{<path>}", .open = "<", .close = ">")
   }
-  else if(out_type %in% c("gfm", "gfm-ascii_identifiers", "markdown_github")){
+  else if(grepl("^(gfm|markdown_github)", out_type)){
     path <- icon_fig_path(".svg")
     writeLines(format(x), path)
     glue('<img src="{path}" height="{height*16}px"/>')

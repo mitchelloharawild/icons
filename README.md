@@ -50,20 +50,13 @@ icons you would use `download_fontawesome()`.
 
 ``` r
 library(icons)
-#> ── Installed icons ─────────────────────────────────────────────── icon 0.2.0 ──
-#> ✔ ionicons         8.0.13     ✖ google_material        
-#> ✖ health_icons                ✖ feather_icons          
-#> ✖ academicons                 ✖ octicons               
-#> ✖ simple_icons                ✖ super_tiny_icons       
-#> ✖ bioicons                    ✔ fontawesome      7.3.1
 ```
 
 Icons can be inserted inline using inline code
 `` `r icons::fontawesome("rocket", style = "solid")` ``
-<img src="/tmp/RtmpOm46ws/file152d36771abe04.png"
-style="height:0.7em" /> or `` `r icons::fontawesome$solid$rocket` ``
-<img src="/tmp/RtmpOm46ws/file152d367eadb561.png"
-style="height:0.7em" />.
+<img src="man/figures/unnamed-chunk-5-1.svg" height="16px"/> or
+`` `r icons::fontawesome$solid$rocket` ``
+<img src="man/figures/unnamed-chunk-5-2.svg" height="16px"/>.
 
 Icons can also be inserted using usual R chunks.
 
@@ -71,8 +64,7 @@ Icons can also be inserted using usual R chunks.
     fontawesome("rocket", style = "solid") # equivalent to icons::fontawesome$solid$rocket
     ```
 
-<img src="/tmp/RtmpOm46ws/file152d3618c63c13.png"
-style="height:0.7em" />
+<img src="man/figures/icon-chunk-3.svg" height="16px"/>
 
 If the icon name contains non-syntactic name characters like a `-` or
 `+`, you will need to quote the name with backticks, single or double
@@ -82,8 +74,7 @@ quotes:
 fontawesome$brands$`r-project` # or 'r-project' or "r-project"
 ```
 
-<img src="/tmp/RtmpOm46ws/file152d3658c137e2.png"
-style="height:0.7em" />
+<img src="man/figures/icon-syntax-4.svg" height="16px"/>
 
 The appearance of an icon can be customised using the `icon_style()`
 function.
@@ -92,8 +83,7 @@ function.
     icon_style(fontawesome("rocket", style = "solid"), scale = 2, fill = "red")
     ```
 
-<img src="/tmp/RtmpOm46ws/file152d361e41edd0.png"
-style="height:1.4em" />
+<img src="man/figures/icon-style-5.svg" height="32px"/>
 
 Custom icon sets can be created using the `icon_set()` function, which
 accepts a directory of SVG files and allows them to be used as icons.
@@ -103,8 +93,7 @@ accepts a directory of SVG files and allows them to be used as icons.
     custom$icons
     ```
 
-<img src="/tmp/RtmpOm46ws/file152d367d890666.png"
-style="height:0.7em" />
+<img src="man/figures/icon-custom-6.svg" height="16px"/>
 
 You can also search for icons using the `icon_find()` function, which
 returns a vector of matching icons. Use `icon_label()` to see which icon
@@ -115,9 +104,7 @@ found <- icon_find("rocket")
 found
 ```
 
-<img src="/tmp/RtmpOm46ws/file152d36410aecbb.png"
-style="height:0.7em" /><img src="/tmp/RtmpOm46ws/file152d365b892853.png"
-style="height:0.7em" />
+<img src="man/figures/icon-find-7.svg" height="16px"/><img src="man/figures/icon-find-8.svg" height="16px"/>
 
 ``` r
 icon_label(found)
