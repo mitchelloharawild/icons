@@ -81,8 +81,10 @@
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A named list of matching <code>icon</code> objects, named by the expression
-used to access them (for example <code>"fontawesome$solid$rocket"</code>).</p>
+    <p>An <code>icon_vec</code> of matching icons (empty if none are found). Use
+<code><a href="icon_label.html">icon_label()</a></code> to recover each match's <code>library$sub$name</code> accessor
+expression (for example <code>"fontawesome$solid$rocket"</code>) - the result
+itself carries no <code><a href="https://rdrr.io/r/base/names.html" class="external-link">names()</a></code>, since <code>icon_vec</code> can't hold them.</p>
     </div>
 
   </div>
