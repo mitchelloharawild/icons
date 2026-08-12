@@ -1,5 +1,7 @@
-# Base style applied to every icon before any icon_style() customisation
-icon_base_style <- "height:1em;position:relative;display:inline-block;top:.1em;"
+# Base style applied to every icon before any icon_style() customisation.
+#
+# `vertical-align` nudges the icon down onto a text baseline for inline icons.
+icon_base_style <- "height:1em;display:inline-block;vertical-align:-.1em;"
 
 #' Materialize an `icon` tag from a path and (optionally) a style
 #'
@@ -13,13 +15,16 @@ icon_base_style <- "height:1em;position:relative;display:inline-block;top:.1em;"
 #'
 #' @return An `icon` object.
 #' @noRd
-icon_materialize <- function(path, style = NA_character_){
+icon_materialize <- function(path, style = NA_character_) {
   icon <- xml2::read_xml(path)
   attr <- xml2::xml_attrs(icon)
   xml2::xml_set_attrs(icon, NULL)
-  xml2::xml_set_attrs(icon, c(
-    attr[setdiff(names(attr), c("width", "height"))],
-    style = if(is.na(style)) icon_base_style else style)
+  xml2::xml_set_attrs(
+    icon,
+    c(
+      attr[setdiff(names(attr), c("width", "height"))],
+      style = if (is.na(style)) icon_base_style else style
+    )
   )
 
   icon <- xml2tags(icon)
@@ -38,7 +43,7 @@ icon_materialize <- function(path, style = NA_character_){
 #'
 #' @importFrom htmltools tagAppendAttributes
 #' @export
-read_icon <- function(x){
+read_icon <- function(x) {
   icon_materialize(x)
 }
 
@@ -56,19 +61,19 @@ read_icon <- function(x){
 #'   path(s) to the icon's source SVG file(s) on disk.
 #'
 #' @export
-icon_path <- function(x){
+icon_path <- function(x) {
   UseMethod("icon_path")
 }
 
 #' @export
-icon_path.default <- function(x){
+icon_path.default <- function(x) {
   cli::cli_abort("{.arg x} must be an {.cls icon} object.", call = NULL)
 }
 
 #' @export
-icon_path.icon <- function(x){
+icon_path.icon <- function(x) {
   path <- attr(x, "path")
-  if(is.null(path)){
+  if (is.null(path)) {
     cli::cli_abort(
       "This icon does not have a known file path.",
       call = NULL
@@ -96,23 +101,26 @@ icon_path.icon <- function(x){
 #'   return `NA`.
 #'
 #' @export
-icon_label <- function(x){
+icon_label <- function(x) {
   UseMethod("icon_label")
 }
 
 #' @export
-icon_label.default <- function(x){
-  cli::cli_abort("{.arg x} must be an {.cls icon} or {.cls icon_vec} object.", call = NULL)
+icon_label.default <- function(x) {
+  cli::cli_abort(
+    "{.arg x} must be an {.cls icon} or {.cls icon_vec} object.",
+    call = NULL
+  )
 }
 
 #' @export
-icon_label.icon <- function(x){
+icon_label.icon <- function(x) {
   icon_label_path(icon_path(x))
 }
 
 #' Turn a `<cache root>/<lib>/<...>.svg` path into a `lib$...` label
 #' @noRd
-icon_label_path <- function(path){
+icon_label_path <- function(path) {
   root <- paste0(icon_cache_path(), "/")
   from_library <- startsWith(path, root)
   rel <- sub("\\.svg$", "", substring(path, nchar(root) + 1))
@@ -123,34 +131,32 @@ icon_label_path <- function(path){
 
 #' Encode a (styled) icon as a self-contained `data:` URI
 #'
-#' Renders an icon's SVG markup — including any [icon_style()] fill/rotate/
-#' scale/CSS, which lives on the tag rather than the source file (see
-#' [icon_path()]) — to a base64-encoded `data:image/svg+xml;base64,...` URI.
-#' This is the one recipe for handing a *styled* icon to something that
-#' wants an image path/URL rather than an `htmltools` tag: an `<img src>`,
-#' a `gt::html()` cell, a `leaflet` marker `iconUrl`, and similar.
+#' @description
+#' Renders an icon's SVG markup to a base64-encoded URI.
 #'
-#' Unstyled icons sourced from an installed library or a local [icon_set()]
-#' can instead use [icon_path()], which points straight at the source file
-#' on disk without needing to encode anything.
+#' This enables self-contained and styled icon for consumers that use image
+#' paths/URLs, including for example: an `<img src>`, a `gt::html()` cell,
+#' and a `leaflet` marker `iconUrl`.
 #'
 #' @param x An `icon` or `icon_vec` object.
 #'
-#' @return A string (or, for an `icon_vec`, a character vector) giving each
-#'   icon's `data:image/svg+xml;base64,...` URI.
+#' @return A character vector giving each icon's base64 encoded URI.
 #'
 #' @export
-icon_uri <- function(x){
+icon_uri <- function(x) {
   UseMethod("icon_uri")
 }
 
 #' @export
-icon_uri.default <- function(x){
-  cli::cli_abort("{.arg x} must be an {.cls icon} or {.cls icon_vec} object.", call = NULL)
+icon_uri.default <- function(x) {
+  cli::cli_abort(
+    "{.arg x} must be an {.cls icon} or {.cls icon_vec} object.",
+    call = NULL
+  )
 }
 
 #' @export
-icon_uri.icon <- function(x){
+icon_uri.icon <- function(x) {
   icon_svg_uri(format(x))
 }
 
@@ -163,12 +169,15 @@ icon_uri.icon <- function(x){
 #'   `format()` on a materialized icon tag.
 #'
 #' @noRd
-icon_svg_uri <- function(svg){
+icon_svg_uri <- function(svg) {
   paste0("data:image/svg+xml;base64,", base64enc::base64encode(charToRaw(svg)))
 }
 
-xml2tags <- function(x){
-  out <- htmltools::tag(xml2::xml_name(x), varArgs = as.list(xml2::xml_attrs(x)))
+xml2tags <- function(x) {
+  out <- htmltools::tag(
+    xml2::xml_name(x),
+    varArgs = as.list(xml2::xml_attrs(x))
+  )
   do.call(
     htmltools::tagAppendChildren,
     c(tag = list(out), Map(xml2tags, xml2::xml_children(x)))
@@ -248,7 +257,7 @@ print.icon_set <- function(x, ...){
 }
 
 #' @export
-length.icon_set <- function(x){
+length.icon_set <- function(x) {
   length(get_env(x)[["icon_fn"]][["list"]]())
 }
 
@@ -263,21 +272,26 @@ length.icon_set <- function(x){
 #' @return A single `TRUE` or `FALSE`.
 #'
 #' @export
-icon_installed <- function(x){
+icon_installed <- function(x) {
   dir.exists(get_env(x)$table$path)
 }
 
-update_icon <- function(libs = NULL, silent = TRUE){
-  if(is.null(libs)) libs <- names(icon_table)
-  lapply(libs, function(lib){
+update_icon <- function(libs = NULL, silent = TRUE) {
+  if (is.null(libs)) {
+    libs <- names(icon_table)
+  }
+  lapply(libs, function(lib) {
     meta <- icon_meta(lib)
-    if(!silent){
+    if (!silent) {
       version <- tryCatch(
         format_version(package_version(meta$version)),
         error = function(e) meta$version
       )
       cli::cli_alert_success("{.field {lib}} updated to version {version}.")
     }
-    get_env(get(lib, mode = "function"))[["icon_fn"]][["update"]](icon_cache_path(lib), meta = meta)
+    get_env(get(lib, mode = "function"))[["icon_fn"]][["update"]](
+      icon_cache_path(lib),
+      meta = meta
+    )
   })
 }
