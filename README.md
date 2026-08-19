@@ -5,8 +5,8 @@
 
 [![R-CMD-check](https://github.com/mitchelloharawild/icons/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/mitchelloharawild/icons/actions/workflows/R-CMD-check.yaml)
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/icon)](https://cran.r-project.org/package=icons)
-<!-- [![Downloads](http://cranlogs.r-pkg.org/badges/icons?color=brightgreen)](https://cran.r-project.org/package=icons) -->
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/icons)](https://cran.r-project.org/package=icons)
+<!-- [![Downloads](https://cranlogs.r-pkg.org/badges/icons?color=brightgreen)](https://cran.r-project.org/package=icons) -->
 
 The `icons` package for R makes adding web icons to reports,
 presentations and apps easy. It integrates many popular icon libraries

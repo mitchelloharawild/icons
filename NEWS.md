@@ -1,3 +1,55 @@
+# icons 0.3.0
+
+## New icon sets
+
+* Added the `health_icons()` icon set (https://healthicons.org/).
+* Added the `super_tiny_icons()` icon set (https://github.com/edent/SuperTinyIcons).
+
+## New features
+
+* Added `icon_uri()`, which encodes icons as self-contained base64 data strings.
+  This makes it easier to use icons in other contexts, such as gt tables and as
+  leaflet markers.
+* Added icon vectors, to make it easier to use icons in data-oriented workflows
+  (e.g. in tables, graphics, maps, ...)
+* Added `icon_path()`, giving the file path(s) of an icon's source SVG - handy
+  for using icons with ggplot2 and other packages that plot from image files.
+* Added `icon_label()`, for identifying an icon by its library accessor label
+  (for example `"fontawesome$solid$rocket"`).
+* Added a "Using icons" vignette covering installation, insertion, styling,
+  custom icon sets and Shiny usage.
+
+## Breaking changes
+
+* Icons are now fully vectorised. Accessing a single icon (e.g.
+  `fontawesome$solid$rocket`) no longer returns a scalar icon that outputs
+  raw SVG directly - it returns a length-1 `icon_vec`, the same type returned
+  by `icon_find()` and other multi-icon results.
+
+## Improvements
+
+* Each icon set's documentation now includes a "License" section describing
+  the license its icons are distributed under, with a link to the source
+  (#15).
+* Messages, warnings and errors are now consistently produced with the `cli`
+  package, and include more helpful hints (`crayon` is no longer used).
+* Icon set functions now suggest similarly named icons when a requested icon
+  can't be found (#67).
+* `icon_vec`s now have an `as.character()` method that returns their labels.
+* Improved embedding of icons in other output formats.
+* Improved the base icon style used for inline icon positioning.
+* Downloading `google_material()` icons is now faster, using a git sparse
+  checkout to fetch only the required SVG files (#70).
+* The package's startup message is now suppressed in development sessions
+  (e.g. `devtools::load_all()`).
+
+## Bug fixes
+
+* Icons now work as expected in titles (#7).
+* Icons now work alongside emojis (#25).
+* Fixed `icon_find()` when searching custom icon sets (#38).
+* Fixed the download URL for `octicons()` (thanks @bbest, #58).
+
 # icons 0.2.0
 
 This release completely reimplements the package to use SVG icons. This is much
@@ -46,20 +98,6 @@ of the package you should carefully read these changes.
   formats (#33).
 * Improved detection of output format types to work with more rmarkdown 
   extensions.
-* Messages, warnings and errors are now consistently produced with the `cli`
-  package, and include more helpful hints (`crayon` is no longer used).
-* Added a "Using icons" vignette covering installation, insertion, styling,
-  custom icon sets and Shiny usage.
-
-## Bug fixes
-
-* Icons now work as expected in titles (#7).
-* Icons now work alongside emojis (#25).
-* Added `icon_uri()`, which encodes icons as self-contained base64 data strings.
-  This makes it easier to use icons in other contexts, such as gt tables and as
-* Each icon set's documentation now includes a "License" section describing
-  the license its icons are distributed under, with a link to the source
-  (#15).
 
 # icon 0.1.0
 
