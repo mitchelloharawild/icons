@@ -7,7 +7,7 @@ test_that("icon_uri() encodes an icon as a self-contained data URI", {
   expect_true(startsWith(uri, "data:image/svg+xml;base64,"))
 
   decoded <- rawToChar(base64enc::base64decode(sub("^data:image/svg\\+xml;base64,", "", uri)))
-  expect_identical(decoded, format(set$triangle))
+  expect_identical(decoded, format(icon_materialize_all(set$triangle)[[1]]))
 })
 
 test_that("icon_uri() keeps icon_style() styling, unlike icon_path()", {
@@ -20,7 +20,7 @@ test_that("icon_uri() keeps icon_style() styling, unlike icon_path()", {
   expect_match(decoded, "fill:red;", fixed = TRUE)
 })
 
-test_that("icon_uri() vectorises over an icon_vec, one URI per element", {
+test_that("icon_uri() vectorises over an icons vector, one URI per element", {
   set <- local_icon_set_multi()
   v <- icon_style(c(set$triangle, set$circle), fill = "blue")
 

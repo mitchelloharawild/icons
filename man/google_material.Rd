@@ -29,7 +29,7 @@ first available variant in this order.}
 \code{google_material} icon set after downloading and installing its SVG
 files locally.
 
-\code{google_material(name, category, theme)} returns an \code{icon} object (an
+\code{google_material(name, category, theme)} returns an \code{icons} vector (an
 SVG tag) for the requested icon.
 }
 \description{

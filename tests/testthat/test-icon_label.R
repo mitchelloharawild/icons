@@ -13,7 +13,7 @@ test_that("icon_label() reconstructs the library$sub$name accessor for a library
   expect_identical(icon_label(icon), "fontawesome$solid$rocket")
 
   v <- c(icon, icon)
-  expect_s3_class(v, "icon_vec")
+  expect_s3_class(v, "icons")
   expect_identical(icon_label(v), c("fontawesome$solid$rocket", "fontawesome$solid$rocket"))
 })
 
@@ -48,7 +48,7 @@ test_that("icon_label() gives the library$sub$name accessor for icon_find() resu
 
   found <- icon_find("rocket", set = "fontawesome")
 
-  expect_s3_class(found, "icon_vec")
+  expect_s3_class(found, "icons")
   expect_true(length(found) > 0)
   expect_true(all(grepl("^fontawesome\\$.*rocket$", icon_label(found))))
 })

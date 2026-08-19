@@ -18,7 +18,7 @@ ionicons(name)
 \code{download_ionicons()} invisibly returns the \code{ionicons} icon set
 after downloading and installing its SVG files locally.
 
-\code{ionicons(name)} returns an \code{icon} object (an SVG tag) for the
+\code{ionicons(name)} returns an \code{icons} vector (an SVG tag) for the
 requested icon.
 }
 \description{

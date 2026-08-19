@@ -39,7 +39,7 @@ icon_save <- function(icons, path = "."){
   }
   mapply(function(x, nm){
     writeLines(
-      format(x),
+      format(icon_materialize_all(x)[[1]]),
       paste0(file.path(normalizePath(path), nm), ".svg")
     )
   }, x = icons, nm = names(icons))

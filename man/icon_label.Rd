@@ -7,7 +7,7 @@
 icon_label(x)
 }
 \arguments{
-\item{x}{An \code{icon} or \code{icon_vec} object.}
+\item{x}{An \code{icons} vector.}
 }
 \value{
 A character vector the same length as \code{x} giving each icon's
@@ -22,6 +22,6 @@ Every icon sourced from an installed icon library (as opposed to a local
 \code{icon_fn$get()}), which is exactly the \code{library$sub$name} expression used
 to access it. \code{icon_label()} recovers that label straight from
 \code{\link[=icon_path]{icon_path()}} rather than requiring a name to be tracked separately —
-so, unlike \code{names()}, it survives \code{c()}/\code{rep()}/subsetting on an
-\code{icon_vec} (a \code{vctrs} rcrd, which cannot carry element \code{names()}).
+so, unlike \code{names()}, it survives \code{c()}/\code{rep()}/subsetting on an \code{icons}
+vector (a \code{vctrs} rcrd, which cannot carry element \code{names()}).
 }

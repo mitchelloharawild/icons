@@ -33,7 +33,7 @@ local_icon_set_nested <- function() {
 }
 
 # A flat set with two icons, for tests that need to combine distinct icons
-# into an `icon_vec`.
+# into an `icons` vector.
 local_icon_set_multi <- function() {
   dir <- tempfile("icon_set_multi")
   dir.create(dir)

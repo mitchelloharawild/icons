@@ -5,7 +5,7 @@
 #' @param rotate The angle to rotate the icon.
 #' @param ... Other CSS rules for the icon style, for example `float = "right"`.
 #'
-#' @return The input `x` (an `icon` or `icon_vec`), with its style updated to
+#' @return The input `x` (an `icons` vector), with its style updated to
 #'   reflect the requested styling.
 #'
 #' @export
@@ -15,8 +15,8 @@ icon_style <- function(x, scale = NULL, fill = NULL, rotate = NULL, ...){
 
 #' Compute an updated CSS style string
 #'
-#' Shared by the scalar (`icon`) and vector (`icon_vec`) methods of
-#' [icon_style()]. `style` may be a vector, since `stringr`/`glue` operations
+#' Used by the `icons` method of [icon_style()]. `style` may be a
+#' vector, since `stringr`/`glue` operations
 #' below are all vectorised already.
 #'
 #' @noRd
@@ -47,17 +47,10 @@ icon_apply_style <- function(style, scale, fill, rotate, dots){
 }
 
 #' @export
-icon_style.icon <- function(x, scale = NULL, fill = NULL, rotate = NULL, ...){
-  style <- x$attribs$style
-  x$attribs$style <- icon_apply_style(style, scale, fill, rotate, list(...))
-  x
-}
-
-#' @export
-icon_style.icon_vec <- function(x, scale = NULL, fill = NULL, rotate = NULL, ...){
+icon_style.icons <- function(x, scale = NULL, fill = NULL, rotate = NULL, ...){
   style <- vctrs::field(x, "style")
   style[is.na(style)] <- icon_base_style
-  new_icon_vec(
+  new_icons(
     path = vctrs::field(x, "path"),
     style = icon_apply_style(style, scale, fill, rotate, list(...))
   )

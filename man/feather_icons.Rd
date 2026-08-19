@@ -18,7 +18,7 @@ feather_icons(name)
 \code{download_feather_icons()} invisibly returns the \code{feather_icons}
 icon set after downloading and installing its SVG files locally.
 
-\code{feather_icons(name)} returns an \code{icon} object (an SVG tag) for the
+\code{feather_icons(name)} returns an \code{icons} vector (an SVG tag) for the
 requested icon.
 }
 \description{

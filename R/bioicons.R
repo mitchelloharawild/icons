@@ -56,7 +56,7 @@ download_bioicons <- function() {
 #' @return `download_bioicons()` invisibly returns the `bioicons` icon set
 #'   after downloading and installing its SVG files locally.
 #'
-#'   `bioicons(name, category)` returns an `icon` object (an SVG tag) for
+#'   `bioicons(name, category)` returns an `icons` vector (an SVG tag) for
 #'   the requested icon.
 #'
 #' @rdname bioicons

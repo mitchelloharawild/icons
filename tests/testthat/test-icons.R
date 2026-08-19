@@ -1,41 +1,41 @@
-test_that("c() combines icons into an icon_vec", {
+test_that("c() combines icons into an icons vector", {
   set <- local_icon_set_multi()
 
   v <- c(set$triangle, set$circle)
 
-  expect_s3_class(v, "icon_vec")
+  expect_s3_class(v, "icons")
   expect_length(v, 2L)
   expect_identical(icon_path(v), c(icon_path(set$triangle), icon_path(set$circle)))
 })
 
-test_that("c() appends an icon onto an existing icon_vec", {
+test_that("c() appends an icon onto an existing icons vector", {
   set <- local_icon_set_multi()
 
   v <- c(set$triangle, set$circle)
   v2 <- c(v, set$triangle)
 
-  expect_s3_class(v2, "icon_vec")
+  expect_s3_class(v2, "icons")
   expect_length(v2, 3L)
   expect_identical(icon_path(v2), c(icon_path(set$triangle), icon_path(set$circle), icon_path(set$triangle)))
 })
 
-test_that("c() combines two icon_vecs", {
+test_that("c() combines two icons vectors", {
   set <- local_icon_set_multi()
 
   v1 <- c(set$triangle, set$circle)
   v2 <- c(set$circle, set$triangle)
 
   combined <- c(v1, v2)
-  expect_s3_class(combined, "icon_vec")
+  expect_s3_class(combined, "icons")
   expect_length(combined, 4L)
 })
 
-test_that("rep() replicates an icon into an icon_vec", {
+test_that("rep() replicates an icon into an icons vector", {
   set <- local_icon_set_flat()
 
   r <- rep(set$triangle, 3)
 
-  expect_s3_class(r, "icon_vec")
+  expect_s3_class(r, "icons")
   expect_length(r, 3L)
   expect_identical(icon_path(r), rep(icon_path(set$triangle), 3))
 })
@@ -60,18 +60,18 @@ test_that("styling before c()'ing preserves the style", {
   expect_no_match(materialized[[2]]$attribs$style, "fill:red;")
 })
 
-test_that("icon_style() on an icon_vec styles every element", {
+test_that("icon_style() on an icons vector styles every element", {
   set <- local_icon_set_multi()
   v <- c(set$triangle, set$circle)
 
   styled <- icon_style(v, fill = "blue")
 
-  expect_s3_class(styled, "icon_vec")
+  expect_s3_class(styled, "icons")
   materialized <- icon_materialize_all(styled)
   expect_true(all(vapply(materialized, function(x) grepl("fill:blue;", x$attribs$style), logical(1))))
 })
 
-test_that("icon_path() vectorises over an icon_vec", {
+test_that("icon_path() vectorises over an icons vector", {
   set <- local_icon_set_multi()
   v <- c(set$triangle, set$circle)
 
@@ -120,7 +120,7 @@ test_that("as.character() doesn't disturb as.tags()'s materialized rendering", {
   v <- c(set$triangle, set$circle)
 
   # is.character() is a primitive check on storage mode, not S3-dispatched,
-  # so registering as.character.icon_vec must not flip it - htmltools relies
+  # so registering as.character.icons must not flip it - htmltools relies
   # on this staying FALSE so it dispatches as.tags() instead of treating the
   # vector as literal text.
   expect_false(is.character(v))
@@ -148,7 +148,7 @@ test_that("as.tags() materializes each element as a real SVG tag", {
   expect_true(all(vapply(tags, inherits, logical(1), what = "icon")))
 })
 
-test_that("knit_print.icon_vec renders every element, looping knit_print.icon's logic", {
+test_that("knit_print.icons renders every element, looping knit_print.icon's logic", {
   set <- local_icon_set_multi()
   v <- c(set$triangle, set$circle)
 
@@ -156,7 +156,7 @@ test_that("knit_print.icon_vec renders every element, looping knit_print.icon's 
   on.exit(knitr::opts_knit$set(rmarkdown.pandoc.to = old), add = TRUE)
   knitr::opts_knit$set(rmarkdown.pandoc.to = "html")
 
-  out <- knit_print.icon_vec(v)
+  out <- knit_print.icons(v)
   expect_s3_class(out, "knit_asis")
   expect_length(gregexpr("<svg", as.character(out), fixed = TRUE)[[1]], 2L)
 })
@@ -167,11 +167,11 @@ test_that("mixing icon sets in one vector is allowed", {
 
   v <- c(flat$triangle, nested$solid$circle)
 
-  expect_s3_class(v, "icon_vec")
+  expect_s3_class(v, "icons")
   expect_length(v, 2L)
 })
 
-test_that("pillar formats an icon_vec column compactly", {
+test_that("pillar formats an icons vector column compactly", {
   skip_if_not_installed("pillar")
   set <- local_icon_set_multi()
   v <- c(set$triangle, set$circle)
@@ -180,13 +180,13 @@ test_that("pillar formats an icon_vec column compactly", {
   expect_s3_class(shaft, "pillar_shaft")
 })
 
-test_that("icon_vec column drops into a data.frame", {
+test_that("icons vector column drops into a data.frame", {
   set <- local_icon_set_multi()
   v <- c(set$triangle, set$circle)
 
   df <- data.frame(id = 1:2)
   df$icon <- v
 
-  expect_s3_class(df$icon, "icon_vec")
+  expect_s3_class(df$icon, "icons")
   expect_length(df$icon, 2L)
 })

@@ -23,8 +23,10 @@
 
 * Icons are now fully vectorised. Accessing a single icon (e.g.
   `fontawesome$solid$rocket`) no longer returns a scalar icon that outputs
-  raw SVG directly - it returns a length-1 `icon_vec`, the same type returned
-  by `icon_find()` and other multi-icon results.
+  raw SVG directly - it returns a length-1 `icons` vector, the same type
+  returned by `icon_find()` and other multi-icon results. Code that reached
+  into a result as a raw `htmltools` tag, or called `format()` expecting SVG
+  markup, should use `htmltools::as.tags()` first.
 
 ## Improvements
 
@@ -35,7 +37,7 @@
   package, and include more helpful hints (`crayon` is no longer used).
 * Icon set functions now suggest similarly named icons when a requested icon
   can't be found (#67).
-* `icon_vec`s now have an `as.character()` method that returns their labels.
+* `icons` vectors now have an `as.character()` method that returns their labels.
 * Improved embedding of icons in other output formats.
 * Improved the base icon style used for inline icon positioning.
 * Downloading `google_material()` icons is now faster, using a git sparse

@@ -7,7 +7,7 @@
 icon_uri(x)
 }
 \arguments{
-\item{x}{An \code{icon} or \code{icon_vec} object.}
+\item{x}{An \code{icons} vector.}
 }
 \value{
 A character vector giving each icon's base64 encoded URI.

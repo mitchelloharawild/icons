@@ -30,7 +30,7 @@ download_ionicons <- function(version = "dev"){
 #' @return `download_ionicons()` invisibly returns the `ionicons` icon set
 #'   after downloading and installing its SVG files locally.
 #'
-#'   `ionicons(name)` returns an `icon` object (an SVG tag) for the
+#'   `ionicons(name)` returns an `icons` vector (an SVG tag) for the
 #'   requested icon.
 #'
 #' @rdname ionicons

@@ -30,6 +30,7 @@ Suggests:
     gh,
     rmarkdown,
     pillar,
+    shiny,
     testthat (>= 3.0.0)
 URL: https://pkg.mitchelloharawild.com/icons/, https://github.com/mitchelloharawild/icons
 BugReports: https://github.com/mitchelloharawild/icons/issues

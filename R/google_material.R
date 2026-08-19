@@ -110,7 +110,7 @@ mdi_svg_dest <- function(version) {
 #'   `google_material` icon set after downloading and installing its SVG
 #'   files locally.
 #'
-#'   `google_material(name, category, theme)` returns an `icon` object (an
+#'   `google_material(name, category, theme)` returns an `icons` vector (an
 #'   SVG tag) for the requested icon.
 #'
 #' @rdname google_material

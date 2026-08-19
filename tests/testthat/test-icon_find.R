@@ -1,7 +1,7 @@
-test_that("icon_find() returns an empty icon_vec for an unknown icon name", {
+test_that("icon_find() returns an empty icons vector for an unknown icon name", {
   found <- icon_find("this-icon-definitely-does-not-exist-12345")
 
-  expect_s3_class(found, "icon_vec")
+  expect_s3_class(found, "icons")
   expect_length(found, 0)
 })
 
@@ -10,7 +10,7 @@ test_that("icon_find() locates a known icon in an installed set", {
 
   found <- icon_find("rocket", set = "fontawesome")
 
-  expect_s3_class(found, "icon_vec")
+  expect_s3_class(found, "icons")
   expect_true(length(found) > 0)
   expect_true(all(grepl("^fontawesome\\$", icon_label(found))))
 })
@@ -21,7 +21,7 @@ test_that("icon_find() locates an icon from a custom icon_set()", {
 
   found <- icon_find("triangle", set = nm)
 
-  expect_s3_class(found, "icon_vec")
+  expect_s3_class(found, "icons")
   expect_length(found, 1L)
 })
 

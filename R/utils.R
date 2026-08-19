@@ -252,7 +252,7 @@ install_icon_git <- function(
 icon_guess <- function(name, ..., pattern = NULL) {
   icon_found <- icon_find(name, ...)
   if (!is.null(pattern)) {
-    # icon_vec carries no names() (see icon_find()'s @return docs), so
+    # icons vector carries no names() (see icon_find()'s @return docs), so
     # filtering matches icon_label()'s library$sub$name accessor instead.
     icon_found <- icon_found[grepl(
       pattern,
@@ -270,6 +270,5 @@ icon_guess <- function(name, ..., pattern = NULL) {
       call = NULL
     )
   }
-  # Materialise the found icon
-  icon_materialize_all(vctrs::vec_slice(icon_found, 1))[[1]]
+  vctrs::vec_slice(icon_found, 1)
 }

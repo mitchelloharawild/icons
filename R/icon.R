@@ -5,9 +5,8 @@ icon_base_style <- "height:1em;display:inline-block;vertical-align:-.1em;"
 
 #' Materialize an `icon` tag from a path and (optionally) a style
 #'
-#' Shared by the scalar (`icon`) and vector (`icon_vec`) code paths so that
-#' both produce byte-for-byte the same `htmltools` tag structure. This is
-#' the only place that ever parses an SVG file.
+#' The internal path -> tag builder used by `icon_materialize_all()`. This
+#' is the only place that ever parses an SVG file.
 #'
 #' @param path Path to the icon's SVG file.
 #' @param style A pre-computed `style` attribute to use verbatim, or `NA` to
@@ -37,14 +36,13 @@ icon_materialize <- function(path, style = NA_character_) {
 #'
 #' @param x Path to the icon
 #'
-#' @return An `icon` object: an SVG `htmltools` tag that can be printed,
-#'   embedded in R Markdown, or styled with [icon_style()]. If `x` is a file
-#'   path, it is retained and can be retrieved with [icon_path()].
+#' @return An `icons` vector: an SVG icon that can be printed, embedded
+#'   in R Markdown, or styled with [icon_style()]. If `x` is a file path, it
+#'   is retained and can be retrieved with [icon_path()].
 #'
-#' @importFrom htmltools tagAppendAttributes
 #' @export
 read_icon <- function(x) {
-  icon_materialize(x)
+  new_icons(x)
 }
 
 #' Get the file path of an icon
@@ -55,10 +53,10 @@ read_icon <- function(x) {
 #' files directly, such as `ggplot2` (via `grid::rasterGrob()` or similar) or
 #' `gt`.
 #'
-#' @param x An `icon` or `icon_vec` object.
+#' @param x An `icons` vector.
 #'
-#' @return A string (or, for an `icon_vec`, a character vector) giving the
-#'   path(s) to the icon's source SVG file(s) on disk.
+#' @return A character vector giving the path(s) to the icon's source SVG
+#'   file(s) on disk.
 #'
 #' @export
 icon_path <- function(x) {
@@ -67,19 +65,7 @@ icon_path <- function(x) {
 
 #' @export
 icon_path.default <- function(x) {
-  cli::cli_abort("{.arg x} must be an {.cls icon} object.", call = NULL)
-}
-
-#' @export
-icon_path.icon <- function(x) {
-  path <- attr(x, "path")
-  if (is.null(path)) {
-    cli::cli_abort(
-      "This icon does not have a known file path.",
-      call = NULL
-    )
-  }
-  path
+  cli::cli_abort("{.arg x} must be an {.cls icons} vector.", call = NULL)
 }
 
 #' Identify an icon by its library accessor label
@@ -90,10 +76,10 @@ icon_path.icon <- function(x) {
 #' `icon_fn$get()`), which is exactly the `library$sub$name` expression used
 #' to access it. `icon_label()` recovers that label straight from
 #' [icon_path()] rather than requiring a name to be tracked separately —
-#' so, unlike `names()`, it survives `c()`/`rep()`/subsetting on an
-#' `icon_vec` (a `vctrs` rcrd, which cannot carry element `names()`).
+#' so, unlike `names()`, it survives `c()`/`rep()`/subsetting on an `icons`
+#' vector (a `vctrs` rcrd, which cannot carry element `names()`).
 #'
-#' @param x An `icon` or `icon_vec` object.
+#' @param x An `icons` vector.
 #'
 #' @return A character vector the same length as `x` giving each icon's
 #'   `library$sub$name` label. Icons not sourced from an installed library
@@ -108,14 +94,9 @@ icon_label <- function(x) {
 #' @export
 icon_label.default <- function(x) {
   cli::cli_abort(
-    "{.arg x} must be an {.cls icon} or {.cls icon_vec} object.",
+    "{.arg x} must be an {.cls icons} vector.",
     call = NULL
   )
-}
-
-#' @export
-icon_label.icon <- function(x) {
-  icon_label_path(icon_path(x))
 }
 
 #' Turn a `<cache root>/<lib>/<...>.svg` path into a `lib$...` label
@@ -138,7 +119,7 @@ icon_label_path <- function(path) {
 #' paths/URLs, including for example: an `<img src>`, a `gt::html()` cell,
 #' and a `leaflet` marker `iconUrl`.
 #'
-#' @param x An `icon` or `icon_vec` object.
+#' @param x An `icons` vector.
 #'
 #' @return A character vector giving each icon's base64 encoded URI.
 #'
@@ -150,20 +131,14 @@ icon_uri <- function(x) {
 #' @export
 icon_uri.default <- function(x) {
   cli::cli_abort(
-    "{.arg x} must be an {.cls icon} or {.cls icon_vec} object.",
+    "{.arg x} must be an {.cls icons} vector.",
     call = NULL
   )
 }
 
-#' @export
-icon_uri.icon <- function(x) {
-  icon_svg_uri(format(x))
-}
-
 #' Base64-encode SVG markup into a `data:` URI
 #'
-#' Shared by the scalar (`icon`) and vector (`icon_vec`) methods of
-#' [icon_uri()].
+#' Used by [icon_uri()]'s `icons` method.
 #'
 #' @param svg A string of `<svg ...>...</svg>` markup, as produced by
 #'   `format()` on a materialized icon tag.

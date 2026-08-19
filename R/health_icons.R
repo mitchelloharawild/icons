@@ -41,7 +41,7 @@ download_health_icons <- function(){
 #' @return `download_health_icons()` invisibly returns the `health_icons`
 #'   icon set after downloading and installing its SVG files locally.
 #'
-#'   `health_icons(name, category, theme)` returns an `icon` object (an
+#'   `health_icons(name, category, theme)` returns an `icons` vector (an
 #'   SVG tag) for the requested icon.
 #'
 #' @rdname health_icons

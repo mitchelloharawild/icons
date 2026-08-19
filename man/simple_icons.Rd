@@ -18,7 +18,7 @@ simple_icons(name)
 \code{download_simple_icons()} invisibly returns the \code{simple_icons}
 icon set after downloading and installing its SVG files locally.
 
-\code{simple_icons(name)} returns an \code{icon} object (an SVG tag) for the
+\code{simple_icons(name)} returns an \code{icons} vector (an SVG tag) for the
 requested icon.
 }
 \description{

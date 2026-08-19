@@ -1,8 +1,7 @@
 #' Render a single materialized icon for a knitr output format
 #'
-#' Factored out of `knit_print.icon()` so that `knit_print.icon_vec()` can
-#' loop the exact same per-format logic over each materialized element,
-#' rather than re-implementing it.
+#' Used by `knit_print.icons()` to loop the same per-format logic over
+#' each materialized element.
 #'
 #' @param x A materialized `icon` tag.
 #' @param out_type The knitr/pandoc output format, e.g. from
@@ -48,9 +47,10 @@ render_icon_output <- function(x, out_type){
 #' `knitr::fig_path()`'s own "-<n>" suffix comes from the `fig.cur` chunk
 #' option, which only advances via knitr's internal plot-recording hook -
 #' calling `fig_path()` by hand more than once per chunk (a loop over an
-#' `icon_vec`, several icons in one chunk, ...) leaves `fig.cur` untouched,
-#' so every call resolves to the exact same "-1" path and each icon silently
-#' overwrites the last one's file on disk. This package-local counter
+#' `icons` vector, several icons in one chunk, ...) leaves `fig.cur`
+#' untouched, so every call resolves to the exact same "-1" path and each
+#' icon silently overwrites the last one's file on disk. This package-local
+#' counter
 #' advances on every icon actually saved to disk instead, so concurrent
 #' icons in the same chunk never collide.
 #'
@@ -103,15 +103,7 @@ icon_out_type <- function(){
 
 #' @importFrom knitr knit_print
 #' @export
-knit_print.icon <- function(x, ...) {
-  out_type <- icon_out_type()
-  if(is.null(out_type)) return(knitr::asis_output(""))
-
-  knitr::asis_output(render_icon_output(x, out_type))
-}
-
-#' @export
-knit_print.icon_vec <- function(x, ...) {
+knit_print.icons <- function(x, ...) {
   out_type <- icon_out_type()
   if(is.null(out_type)) return(knitr::asis_output(""))
 

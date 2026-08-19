@@ -34,7 +34,7 @@ download_simple_icons <- function(version = "dev"){
 #' @return `download_simple_icons()` invisibly returns the `simple_icons`
 #'   icon set after downloading and installing its SVG files locally.
 #'
-#'   `simple_icons(name)` returns an `icon` object (an SVG tag) for the
+#'   `simple_icons(name)` returns an `icons` vector (an SVG tag) for the
 #'   requested icon.
 #'
 #' @rdname simple_icons

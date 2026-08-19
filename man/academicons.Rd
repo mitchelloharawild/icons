@@ -18,7 +18,7 @@ academicons(name)
 \code{download_academicons()} invisibly returns the \code{academicons} icon
 set after downloading and installing its SVG files locally.
 
-\code{academicons(name)} returns an \code{icon} object (an SVG tag) for the
+\code{academicons(name)} returns an \code{icons} vector (an SVG tag) for the
 requested icon.
 }
 \description{

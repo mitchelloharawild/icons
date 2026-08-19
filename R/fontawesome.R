@@ -40,7 +40,7 @@ download_fontawesome <- function(version = "dev"){
 #' @return `download_fontawesome()` invisibly returns the `fontawesome`
 #'   icon set after downloading and installing its SVG files locally.
 #'
-#'   `fontawesome(name, style)` returns an `icon` object (an SVG tag) for
+#'   `fontawesome(name, style)` returns an `icons` vector (an SVG tag) for
 #'   the requested icon.
 #'
 #' @rdname fontawesome

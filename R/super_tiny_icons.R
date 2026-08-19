@@ -41,7 +41,7 @@ download_super_tiny_icons <- function(version = "dev"){
 #'   `super_tiny_icons` icon set after downloading and installing its SVG
 #'   files locally.
 #'
-#'   `super_tiny_icons(name)` returns an `icon` object (an SVG tag) for the
+#'   `super_tiny_icons(name)` returns an `icons` vector (an SVG tag) for the
 #'   requested icon.
 #'
 #' @rdname super_tiny_icons

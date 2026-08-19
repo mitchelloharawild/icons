@@ -3,10 +3,10 @@
 #' @param name The name of the icon
 #' @param set Icon sets to search. If NULL, all available icons will be searched.
 #'
-#' @return An `icon_vec` of matching icons (empty if none are found). Use
+#' @return An `icons` vector of matching icons (empty if none are found). Use
 #'   [icon_label()] to recover each match's `library$sub$name` accessor
 #'   expression (for example `"fontawesome$solid$rocket"`) - the result
-#'   itself carries no `names()`, since `icon_vec` can't hold them.
+#'   itself carries no `names()`, since an `icons` vector can't hold them.
 #'
 #' @export
 icon_find <- function(name, set = NULL) {
@@ -29,7 +29,7 @@ icon_find <- function(name, set = NULL) {
     if (name %in% x) list(c(prefix, name)) else NULL
   }
 
-  # Directly construct `new_icon_vec()` directly from paths
+  # Directly construct `new_icons()` directly from paths
   found_paths <- unlist(
     lapply(libs, function(lib) {
       parts <- find_paths(lib$table$files)
@@ -44,5 +44,5 @@ icon_find <- function(name, set = NULL) {
     use.names = FALSE
   )
 
-  new_icon_vec(path = found_paths)
+  new_icons(path = found_paths)
 }

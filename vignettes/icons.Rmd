@@ -102,9 +102,10 @@ icon_find("rocket")
 
 ## Using icons in Shiny apps
 
-Every icon is an `htmltools` tag, so it can be used directly in Shiny UI
-code, for example as the `icon` argument of an input:
+Icons can be used directly in Shiny UI code, both as ordinary content and as
+the `icon =` argument of an input:
 
 ```r
+shiny::div(fontawesome$solid$rocket, "Launch")
 shiny::actionButton("go", "Launch", icon = fontawesome$solid$rocket)
 ```

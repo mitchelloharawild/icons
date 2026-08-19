@@ -7,7 +7,8 @@ test_that("read_icon() converts an SVG file into a styled icon tag", {
 
   icon <- read_icon(path)
 
-  expect_s3_class(icon, "icon")
+  expect_s3_class(icon, "icons")
+  icon <- icon_materialize_all(icon)[[1]]
   expect_identical(icon$name, "svg")
   # width/height are stripped in favour of the em-relative style, so the
   # icon scales with surrounding text
@@ -25,7 +26,7 @@ test_that("read_icon() preserves nested children", {
     path
   )
 
-  icon <- read_icon(path)
+  icon <- icon_materialize_all(read_icon(path))[[1]]
 
   expect_identical(icon$children[[1]]$name, "g")
   expect_identical(icon$children[[1]]$children[[1]]$name, "path")

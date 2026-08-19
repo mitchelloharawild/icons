@@ -11,8 +11,7 @@ test_that("$.icon_set returns an icon for a top-level file", {
   set <- local_icon_set_flat()
 
   icon <- set$triangle
-  expect_s3_class(icon, "icon")
-  expect_s3_class(icon, "shiny.tag")
+  expect_s3_class(icon, "icons")
 })
 
 test_that("$.icon_set returns an icon whose icon_path() resolves on disk", {
@@ -30,7 +29,7 @@ test_that("$.icon_set descends into a subdirectory via $.icon_dir", {
   expect_identical(names(sub), "circle")
 
   icon <- sub$circle
-  expect_s3_class(icon, "icon")
+  expect_s3_class(icon, "icons")
 })
 
 test_that("$.icon_set errors informatively for an unknown icon", {

@@ -24,7 +24,7 @@ If \code{NULL}, it will default to the first available icon with this name.}
 \code{download_bioicons()} invisibly returns the \code{bioicons} icon set
 after downloading and installing its SVG files locally.
 
-\code{bioicons(name, category)} returns an \code{icon} object (an SVG tag) for
+\code{bioicons(name, category)} returns an \code{icons} vector (an SVG tag) for
 the requested icon.
 }
 \description{

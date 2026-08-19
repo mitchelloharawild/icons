@@ -12,10 +12,10 @@ icon_find(name, set = NULL)
 \item{set}{Icon sets to search. If NULL, all available icons will be searched.}
 }
 \value{
-An \code{icon_vec} of matching icons (empty if none are found). Use
+An \code{icons} vector of matching icons (empty if none are found). Use
 \code{\link[=icon_label]{icon_label()}} to recover each match's \code{library$sub$name} accessor
 expression (for example \code{"fontawesome$solid$rocket"}) - the result
-itself carries no \code{names()}, since \code{icon_vec} can't hold them.
+itself carries no \code{names()}, since an \code{icons} vector can't hold them.
 }
 \description{
 Find icons in installed sets by name

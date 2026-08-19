@@ -26,7 +26,7 @@ first available variant in this order.}
 \code{download_health_icons()} invisibly returns the \code{health_icons}
 icon set after downloading and installing its SVG files locally.
 
-\code{health_icons(name, category, theme)} returns an \code{icon} object (an
+\code{health_icons(name, category, theme)} returns an \code{icons} vector (an
 SVG tag) for the requested icon.
 }
 \description{

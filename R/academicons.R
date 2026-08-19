@@ -40,7 +40,7 @@ download_academicons <- function(version = "dev"){
 #' @return `download_academicons()` invisibly returns the `academicons` icon
 #'   set after downloading and installing its SVG files locally.
 #'
-#'   `academicons(name)` returns an `icon` object (an SVG tag) for the
+#'   `academicons(name)` returns an `icons` vector (an SVG tag) for the
 #'   requested icon.
 #'
 #' @rdname academicons
