@@ -15,3 +15,4 @@ example/example_files$
 ^\.github$
 ^_dev$
 ^cran-comments\.md$
+^LICENSE\.md$

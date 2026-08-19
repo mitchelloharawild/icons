@@ -35,7 +35,7 @@ Suggests:
 URL: https://pkg.mitchelloharawild.com/icons/, https://github.com/mitchelloharawild/icons
 BugReports: https://github.com/mitchelloharawild/icons/issues
 VignetteBuilder: knitr
-License: GPL-3
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE, roclets=c('rd', 'collate', 'namespace'))
 Config/roxygen2/version: 8.0.0
