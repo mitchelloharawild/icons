@@ -59,6 +59,45 @@
     </div>
 
     <div class="section level2">
+<h2 class="page-header" data-toc-text="0.3.0" id="icons-030">icons 0.3.0<a class="anchor" aria-label="anchor" href="#icons-030"></a></h2>
+<div class="section level3">
+<h3 id="new-icon-sets-0-3-0">New icon sets<a class="anchor" aria-label="anchor" href="#new-icon-sets-0-3-0"></a></h3>
+<ul><li>Added the <code><a href="../reference/health_icons.html">health_icons()</a></code> icon set (<a href="https://healthicons.org/" class="external-link uri">https://healthicons.org/</a>).</li>
+<li>Added the <code><a href="../reference/super_tiny_icons.html">super_tiny_icons()</a></code> icon set (<a href="https://github.com/edent/SuperTinyIcons" class="external-link uri">https://github.com/edent/SuperTinyIcons</a>).</li>
+</ul></div>
+<div class="section level3">
+<h3 id="new-features-0-3-0">New features<a class="anchor" aria-label="anchor" href="#new-features-0-3-0"></a></h3>
+<ul><li>Added <code><a href="../reference/icon_uri.html">icon_uri()</a></code>, which encodes icons as self-contained base64 data strings. This makes it easier to use icons in other contexts, such as gt tables and as leaflet markers.</li>
+<li>Added icon vectors, to make it easier to use icons in data-oriented workflows (e.g. in tables, graphics, maps, …)</li>
+<li>Added <code><a href="../reference/icon_path.html">icon_path()</a></code>, giving the file path(s) of an icon’s source SVG - handy for using icons with ggplot2 and other packages that plot from image files.</li>
+<li>Added <code><a href="../reference/icon_label.html">icon_label()</a></code>, for identifying an icon by its library accessor label (for example <code>"fontawesome$solid$rocket"</code>).</li>
+<li>Added a “Using icons” vignette covering installation, insertion, styling, custom icon sets and Shiny usage.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="breaking-changes-0-3-0">Breaking changes<a class="anchor" aria-label="anchor" href="#breaking-changes-0-3-0"></a></h3>
+<ul><li>Icons are now fully vectorised. Accessing a single icon (e.g. <code>fontawesome$solid$rocket</code>) no longer returns a scalar icon that outputs raw SVG directly - it returns a length-1 <code>icon_vec</code>, the same type returned by <code><a href="../reference/icon_find.html">icon_find()</a></code> and other multi-icon results.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="improvements-0-3-0">Improvements<a class="anchor" aria-label="anchor" href="#improvements-0-3-0"></a></h3>
+<ul><li>Each icon set’s documentation now includes a “License” section describing the license its icons are distributed under, with a link to the source (<a href="https://github.com/mitchelloharawild/icons/issues/15" class="external-link">#15</a>).</li>
+<li>Messages, warnings and errors are now consistently produced with the <code>cli</code> package, and include more helpful hints (<code>crayon</code> is no longer used).</li>
+<li>Icon set functions now suggest similarly named icons when a requested icon can’t be found (<a href="https://github.com/mitchelloharawild/icons/issues/67" class="external-link">#67</a>).</li>
+<li>
+<code>icon_vec</code>s now have an <code><a href="https://rdrr.io/r/base/character.html" class="external-link">as.character()</a></code> method that returns their labels.</li>
+<li>Improved embedding of icons in other output formats.</li>
+<li>Improved the base icon style used for inline icon positioning.</li>
+<li>Downloading <code><a href="../reference/google_material.html">google_material()</a></code> icons is now faster, using a git sparse checkout to fetch only the required SVG files (<a href="https://github.com/mitchelloharawild/icons/issues/70" class="external-link">#70</a>).</li>
+<li>The package’s startup message is now suppressed in development sessions (e.g. <code>devtools::load_all()</code>).</li>
+</ul></div>
+<div class="section level3">
+<h3 id="bug-fixes-0-3-0">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-0-3-0"></a></h3>
+<ul><li>Icons now work as expected in titles (<a href="https://github.com/mitchelloharawild/icons/issues/7" class="external-link">#7</a>).</li>
+<li>Icons now work alongside emojis (<a href="https://github.com/mitchelloharawild/icons/issues/25" class="external-link">#25</a>).</li>
+<li>Fixed <code><a href="../reference/icon_find.html">icon_find()</a></code> when searching custom icon sets (<a href="https://github.com/mitchelloharawild/icons/issues/38" class="external-link">#38</a>).</li>
+<li>Fixed the download URL for <code><a href="../reference/octicons.html">octicons()</a></code> (thanks <a href="https://github.com/bbest" class="external-link">@bbest</a>, <a href="https://github.com/mitchelloharawild/icons/issues/58" class="external-link">#58</a>).</li>
+</ul></div>
+</div>
+    <div class="section level2">
 <h2 class="page-header" data-toc-text="0.2.0" id="icons-020">icons 0.2.0<a class="anchor" aria-label="anchor" href="#icons-020"></a></h2>
 <p>This release completely reimplements the package to use SVG icons. This is much better for smaller file sizes, portability and icon customisation.</p>
 <p>Icon libraries are no longer provided within the package, and instead must be downloaded using the <code>download_*()</code> functions. This allows you to update and choose the version of your icon libraries without needing changes to the packages.</p>
@@ -85,15 +124,6 @@
 <li>Custom icon sets can be created from a folder of SVG files.</li>
 <li>Icons can now be used with <code>word_document</code> and <code>github_document</code> output formats (<a href="https://github.com/mitchelloharawild/icons/issues/33" class="external-link">#33</a>).</li>
 <li>Improved detection of output format types to work with more rmarkdown extensions.</li>
-<li>Messages, warnings and errors are now consistently produced with the <code>cli</code> package, and include more helpful hints (<code>crayon</code> is no longer used).</li>
-<li>Added a “Using icons” vignette covering installation, insertion, styling, custom icon sets and Shiny usage.</li>
-</ul></div>
-<div class="section level3">
-<h3 id="bug-fixes-0-2-0">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-0-2-0"></a></h3>
-<ul><li>Icons now work as expected in titles (<a href="https://github.com/mitchelloharawild/icons/issues/7" class="external-link">#7</a>).</li>
-<li>Icons now work alongside emojis (<a href="https://github.com/mitchelloharawild/icons/issues/25" class="external-link">#25</a>).</li>
-<li>Added <code><a href="../reference/icon_uri.html">icon_uri()</a></code>, which encodes icons as self-contained base64 data strings. This makes it easier to use icons in other contexts, such as gt tables and as</li>
-<li>Each icon set’s documentation now includes a “License” section describing the license its icons are distributed under, with a link to the source (<a href="https://github.com/mitchelloharawild/icons/issues/15" class="external-link">#15</a>).</li>
 </ul></div>
 </div>
   </div>
