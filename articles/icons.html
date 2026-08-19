@@ -166,11 +166,11 @@ Search everything you have installed:</p>
 <div class="section level2">
 <h2 id="using-icons-in-shiny-apps">Using icons in Shiny apps<a class="anchor" aria-label="anchor" href="#using-icons-in-shiny-apps"></a>
 </h2>
-<p>Every icon is an <code>htmltools</code> tag, so it can be used
-directly in Shiny UI code, for example as the <code>icon</code> argument
-of an input:</p>
+<p>Icons can be used directly in Shiny UI code, both as ordinary content
+and as the <code>icon =</code> argument of an input:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">shiny</span><span class="fu">::</span><span class="fu">actionButton</span><span class="op">(</span><span class="st">"go"</span>, <span class="st">"Launch"</span>, icon <span class="op">=</span> <span class="va">fontawesome</span><span class="op">$</span><span class="va">solid</span><span class="op">$</span><span class="va">rocket</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://rstudio.github.io/htmltools/reference/builder.html" class="external-link">div</a></span><span class="op">(</span><span class="va">fontawesome</span><span class="op">$</span><span class="va">solid</span><span class="op">$</span><span class="va">rocket</span>, <span class="st">"Launch"</span><span class="op">)</span></span>
+<span><span class="fu">shiny</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html" class="external-link">actionButton</a></span><span class="op">(</span><span class="st">"go"</span>, <span class="st">"Launch"</span>, icon <span class="op">=</span> <span class="va">fontawesome</span><span class="op">$</span><span class="va">solid</span><span class="op">$</span><span class="va">rocket</span><span class="op">)</span></span></code></pre></div>
 </div>
   </div>
 

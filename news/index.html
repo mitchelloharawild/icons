@@ -75,7 +75,7 @@
 </ul></div>
 <div class="section level3">
 <h3 id="breaking-changes-0-3-0">Breaking changes<a class="anchor" aria-label="anchor" href="#breaking-changes-0-3-0"></a></h3>
-<ul><li>Icons are now fully vectorised. Accessing a single icon (e.g. <code>fontawesome$solid$rocket</code>) no longer returns a scalar icon that outputs raw SVG directly - it returns a length-1 <code>icon_vec</code>, the same type returned by <code><a href="../reference/icon_find.html">icon_find()</a></code> and other multi-icon results.</li>
+<ul><li>Icons are now fully vectorised. Accessing a single icon (e.g. <code>fontawesome$solid$rocket</code>) no longer returns a scalar icon that outputs raw SVG directly - it returns a length-1 <code>icons</code> vector, the same type returned by <code><a href="../reference/icon_find.html">icon_find()</a></code> and other multi-icon results. Code that reached into a result as a raw <code>htmltools</code> tag, or called <code><a href="https://rdrr.io/r/base/format.html" class="external-link">format()</a></code> expecting SVG markup, should use <code><a href="https://rstudio.github.io/htmltools/reference/as.tags.html" class="external-link">htmltools::as.tags()</a></code> first.</li>
 </ul></div>
 <div class="section level3">
 <h3 id="improvements-0-3-0">Improvements<a class="anchor" aria-label="anchor" href="#improvements-0-3-0"></a></h3>
@@ -83,7 +83,7 @@
 <li>Messages, warnings and errors are now consistently produced with the <code>cli</code> package, and include more helpful hints (<code>crayon</code> is no longer used).</li>
 <li>Icon set functions now suggest similarly named icons when a requested icon can’t be found (<a href="https://github.com/mitchelloharawild/icons/issues/67" class="external-link">#67</a>).</li>
 <li>
-<code>icon_vec</code>s now have an <code><a href="https://rdrr.io/r/base/character.html" class="external-link">as.character()</a></code> method that returns their labels.</li>
+<code>icons</code> vectors now have an <code><a href="https://rdrr.io/r/base/character.html" class="external-link">as.character()</a></code> method that returns their labels.</li>
 <li>Improved embedding of icons in other output formats.</li>
 <li>Improved the base icon style used for inline icon positioning.</li>
 <li>Downloading <code><a href="../reference/google_material.html">google_material()</a></code> icons is now faster, using a git sparse checkout to fetch only the required SVG files (<a href="https://github.com/mitchelloharawild/icons/issues/70" class="external-link">#70</a>).</li>
