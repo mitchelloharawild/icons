@@ -24,3 +24,13 @@ reflect the requested styling.
 \description{
 Customise the style of an icon
 }
+\examples{
+path <- tempfile(fileext = ".svg")
+writeLines(
+  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0"/></svg>',
+  path
+)
+icon <- read_icon(path)
+icon_style(icon, scale = 2, fill = "red", rotate = 90)
+
+}

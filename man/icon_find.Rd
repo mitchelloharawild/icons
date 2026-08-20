@@ -20,3 +20,15 @@ itself carries no \code{names()}, since an \code{icons} vector can't hold them.
 \description{
 Find icons in installed sets by name
 }
+\examples{
+# Empty if no installed icon set has a matching icon
+icon_find("rocket")
+
+if(icon_installed(fontawesome)){
+
+found <- icon_find("rocket")
+icon_label(found)
+
+}
+
+}

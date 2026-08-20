@@ -40,6 +40,14 @@ icon_materialize <- function(path, style = NA_character_) {
 #'   in R Markdown, or styled with [icon_style()]. If `x` is a file path, it
 #'   is retained and can be retrieved with [icon_path()].
 #'
+#' @examples
+#' path <- tempfile(fileext = ".svg")
+#' writeLines(
+#'   '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0"/></svg>',
+#'   path
+#' )
+#' read_icon(path)
+#'
 #' @export
 read_icon <- function(x) {
   new_icons(x)
@@ -57,6 +65,14 @@ read_icon <- function(x) {
 #'
 #' @return A character vector giving the path(s) to the icon's source SVG
 #'   file(s) on disk.
+#'
+#' @examples
+#' path <- tempfile(fileext = ".svg")
+#' writeLines(
+#'   '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0"/></svg>',
+#'   path
+#' )
+#' icon_path(read_icon(path))
 #'
 #' @export
 icon_path <- function(x) {
@@ -85,6 +101,20 @@ icon_path.default <- function(x) {
 #'   `library$sub$name` label. Icons not sourced from an installed library
 #'   (a local [icon_set()] or a [read_icon()] file outside the icon cache)
 #'   return `NA`.
+#'
+#' @examples
+#' path <- tempfile(fileext = ".svg")
+#' writeLines(
+#'   '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0"/></svg>',
+#'   path
+#' )
+#' icon_label(read_icon(path)) # NA - not sourced from an installed library
+#'
+#' if(icon_installed(fontawesome)){
+#'
+#' icon_label(fontawesome("rocket", style = "solid"))
+#'
+#' }
 #'
 #' @export
 icon_label <- function(x) {
@@ -122,6 +152,14 @@ icon_label_path <- function(path) {
 #' @param x An `icons` vector.
 #'
 #' @return A character vector giving each icon's base64 encoded URI.
+#'
+#' @examples
+#' path <- tempfile(fileext = ".svg")
+#' writeLines(
+#'   '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0"/></svg>',
+#'   path
+#' )
+#' icon_uri(read_icon(path))
 #'
 #' @export
 icon_uri <- function(x) {
@@ -167,6 +205,17 @@ xml2tags <- function(x) {
 #'
 #' @return An `icon_set` object providing access to the SVG files found at
 #'   `path`, for example via `$`.
+#'
+#' @examples
+#' dir <- tempfile()
+#' dir.create(dir)
+#' writeLines(
+#'   '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0"/></svg>',
+#'   file.path(dir, "example.svg")
+#' )
+#'
+#' custom <- icon_set(dir)
+#' custom$example
 #'
 #' @export
 icon_set <- function(
@@ -258,6 +307,9 @@ length.icon_set <- function(x) {
 #' @param x An icon set (such as [`fontawesome`]).
 #'
 #' @return A single `TRUE` or `FALSE`.
+#'
+#' @examples
+#' icon_installed(fontawesome)
 #'
 #' @export
 icon_installed <- function(x) {

@@ -18,3 +18,15 @@ An \code{icon_set} object providing access to the SVG files found at
 \description{
 Create a custom icon set
 }
+\examples{
+dir <- tempfile()
+dir.create(dir)
+writeLines(
+  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0"/></svg>',
+  file.path(dir, "example.svg")
+)
+
+custom <- icon_set(dir)
+custom$example
+
+}

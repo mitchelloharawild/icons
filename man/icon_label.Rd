@@ -25,3 +25,18 @@ to access it. \code{icon_label()} recovers that label straight from
 so, unlike \code{names()}, it survives \code{c()}/\code{rep()}/subsetting on an \code{icons}
 vector (a \code{vctrs} rcrd, which cannot carry element \code{names()}).
 }
+\examples{
+path <- tempfile(fileext = ".svg")
+writeLines(
+  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0"/></svg>',
+  path
+)
+icon_label(read_icon(path)) # NA - not sourced from an installed library
+
+if(icon_installed(fontawesome)){
+
+icon_label(fontawesome("rocket", style = "solid"))
+
+}
+
+}

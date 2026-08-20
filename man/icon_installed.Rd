@@ -17,3 +17,7 @@ This function will return \code{TRUE} if the icons for an icon set are installed
 If they aren't, they can be installed using the appropriate \verb{download_*()}
 function.
 }
+\examples{
+icon_installed(fontawesome)
+
+}

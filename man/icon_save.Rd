@@ -23,12 +23,14 @@ collaborators or servers to have all icons from a library installed.
 \examples{
 if(icon_installed(fontawesome) && icon_installed(ionicons)){
 
+path <- tempfile()
+dir.create(path)
 icon_save(
   list(arrow = fontawesome$solid$`arrow-right`, alarm = ionicons$alarm),
-  path = "icons"
+  path = path
 )
 
-app_icons <- icon_set("icons")
+app_icons <- icon_set(path)
 app_icons$arrow
 
 }

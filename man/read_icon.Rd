@@ -17,3 +17,12 @@ is retained and can be retrieved with \code{\link[=icon_path]{icon_path()}}.
 \description{
 Read an individual icon
 }
+\examples{
+path <- tempfile(fileext = ".svg")
+writeLines(
+  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0"/></svg>',
+  path
+)
+read_icon(path)
+
+}

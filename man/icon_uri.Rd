@@ -19,3 +19,12 @@ This enables self-contained and styled icon for consumers that use image
 paths/URLs, including for example: an \verb{<img src>}, a \code{gt::html()} cell,
 and a \code{leaflet} marker \code{iconUrl}.
 }
+\examples{
+path <- tempfile(fileext = ".svg")
+writeLines(
+  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0"/></svg>',
+  path
+)
+icon_uri(read_icon(path))
+
+}

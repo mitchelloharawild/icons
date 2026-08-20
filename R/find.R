@@ -8,6 +8,17 @@
 #'   expression (for example `"fontawesome$solid$rocket"`) - the result
 #'   itself carries no `names()`, since an `icons` vector can't hold them.
 #'
+#' @examples
+#' # Empty if no installed icon set has a matching icon
+#' icon_find("rocket")
+#'
+#' if(icon_installed(fontawesome)){
+#'
+#' found <- icon_find("rocket")
+#' icon_label(found)
+#'
+#' }
+#'
 #' @export
 icon_find <- function(name, set = NULL) {
   libs <- as.list(icon_table)

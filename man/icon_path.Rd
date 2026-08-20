@@ -20,3 +20,12 @@ This is useful for passing icons to other packages that work with SVG
 files directly, such as \code{ggplot2} (via \code{grid::rasterGrob()} or similar) or
 \code{gt}.
 }
+\examples{
+path <- tempfile(fileext = ".svg")
+writeLines(
+  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0"/></svg>',
+  path
+)
+icon_path(read_icon(path))
+
+}
