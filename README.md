@@ -34,6 +34,12 @@ using icons from these libraries:
 
 # Installation
 
+The **released** version can be installed from CRAN using:
+
+``` r
+install.packages("icons")
+```
+
 The **development** version can be installed from GitHub using:
 
 ``` r
@@ -54,9 +60,9 @@ library(icons)
 
 Icons can be inserted inline using inline code
 `` `r icons::fontawesome("rocket", style = "solid")` ``
-<img src="man/figures/unnamed-chunk-5-1.svg" height="16px"/> or
+<img src="man/figures/unnamed-chunk-6-1.svg" height="16px"/> or
 `` `r icons::fontawesome$solid$rocket` ``
-<img src="man/figures/unnamed-chunk-5-2.svg" height="16px"/>.
+<img src="man/figures/unnamed-chunk-6-2.svg" height="16px"/>.
 
 Icons can also be inserted using usual R chunks.
 

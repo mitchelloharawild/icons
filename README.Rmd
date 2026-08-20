@@ -35,6 +35,12 @@ The `icons` package currently provides helpful tools for downloading and using i
 
 # Installation
 
+The **released** version can be installed from CRAN using:
+
+```{r cran-installation, eval = FALSE}
+install.packages("icons")
+```
+
 The **development** version can be installed from GitHub using:
 
 ```{r gh-installation, eval = FALSE}
