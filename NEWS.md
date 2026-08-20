@@ -1,4 +1,4 @@
-# icons 0.3.0
+# icons 1.0.0
 
 ## New icon sets
 
