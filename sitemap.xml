@@ -1,5 +1,7 @@
 <urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
 <url><loc>https://pkg.mitchelloharawild.com/icons/404.html</loc></url>
+<url><loc>https://pkg.mitchelloharawild.com/icons/LICENSE-text.html</loc></url>
+<url><loc>https://pkg.mitchelloharawild.com/icons/LICENSE.html</loc></url>
 <url><loc>https://pkg.mitchelloharawild.com/icons/articles/icons.html</loc></url>
 <url><loc>https://pkg.mitchelloharawild.com/icons/articles/index.html</loc></url>
 <url><loc>https://pkg.mitchelloharawild.com/icons/authors.html</loc></url>
@@ -22,7 +24,6 @@
 <url><loc>https://pkg.mitchelloharawild.com/icons/reference/icons-package.html</loc></url>
 <url><loc>https://pkg.mitchelloharawild.com/icons/reference/index.html</loc></url>
 <url><loc>https://pkg.mitchelloharawild.com/icons/reference/ionicons.html</loc></url>
-<url><loc>https://pkg.mitchelloharawild.com/icons/reference/migration.html</loc></url>
 <url><loc>https://pkg.mitchelloharawild.com/icons/reference/octicons.html</loc></url>
 <url><loc>https://pkg.mitchelloharawild.com/icons/reference/read_icon.html</loc></url>
 <url><loc>https://pkg.mitchelloharawild.com/icons/reference/simple_icons.html</loc></url>

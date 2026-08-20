@@ -85,6 +85,22 @@
 <code>path</code>, for example via <code>$</code>.</p>
     </div>
 
+    <div id="ref-examples">
+    <h2>Examples</h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">dir</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/files2.html" class="external-link">dir.create</a></span><span class="op">(</span><span class="va">dir</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/writeLines.html" class="external-link">writeLines</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="st">'&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"&gt;&lt;path d="M0 0"/&gt;&lt;/svg&gt;'</span>,</span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">dir</span>, <span class="st">"example.svg"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">custom</span> <span class="op">&lt;-</span> <span class="fu">icon_set</span><span class="op">(</span><span class="va">dir</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">custom</span><span class="op">$</span><span class="va">example</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;icons[1]&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] &lt;icon:example&gt;</span>
+<span class="r-in"><span></span></span>
+</code></pre></div>
+    </div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top"><h2 data-toc-skip>Contents</h2>
