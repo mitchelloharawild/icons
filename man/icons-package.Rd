@@ -4,11 +4,11 @@
 \name{icons-package}
 \alias{icons}
 \alias{icons-package}
-\title{icons: SVG Icons for R Documents and Apps}
+\title{icons: Easily Insert SVG Icons into R Outputs}
 \description{
 \if{html}{\figure{logo.svg}{options: style='float: right' alt='logo' width='120'}}
 
-Easily embed SVG icons into 'R Markdown' documents or 'Shiny' apps. A collection of popular icon sets are supported by the package, including Font Awesome, Academicons and Ionicons.
+Provides tools to download, style, and insert scalable vector graphics (SVG) icons into R output, such as 'R Markdown' and 'Quarto' documents, 'Shiny' apps, 'gt' tables, and 'ggplot2' visualisations via the 'ggicons' package. Bundles popular icon libraries, such as 'Font Awesome', 'Academicons', and 'Material Design Icons', which are downloaded on demand to keep the package small, or build a custom icon set from any folder of local SVG files. Icon appearance, such as size, colour, and position, can be customised.
 }
 \seealso{
 Useful links:
@@ -20,19 +20,19 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Mitchell O'Hara-Wild \email{mail@mitchelloharawild.com}
+\strong{Maintainer}: Mitchell O'Hara-Wild \email{mail@mitchelloharawild.com} (\href{https://orcid.org/0000-0001-6729-7695}{ORCID})
 
 Authors:
 \itemize{
-  \item Mitchell O'Hara-Wild \email{mail@mitchelloharawild.com}
+  \item Mitchell O'Hara-Wild \email{mail@mitchelloharawild.com} (\href{https://orcid.org/0000-0001-6729-7695}{ORCID})
 }
 
 Other contributors:
 \itemize{
-  \item Earo Wang [contributor]
-  \item Timothy Hyndman [contributor]
-  \item Matthew T. Warkentin [contributor]
-  \item Tom Jemmett \email{thomas.jemmett@nhs.net} (\href{https://orcid.org/0000-0002-6943-2990}{ORCID}) [contributor]
+  \item Earo Wang (\href{https://orcid.org/0000-0001-6448-5260}{ORCID}) [contributor]
+  \item Timothy Hyndman (\href{https://orcid.org/0000-0002-7047-5023}{ORCID}) [contributor]
+  \item Matthew Warkentin (\href{https://orcid.org/0000-0001-8730-3511}{ORCID}) [contributor]
+  \item Tom Jemmett (\href{https://orcid.org/0000-0002-6943-2990}{ORCID}) [contributor]
 }
 
 }

@@ -1,15 +1,48 @@
 Package: icons
 Type: Package
-Title: SVG Icons for R Documents and Apps
+Title: Easily Insert SVG Icons into R Outputs
 Version: 0.2.0
 Authors@R: c(
-    person("Mitchell", "O'Hara-Wild", email = "mail@mitchelloharawild.com", role = c("aut", "cre")),
-    person("Earo", "Wang", role = "ctb"),
-    person("Timothy", "Hyndman", role = "ctb"),
-    person("Matthew T. Warkentin", role = "ctb"),
-    person("Tom", "Jemmett", email = "thomas.jemmett@nhs.net", role = "ctb", comment = c(ORCID="0000-0002-6943-2990"))
+    person(
+      given = "Mitchell",
+      family = "O'Hara-Wild",
+      role = c("aut", "cre"),
+      email = "mail@mitchelloharawild.com",
+      comment = c(ORCID = "0000-0001-6729-7695")
+    ),
+    person(
+      given = "Earo",
+      family = "Wang",
+      role = "ctb",
+      comment = c(ORCID = "0000-0001-6448-5260")
+    ),
+    person(
+      given = "Timothy",
+      family = "Hyndman",
+      role = "ctb",
+      comment = c(ORCID = "0000-0002-7047-5023")
+    ),
+    person(
+      given = "Matthew",
+      family = "Warkentin",
+      role = "ctb",
+      comment = c(ORCID = "0000-0001-8730-3511")
+    ),
+    person(
+      given = "Tom",
+      family = "Jemmett",
+      role = "ctb",
+      comment = c(ORCID = "0000-0002-6943-2990")
     )
-Description: Easily embed SVG icons into 'R Markdown' documents or 'Shiny' apps. A collection of popular icon sets are supported by the package, including Font Awesome, Academicons and Ionicons.
+    )
+Description: Provides tools to download, style, and insert scalable vector
+    graphics (SVG) icons into R output, such as 'R Markdown' and 'Quarto'
+    documents, 'Shiny' apps, 'gt' tables, and 'ggplot2' visualisations via the
+    'ggicons' package. Bundles popular icon libraries, such as 'Font Awesome',
+    'Academicons', and 'Material Design Icons', which are downloaded on demand
+    to keep the package small, or build a custom icon set from any folder of
+    local SVG files. Icon appearance, such as size, colour, and position, can be
+    customised.
 Depends:
     R (>= 3.1.3)
 Imports:
