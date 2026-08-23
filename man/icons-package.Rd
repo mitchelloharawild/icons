@@ -8,7 +8,7 @@
 \description{
 \if{html}{\figure{logo.svg}{options: style='float: right' alt='logo' width='120'}}
 
-Provides tools to download, style, and insert scalable vector graphics (SVG) icons into R output, such as 'R Markdown' and 'Quarto' documents, 'Shiny' apps, 'gt' tables, and 'ggplot2' visualisations via the 'ggicons' package. Bundles popular icon libraries, such as 'Font Awesome', 'Academicons', and 'Material Design Icons', which are downloaded on demand to keep the package small, or build a custom icon set from any folder of local SVG files. Icon appearance, such as size, colour, and position, can be customised.
+Provides tools to download, style, and insert scalable vector graphics (SVG) icons into R output, such as 'R Markdown' and 'Quarto' documents, 'Shiny' apps, 'gt' tables, and 'ggplot2' visualisations via the 'ggicons' package. Bundles popular icon libraries, such as 'Font Awesome' (\url{https://fontawesome.com}), 'Academicons' (\url{https://jpswalsh.github.io/academicons/}), and 'Material Design Icons' (\url{https://fonts.google.com/icons}), which are downloaded on demand to keep the package small, or build a custom icon set from any folder of local SVG files. Icon appearance, such as size, colour, and position, can be customised.
 }
 \seealso{
 Useful links:

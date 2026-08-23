@@ -1,3 +1,9 @@
+## Resubmission
+
+This resubmission links each bundled icon library's source in the
+Description field and removes a `.onLoad` call that set a global option
+(`icon.path`) without automatically restoring it.
+
 ## Test environments
 
 * local ubuntu 24.04 install, R 4.5.2

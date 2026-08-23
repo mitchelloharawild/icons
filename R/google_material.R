@@ -100,7 +100,7 @@ mdi_svg_dest <- function(version) {
 #'   "round", "sharp", or "twotone". If NULL, it will default to the
 #'   first available variant in this order.
 #'
-#' @seealso https://material.io/resources/icons/
+#' @seealso <https://fonts.google.com/icons>
 #'
 #' @section License:
 #' Material Design Icons are distributed under the

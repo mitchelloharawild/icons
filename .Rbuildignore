@@ -16,3 +16,4 @@ example/example_files$
 ^_dev$
 ^cran-comments\.md$
 ^LICENSE\.md$
+^CRAN-SUBMISSION$

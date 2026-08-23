@@ -42,5 +42,5 @@ Material Design Icons are distributed under the
 }
 
 \seealso{
-https://material.io/resources/icons/
+\url{https://fonts.google.com/icons}
 }
