@@ -1,7 +1,7 @@
 Package: icons
 Type: Package
 Title: Easily Insert SVG Icons into R Outputs
-Version: 1.0.0
+Version: 1.0.0.9000
 Authors@R: c(
     person(
       given = "Mitchell",

@@ -1,3 +1,5 @@
+# icons (development version)
+
 # icons 1.0.0
 
 ## New icon sets
